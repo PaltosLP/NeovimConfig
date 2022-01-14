@@ -51,7 +51,8 @@
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl",
                 "fontFace": "Anonymice Nerd Font",
-                "colorScheme": "xcad"
+                "colorScheme": "xcad",
+                "startingDirectory": "/home/paltos",
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
