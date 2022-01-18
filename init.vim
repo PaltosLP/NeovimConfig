@@ -4,7 +4,7 @@ set tabstop=4
 syntax enable
 set scrolloff=6
 set backspace=indent,eol,start
-set autoindent
+
 
 call plug#begin('~/.vim/plugged')
 
