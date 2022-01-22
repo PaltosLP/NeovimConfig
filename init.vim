@@ -18,7 +18,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
-inoremap jk <ESC>
+inoremap jj <ESC>
 nnoremap <C-n> :NERDTree<Cr>
 
 colorscheme gruvbox
