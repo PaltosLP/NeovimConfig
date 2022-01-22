@@ -18,6 +18,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
+"mappings
 inoremap jj <ESC>
 nnoremap <C-n> :NERDTree<Cr>
 
