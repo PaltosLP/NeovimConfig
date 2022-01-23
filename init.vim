@@ -6,7 +6,7 @@ set scrolloff=6
 set backspace=indent,eol,start
 
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/autoload/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
@@ -15,6 +15,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
