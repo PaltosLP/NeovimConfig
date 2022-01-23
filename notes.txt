@@ -1,4 +1,4 @@
- 
+ git config -l
  
  Coc:
   4     sudo su
