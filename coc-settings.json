@@ -1,12 +1,6 @@
 <<<<<<< HEAD
-{
-	"python.linting.enabled": true,
-	"python.linting.pylintPath": "pylint"
-}
-=======
-
 
 "python.linting.enabled": true,
 "python.linting.pylintEnabled": true,
 
->>>>>>> 2acfce580e1e49c7537bc8a9a66ade594c0085f1
+
