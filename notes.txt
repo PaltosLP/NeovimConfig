@@ -1,9 +1,10 @@
- git config -l
+git config -l
  
- Coc:
-  4     sudo su
-  5     curl -fsSL https://deb.nodesource.com/setup_12.x | bash -
-  6     sudo apt-get install -y nodejs
-  7
-  8     coc-extensions
-  9         :CocInstall coc-python
+Coc:
+     sudo su
+     curl -fsSL https://deb.nodesource.com/setup_12.x | bash -
+     sudo apt-get install -y nodejs
+ 
+      coc-extensions
+          :CocInstall coc-python
+          :CocCommand python.setInterpreter
