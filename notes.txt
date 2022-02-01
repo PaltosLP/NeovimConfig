@@ -9,4 +9,3 @@ Coc:
           :CocInstall coc-python
           :CocCommand python.setInterpreter
 
-Ello
