@@ -7,5 +7,7 @@ Coc:
  
       coc-extensions
           :CocInstall coc-python
+		  #inside python file
           :CocCommand python.setInterpreter
+		  :CocCommand python.setLinter #or Install the pylint
 
