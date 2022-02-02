@@ -49,8 +49,8 @@ function Run_File()
 	let file_name = expand('%:t:r')
 	let full_file_name = file_name .".". filetype
 	let command = "!python3 "
+	let py_end = "py"
 
-	"if clause
 	execute command . full_file_name
 endfunction
 
