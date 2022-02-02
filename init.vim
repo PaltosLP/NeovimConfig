@@ -24,7 +24,8 @@ call plug#end()
 "mappings
 inoremap jj <ESC>
 nnoremap <C-n> :NERDTree<Cr>
-"nnoremap <C-a> :!python3
+nnoremap <C-a> :echo Run_File()<Cr>
+":registers %
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -40,4 +41,18 @@ if (has("termguicolors"))
 endif
 
 lua require 'colorizer'.setup()
+
+"fnamemodify(bufname("%"), ":e")
+
+function Run_File()
+	let filetype = expand('%:e')
+	let file_name = expand('%:t:r')
+	let full_file_name = file_name .".". filetype
+	let command = "!python3 "
+
+	"if clause
+	execute command . full_file_name
+endfunction
+
+
 
