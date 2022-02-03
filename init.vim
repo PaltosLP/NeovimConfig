@@ -24,8 +24,8 @@ call plug#end()
 "mappings
 inoremap jj <ESC>
 nnoremap <C-n> :NERDTree<Cr>
+nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-a> :execute Run_File()<Cr>
-
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
