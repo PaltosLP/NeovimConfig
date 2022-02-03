@@ -52,8 +52,6 @@ function Run_File()
 	let c_command = "!gcc "
 	let c_command2 = "!./executable"
 	"let c_command3 = "!clear"
-
-
 	if filetype == "py"
 		execute py_command . full_file_name
 	elseif filetype == "vim"
@@ -61,10 +59,7 @@ function Run_File()
 	elseif filetype == "c"
 		execute c_command . full_file_name . " -o " . "executable"
 		execute c_command2
-
 	endif	
-		
-
 endfunction
 
 
