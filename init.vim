@@ -25,7 +25,7 @@ call plug#end()
 inoremap jj <ESC>
 nnoremap <C-n> :NERDTree<Cr>
 nnoremap <C-a> :echo Run_File()<Cr>
-%
+
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -48,11 +48,20 @@ function Run_File()
 	let file_name = expand('%:t:r')
 	let full_file_name = file_name .".". filetype
 	let py_command = "!python3 "
+	let vim_command = "vim"
+	let c_command = "!gcc "
+	let c_command2 = "!./executable"
+	"let c_command3 = "!clear"
 
 
 	if filetype == "py"
 		execute py_command . full_file_name
-	
+	elseif filetype == "vim"
+		echo vim_command
+	elseif filetype == "c"
+		execute c_command . full_file_name . " -o " . "executable"
+		execute c_command2
+
 	endif	
 		
 
