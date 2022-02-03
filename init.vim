@@ -24,7 +24,7 @@ call plug#end()
 "mappings
 inoremap jj <ESC>
 nnoremap <C-n> :NERDTree<Cr>
-nnoremap <C-a> :echo Run_File()<Cr>
+nnoremap <C-a> :execute Run_File()<Cr>
 
 
 inoremap <silent><expr> <TAB>
