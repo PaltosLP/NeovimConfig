@@ -25,7 +25,7 @@ call plug#end()
 inoremap jj <ESC>
 nnoremap <C-n> :NERDTree<Cr>
 nnoremap <C-a> :echo Run_File()<Cr>
-":registers %
+%
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -42,16 +42,20 @@ endif
 
 lua require 'colorizer'.setup()
 
-"fnamemodify(bufname("%"), ":e")
 
 function Run_File()
 	let filetype = expand('%:e')
 	let file_name = expand('%:t:r')
 	let full_file_name = file_name .".". filetype
-	let command = "!python3 "
-	let py_end = "py"
+	let py_command = "!python3 "
 
-	execute command . full_file_name
+
+	if filetype == "py"
+		execute py_command . full_file_name
+	
+	endif	
+		
+
 endfunction
 
 
