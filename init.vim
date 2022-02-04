@@ -53,7 +53,7 @@ function Run_File()
 	elseif filetype == "vim"
 		echo "vim"
 	elseif filetype == "c"
-		execute "!gcc " . full_file_name . " -o " . "executable_c"
+		execute "!gcc " . full_file_name . " -o " . "executable_c" 
 		execute "!./executable_c"
 		execute "!rm executable_c"
 	elseif filetype == "cpp"
