@@ -52,6 +52,8 @@ function Run_File()
 		execute "!python3 " . full_file_name
 	elseif filetype == "vim"
 		echo "vim"
+	elseif filetype == "lua"
+		echo "lua"
 	elseif filetype == "c"
 		execute "!gcc " . full_file_name . " -o " . "executable_c" 
 		execute "!./executable_c"
