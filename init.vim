@@ -66,9 +66,10 @@ function Run_File()
 	endif	
 endfunction
 
-"treesitter requirements
-lua <<EOF
-local nvim_lsp = require('lspconfig')
-EOF
-"nvim_lsp.pyright.setup {}
+"treesitter requirements, modules
+
+"lsp
+lua require "lsp"
+
+
 
