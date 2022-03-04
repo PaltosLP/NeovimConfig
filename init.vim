@@ -15,9 +15,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/context.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
@@ -66,3 +67,8 @@ function Run_File()
 endfunction
 
 "treesitter requirements
+lua <<EOF
+local nvim_lsp = require('lspconfig')
+EOF
+"nvim_lsp.pyright.setup {}
+
