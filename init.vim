@@ -19,6 +19,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'wellle/context.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 
 call plug#end()
 
@@ -71,4 +72,5 @@ endfunction
 "lsp
 "lua require "lsp"
 
-lua require 'lspconfig'.pylsp.setup{}
+lua require 'lspconfig'.pyright.setup{}
+
