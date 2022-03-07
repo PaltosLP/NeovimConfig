@@ -69,7 +69,6 @@ endfunction
 "treesitter requirements, modules
 
 "lsp
-lua require "lsp"
+"lua require "lsp"
 
-
-
+lua require 'lspconfig'.pylsp.setup{}
