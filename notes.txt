@@ -11,3 +11,5 @@ Coc:
           :CocCommand python.setInterpreter
 		  :CocCommand python.setLinter #or Install the pylint
 
+Lsp:
+    npm i -g pyright
