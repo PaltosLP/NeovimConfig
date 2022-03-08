@@ -1,4 +1,4 @@
-vim.cmd[[
+vim.cmd([[
 set number
 set shiftwidth=4
 set tabstop=4
@@ -131,4 +131,4 @@ function Run_File()
 		execute "!rm executable_cpp"
 	endif	
 endfunction
-]]
+]])

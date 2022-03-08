@@ -44,7 +44,6 @@ endif
 
 lua require 'colorizer'.setup()
 
-
 function Run_File()
 	let filetype = expand('%:e')
 	let file_name = expand('%:t:r')
