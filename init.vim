@@ -3,8 +3,8 @@ set shiftwidth=4
 set tabstop=4
 syntax enable
 set scrolloff=6
-set backspace=indent,eol,start
-
+set backspace=indent,eol,start 
+    
 
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -69,7 +69,7 @@ endfunction
 "treesitter requirements, modules
 
 "lsp
-"lua require "lsp"
+lua require "lsp"
 
-lua require 'lspconfig'.pyright.setup{}
+"lua require 'lspconfig'.pyright.setup{}
 
