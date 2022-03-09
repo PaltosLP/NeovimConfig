@@ -16,7 +16,7 @@ Plug 'preservim/nerdtree'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'vim-airline/vim-airline-themes'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'wellle/context.vim'
+"Plug 'wellle/context.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
