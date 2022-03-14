@@ -29,11 +29,6 @@ nnoremap <C-n> :NERDTree<Cr>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-a> :execute Run_File()<Cr>
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
