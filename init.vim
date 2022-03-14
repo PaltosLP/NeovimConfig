@@ -67,7 +67,7 @@ function Run_File()
 endfunction
 
 "treesitter requirements, modules
-"lua require "tree-sitter"
+lua require "tree-sitter"
 
 "lsp
 lua require "lsp"
