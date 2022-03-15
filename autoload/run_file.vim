@@ -1,4 +1,6 @@
-function Run_File()
+
+
+function run_file#Run_File()
 	let filetype = expand('%:e')
 	let file_name = expand('%:t:r')
 	let full_file_name = file_name .".". filetype
