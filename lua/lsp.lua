@@ -5,3 +5,4 @@ if not status then
 end
 
 require 'lspconfig'.pyright.setup{}
+require 'lspconfig'.vimls.setup{}

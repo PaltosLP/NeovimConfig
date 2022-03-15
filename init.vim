@@ -18,6 +18,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
+Plug 'hardcoreplayers/dashboard-nvim'
+Plug 'junegunn/fzf' 
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -25,7 +28,6 @@ call plug#end()
 inoremap jj <ESC>
 nnoremap <C-n> :NERDTree<Cr>
 nnoremap <C-t> :NERDTreeToggle<CR>
-"nnoremap <C-a> :execute Run_File()<Cr>
 nnoremap <C-a> :call run_file#Run_File()<Cr>
 
 
@@ -38,7 +40,6 @@ endif
 
 lua require 'colorizer'.setup()
 
-"call run_file#Run_File()
 
 "treesitter requirements, modules
 lua require "tree-sitter"
@@ -46,5 +47,7 @@ lua require "tree-sitter"
 "lsp
 lua require "lsp"
 
+"Dashboard
+let g:dashboard_default_executive ='fzf' 
 
 ":)
