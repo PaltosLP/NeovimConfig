@@ -13,3 +13,4 @@ Coc:
 
 Lsp:
     npm i -g pyright
+	npm install -g vim-language-server
