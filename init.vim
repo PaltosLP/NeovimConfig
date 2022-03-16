@@ -48,6 +48,7 @@ lua require "lsp"
 
 "Dashboard
 let g:dashboard_default_executive ='fzf' 
-exec 'source' '/home/paltos/.config/nvim/vim_set/dashboard.vim'
+let path = expand('%:p:h')
+exec 'source' path . '/vim_set/dashboard.vim'
 
 ":)
