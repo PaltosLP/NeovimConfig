@@ -19,7 +19,7 @@ let g:dashboard_custom_shortcut={
 "let g:dashboard_custom_shortcut_icon['find_file'] = ' '
 "let g:dashboard_custom_shortcut_icon['new_file'] = ' '
 "let g:dashboard_custom_shortcut_icon['change_colorscheme'] = ' '
-"let g:dashboard_custom_shortcut_icon['find_word'] = " "
+"let g:dashboard_custom_shortcut_icon['find_word'] = '  '
 "let g:dashboard_custom_shortcut_icon['book_marks'] = ' '
 
 
