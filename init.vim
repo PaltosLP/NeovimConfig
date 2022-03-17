@@ -21,6 +21,7 @@ Plug 'williamboman/nvim-lsp-installer'
 Plug 'glepnir/dashboard-nvim'
 Plug 'junegunn/fzf' 
 Plug 'junegunn/fzf.vim'
+Plug 'xiyaowong/nvim-transparent'
 
 call plug#end()
 
@@ -48,7 +49,17 @@ lua require "lsp"
 
 "Dashboard
 let g:dashboard_default_executive ='fzf' 
+<<<<<<< HEAD
 let path = execute("pwd")
 exec 'source' '/home/paltos/.config/nvim/vim_set/dashboard.vim'
 echo path
+=======
+let path = expand('%:p:h')
+exec 'source'  '/home/paltos/.config/nvim/vim_set/dashboard.vim'
+
+"transparent
+lua require 'transparent'
+let g:transparent_enabled = v:true
+
+>>>>>>> 0e5cceaf79e875a44ce7c84f3816e033edea6a5c
 ":)
