@@ -1,3 +1,9 @@
+local ok, _ = pcall(require, 'nvim-transparent')
+if not ok then
+	print('transparent Error')
+	return
+end
+
 
 require("transparent").setup({
   enable = true, -- boolean: enable transparent
