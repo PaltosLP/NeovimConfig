@@ -47,7 +47,7 @@ lua require "tree-sitter"
 "lsp
 lua require "lsp"
 
-"Dashboard
+"dashboard
 let g:dashboard_default_executive ='fzf' 
 exec 'source'  '/home/paltos/.config/nvim/vim_set/dashboard.vim'
 
