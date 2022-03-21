@@ -6,4 +6,4 @@ end
 
 require 'lspconfig'.pyright.setup{}
 require 'lspconfig'.vimls.setup{}
---require 'lspconfig'.sumneko_lua.setup{}
+require 'lspconfig'.sumneko_lua.setup{}
