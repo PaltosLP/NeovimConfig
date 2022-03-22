@@ -2,7 +2,7 @@ set number
 set shiftwidth=4
 set tabstop=4
 syntax enable
-set scrolloff=6
+set scrolloff=8
 set backspace=indent,eol,start 
     
 
