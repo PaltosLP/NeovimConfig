@@ -16,4 +16,8 @@ Lsp:
 	npm install -g vim-language-server
 	lua -> sudo apt install unzip
 	brew install lua-language-server
+	
+
+Zshrc:
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
