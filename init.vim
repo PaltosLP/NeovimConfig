@@ -22,6 +22,7 @@ Plug 'glepnir/dashboard-nvim'
 Plug 'junegunn/fzf' 
 Plug 'junegunn/fzf.vim'
 Plug 'xiyaowong/nvim-transparent'
+Plug 'p00f/nvim-ts-rainbow'
 
 call plug#end()
 
