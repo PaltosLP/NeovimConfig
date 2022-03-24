@@ -67,4 +67,10 @@ let g:transparent_enabled = v:true
 set completeopt=menu,menuone,noselect
 lua require 'completion'
 
+"inoremap <silent> <expr> <Tab>
+"    \ pumvisible() ? "\<C-n>" :
+"    \ v:lua.check_back_space() ? "\<Tab>" :
+"    \ completion#trigger_completion()
+
+
 ":)
