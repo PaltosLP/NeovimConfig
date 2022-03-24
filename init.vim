@@ -23,6 +23,8 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'xiyaowong/nvim-transparent'
 Plug 'p00f/nvim-ts-rainbow'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
 
 call plug#end()
 
@@ -61,5 +63,8 @@ exec 'source'  '/home/paltos/.config/nvim/vim_set/dashboard.vim'
 lua require 'transparent'
 let g:transparent_enabled = v:true
 
+"nvim cmp
+set completeopt=menu,menuone,noselect
+lua require 'completion'
 
 ":)
