@@ -28,7 +28,6 @@ call plug#end()
 
 "mappings
 let mapleader = " "
-set timeoutlen 500  
 inoremap jj <ESC>
 nnoremap <C-n> :NERDTree<Cr>
 nnoremap <C-t> :NERDTreeToggle<CR>
