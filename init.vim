@@ -40,6 +40,9 @@ if (has("termguicolors"))
 endif
 lua require 'colorizer'.setup()
 
+"Nerdtree
+let NERDTreeQuitOnOpen=1
+
 "Airline
 let g:airline_theme='gruvbox'
 "let g:airline#extensions#tabline#enabled = 1
