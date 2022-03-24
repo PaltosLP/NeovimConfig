@@ -35,12 +35,14 @@ nnoremap <C-a> :call run_file#Run_File()<Cr>
 
 "colors
 colorscheme gruvbox
-let g:airline_theme='gruvbox'
 if (has("termguicolors"))
 	set termguicolors
 endif
 lua require 'colorizer'.setup()
 
+"Airline
+let g:airline_theme='gruvbox'
+"let g:airline#extensions#tabline#enabled = 1
 
 "treesitter requirements, modules
 lua require "tree-sitter"
