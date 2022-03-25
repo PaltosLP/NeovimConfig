@@ -25,6 +25,7 @@ Plug 'xiyaowong/nvim-transparent'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'sainnhe/everforest'
 
 call plug#end()
 
@@ -36,11 +37,14 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-a> :call run_file#Run_File()<Cr>
 
 "colors
-colorscheme gruvbox
+colorscheme everforest
+let g:everforest_background = 'hard'
+let g:everforest_better_performance = 1
 if (has("termguicolors"))
 	set termguicolors
 endif
 lua require 'colorizer'.setup()
+
 
 "Nerdtree
 let NERDTreeQuitOnOpen=1
