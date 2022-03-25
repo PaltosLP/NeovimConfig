@@ -50,7 +50,7 @@ lua require 'colorizer'.setup()
 let NERDTreeQuitOnOpen=1
 
 "Airline
-let g:airline_theme='gruvbox'
+let g:airline_theme = 'everforest'
 "let g:airline#extensions#tabline#enabled = 1
 
 "treesitter requirements, modules
