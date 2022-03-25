@@ -59,7 +59,8 @@ let g:airline_theme = 'everforest'
 lua require "tree-sitter"
 
 "lsp
-lua require "lsp"
+lua require 'lsp'
+set completeopt=menu,menuone,noselect
 
 "dashboard
 let g:dashboard_default_executive ='fzf' 
@@ -69,9 +70,6 @@ exec 'source'  '/home/paltos/.config/nvim/vim_set/dashboard.vim'
 lua require 'transparent'
 let g:transparent_enabled = v:true
 
-"nvim cmp
-set completeopt=menu,menuone,noselect
-lua require 'completion'
 
 "inoremap <silent> <expr> <Tab>
 "    \ pumvisible() ? "\<C-n>" :
