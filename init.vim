@@ -37,8 +37,8 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-a> :call run_file#Run_File()<Cr>
 
 "colors
-colorscheme everforest
 let g:everforest_background = 'hard'
+colorscheme everforest
 let g:everforest_better_performance = 1
 if (has("termguicolors"))
 	set termguicolors
