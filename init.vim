@@ -83,4 +83,5 @@ let g:transparent_enabled = v:true
 "    \ completion#trigger_completion()
 
 
+"π=3.14
 ":)
