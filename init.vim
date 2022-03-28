@@ -40,7 +40,7 @@ inoremap jj <ESC>
 nnoremap <C-n> :NERDTree<Cr>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-a> :call run_file#Run_File()<Cr>
-inoremap <C-S> <Cmd>lua require('cmp').complete({ config = { sources = { { name = 'luasnip' } } } })<CR>
+
 
 "colors
 if (has("termguicolors"))
