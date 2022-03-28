@@ -28,6 +28,9 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'sainnhe/everforest'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
 
 call plug#end()
 
@@ -37,6 +40,7 @@ inoremap jj <ESC>
 nnoremap <C-n> :NERDTree<Cr>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-a> :call run_file#Run_File()<Cr>
+inoremap <C-S> <Cmd>lua require('cmp').complete({ config = { sources = { { name = 'luasnip' } } } })<CR>
 
 "colors
 if (has("termguicolors"))
