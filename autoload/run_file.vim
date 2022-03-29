@@ -30,12 +30,4 @@ function run_file#Run_File()
 		echo filetype
 	endif
 
-	
-
-"	elseif filetype == "vim"
-"		echo "vim"
-"	elseif filetype == "lua"
-"		echo "lua"
 endfunction
-
-
