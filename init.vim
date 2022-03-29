@@ -77,11 +77,5 @@ lua require 'transparent'
 let g:transparent_enabled = v:true
 
 
-"inoremap <silent> <expr> <Tab>
-"    \ pumvisible() ? "\<C-n>" :
-"    \ v:lua.check_back_space() ? "\<Tab>" :
-"    \ completion#trigger_completion()
-
-
 "π=3.14
 ":)
