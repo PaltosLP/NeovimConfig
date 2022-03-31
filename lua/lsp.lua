@@ -77,4 +77,6 @@ local cmp = require'cmp'
   require('lspconfig')['vimls'].setup {
     capabilities = capabilities
   }
-
+  require('lspconfig')['clangd'].setup {
+	capabilities = capabilities
+  }
