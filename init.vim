@@ -25,7 +25,7 @@ if (has("termguicolors"))
 endif
 lua require 'colorizer'.setup()
 let g:everforest_background = 'hard'
-colorscheme everforest
+colorscheme gruvbox
 let g:everforest_better_performance = 1
 
 
@@ -33,7 +33,7 @@ let g:everforest_better_performance = 1
 let NERDTreeQuitOnOpen=1
 
 "Airline
-let g:airline_theme = 'everforest'
+let g:airline_theme = 'gruvbox'
 "let g:airline#extensions#tabline#enabled = 1
 
 "treesitter requirements, modules
