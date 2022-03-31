@@ -40,7 +40,7 @@ inoremap jj <ESC>
 nnoremap <C-n> :NERDTree<Cr>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-a> :call run_file#Run_File()<Cr>
-
+nnoremap <C-s> :w<Cr>
 
 "colors
 if (has("termguicolors"))
