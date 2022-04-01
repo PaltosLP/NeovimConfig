@@ -51,6 +51,9 @@ exec 'source'  '/home/paltos/.config/nvim/vim_set/dashboard.vim'
 lua require 'transparent'
 let g:transparent_enabled = v:true
 
+"comments
+lua require('Comment').setup()
+
 
 "π=3.14
 ":)
