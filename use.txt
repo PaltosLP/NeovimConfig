@@ -1,0 +1,29 @@
+
+Movement:
+	- <j> down
+	- <k> up
+	- <h> left
+	- <l> right
+
+	- <xx-G> goto Line number xx
+	- <G> goto End of the File
+
+Modi:
+	- <ESC> Normal Mode
+	- <i> Insert Mode
+	- <v> Visual Mode
+
+File:
+	- :q close File
+	- <ZZ> :wq save and close File
+	- <C-s> :w save File
+	- :q! close without saving
+
+Custom:
+	- <C-n> opens Nerdtree
+	- <C-t> toggles Nerdtree
+	- <C-a> runs the file
+
+MultiLine:
+	- <v> + < indents to the left
+	- <v> + > indents to the right
