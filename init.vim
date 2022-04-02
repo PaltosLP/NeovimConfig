@@ -7,7 +7,7 @@ set backspace=indent,eol,start
 
 
 "plugins
-exec 'source'  '/home/paltos/.config/nvim/vim_set/plug.vim'
+exec 'source'  '/home/paltos/.config/nvim/vim/plug.vim'
 
 
 "mappings
@@ -45,7 +45,7 @@ set completeopt=menu,menuone,noselect
 
 "dashboard
 let g:dashboard_default_executive ='fzf' 
-exec 'source'  '/home/paltos/.config/nvim/vim_set/dashboard.vim'
+exec 'source'  '/home/paltos/.config/nvim/vim/dashboard.vim'
 
 "transparent
 lua require 'transparent'
