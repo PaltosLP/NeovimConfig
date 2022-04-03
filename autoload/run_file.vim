@@ -38,6 +38,15 @@ function run_file#w()
 endfunction
 
 
+
+let g:state = 0
 function run_file#relative_numb()
-	execute 'set relativenumber'	
+	"rnu === relativenumber
+	if g:state == 0 
+		execute 'set rnu'
+		let g:state = 1
+	else
+		execute 'set nornu'
+		let g:state = 0
+	endif
 endfunction
