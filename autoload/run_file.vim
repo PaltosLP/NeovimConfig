@@ -1,5 +1,4 @@
 
-
 function run_file#Run_File()
 	let filetype = expand('%:e')
 	let file_name = expand('%:t:r')
@@ -28,25 +27,5 @@ function run_file#Run_File()
 		endif	
 	else
 		echo filetype
-	endif
-endfunction
-
-
-
-function run_file#w()
-	execute 'w'
-endfunction
-
-
-
-let g:state = 0
-function run_file#relative_numb()
-	"rnu === relativenumber
-	if g:state == 0 
-		execute 'set rnu'
-		let g:state = 1
-	else
-		execute 'set nornu'
-		let g:state = 0
 	endif
 endfunction
