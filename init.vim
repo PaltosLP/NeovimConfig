@@ -17,7 +17,7 @@ nnoremap <C-n> :NERDTree<Cr>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-a> :call run_file#Run_File()<Cr>
 nnoremap <C-s> :call run_file#w()<Cr>
-
+nnoremap <C-r> :call run_file#relative_numb()<Cr>
 
 "colors
 if (has("termguicolors"))

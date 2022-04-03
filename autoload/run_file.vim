@@ -29,11 +29,15 @@ function run_file#Run_File()
 	else
 		echo filetype
 	endif
-
 endfunction
 
 
 
 function run_file#w()
 	execute 'w'
+endfunction
+
+
+function run_file#relative_numb()
+	execute 'set relativenumber'	
 endfunction
