@@ -23,6 +23,7 @@ Custom:
 	- <C-n> opens Nerdtree
 	- <C-t> toggles Nerdtree
 	- <C-a> runs the file
+	- <C-r> toggle relative numbers
 
 MultiLine:
 	- <v> + < indents to the left
