@@ -4,7 +4,8 @@ set tabstop=4
 syntax enable
 set scrolloff=8
 set backspace=indent,eol,start 
-
+set smartindent
+" c --> set cindent
 
 "plugins
 exec 'source'  '/home/paltos/.config/nvim/vim/plug.vim'
