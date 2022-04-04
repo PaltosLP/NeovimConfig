@@ -14,11 +14,11 @@ exec 'source'  '/home/paltos/.config/nvim/vim/plug.vim'
 "mappings
 let mapleader = " "
 inoremap jj <ESC>
-nnoremap <C-n> :NERDTree<Cr>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-a> :call run_file#Run_File()<Cr>
 nnoremap <C-s> :call save#w()<Cr>
 nnoremap <C-r> :call number_set#relative_numb()<Cr>
+nnoremap <C-n> :call number_set#normal_numb()<Cr>
 
 "colors
 if (has("termguicolors"))
