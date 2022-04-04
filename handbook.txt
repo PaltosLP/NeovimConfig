@@ -20,7 +20,7 @@ File:
 	- :q! close without saving
 
 Custom:
-	- <C-n> opens Nerdtree
+	- <C-n> toggle side numbers
 	- <C-t> toggles Nerdtree
 	- <C-a> runs the file
 	- <C-r> toggle relative numbers
