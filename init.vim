@@ -46,7 +46,7 @@ lua require 'lsp'
 set completeopt=menu,menuone,noselect
 
 "dashboard
-let g:dashboard_default_executive ='fzf' 
+let g:dashboard_default_executive ='Telescope' 
 exec 'source'  '/home/paltos/.config/nvim/vim/dashboard.vim'
 
 "transparent
@@ -58,6 +58,7 @@ lua require('Comment').setup()
 
 "icons
 lua require 'devicons'
+
 
 "¯\_(ツ)_/¯
 "π=3.14
