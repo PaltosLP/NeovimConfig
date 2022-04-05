@@ -55,6 +55,9 @@ let g:transparent_enabled = v:true
 "comments
 lua require('Comment').setup()
 
+"icons
+lua require 'devicons'
+
 "¯\_(ツ)_/¯
 "π=3.14
 ":)

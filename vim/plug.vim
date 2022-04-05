@@ -28,5 +28,8 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'declancm/cinnamon.nvim'
 Plug 'numToStr/Comment.nvim'
 Plug 'nvim-treesitter/playground'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
