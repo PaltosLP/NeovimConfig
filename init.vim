@@ -46,8 +46,9 @@ lua require 'lsp'
 set completeopt=menu,menuone,noselect
 
 "dashboard
-let g:dashboard_default_executive ='Telescope' 
-exec 'source'  '/home/paltos/.config/nvim/vim/dashboard.vim'
+"let g:dashboard_default_executive ='Telescope' 
+"exec 'source'  '/home/paltos/.config/nvim/vim/dashboard.lua'
+lua require 'dashboard'
 
 "transparent
 lua require 'transparent'
