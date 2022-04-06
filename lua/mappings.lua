@@ -4,14 +4,14 @@ vim.g.mapleader = ' '
 vim.api.nvim_set_keymap(
   'n',
   '<leader>ff',
-  ':Telescope find_files<Cr>',
+  '<cmd>Telescope find_files<Cr>',
   { noremap = true, silent = true }
  )
 
 vim.api.nvim_set_keymap(
   'n',
   '<C-t>',
-  ':NERDTreeToggle<Cr>',
+  '<cmd>NERDTreeToggle<Cr>',
   { noremap = true, silent = true }
  )
 
@@ -25,27 +25,27 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
   'n',
   '<C-a>',
-  ':call run_file#Run_File()<Cr>',
+  '<cmd>call run_file#Run_File()<Cr>',
   { noremap = true, silent = true }
  )
 
 vim.api.nvim_set_keymap(
   'n',
   '<C-s>',
-  ':call save#w()<Cr>',
+  '<cmd>call save#w()<Cr>',
   { noremap = true, silent = true }
  )
 
 vim.api.nvim_set_keymap(
   'n',
   '<C-r>',
-  ':call number_set#relative_numb()<Cr>',
+  '<cmd>call number_set#relative_numb()<Cr>',
   { noremap = true, silent = true }
  )
 
 vim.api.nvim_set_keymap(
   'n',
   '<C-n>',
-  ':call number_set#normal_numb()<Cr>',
+  '<cmd>call number_set#normal_numb()<Cr>',
   { noremap = true, silent = true }
  )
