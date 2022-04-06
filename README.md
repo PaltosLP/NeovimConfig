@@ -6,4 +6,6 @@ Some neovim stuff.
 I use it in Windows Terminal with Windows Subsystem for Linux.
 The settings for Windows Terminal are in the Projects Repo.
 
+now in lua wup wup
+
 Hope u like the trees🌲🌲🌲
