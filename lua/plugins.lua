@@ -21,7 +21,7 @@ return require('packer').startup(function(use)
 	use 'joshdick/onedark.vim'
 	use {
 		'jiangmiao/auto-pairs',
-		event = 'InsertEnter'
+		-- event = 'InsertEnter'
 	}
 	use {
 		'preservim/nerdtree',
