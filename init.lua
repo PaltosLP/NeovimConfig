@@ -10,12 +10,16 @@ vim.opt.smartindent = true
 
 
 --colorscheme
---vim.o.background = 'dark'
+vim.o.background = 'dark'
+vim.cmd('let g:everforest_background = "hard"')
 vim.cmd('colorscheme gruvbox')
+vim.cmd('let g:everforest_better_performance = 1')
 
 --mappings
 require 'mappings'
 
+--statusline
+vim.cmd('let g:airline_theme = "gruvbox"')
 
 --treesitter
 require 'tree-sitter'
