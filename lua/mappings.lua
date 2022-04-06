@@ -49,3 +49,10 @@ vim.api.nvim_set_keymap(
   '<cmd>call number_set#normal_numb()<Cr>',
   { noremap = true, silent = true }
  )
+
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>ps',
+  '<cmd>PackerStatus<Cr>',
+  { noremap = true, silent = true }
+ )

@@ -44,7 +44,10 @@ return require('packer').startup(function(use)
 	use 'junegunn/fzf.vim'
 	use 'xiyaowong/nvim-transparent'
 	use 'p00f/nvim-ts-rainbow'
-	use 'hrsh7th/nvim-cmp'
+	use {
+		'hrsh7th/nvim-cmp',
+		-- event = 'InsertEnter'
+	}
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'sainnhe/everforest'
 	use 'L3MON4D3/LuaSnip'
@@ -54,7 +57,10 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-cmdline'
 	use 'declancm/cinnamon.nvim'
 	use 'numToStr/Comment.nvim'
-	use 'nvim-treesitter/playground'
+	use {
+		'nvim-treesitter/playground',
+		cmd = {'TSPlaygroundToggle'}
+	}
 	use 'nvim-lua/plenary.nvim'
 	use 'kyazdani42/nvim-web-devicons'
 	use 'nvim-telescope/telescope.nvim'
