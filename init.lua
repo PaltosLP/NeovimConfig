@@ -40,4 +40,4 @@ require 'devicons'
 require 'plugins'
 
 --NERDTree
-vim.o.NERDTreeQuitOnOpen=1
+vim.cmd('let NERDTreeQuitOnOpen=1')
