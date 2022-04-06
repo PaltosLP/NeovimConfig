@@ -3,15 +3,19 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.syntax = 'enable'
 vim.opt.scrolloff = 8
---vim.opt.backspace = indent,eol,start
+vim.o.encoding = "utf-8"
+vim.o.backspace = "indent,eol,start"
+vim.o.completeopt = 'menuone,noselect'
 vim.opt.smartindent = true
 
+
+--colorscheme
+--vim.o.background = 'dark'
+vim.cmd('colorscheme gruvbox')
 
 --mappings
 require 'mappings'
 
---colors
-colorscheme = 'gruvbox'
 
 --treesitter
 require 'tree-sitter'
@@ -23,7 +27,7 @@ require 'lsp'
 require 'dashboard'
 
 --transparent
-require 'transparency'
+--require 'transparency'
 vim.g.transparent_enabled = true
 
 --comments
@@ -34,3 +38,6 @@ require 'devicons'
 
 --packer
 require 'plugins'
+
+--NERDTree
+vim.o.NERDTreeQuitOnOpen=1
