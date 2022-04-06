@@ -22,6 +22,9 @@ nnoremap <C-r> :call number_set#relative_numb()<Cr>
 nnoremap <C-n> :call number_set#normal_numb()<Cr>
 nnoremap <leader>ff :Telescope find_files<cr>
 
+"lua require 'mappings'
+
+
 "colors
 if (has("termguicolors"))
 	set termguicolors
