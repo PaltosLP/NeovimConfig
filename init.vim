@@ -8,7 +8,7 @@ set smartindent
 " c --> set cindent
 
 "plugins
-exec 'source'  '/home/paltos/.config/nvim/vim/plug.vim'
+"exec 'source'  '/home/paltos/.config/nvim/vim/plug.vim'
 
 
 "mappings
@@ -25,7 +25,7 @@ nnoremap <leader>ff :Telescope find_files<cr>
 if (has("termguicolors"))
 	set termguicolors
 endif
-lua require 'colorizer'.setup()
+"lua require 'colorizer'.setup()
 let g:everforest_background = 'hard'
 colorscheme gruvbox
 let g:everforest_better_performance = 1
@@ -60,7 +60,10 @@ lua require('Comment').setup()
 "icons
 lua require 'devicons'
 
+"Packer
+lua require 'plugins'
 
-"¯\_(ツ)_/¯
+
+""¯\_(ツ)_/¯
 "π=3.14
 ":)
