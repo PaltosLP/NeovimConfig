@@ -13,16 +13,16 @@ set smartindent
 
 
 "mappings
-let mapleader = " "
-inoremap jj <ESC>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-a> :call run_file#Run_File()<Cr>
-nnoremap <C-s> :call save#w()<Cr>
-nnoremap <C-r> :call number_set#relative_numb()<Cr>
-nnoremap <C-n> :call number_set#normal_numb()<Cr>
-nnoremap <leader>ff :Telescope find_files<cr>
+" let mapleader = " "
+"inoremap jj <ESC>
+"nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-a> :call run_file#Run_File()<Cr>
+" nnoremap <C-s> :call save#w()<Cr>
+" nnoremap <C-r> :call number_set#relative_numb()<Cr>
+" nnoremap <C-n> :call number_set#normal_numb()<Cr>
+" nnoremap <leader>ff :Telescope find_files<cr>
 
-"lua require 'mappings'
+lua require 'mappings'
 
 
 "colors
