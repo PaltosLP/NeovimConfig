@@ -9,6 +9,7 @@ vim.o.encoding = "utf-8"
 vim.o.backspace = "indent,eol,start"
 vim.o.completeopt = 'menuone,noselect'
 vim.opt.smartindent = true
+vim.opt.termguicolors = true
 
 
 --colorscheme
