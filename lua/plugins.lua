@@ -27,11 +27,12 @@ return require('packer').startup(function(use)
 
 	use {
 		'joshdick/onedark.vim'
+		--cmd = {'colorscheme onedark'}
 	}
 
 
 	use {
-		'jiangmiao/auto-pairs',
+		'jiangmiao/auto-pairs'
 		-- event = 'InsertEnter'
 	}
 
@@ -102,6 +103,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'sainnhe/everforest'
+		--cmd = {'colorscheme everforest'}
 	}
 
 
@@ -134,7 +136,8 @@ return require('packer').startup(function(use)
 
 
 	use {
-		'numToStr/Comment.nvim'
+		'numToStr/Comment.nvim',
+
 	}
 
 
