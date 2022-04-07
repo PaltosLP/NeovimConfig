@@ -16,7 +16,7 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
 	use 'wbthomason/packer.nvim'
-	use 'vim-airline/vim-airline'
+	--use 'vim-airline/vim-airline'
 	use 'morhetz/gruvbox'
 	use 'joshdick/onedark.vim'
 	use {
@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
 		ft = {'css'},
 		config = function()require 'colorizer'.setup() end
 	}
-	use 'vim-airline/vim-airline-themes'
+	-- use 'vim-airline/vim-airline-themes'
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = 'TSUpdate'
@@ -62,8 +62,12 @@ return require('packer').startup(function(use)
 		cmd = {'TSPlaygroundToggle'}
 	}
 	use 'nvim-lua/plenary.nvim'
-	use 'kyazdani42/nvim-web-devicons'
+	use {
+		'kyazdani42/nvim-web-devicons'
+	}
 	use 'nvim-telescope/telescope.nvim'
-
+	use {
+  		'nvim-lualine/lualine.nvim'
+	}
 
 end)

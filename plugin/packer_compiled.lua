@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/home/paltos/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/paltos/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   nerdtree = {
     commands = { "NERDTreeToggle" },
     loaded = false,
@@ -202,16 +207,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/paltos/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "/home/paltos/.local/share/nvim/site/pack/packer/start/vim-airline",
-    url = "https://github.com/vim-airline/vim-airline"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "/home/paltos/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
-    url = "https://github.com/vim-airline/vim-airline-themes"
   }
 }
 

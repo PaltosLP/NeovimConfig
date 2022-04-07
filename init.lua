@@ -21,7 +21,7 @@ vim.cmd('let g:everforest_better_performance = 1')
 require 'mappings'
 
 --statusline
-vim.cmd('let g:airline_theme = "gruvbox"')
+-- vim.cmd('let g:airline_theme = "gruvbox"')
 
 --treesitter
 require 'tree-sitter'
