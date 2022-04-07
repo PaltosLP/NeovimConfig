@@ -15,7 +15,7 @@ vim.opt.termguicolors = true
 --colorscheme
 vim.o.background = 'dark'
 vim.cmd('let g:everforest_background = "hard"')
-vim.cmd('colorscheme everforest')
+vim.cmd('colorscheme gruvbox')
 vim.cmd('let g:everforest_better_performance = 1')
 
 --mappings
