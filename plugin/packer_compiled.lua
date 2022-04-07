@@ -84,11 +84,6 @@ _G.packer_plugins = {
     path = "/home/paltos/.local/share/nvim/site/pack/packer/start/auto-pairs",
     url = "https://github.com/jiangmiao/auto-pairs"
   },
-  ["cinnamon.nvim"] = {
-    loaded = true,
-    path = "/home/paltos/.local/share/nvim/site/pack/packer/start/cinnamon.nvim",
-    url = "https://github.com/declancm/cinnamon.nvim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/paltos/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -123,16 +118,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/paltos/.local/share/nvim/site/pack/packer/start/everforest",
     url = "https://github.com/sainnhe/everforest"
-  },
-  fzf = {
-    loaded = true,
-    path = "/home/paltos/.local/share/nvim/site/pack/packer/start/fzf",
-    url = "https://github.com/junegunn/fzf"
-  },
-  ["fzf.vim"] = {
-    loaded = true,
-    path = "/home/paltos/.local/share/nvim/site/pack/packer/start/fzf.vim",
-    url = "https://github.com/junegunn/fzf.vim"
   },
   gruvbox = {
     loaded = true,

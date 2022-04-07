@@ -40,8 +40,8 @@ return require('packer').startup(function(use)
 	use 'neovim/nvim-lspconfig'
 	use 'williamboman/nvim-lsp-installer'
 	use 'glepnir/dashboard-nvim'
-	use 'junegunn/fzf'
-	use 'junegunn/fzf.vim'
+	--use 'junegunn/fzf'
+	--use 'junegunn/fzf.vim'
 	use 'xiyaowong/nvim-transparent'
 	use 'p00f/nvim-ts-rainbow'
 	use {
@@ -55,7 +55,7 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/cmp-cmdline'
-	use 'declancm/cinnamon.nvim'
+	--use 'declancm/cinnamon.nvim'
 	use 'numToStr/Comment.nvim'
 	use {
 		'nvim-treesitter/playground',
