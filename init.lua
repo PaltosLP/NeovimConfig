@@ -34,6 +34,7 @@ require 'dashboard'
 
 --transparent
 --require 'transparency'
+-- vim.cmd('let g:transparent_enabled = v:true')
 vim.g.transparent_enabled = true
 
 --comments
