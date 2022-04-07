@@ -46,6 +46,8 @@ require 'devicons'
 --packer
 require 'plugins'
 
+--lualine
+require 'lua-line'
 
 --NERDTree
 vim.cmd('let NERDTreeQuitOnOpen=1')
