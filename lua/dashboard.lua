@@ -1,4 +1,8 @@
-
+-- local status = pcall(require, 'dashboard-nvim')
+-- if not status then
+--     print('dashboard Error')
+--     return
+-- end
 
 
 vim.g.dashboard_default_executive = 'telescope'

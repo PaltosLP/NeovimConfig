@@ -1,3 +1,8 @@
+local status = pcall(require, 'telescope')
+if not status then
+    print('telescope Error')
+    return
+end
 
 
 require('telescope').setup{

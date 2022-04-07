@@ -1,6 +1,6 @@
 local status, configs = pcall(require, "nvim-treesitter.configs")
 if not status then
-	return "alarm"
+	return "treesitter Error"
 end
 
 

@@ -1,3 +1,10 @@
+local status = pcall(require, 'packer')
+if not status then
+    print('packer Error')
+    return
+end
+
+
 
 vim.cmd([[
   augroup packer_user_config

@@ -1,3 +1,8 @@
+local status = pcall(require, 'lualine')
+if not status then
+    print('lualine Error')
+    return
+end
 
 
 require('lualine').setup {
