@@ -46,5 +46,6 @@ require 'devicons'
 --packer
 require 'plugins'
 
+
 --NERDTree
 vim.cmd('let NERDTreeQuitOnOpen=1')

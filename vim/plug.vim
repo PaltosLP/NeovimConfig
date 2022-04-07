@@ -31,5 +31,6 @@ Plug 'nvim-treesitter/playground'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'wbthomason/packer.nvim'
 
 call plug#end()

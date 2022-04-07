@@ -9,7 +9,7 @@ set smartindent
 " c --> set cindent
 
 "plugins
-"exec 'source'  '/home/paltos/.config/nvim/vim/plug.vim'
+exec 'source'  '/home/paltos/.config/nvim/vim/plug.vim'
 
 
 "mappings
