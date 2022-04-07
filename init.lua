@@ -21,34 +21,39 @@ vim.cmd('let g:everforest_better_performance = 1')
 --mappings
 require 'mappings'
 
---statusline
--- vim.cmd('let g:airline_theme = "gruvbox"')
-
---treesitter
-require 'tree-sitter'
-
---lsp
-require 'lsp'
-
---dashboard
-require 'dashboard'
-
---transparent
---require 'transparency'
--- vim.cmd('let g:transparent_enabled = v:true')
-vim.g.transparent_enabled = true
-
---comments
-require('Comment').setup()
-
---icons
-require 'devicons'
 
 --packer
 require 'plugins'
 
+
+--lsp
+require 'lsp'
+
+
+--treesitter
+require 'tree-sitter'
+
+
+--dashboard
+require 'dashboard'
+
+
+--transparent
+--require 'transparency'
+vim.g.transparent_enabled = true
+
+
+--icons
+require 'devicons'
+
+
 --lualine
 require 'lua-line'
+
+
+--comments
+require('Comment').setup()
+
 
 --NERDTree
 vim.cmd('let NERDTreeQuitOnOpen=1')
