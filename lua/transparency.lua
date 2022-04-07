@@ -1,4 +1,4 @@
-local ok, _ = pcall(require, 'nvim-transparent')
+local ok, _ = pcall(require, 'transparent')
 if not ok then
 	print('transparent Error')
 	return
