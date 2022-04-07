@@ -38,7 +38,11 @@ return require('packer').startup(function(use)
 		run = 'TSUpdate'
 	}
 	use 'neovim/nvim-lspconfig'
-	use 'williamboman/nvim-lsp-installer'
+	use {
+		'williamboman/nvim-lsp-installer',
+		cmd = {'LspInstall', 'LspInstallInfo'},
+		config = function()require 'lsp-installer'end
+	}
 	use 'glepnir/dashboard-nvim'
 	--use 'junegunn/fzf'
 	--use 'junegunn/fzf.vim'
