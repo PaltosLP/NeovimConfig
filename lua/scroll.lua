@@ -1,8 +1,8 @@
-local status = pcall(require, 'cinnamon')
-if not status then
-	print('cinnamon Error')
-	return
-end
+-- local status = pcall(require, 'cinnamon')
+-- if not status then
+-- 	print('cinnamon Error')
+-- 	return
+-- end
 
 require('cinnamon').setup {
   default_keymaps = true,   -- Enable default keymaps.

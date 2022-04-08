@@ -3,7 +3,7 @@ vim.g.mapleader = ' '
 
 vim.api.nvim_set_keymap(
   'n',
-  '<leader>ff',
+  '<leader>f',
   '<cmd>Telescope find_files<Cr>',
   { noremap = true, silent = true }
  )

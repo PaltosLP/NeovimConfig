@@ -1,8 +1,8 @@
-local status = pcall(require, 'lspconfig')
-if not status then
-	print('lsp Error')
-	return
-end
+-- local status = pcall(require, 'lspconfig')
+-- if not status then
+-- 	print('lsp Error')
+-- 	return
+-- end
 
 
 local cmp = require'cmp'

@@ -1,8 +1,8 @@
-local status = pcall(require, 'packer')
-if not status then
-    print('packer Error')
-    return
-end
+-- local status = pcall(require, 'packer')
+-- if not status then
+--     print('packer Error')
+--     return
+-- end
 
 
 

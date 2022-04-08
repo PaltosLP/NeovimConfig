@@ -1,8 +1,8 @@
-local status = pcall(require, 'nvim.lsp_installer')
-if not status then
-    print('nvim-lsp-installer Error')
-    return
-end
+-- local status = pcall(require, 'nvim.lsp_installer')
+-- if not status then
+--     print('nvim-lsp-installer Error')
+--     return
+-- end
 
 
 

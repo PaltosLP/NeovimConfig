@@ -1,8 +1,8 @@
-local ok, _ = pcall(require, 'transparent')
-if not ok then
-	print('transparent Error')
-	return
-end
+-- local ok, _ = pcall(require, 'transparent')
+-- if not ok then
+-- 	print('transparent Error')
+-- 	return
+-- end
 
 
 require("transparent").setup({

@@ -1,8 +1,8 @@
-local status = pcall(require, 'nvim-web-devicons')
-if not status then
-    print('nvim-web-devicons Error')
-    return
-end
+-- local status = pcall(require, 'nvim-web-devicons')
+-- if not status then
+--     print('nvim-web-devicons Error')
+--     return
+-- end
 
 
 require'nvim-web-devicons'.setup {
