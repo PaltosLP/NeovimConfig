@@ -164,6 +164,11 @@ _G.packer_plugins = {
     path = "/home/paltos/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-startup.lua"] = {
+    loaded = true,
+    path = "/home/paltos/.local/share/nvim/site/pack/packer/start/nvim-startup.lua",
+    url = "https://github.com/henriquehbr/nvim-startup.lua"
+  },
   ["nvim-transparent"] = {
     loaded = true,
     path = "/home/paltos/.local/share/nvim/site/pack/packer/start/nvim-transparent",

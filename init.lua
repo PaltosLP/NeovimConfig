@@ -57,3 +57,7 @@ require('Comment').setup()
 
 --NERDTree
 vim.cmd('let NERDTreeQuitOnOpen=1')
+
+
+--startu time
+require 'nvim-startup'.setup()

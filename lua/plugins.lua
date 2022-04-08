@@ -172,5 +172,7 @@ return require('packer').startup(function(use)
 	use {
   		'nvim-lualine/lualine.nvim'
 	}
-
+	use {
+		'henriquehbr/nvim-startup.lua'
+	}
 end)
