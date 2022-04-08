@@ -20,4 +20,5 @@ Lsp:
 
 Zshrc:
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+	alias nvim='nvim --startuptime /tmp/nvim-startuptime'
 
