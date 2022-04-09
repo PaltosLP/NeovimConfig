@@ -18,7 +18,7 @@ Lsp:
 	brew install lua-language-server
 	sudo apt install clangd
 
-Zshrc:
+zshrc:
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 	alias nvim='nvim --startuptime /tmp/nvim-startuptime'
 
