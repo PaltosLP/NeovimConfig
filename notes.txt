@@ -1,4 +1,4 @@
-git config -l
+git config -l   ---> email = PaltosLP@github.com
  
 Coc:
      sudo su
