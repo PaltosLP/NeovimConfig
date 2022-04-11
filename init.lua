@@ -39,7 +39,7 @@ require 'dashboard'
 
 
 --transparent
-require 'transparency'
+--require 'transparency'
 vim.g.transparent_enabled = true
 
 
