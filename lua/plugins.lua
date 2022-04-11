@@ -165,8 +165,8 @@ return require('packer').startup(function(use)
 
 
 	use {
-		'nvim-telescope/telescope.nvim',
-		cmd = {'Telescope find_files'}
+		'nvim-telescope/telescope.nvim'
+		--cmd = {'Telescope find_files'}
 	}
 
 
