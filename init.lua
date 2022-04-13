@@ -64,3 +64,6 @@ vim.cmd('let NERDTreeQuitOnOpen=1')
 
 --startu time
 require 'nvim-startup'.setup()
+
+
+-- ¯\_(ツ)_/¯
