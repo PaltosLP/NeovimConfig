@@ -55,6 +55,9 @@ require 'lua-line'
 require('Comment').setup()
 
 
+--indent lines
+require 'indent'
+
 --NERDTree
 vim.cmd('let NERDTreeQuitOnOpen=1')
 

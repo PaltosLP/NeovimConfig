@@ -176,4 +176,8 @@ return require('packer').startup(function(use)
 	use {
 		'henriquehbr/nvim-startup.lua'
 	}
+
+	use {
+		'lukas-reineke/indent-blankline.nvim'
+	}
 end)
