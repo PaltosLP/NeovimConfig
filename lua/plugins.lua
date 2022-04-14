@@ -180,4 +180,13 @@ return require('packer').startup(function(use)
 	use {
 		'lukas-reineke/indent-blankline.nvim'
 	}
+
+
+	use {
+    'nvim-neorg/neorg',
+	ft = 'norg',
+    after = {'nvim-treesitter','telescope.nvim'},
+    config = function()
+        require 'neorg' end,
+}
 end)

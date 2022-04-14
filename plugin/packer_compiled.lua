@@ -134,6 +134,15 @@ _G.packer_plugins = {
     path = "/home/paltos/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  neorg = {
+    config = { "\27LJ\2\2%\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\nneorg\frequire\0" },
+    load_after = {},
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/paltos/.local/share/nvim/site/pack/packer/opt/neorg",
+    url = "https://github.com/nvim-neorg/neorg"
+  },
   nerdtree = {
     commands = { "NERDTreeToggle" },
     loaded = false,
@@ -225,6 +234,11 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd telescope.nvim ]]
+time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -238,8 +252,14 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType norg ++once lua require("packer.load")({'neorg'}, { ft = "norg" }, _G.packer_plugins)]]
 vim.cmd [[au FileType css ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "css" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /home/paltos/.local/share/nvim/site/pack/packer/opt/neorg/ftdetect/norg.vim]], true)
+vim.cmd [[source /home/paltos/.local/share/nvim/site/pack/packer/opt/neorg/ftdetect/norg.vim]]
+time([[Sourcing ftdetect script at: /home/paltos/.local/share/nvim/site/pack/packer/opt/neorg/ftdetect/norg.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 

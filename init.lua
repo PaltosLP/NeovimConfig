@@ -62,8 +62,12 @@ require 'indent'
 vim.cmd('let NERDTreeQuitOnOpen=1')
 
 
---startu time
+--startup time
 require 'nvim-startup'.setup()
+
+
+--neorg
+require 'neorg'
 
 
 -- ¯\_(ツ)_/¯
