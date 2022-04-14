@@ -183,10 +183,10 @@ return require('packer').startup(function(use)
 
 
 	use {
-    'nvim-neorg/neorg',
-	ft = 'norg',
-    after = {'nvim-treesitter','telescope.nvim'},
-    config = function()
-        require 'neorg' end,
-}
+		'nvim-neorg/neorg',
+		ft = 'norg',
+		after = {'nvim-treesitter','telescope.nvim'},
+		config = function()
+			require 'neorg' end,
+	}
 end)

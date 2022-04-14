@@ -67,7 +67,7 @@ require 'nvim-startup'.setup()
 
 
 --neorg
-require 'neorg'
+require 'neo_org'
 
 
 -- ¯\_(ツ)_/¯
