@@ -25,6 +25,7 @@ Custom:
 	- <C-a> runs the file
 	- <C-r> toggle relative numbers
 	- <TAB> <C-t> indent
+	- <leader> + <p> + <s> opens Packer Status
 
 MultiLine:
 	- <v> + < indents to the left
