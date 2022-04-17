@@ -17,17 +17,32 @@ function run_file#Run_File()
 		if filetype == "py"
 			execute "!python3 " . full_file_name
 		elseif filetype == "c"
-			execute "!gcc " . full_file_name . " -o " . "executable_c"
-			" execute <Cr>
-			execute "!./executable_c"
-			execute "!rm executable_c"
+			silent exec "!gcc " . full_file_name . " -o " . "executable_c"
+			let var = ""
+			redir => var
+			silent call C_exe()
+			redir END
+			silent exec "!rm executable_c"
+			echo var
 		elseif filetype == "cpp"
-			execute "!g++ " . full_file_name . " -o" . "executable_cpp"
-			" execute <Cr>
-			execute "!./executable_cpp"
-			execute "!rm executable_cpp"
+			silent execute "!g++ " . full_file_name . " -o" . "executable_cpp"	
+			let var = ""
+			redir => var
+			silent call Cpp_exe()
+			redir END
+			silent execute "!rm executable_cpp"
+			echo var
 		endif	
 	else
 		echo filetype
 	endif
+endfunction
+
+
+function C_exe()
+	silent exec "!./executable_c"	
+endfunction
+
+function Cpp_exe()
+	silent execute "!./executable_cpp"
 endfunction
