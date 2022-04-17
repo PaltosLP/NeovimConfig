@@ -142,10 +142,9 @@ return require('packer').startup(function(use)
 	--use 'declancm/cinnamon.nvim'
 
 
-	use {
-		'numToStr/Comment.nvim',
-
-	}
+	--use {
+		--'numToStr/Comment.nvim',
+	--}
 
 
 	use {
