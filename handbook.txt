@@ -20,7 +20,7 @@ File:
 	- :q! close without saving
 
 Custom:
-	- <C-n> toggle side numbers
+	- <C-e> toggle side numbers
 	- <C-t> toggles Nerdtree
 	- <C-a> runs the file
 	- <C-r> toggle relative numbers
@@ -30,6 +30,12 @@ Custom:
 MultiLine:
 	- <v> + < indents to the left
 	- <v> + > indents to the right
+
+MultiLine Cursor:
+	- <C-n> Select Line
+	- <C-n> + <C-up/down> Select Lines
+	- <i> Insert Mode with Multi Cursor
+	- <Esc> Quit
 
 Comment:
 	- <gcc> current line Comment
