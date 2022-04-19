@@ -52,7 +52,7 @@ require 'lua-line'
 
 
 --comments
---require('Comment').setup()
+require('Comment').setup()
 
 
 --indent lines
