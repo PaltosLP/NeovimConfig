@@ -63,3 +63,11 @@ vim.api.nvim_set_keymap(
   '<cmd>Telescope live_grep<Cr>',
   { noremap = true, silent = true }
  )
+
+vim.api.nvim_set_keymap(
+   'n',
+   '<leader>bl',
+   '<cmd>IndentBlanklineToggle<Cr>',
+   { noremap = true, silent = true }
+  )
+

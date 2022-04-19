@@ -8,6 +8,8 @@ Movement:
 	- <xx-G> goto Line number xx
 	- <G> goto End of the File
 
+	- (pref) <C-r> (relative Mode) + < xx - j/k > Move xx up/down
+
 Modi:
 	- <ESC> Normal Mode
 	- <i> Insert Mode
