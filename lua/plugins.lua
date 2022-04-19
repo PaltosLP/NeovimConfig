@@ -188,4 +188,9 @@ return require('packer').startup(function(use)
 		config = function()
 			require 'neo_org' end,
 	}
+
+
+	use {
+		'mg979/vim-visual-multi'
+	}
 end)

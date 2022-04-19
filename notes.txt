@@ -22,3 +22,8 @@ zshrc:
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 	alias nvim='nvim --startuptime /tmp/nvim-startuptime'
 
+Updating Neovim:
+	https://ecalzo.is-a.dev/Nvim-on-WSL2/
+	sudo add-apt-repository ppa:neovim-ppa/stable
+	sudo apt-get update
+	sudo apt-get install neovim

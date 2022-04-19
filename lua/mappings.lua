@@ -45,7 +45,7 @@ vim.api.nvim_set_keymap(
 
 vim.api.nvim_set_keymap(
   'n',
-  '<C-n>',
+  '<C-e>',
   '<cmd>call number_set#normal_numb()<Cr>',
   { noremap = true, silent = true }
  )
