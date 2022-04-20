@@ -43,3 +43,7 @@ Comment:
 	- <gcc> current line Comment
 	- <gbc> current line blockwise Comment
 	--> Visual Mode + <gcc> 
+
+Copy:
+	- <v> + <C-c> Copies to Clipboard
+	- <v> + <y / yy> Just for use in file
