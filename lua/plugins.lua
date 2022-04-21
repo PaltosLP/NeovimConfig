@@ -198,4 +198,9 @@ return require('packer').startup(function(use)
 	use {
 		'colorscheme nord'
 	}
+
+
+	use {
+		'onsails/lspkind.nvim'
+	}
 end)

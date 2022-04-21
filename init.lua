@@ -7,7 +7,7 @@ vim.opt.syntax = 'enable'
 vim.opt.scrolloff = 8
 vim.o.encoding = "utf-8"
 vim.o.backspace = "indent,eol,start"
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = 'menu,menuone,noselect'
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
 
