@@ -109,11 +109,6 @@ _G.packer_plugins = {
     path = "/home/paltos/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["colorscheme nord"] = {
-    loaded = true,
-    path = "/home/paltos/.local/share/nvim/site/pack/packer/start/colorscheme nord",
-    url = "https://github.com/colorscheme nord"
-  },
   ["dashboard-nvim"] = {
     loaded = true,
     path = "/home/paltos/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
@@ -160,6 +155,11 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/home/paltos/.local/share/nvim/site/pack/packer/opt/nerdtree",
     url = "https://github.com/preservim/nerdtree"
+  },
+  ["nord.nvim"] = {
+    loaded = true,
+    path = "/home/paltos/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    url = "https://github.com/shaunsingh/nord.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,

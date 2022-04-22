@@ -196,7 +196,7 @@ return require('packer').startup(function(use)
 
 
 	use {
-		'colorscheme nord'
+		'shaunsingh/nord.nvim'
 	}
 
 
