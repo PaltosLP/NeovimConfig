@@ -27,7 +27,7 @@ require 'plugins'
 
 
 --lsp
---require 'lsp'
+require 'lsp'
 
 
 --treesitter

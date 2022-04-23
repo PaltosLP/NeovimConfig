@@ -94,20 +94,21 @@ return require('packer').startup(function(use)
 
 	use {
 		'p00f/nvim-ts-rainbow',
-		after = { 'nvim-lspconfig' }
+		-- after = { 'nvim-lspconfig' }
 	}
 
 
 	use {
 		'hrsh7th/nvim-cmp',
 		-- event = 'InsertEnter',
-		after = { 'nvim-lspconfig' }
+		-- after = { 'nvim-lspconfig' },
+		--require 'lsp'
 	}
 
 
 	use {
 		'hrsh7th/cmp-nvim-lsp',
-		after = { 'nvim-cmp' }
+		-- after = { 'nvim-cmp' }
 	}
 
 
@@ -124,25 +125,25 @@ return require('packer').startup(function(use)
 
 	use {
 		'saadparwaiz1/cmp_luasnip',
-		after = { 'nvim-cmp', 'LuaSnip' }
+		-- after = { 'nvim-cmp', 'LuaSnip' }
 	}
 
 
 	use {
 		'hrsh7th/cmp-buffer',
-		after = { 'nvim-cmp' }
+		-- after = { 'nvim-cmp' }
 	}
 
 
 	use {
 		'hrsh7th/cmp-path',
-		after = { 'nvim-cmp' }
+		-- after = { 'nvim-cmp' }
 	}
 
 
 	use {
 		'hrsh7th/cmp-cmdline',
-		after = { 'nvim-cmp' }
+		-- after = { 'nvim-cmp' }
 	}
 
 
@@ -209,6 +210,6 @@ return require('packer').startup(function(use)
 
 	use {
 		'onsails/lspkind.nvim',
-		after = { 'nvim-cmp' }
+		-- after = { 'nvim-cmp' }
 	}
 end)
