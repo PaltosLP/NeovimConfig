@@ -29,6 +29,10 @@ Custom:
 	- <TAB> <C-t> indent
 	- <leader> + <p> + <s> opens Packer Status
 
+LSP:
+	- <C-n> Move down the List
+	- <C-p> Move up the List
+
 MultiLine:
 	- <v> + < indents to the left
 	- <v> + > indents to the right
