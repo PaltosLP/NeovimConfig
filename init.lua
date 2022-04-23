@@ -21,7 +21,6 @@ vim.cmd('let g:everforest_better_performance = 1')
 --mappings
 require 'mappings'
 
-
 --packer
 require 'plugins'
 
