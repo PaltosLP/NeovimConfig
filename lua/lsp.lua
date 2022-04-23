@@ -58,12 +58,12 @@ cmp.setup({
 
 	-- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
-	sources = cmp.config.sources({
-	  { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-		},
-	{
-	  { name = 'buffer' },
-	})
+sources = cmp.config.sources({
+  { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+	},
+{
+  { name = 'buffer' },
+})
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
@@ -90,15 +90,16 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 
 
+
 require('lspconfig')['sumneko_lua'].setup {
 capabilities = capabilities,
 settings = {
-	Lua = {
-		diagnostics = {
-			globals = { 'vim' }
-			}
+Lua = {
+	diagnostics = {
+		globals = { 'vim' }
 		}
 	}
+}
 }
 require('lspconfig')['pyright'].setup {
 capabilities = capabilities
