@@ -51,3 +51,6 @@ Comment:
 Copy:
 	- <v> + <C-c> Copies to Clipboard
 	- <v> + <y / yy> Just for use in file
+
+Startuptime:
+	- Terminal: nvim --startuptime startup.log -c exit && tail -100 startup.log
