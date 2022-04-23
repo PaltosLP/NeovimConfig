@@ -46,14 +46,19 @@ return require('packer').startup(function(use)
 
 	use {
 		'preservim/nerdtree',
-		cmd = {'NERDTreeToggle'}
+		cmd = {'NERDTreeToggle'},
+		config = function ()
+			vim.cmd('let NERDTreeQuitOnOpen=1')
+		end
 	}
 
 
 	use {
 		'norcalli/nvim-colorizer.lua',
 		ft = {'css'},
-		config = function()require 'colorizer'.setup() end
+		config = function()
+			require 'colorizer'.setup()
+		end
 	}
 
 
@@ -63,7 +68,9 @@ return require('packer').startup(function(use)
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = 'TSUpdate',
-		config = function()require 'tree-sitter' end
+		config = function()
+			require 'tree-sitter'
+		end
 	}
 
 
@@ -75,13 +82,17 @@ return require('packer').startup(function(use)
 	use {
 		'williamboman/nvim-lsp-installer',
 		cmd = {'LspInstall', 'LspInstallInfo'},
-		config = function()require 'lsp-installer' end
+		config = function()
+			require 'lsp-installer'
+		end
 	}
 
 
 	use {
 		'glepnir/dashboard-nvim',
-		config = function()require 'dashboard' end
+		config = function()
+			require 'dashboard'
+		end
 	}
 
 
@@ -91,7 +102,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'xiyaowong/nvim-transparent',
-  		 config = { 'vim.g.transparent_enabled = true' }
+  		config = { 'vim.g.transparent_enabled = true' }
 	 }
 
 
@@ -154,6 +165,9 @@ return require('packer').startup(function(use)
 
 	use {
 		'numToStr/Comment.nvim',
+		config = function ()
+			require 'Comment'.setup()
+		end
 	}
 
 
@@ -169,7 +183,10 @@ return require('packer').startup(function(use)
 
 
 	use {
-		'kyazdani42/nvim-web-devicons'
+		'kyazdani42/nvim-web-devicons',
+		config = function ()
+			require 'devicons'
+		end
 	}
 
 
@@ -180,14 +197,23 @@ return require('packer').startup(function(use)
 
 
 	use {
-  		'nvim-lualine/lualine.nvim'
+  		'nvim-lualine/lualine.nvim',
+		config = function ()
+			require 'lua-line'
+		end
 	}
 	use {
-		'henriquehbr/nvim-startup.lua'
+		'henriquehbr/nvim-startup.lua',
+		config = function ()
+			require 'nvim-startup'.setup()
+		end
 	}
 
 	use {
-		'lukas-reineke/indent-blankline.nvim'
+		'lukas-reineke/indent-blankline.nvim',
+		config = function ()
+			require 'indent'
+		end
 	}
 
 
@@ -196,7 +222,8 @@ return require('packer').startup(function(use)
 		ft = 'norg',
 		after = {'nvim-treesitter','telescope.nvim'},
 		config = function()
-			require 'neo_org' end,
+			require 'neo_org'
+		end,
 	}
 
 

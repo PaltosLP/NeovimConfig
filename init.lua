@@ -29,44 +29,44 @@ require 'plugins'
 require 'lsp'
 
 
---treesitter
+-- --treesitter
 -- require 'tree-sitter'
-
-
---dashboard
+--
+--
+-- --dashboard
 -- require 'dashboard'
-
-
---transparent
---require 'transparency'
-vim.g.transparent_enabled = true
-
-
---icons
-require 'devicons'
-
-
---lualine
-require 'lua-line'
-
-
---comments
-require('Comment').setup()
-
-
---indent lines
-require 'indent'
-
---NERDTree
-vim.cmd('let NERDTreeQuitOnOpen=1')
-
-
---startup time
-require 'nvim-startup'.setup()
-
-
---neorg
---require 'neo_org'
-
-
--- ¯\_(ツ)_/¯
+--
+--
+-- --transparent
+-- --require 'transparency'
+-- vim.g.transparent_enabled = true
+--
+--
+-- --icons
+-- require 'devicons'
+--
+--
+-- --lualine
+-- require 'lua-line'
+--
+--
+-- --comments
+-- require('Comment').setup()
+--
+--
+-- --indent lines
+-- require 'indent'
+--
+-- --NERDTree
+-- vim.cmd('let NERDTreeQuitOnOpen=1')
+--
+--
+-- --startup time
+-- require 'nvim-startup'.setup()
+--
+--
+-- --neorg
+-- -- require 'neo_org'
+--
+--
+-- -- ¯\_(ツ)_/¯
