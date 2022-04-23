@@ -127,8 +127,13 @@ return require('packer').startup(function(use)
 
 
 	use {
-		'sainnhe/everforest'
-		--cmd = {'colorscheme everforest'}
+		'sainnhe/everforest',
+		--cmd = {'colorscheme everforest'},
+		config = function ()
+			vim.o.background = 'dark'
+			vim.cmd('let g:everforest_background = "hard"')
+			vim.cmd('let g:everforest_better_performance = 1')
+		end
 	}
 
 
