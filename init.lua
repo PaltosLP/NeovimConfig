@@ -8,8 +8,10 @@ vim.opt.scrolloff = 8
 vim.o.encoding = "utf-8"
 vim.o.backspace = "indent,eol,start"
 vim.o.completeopt = 'menu,menuone,noselect'
-vim.opt.smartindent = true
+-- vim.opt.smartindent = true
 vim.opt.termguicolors = true
+vim.o.sidescrolloff = 5
+vim.cmd('filetype plugin indent on')
 
 
 --colorscheme
