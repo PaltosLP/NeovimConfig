@@ -30,11 +30,11 @@ require 'lsp'
 
 
 --treesitter
-require 'tree-sitter'
+-- require 'tree-sitter'
 
 
 --dashboard
-require 'dashboard'
+-- require 'dashboard'
 
 
 --transparent

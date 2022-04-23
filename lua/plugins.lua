@@ -62,7 +62,8 @@ return require('packer').startup(function(use)
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		run = 'TSUpdate'
+		run = 'TSUpdate',
+		config = function()require 'tree-sitter' end
 	}
 
 
@@ -74,12 +75,13 @@ return require('packer').startup(function(use)
 	use {
 		'williamboman/nvim-lsp-installer',
 		cmd = {'LspInstall', 'LspInstallInfo'},
-		config = function()require 'lsp-installer'end
+		config = function()require 'lsp-installer' end
 	}
 
 
 	use {
-		'glepnir/dashboard-nvim'
+		'glepnir/dashboard-nvim',
+		config = function()require 'dashboard' end
 	}
 
 
@@ -88,8 +90,9 @@ return require('packer').startup(function(use)
 
 
 	use {
-		'xiyaowong/nvim-transparent'
-	}
+		'xiyaowong/nvim-transparent',
+  		 config = { 'vim.g.transparent_enabled = true' }
+	 }
 
 
 	use {
@@ -119,8 +122,7 @@ return require('packer').startup(function(use)
 
 
 	use {
-		'L3MON4D3/LuaSnip'	
-	}
+		'L3MON4D3/LuaSnip' }
 
 
 	use {
