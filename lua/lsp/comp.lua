@@ -91,16 +91,16 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 
 
-require('lspconfig')['sumneko_lua'].setup {
-capabilities = capabilities,
-settings = {
-Lua = {
-	diagnostics = {
-		globals = { 'vim' }
-		}
-	}
-}
-}
+-- require('lspconfig')['sumneko_lua'].setup {
+-- capabilities = capabilities,
+-- settings = {
+-- Lua = {
+-- 	diagnostics = {
+-- 		globals = { 'vim' }
+-- 		}
+-- 	}
+-- }
+-- }
 require('lspconfig')['pyright'].setup {
 capabilities = capabilities
 }
