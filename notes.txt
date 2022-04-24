@@ -15,3 +15,8 @@ Updating Neovim:
 	sudo add-apt-repository ppa:neovim-ppa/stable
 	sudo apt-get update
 	sudo apt-get install neovim
+
+Packer:
+	If packer doesn't work anymore
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
