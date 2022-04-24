@@ -16,8 +16,8 @@ for key, value in pairs(possibles) do
 end
 
 if state then
-	ft = ft .. 'lsp'
-	local ft_extended = 'lsp.settings.' .. ft
+	-- ft = ft .. 'lsp'
+	local ft_extended = 'lsp.settings.' .. ft .. 'lsp'
 	require(ft_extended)
 end
 
