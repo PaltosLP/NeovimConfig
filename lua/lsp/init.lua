@@ -17,7 +17,7 @@ end
 
 if state then
 	-- ft = ft .. 'lsp'
-	local ft_extended = 'lsp.settings.' .. ft .. 'lsp'
+	local ft_extended = 'lsp.langs.' .. ft .. 'lsp'
 	require(ft_extended)
 end
 
