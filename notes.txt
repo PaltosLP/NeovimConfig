@@ -1,15 +1,4 @@
 
-Coc:
-     sudo su
-     curl -fsSL https://deb.nodesource.com/setup_12.x | bash -
-     sudo apt-get install -y nodejs
- 
-      coc-extensions
-          :CocInstall coc-python
-		  #inside python file
-          :CocCommand python.setInterpreter
-		  :CocCommand python.setLinter #or Install the pylint
-
 Lsp:
     npm i -g pyright
 	npm install -g vim-language-server
