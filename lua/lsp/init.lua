@@ -10,9 +10,7 @@ local state = false
 
 for key, value in pairs(possibles) do
 	-- local occur = false
-	print( value, ft )
-	print(type(value), type(ft))
-	if value == 'ft' then
+	if value == ft then
 		state = true
 		print('worked')
 	end
