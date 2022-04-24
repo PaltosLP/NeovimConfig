@@ -1,3 +1,3 @@
 
 
-require 'comp'
+require 'lsp.comp'
