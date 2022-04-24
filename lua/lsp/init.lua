@@ -19,12 +19,12 @@ local ft = vim.fn.expand('%:e')
 -- 	require(ft_extended)
 -- end
 
-print('ft =', ft)
+-- print('ft =', ft)
 
 ft = ft .. 'lsp'
 -- print('filetype =', ft)
 
-local ft_extended = 'lsp.' .. ft
+local ft_extended = 'lsp.settings.' .. ft
 -- print('blub', ft2) --prints: lsp.pylsp
 
 require(ft_extended)
