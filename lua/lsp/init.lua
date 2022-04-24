@@ -12,12 +12,10 @@ for key, value in pairs(possibles) do
 	-- local occur = false
 	if value == ft then
 		state = true
-		print('worked')
 	end
 end
 
 if state then
-	print('worked')
 	ft = ft .. 'lsp'
 	local ft_extended = 'lsp.settings.' .. ft
 	require(ft_extended)
