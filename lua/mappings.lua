@@ -24,6 +24,6 @@ vim.api.nvim_set_keymap('n','<leader>bl','<cmd>IndentBlanklineToggle<Cr>',opts)
 
 vim.api.nvim_set_keymap('v','<C-c>','"*y<Cr>',opts)
 
-vim.api.nvim_set_keymap('i','<Tab>','echo idk',opts)
+vim.api.nvim_set_keymap('i','<leader>t','<Esc>>> i', { noremap = true, silent = false })
 
 
