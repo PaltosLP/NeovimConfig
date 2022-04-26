@@ -13,11 +13,11 @@
 
 local ls = require 'luasnip'
 
-ls.config.set_config {
+ls.config.set_config({
 	history = true,
 	updateevents = 'TextChanged, TextChangedI',
 	enable_autosnippets = true
-}
+})
 
 
 -- <C-k> expands the snippet and jumps inside the the snippet
@@ -33,3 +33,27 @@ vim.keymap.set({ 'i', 's' }, '<C-j>', function()
    	   ls.jump(-1)
    	end
 end, { silent = true })
+
+-- <C-l> switches between a list of options
+vim.keymap.set( 'i', '<C-l>', function ()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end)
+
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+
+--source luasnip, reloads snippets
+vim.keymap.set( 'n', '<leader><leader>s', '<cmd>source ~/.config/nvim/lua/lsp/snippet.lua<CR>' )
+
+
+ls.snippets = {
+	all = {
+		--any ft
+		ls.parser.parse_snippet("pls", "--here's the expansion"),
+	},
+}
+
+
+
