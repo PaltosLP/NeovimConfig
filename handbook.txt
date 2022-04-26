@@ -26,12 +26,12 @@ Custom:
 	- <C-t> toggles Nerdtree
 	- <C-a> runs the file
 	- <C-r> toggle relative numbers
-	- <TAB> <C-t> indent
+	- <S-TAB> <C-t> indent
 	- <leader> + <p> + <s> opens Packer Status
 
 LSP:
-	- <C-n> Move down the List
-	- <C-p> Move up the List
+	- <Tab> Move down the List
+	- <S-q> Move up the List
 
 MultiLine:
 	- <v> + < indents to the left
