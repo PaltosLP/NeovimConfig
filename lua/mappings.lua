@@ -23,3 +23,7 @@ vim.api.nvim_set_keymap('n','<leader>fg','<cmd>Telescope live_grep<Cr>',opts)
 vim.api.nvim_set_keymap('n','<leader>bl','<cmd>IndentBlanklineToggle<Cr>',opts)
 
 vim.api.nvim_set_keymap('v','<C-c>','"*y<Cr>',opts)
+
+vim.api.nvim_set_keymap('i','<Tab>','echo idk',opts)
+
+
