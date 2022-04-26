@@ -21,5 +21,12 @@ end
 
 require('lspconfig')['pyright'].setup {
 	on_attach = on_attach,
-	capabilities = capabilities
+	capabilities = capabilities,
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { 'trend' }
+				}
+  			}
+		}
 }

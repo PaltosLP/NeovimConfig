@@ -5,6 +5,7 @@
 
 
 require 'lsp.comp'
+require 'lsp.lua_snip'
 
 local ft = vim.fn.expand('%:e')
 
