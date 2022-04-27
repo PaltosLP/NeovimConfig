@@ -12,6 +12,9 @@
 ---------------------------------------------------------------
 
 local ls = require 'luasnip'
+local s = ls.snippet
+local t = ls.text_node
+local i = ls.insert_node
 
 ls.config.set_config({
 	history = true,
@@ -48,12 +51,24 @@ vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.keymap.set( 'n', '<leader><leader>s', '<cmd>source ~/.config/nvim/lua/lsp/snippet.lua<CR>' )
 
 
-ls.snippets = {
-	all = {
-		--any ft
-		ls.parser.parse_snippet("pls", "--here's the expansion"),
-	},
-}
+local date = function() return {os.date('%Y-%m-%d')} end
+--
+-- ls.add_snippets('all', {
+-- 	ls.snippet{
+-- 		trig = "date",
+-- 		namr = "Datess",
+-- 		dscr = "Date in the form of YYYY-MM-DD"
+-- 	}
+--
+-- })
 
 
+-- ls.snippet({trig="trigger", name='trigg'}, {})
+
+ls.add_snippets("all", {
+	s("pr", {
+		-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
+		t("int("), t(1, " "), t(")")
+	})
+})
 
