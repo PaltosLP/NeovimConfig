@@ -24,7 +24,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 
  Next Projects:
-  - Sourcing any file in lua/mappings
   - lspkind customize
   - snippets
   - neorg
+  - nvim lightspeed
