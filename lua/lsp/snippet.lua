@@ -48,7 +48,7 @@ vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 
 --source luasnip, reloads snippets
-vim.keymap.set( 'n', '<leader><leader>s', '<cmd>source ~/.config/nvim/lua/lsp/snippet.lua<CR>' )
+-- vim.keymap.set( 'n', '<leader><leader>s', '<cmd>source ~/.config/nvim/lua/lsp/snippet.lua<CR>' )
 
 
 local date = function() return {os.date('%Y-%m-%d')} end

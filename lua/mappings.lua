@@ -26,5 +26,6 @@ vim.api.nvim_set_keymap('v','<C-c>','"*y<Cr>',opts)
 
 -- vim.api.nvim_set_keymap('i','<leader>t','<Esc>>> i', { noremap = true, silent = false })
 
---vim.keymap.set( 'n', '<leader><leader>s', '<cmd>source ~/.config/nvim/lua/lsp/snippet.lua<CR>' )
--- should be able to get a function for sourcing any file
+vim.keymap.set('n', '<leader><leader>s', '<cmd>so %<Cr>', opts )
+
+
