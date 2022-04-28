@@ -44,14 +44,12 @@ vim.keymap.set( 'i', '<C-l>', function ()
 	end
 end)
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-
---source luasnip, reloads snippets
--- vim.keymap.set( 'n', '<leader><leader>s', '<cmd>source ~/.config/nvim/lua/lsp/snippet.lua<CR>' )
+-- vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+-- vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 
 
-local date = function() return {os.date('%Y-%m-%d')} end
+
+-- local date = function() return {os.date('%Y-%m-%d')} end
 --
 -- ls.add_snippets('all', {
 -- 	ls.snippet{
@@ -62,13 +60,12 @@ local date = function() return {os.date('%Y-%m-%d')} end
 --
 -- })
 
-
 -- ls.snippet({trig="trigger", name='trigg'}, {})
 
 ls.add_snippets("all", {
-	s("pr", {
+	s("print", {
 		-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
-		t("int("), t(1, " "), t(")")
+		t("print("), i(1, " "), t(")")
 	})
 })
 
