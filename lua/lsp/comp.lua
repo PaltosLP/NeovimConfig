@@ -98,6 +98,34 @@ cmp.setup({
 	formatting = {
 		fields = { cmp.ItemField.Kind, cmp.ItemField.Abbr, cmp.ItemField.Menu },
 		format = lspkind.cmp_format({ with_text = false }),
+		symbol_map = {
+		  Text = "",
+		  Method = "",
+		  -- Function = "",
+		  Function = "GG",
+		  Constructor = "",
+		  Field = "ﰠ",
+		  Variable = "",
+		  Class = "ﴯ",
+		  Interface = "",
+		  Module = "",
+		  Property = "ﰠ",
+		  Unit = "塞",
+		  Value = "",
+		  Enum = "",
+		  Keyword = "",
+		  Snippet = "",
+		  Color = "",
+		  File = "",
+		  Reference = "",
+		  Folder = "",
+		  EnumMember = "",
+		  Constant = "",
+		  Struct = "פּ",
+		  Event = "",
+		  Operator = "",
+		  TypeParameter = ""
+		},
     -- format = lspkind.cmp_format({
     --   mode = 'symbol', -- show only symbol annotations
     --   maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
