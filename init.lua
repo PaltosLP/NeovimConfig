@@ -1,5 +1,6 @@
 --
 --π=3.14
+--
 
 vim.opt.number = true
 vim.opt.shiftwidth = 4
