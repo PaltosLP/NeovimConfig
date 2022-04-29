@@ -14,6 +14,8 @@ vim.opt.termguicolors = true
 vim.o.sidescrolloff = 5
 vim.cmd('filetype plugin indent on')
 
+--impatient
+require('impatient').enable_profile()
 
 --colorscheme
 vim.cmd('colorscheme gruvbox')

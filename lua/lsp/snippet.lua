@@ -48,7 +48,6 @@ end)
 -- vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 
 
-
 -- local date = function() return {os.date('%Y-%m-%d')} end
 --
 -- ls.add_snippets('all', {
@@ -65,7 +64,12 @@ end)
 ls.add_snippets("all", {
 	s("print", {
 		-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
-		t("print("), i(1, " "), t(")")
+		t("print("), i(1, ""), t(")")
 	})
 })
-
+--
+-- ls.add_snippets('python', {
+--     s('HelloWorld', {
+--   		t("print('Hello World!')")
+--    })
+-- })
