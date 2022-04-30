@@ -1,3 +1,9 @@
+local status = pcall(require, 'cmp' )
+if not status then
+    print('comp Error')
+    return
+end
+
 
 
 local cmp = require 'cmp'

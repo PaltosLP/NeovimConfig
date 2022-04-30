@@ -13,13 +13,13 @@ vim.o.completeopt = 'menu,menuone,noselect'
 -- vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.o.sidescrolloff = 5
-vim.cmd('filetype plugin indent on')
+vim.cmd 'filetype plugin indent on'
 
 --impatient
 require('impatient').enable_profile()
 
 --colorscheme
-vim.cmd('colorscheme gruvbox')
+vim.cmd 'colorscheme gruvbox'
 
 --mappings
 require 'mappings'
@@ -35,3 +35,5 @@ require 'lsp'
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "rounded",
 })
+
+vim.cmd 'set wildignore+=blue.vim,darkblue.vim,default.vim,delek.vim,desert.vim,elflord.vim,evening.vim,industry.vim,koehler.vim,morning.vim,murphy.vim,pablo.vim,peachpuff.vim,ron.vim,shine.vim,slate.vim,torte.vim,zellner.vim'

@@ -1,3 +1,8 @@
+local status = pcall(require, 'cmp')
+if not status then
+   print('cmp Error')
+   return
+end
 
 ---------------------------------------------------------------
 --  __                       ____

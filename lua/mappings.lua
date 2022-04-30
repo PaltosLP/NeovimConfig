@@ -18,7 +18,7 @@ vim.api.nvim_set_keymap('n','<C-e>','<cmd>call number_set#normal_numb()<Cr>',opt
 
 vim.api.nvim_set_keymap('n','<leader>ps','<cmd>PackerStatus<Cr>',opts)
 
-vim.api.nvim_set_keymap('n','<leader>fg','<cmd>Telescope live_grep<Cr>',opts)
+vim.api.nvim_set_keymap('n','<leader>lg','<cmd>Telescope live_grep<Cr>',opts)
 
 vim.api.nvim_set_keymap('n','<leader>bl','<cmd>IndentBlanklineToggle<Cr>',opts)
 

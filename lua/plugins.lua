@@ -29,24 +29,34 @@ return require('packer').startup(function(use)
 		'lewis6991/impatient.nvim'
 	}
 
+--colorscheme
+	use { 'morhetz/gruvbox'	}
+	use { 'joshdick/onedark.vim' }
+	use { 'shaunsingh/nord.nvim' }
+	use {
+		'sainnhe/everforest',
+		--cmd = {'colorscheme everforest'},
+		config = function ()
+			vim.o.background = 'dark'
+			vim.cmd('let g:everforest_background = "hard"')
+			vim.cmd('let g:everforest_better_performance = 1')
+		end
+	}
 
 	--use 'vim-airline/vim-airline'
 
-	use {
-		'morhetz/gruvbox'
-	}
+
 
 
 	use {
-		'joshdick/onedark.vim'
-		--cmd = {'colorscheme onedark'}
+		'jiangmiao/auto-pairs',
+	-- 	-- event = 'InsertEnter',
+	-- 	after = { 'nvim-cmp' }
 	}
 
+	-- use { 'nvim-autopairs' }
 
-	use {
-		'jiangmiao/auto-pairs'
-		-- event = 'InsertEnter'
-	}
+
 
 
 	use {
@@ -95,6 +105,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'glepnir/dashboard-nvim',
+		-- ft = { '' },
 		config = function()
 			require 'dashboard'
 		end
@@ -119,7 +130,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'hrsh7th/nvim-cmp',
-		-- event = 'InsertEnter',
+		event = 'InsertEnter',
 		-- after = { 'nvim-lspconfig' },
 		--require 'lsp'
 	}
@@ -127,46 +138,42 @@ return require('packer').startup(function(use)
 
 	use {
 		'hrsh7th/cmp-nvim-lsp',
+		event = 'InsertEnter',
 		-- after = { 'nvim-cmp' }
 	}
 
 
-	use {
-		'sainnhe/everforest',
-		--cmd = {'colorscheme everforest'},
-		config = function ()
-			vim.o.background = 'dark'
-			vim.cmd('let g:everforest_background = "hard"')
-			vim.cmd('let g:everforest_better_performance = 1')
-		end
-	}
-
 
 	use {
-		'L3MON4D3/LuaSnip'
+		'L3MON4D3/LuaSnip',
+		event = 'InsertEnter',
 	}
 
 
 	use {
 		'saadparwaiz1/cmp_luasnip',
+		event = 'InsertEnter',
 		-- after = { 'nvim-cmp', 'LuaSnip' }
 	}
 
 
 	use {
 		'hrsh7th/cmp-buffer',
+		event = 'InsertEnter',
 		-- after = { 'nvim-cmp' }
 	}
 
 
 	use {
 		'hrsh7th/cmp-path',
+		event = 'InsertEnter',
 		-- after = { 'nvim-cmp' }
 	}
 
 
 	use {
 		'hrsh7th/cmp-cmdline',
+		event = 'InsertEnter',
 		-- after = { 'nvim-cmp' }
 	}
 
@@ -189,12 +196,14 @@ return require('packer').startup(function(use)
 
 
 	use {
-		'nvim-lua/plenary.nvim'
+		'nvim-lua/plenary.nvim',
+		module = 'plenary'
 	}
 
 
 	use {
 		'kyazdani42/nvim-web-devicons',
+		module = 'nvim-web-devicons',
 		config = function ()
 			require 'devicons'
 		end
@@ -202,7 +211,12 @@ return require('packer').startup(function(use)
 
 
 	use {
-		'nvim-telescope/telescope.nvim'
+		'nvim-telescope/telescope.nvim',
+		-- module = 'telescope',
+		-- keys = {
+		-- 	{ 'n', '<leader>f' },
+		-- 	-- { 'n', '<leader>fg' },
+		-- }
 		--cmd = {'Telescope find_files'}
 	}
 
@@ -243,13 +257,10 @@ return require('packer').startup(function(use)
 	}
 
 
-	use {
-		'shaunsingh/nord.nvim'
-	}
-
 
 	use {
 		'onsails/lspkind.nvim',
+		-- event = 'InsertEnter',
 		-- after = { 'nvim-cmp' }
 	}
 
