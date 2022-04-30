@@ -272,4 +272,8 @@ return require('packer').startup(function(use)
 		-- after = { 'nvim-cmp' }
 	}
 
+
+	use {
+		'ggandor/lightspeed.nvim'
+	}
 end)

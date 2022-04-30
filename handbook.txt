@@ -33,6 +33,11 @@ LSP:
 	- <Tab> Move down the List
 	- <S-q> Move up the List
 
+Lightspeed:
+	- <s> Search Mode
+	- type word
+
+
 MultiLine:
 	- <v> + < indents to the left
 	- <v> + > indents to the right
