@@ -33,6 +33,14 @@ return require('packer').startup(function(use)
 	use { 'morhetz/gruvbox'	}
 	use { 'joshdick/onedark.vim' }
 	use { 'shaunsingh/nord.nvim' }
+	use { 'NLKNguyen/papercolor-theme' }
+	use {
+		'ghifarit53/tokyonight-vim',
+		config = function()
+			vim.cmd 'let g:tokyonight_style = "night"'  --available: night, storm
+			vim.cmd 'let g:tokyonight_enable_italic = 1'
+		end
+	}
 	use {
 		'sainnhe/everforest',
 		--cmd = {'colorscheme everforest'},
