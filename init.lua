@@ -22,7 +22,7 @@ vim.opt.swapfile = false
 vim.opt.signcolumn = "yes"
 
 --impatient
-require('impatient').enable_profile()
+require 'impatient'.enable_profile()
 
 --colorscheme
 vim.cmd 'colorscheme gruvbox'
