@@ -255,6 +255,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'nvim-neorg/neorg',
+		tag = "*",
 		ft = 'norg',
 		after = {'nvim-treesitter','telescope.nvim'},
 		config = function()
@@ -265,6 +266,9 @@ return require('packer').startup(function(use)
 
 	use {
 		'mg979/vim-visual-multi',
+		keys = {
+			{'n','<C-n>'}
+		}
 		-- event = 'VisualEnter'
 	}
 
