@@ -31,25 +31,25 @@ return require('packer').startup(function(use)
 
 --colorscheme
 	use { 'morhetz/gruvbox'	}
-	use { 'joshdick/onedark.vim' }
-	use { 'shaunsingh/nord.nvim' }
-	use { 'NLKNguyen/papercolor-theme' }
-	use {
-		'ghifarit53/tokyonight-vim',
-		config = function()
-			vim.cmd 'let g:tokyonight_style = "night"'  --available: night, storm
-			vim.cmd 'let g:tokyonight_enable_italic = 1'
-		end
-	}
-	use {
-		'sainnhe/everforest',
-		--cmd = {'colorscheme everforest'},
-		config = function ()
-			vim.o.background = 'dark'
-			vim.cmd('let g:everforest_background = "hard"')
-			vim.cmd('let g:everforest_better_performance = 1')
-		end
-	}
+	-- use { 'joshdick/onedark.vim' }
+	-- use { 'shaunsingh/nord.nvim' }
+	-- use { 'NLKNguyen/papercolor-theme' }
+	-- use {
+	-- 	'ghifarit53/tokyonight-vim',
+	-- 	config = function()
+	-- 		vim.cmd 'let g:tokyonight_style = "night"'  --available: night, storm
+	-- 		vim.cmd 'let g:tokyonight_enable_italic = 1'
+	-- 	end
+	-- }
+	-- use {
+	-- 	'sainnhe/everforest',
+	-- 	--cmd = {'colorscheme everforest'},
+	-- 	config = function ()
+	-- 		vim.o.background = 'dark'
+	-- 		vim.cmd('let g:everforest_background = "hard"')
+	-- 		vim.cmd('let g:everforest_better_performance = 1')
+	-- 	end
+	-- }
 
 	--use 'vim-airline/vim-airline'
 
