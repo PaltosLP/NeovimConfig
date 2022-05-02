@@ -2,7 +2,13 @@
 vim.g.mapleader = ' '
 local opts = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap('n','<leader>f','<cmd>Telescope find_files<Cr>',opts)
+--Telescope
+vim.api.nvim_set_keymap('n','<leader>ff','<cmd>Telescope find_files<Cr>',opts)
+vim.api.nvim_set_keymap('n','<leader>fg','<cmd>Telescope live_grep<Cr>',opts)
+vim.api.nvim_set_keymap('n','<leader>fb','<cmd>Telescope buffers<Cr>',opts)
+vim.api.nvim_set_keymap('n','<leader>fh','<cmd>Telescope help_tags<Cr>',opts)
+
+
 
 vim.api.nvim_set_keymap('n','<C-t>','<cmd>NERDTreeToggle<Cr>',opts)
 
@@ -18,7 +24,6 @@ vim.api.nvim_set_keymap('n','<C-e>','<cmd>call number_set#normal_numb()<Cr>',opt
 
 vim.api.nvim_set_keymap('n','<leader>ps','<cmd>PackerStatus<Cr>',opts)
 
-vim.api.nvim_set_keymap('n','<leader>lg','<cmd>Telescope live_grep<Cr>',opts)
 
 vim.api.nvim_set_keymap('n','<leader>bl','<cmd>IndentBlanklineToggle<Cr>',opts)
 

@@ -139,6 +139,9 @@ return require('packer').startup(function(use)
 	use {
 		'hrsh7th/nvim-cmp',
 		event = 'InsertEnter',
+		-- config = function()
+		-- 	require 'lsp'
+		-- end
 		-- after = { 'nvim-lspconfig' },
 		--require 'lsp'
 	}
@@ -235,12 +238,12 @@ return require('packer').startup(function(use)
 			require 'lua-line'
 		end
 	}
-	use {
-		'henriquehbr/nvim-startup.lua',
-		config = function ()
-			require 'nvim-startup'.setup()
-		end
-	}
+	-- use {
+	-- 	'henriquehbr/nvim-startup.lua',
+	-- 	config = function ()
+	-- 		require 'nvim-startup'.setup()
+	-- 	end
+	-- }
 
 	use {
 		'lukas-reineke/indent-blankline.nvim',
@@ -276,6 +279,9 @@ return require('packer').startup(function(use)
 
 	use {
 		'ggandor/lightspeed.nvim',
+		keys = {
+			{'n','s'}
+		}
 		-- event = 'SelectEnter'
 	}
 end)
