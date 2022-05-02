@@ -28,4 +28,4 @@ vim.api.nvim_set_keymap('v','<C-c>','"*y<Cr>',opts)
 
 vim.keymap.set('n', '<leader><leader>s', '<cmd>so %<Cr>', opts )
 
-
+vim.keymap.set('n', 'qq', '<cmd>q<Cr>', opts)

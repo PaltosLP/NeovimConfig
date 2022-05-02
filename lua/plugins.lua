@@ -235,12 +235,12 @@ return require('packer').startup(function(use)
 			require 'lua-line'
 		end
 	}
-	-- use {
-	-- 	'henriquehbr/nvim-startup.lua',
-	-- 	config = function ()
-	-- 		require 'nvim-startup'.setup()
-	-- 	end
-	-- }
+	use {
+		'henriquehbr/nvim-startup.lua',
+		config = function ()
+			require 'nvim-startup'.setup()
+		end
+	}
 
 	use {
 		'lukas-reineke/indent-blankline.nvim',
