@@ -261,7 +261,8 @@ return require('packer').startup(function(use)
 
 
 	use {
-		'mg979/vim-visual-multi'
+		'mg979/vim-visual-multi',
+		-- event = 'VisualEnter'
 	}
 
 
@@ -274,6 +275,7 @@ return require('packer').startup(function(use)
 
 
 	use {
-		'ggandor/lightspeed.nvim'
+		'ggandor/lightspeed.nvim',
+		-- event = 'SelectEnter'
 	}
 end)
