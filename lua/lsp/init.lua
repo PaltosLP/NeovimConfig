@@ -9,7 +9,7 @@ require 'lsp.snippet'
 
 local ft = vim.fn.expand('%:e')
 
-local possibles = { 'py', 'lua', 'vim', 'c', 'cpp' }
+local possibles = { 'py', 'lua', 'vim', 'c', 'cpp', 'html', 'css', 'js' }
 local state = false
 
 
