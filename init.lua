@@ -22,6 +22,7 @@ vim.opt.cmdheight = 2
 -- vim.opt.mouse = "a"
 vim.opt.swapfile = false
 vim.opt.signcolumn = "yes"
+vim.opt.cursorline = true
 
 --impatient
 require 'impatient'.enable_profile()
