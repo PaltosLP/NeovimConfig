@@ -9,6 +9,11 @@ require('telescope').setup{
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
+	-- layout_strategy = 'horizontal',
+	-- layout_config = {
+	--    	vertical = { width = 0.5 }
+      -- other layout configuration here
+    },
     mappings = {
       i = {
         -- map actions.which_key to <C-h> (default: <C-/>)
@@ -16,8 +21,7 @@ require('telescope').setup{
         -- e.g. git_{create, delete, ...}_branch for the git_branches picker
         ["<C-h>"] = "which_key"
       }
-    }
-  },
+    },
   pickers = {
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {
