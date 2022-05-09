@@ -55,3 +55,10 @@ ls.add_snippets('python', {
 	})
 })
 
+ls.add_snippets( "python" , {
+	s("print", {
+		-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
+		t("print("), i(1, ""), t(")")
+	})
+})
+
