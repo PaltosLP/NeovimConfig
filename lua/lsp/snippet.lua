@@ -66,12 +66,12 @@ end)
 
 -- ls.snippet({trig="trigger", name='trigg'}, {})
 
-ls.add_snippets("all", {
-	s("print", {
-		-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
-		t("print("), i(1, ""), t(")")
-	})
-})
+-- ls.add_snippets( "lua" , {
+-- 	s("print", {
+-- 		-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
+-- 		t("print("), i(1, ""), t(")")
+-- 	})
+-- })
 --
 -- ls.add_snippets('python', {
 --     s('HelloWorld', {
