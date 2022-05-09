@@ -3,7 +3,7 @@ Lsp:
     npm i -g pyright
 	npm install -g vim-language-server
 	lua -> sudo apt install unzip
-	brew install lua-language-server
+		brew install lua-language-server
 	sudo apt install clangd
 
 zshrc:
