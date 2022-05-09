@@ -149,7 +149,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'hrsh7th/cmp-nvim-lsp',
-		event = 'InsertEnter',
+		module = 'cmp_nvim_lsp',
 		-- after = { 'nvim-cmp' }
 	}
 
@@ -255,7 +255,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'nvim-neorg/neorg',
-		tag = "*",
+		tag = "latest",
 		ft = 'norg',
 		after = {'nvim-treesitter','telescope.nvim'},
 		config = function()

@@ -20,9 +20,8 @@ local on_attach = function(client, bufnr)
    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 end
 
--- vim.cmd 'IndentBlanklineDisable'
 
-require 'lspconfig'.html.setup {
+require 'lspconfig'.tsserver.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }

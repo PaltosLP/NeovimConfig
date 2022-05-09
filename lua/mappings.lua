@@ -34,3 +34,6 @@ vim.api.nvim_set_keymap('v','<C-c>','"*y<Cr>',opts)
 vim.keymap.set('n', '<leader><leader>s', '<cmd>so %<Cr>', opts )
 
 vim.keymap.set('n', 'qq', '<cmd>q<Cr>', opts)
+
+vim.api.nvim_set_keymap('n','<C-i>','<cmd>IndentBlanklineToggle<Cr>',opts)
+
