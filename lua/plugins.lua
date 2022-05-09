@@ -126,7 +126,9 @@ return require('packer').startup(function(use)
 
 	use {
 		'xiyaowong/nvim-transparent',
-  		config = { 'vim.g.transparent_enabled = true' }
+  		config = function()
+			require 'transparency'
+		end
 	 }
 
 
