@@ -47,7 +47,7 @@ require('lspconfig')['clangd'].setup {
 
 ls.add_snippets('c', {
 	s('HelloWorld', {
-		t({'#include <stdio.h>','','int main() {','printf("Hello World!");','return 0;','}'})
+		t({'#include <stdio.h>','','int main() {','    printf("Hello World!");','    return 0;','}'})
 	})
 })
 
