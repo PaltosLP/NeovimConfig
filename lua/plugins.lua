@@ -141,6 +141,7 @@ return require('packer').startup(function(use)
 	use {
 		'hrsh7th/nvim-cmp',
 		event = 'InsertEnter',
+		keys = { 'n', ':' },
 		-- config = function()
 		-- 	require 'lsp'
 		-- end
@@ -290,4 +291,10 @@ return require('packer').startup(function(use)
 		}
 		-- event = 'SelectEnter'
 	}
+
+
+	use {
+		'dstein64/vim-startuptime',
+		cmd = { 'StartupTime' },
+}
 end)
