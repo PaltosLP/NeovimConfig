@@ -40,6 +40,25 @@ require 'plugins'
 require 'lsp'
 
 
+vim.cmd 'hi! link TSKeywordOperator Keyword'
+
+require("nvim-treesitter.highlight").set_custom_captures({
+    -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+    -- ["foo.bar"] = "Identifier",
+    ["require_call"] = "RequireCall",
+    ["function_definition"] = "FunctionDefinition",
+    ["quantifier"] = "Special",
+    ["variable"] = "netrwList",
+})
+
+-- cmds:
+-- :TSPLayground
+-- <C-w-l>
+-- hover over object
+-- TSHighlightCaptureUnderCursor
+
+
+
 -- To make the Boxes nicer
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {	border = "rounded" })
 
