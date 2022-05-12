@@ -37,3 +37,5 @@ vim.keymap.set('n', 'qq', '<cmd>q<Cr>', opts)
 
 vim.api.nvim_set_keymap('n','<C-i>','<cmd>IndentBlanklineToggle<Cr>',opts)
 
+vim.keymap.set('n', '<C-h>', '<cmd>WhichKey<Cr>', opts)
+

@@ -296,5 +296,12 @@ return require('packer').startup(function(use)
 	use {
 		'dstein64/vim-startuptime',
 		cmd = { 'StartupTime' },
-}
+	}
+
+
+	use {
+		'folke/which-key.nvim',
+		cmd = { 'WhichKey' },
+
+	}
 end)
