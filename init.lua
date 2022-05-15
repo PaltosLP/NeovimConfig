@@ -51,6 +51,16 @@ require("nvim-treesitter.highlight").set_custom_captures({
     ["variable"] = "netrwList",
 })
 
+
+require("nvim-treesitter.highlight").set_custom_captures({
+    -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+    -- ["foo.bar"] = "Identifier",
+    ["require_call"] = "RequireCall",
+    ["function_definition"] = "FunctionDefinition",
+    ["quantifier"] = "Special",
+    ["variable"] = "TSField",
+})
+
 -- cmds:
 -- :TSPLayground
 -- <C-w-l>
