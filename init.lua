@@ -48,7 +48,7 @@ require("nvim-treesitter.highlight").set_custom_captures({
     ["require_call"] = "RequireCall",
     ["function_definition"] = "FunctionDefinition",
     ["quantifier"] = "Special",
-    ["variable"] = "netrwList",
+    ["field"] = "htmlArg",
 })
 
 
@@ -66,7 +66,7 @@ require("nvim-treesitter.highlight").set_custom_captures({
 -- <C-w-l>
 -- hover over object
 -- TSHighlightCaptureUnderCursor
-
+-- :Telescope Highlights
 
 
 -- To make the Boxes nicer
