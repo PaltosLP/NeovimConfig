@@ -56,13 +56,24 @@ return require('packer').startup(function(use)
 
 
 
-	use {
-		'jiangmiao/auto-pairs',
+	-- use {
+		-- 'jiangmiao/auto-pairs',
 	-- 	-- event = 'InsertEnter',
 	-- 	after = { 'nvim-cmp' }
+	-- }
+
+	use {
+		'windwp/nvim-autopairs',
+		config = function()
+			require 'auto-pairs'
+		end
 	}
 
-	-- use { 'nvim-autopairs' }
+
+	use {
+		'windwp/nvim-ts-autotag',
+		after = { 'tree-sitter' },
+	}
 
 
 
