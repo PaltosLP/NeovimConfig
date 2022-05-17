@@ -314,6 +314,9 @@ return require('packer').startup(function(use)
 	use {
 		'folke/which-key.nvim',
 		cmd = { 'WhichKey' },
+		config = function()
+			require 'whichkey'
+		end
 
 	}
 end)
