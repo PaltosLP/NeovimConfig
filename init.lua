@@ -1,4 +1,4 @@
---impatient
+--impatient (for StartUpTime use :StartupTime)
 require 'impatient'.enable_profile()
 
 --options
