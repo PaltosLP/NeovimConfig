@@ -64,6 +64,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'windwp/nvim-autopairs',
+		event = 'InsertEnter',
 		config = function()
 			require 'auto-pairs'
 		end
@@ -72,7 +73,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'windwp/nvim-ts-autotag',
-		after = { 'tree-sitter' },
+		after = { 'nvim-treesitter' },
 	}
 
 
