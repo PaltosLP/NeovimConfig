@@ -36,7 +36,7 @@ vim.g.dashboard_custom_section = {
   b = {description = {'  Recent Files       '}, command = 'Telescope oldfiles'},
   c = {description = {'  Handbook           '}, command = 'edit  ~/.config/nvim/handbook.txt'},
   e = {description = {'  Code               '}, command = 'edit /home/paltos/files'},
-  f = {description = {'  Config             '}, command = 'edit ~/.config/nvim/init.vim'}
+  f = {description = {'  Config             '}, command = 'edit ~/.config/nvim/init.lua'}
 }
 vim.g.dashboard_custom_footer = {'Do one thing, do it well - Unix Philosophy'}
 
