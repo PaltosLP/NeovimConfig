@@ -29,3 +29,11 @@ require 'lspconfig'.html.setup {
 	on_attach = utils.on_attach,
 	capabilities = utils.capabilities
 }
+
+
+ls.add_snippets('html', {
+	s('<div>', {
+		t("<div>"), i(1, ""), t("</div>")
+
+	})
+})
