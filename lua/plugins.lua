@@ -152,8 +152,8 @@ return require('packer').startup(function(use)
 
 	use {
 		'hrsh7th/nvim-cmp',
-		event = 'InsertEnter',
-		keys = { 'n', ':' },
+		event = { 'InsertEnter', 'CmdlineEnter' },
+		-- keys = { 'n', ':' },
 		-- config = function()
 		-- 	require 'lsp'
 		-- end
@@ -178,28 +178,28 @@ return require('packer').startup(function(use)
 
 	use {
 		'saadparwaiz1/cmp_luasnip',
-		event = 'InsertEnter',
+		event = { 'InsertEnter', 'CmdlineEnter' },
 		-- after = { 'nvim-cmp', 'LuaSnip' }
 	}
 
 
 	use {
 		'hrsh7th/cmp-buffer',
-		event = 'InsertEnter',
+		event = { 'InsertEnter', 'CmdlineEnter' },
 		-- after = { 'nvim-cmp' }
 	}
 
 
 	use {
 		'hrsh7th/cmp-path',
-		event = 'InsertEnter',
+		event = { 'InsertEnter', 'CmdlineEnter' },
 		-- after = { 'nvim-cmp' }
 	}
 
 
 	use {
 		'hrsh7th/cmp-cmdline',
-		event = 'InsertEnter',
+		event = { 'InsertEnter', 'CmdlineEnter' },
 		-- after = { 'nvim-cmp' }
 	}
 

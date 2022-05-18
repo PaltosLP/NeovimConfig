@@ -60,20 +60,28 @@ local kind_icons = {
 	TypeParameter = ""
 	}
 -- find more here: https://www.nerdfonts.com/cheat-sheet
+
+
+
 cmp.setup({
+	completion = {
+		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+		scrollbar = "║",
+	},
 	snippet = {
 	  expand = function(args)
 		require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
 	  end,
 		},
 	window = {
-	  -- completion = cmp.config.window.bordered(),
-	  -- documentation = cmp.config.window.bordered(),
-		documentation = {
-   			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  		},
-		},
-	 mapping = {
+
+		-- completion = cmp.config.window.bordered(),
+		-- documentation = cmp.config.window.bordered(),
+   		-- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+		documentation = { border = "rounded", scrollbar = "║" },
+		completion = { border = "rounded", scrollbar = "║" },
+	},
+	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_next_item(),
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
