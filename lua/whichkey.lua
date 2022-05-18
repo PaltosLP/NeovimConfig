@@ -41,7 +41,7 @@ require 'which-key'.setup{
     scroll_up = '<c-u>', -- binding to scroll up inside the popup
   },
   window = {
-    border = "none", -- none, single, double, shadow
+    border = "single", -- none, single, double, shadow
     position = "bottom", -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
@@ -67,3 +67,26 @@ require 'which-key'.setup{
   },
 
 }
+
+
+-- local opts = {
+--   mode = "n", -- NORMAL mode
+--   -- prefix: use "<leader>f" for example for mapping everything related to finding files
+--   -- the prefix is prepended to every mapping part of `mappings`
+--   prefix = "",
+--   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+--   silent = true, -- use `silent` when creating keymaps
+--   noremap = true, -- use `noremap` when creating keymaps
+--   nowait = false, -- use `nowait` when creating keymaps
+-- }
+--
+--
+-- local wk = require 'which-key'
+-- wk.registers(mappings, opts)
+--
+-- wk.registers({
+-- 	f = {
+-- 		name = 'file',
+-- 		f = { "<cmd>Telescope find_files<Cr>", "Find File" },
+-- 	}
+-- }, { prefix = "<leader>" })
