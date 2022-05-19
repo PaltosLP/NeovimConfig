@@ -313,7 +313,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'folke/which-key.nvim',
-		cmd = { 'WhichKey' },
+		-- cmd = { 'WhichKey' },
 		config = function()
 			require 'whichkey'
 		end

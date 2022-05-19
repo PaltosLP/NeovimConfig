@@ -79,14 +79,23 @@ require 'which-key'.setup{
 --   noremap = true, -- use `noremap` when creating keymaps
 --   nowait = false, -- use `nowait` when creating keymaps
 -- }
---
---
--- local wk = require 'which-key'
--- wk.registers(mappings, opts)
---
--- wk.registers({
--- 	f = {
--- 		name = 'file',
--- 		f = { "<cmd>Telescope find_files<Cr>", "Find File" },
--- 	}
--- }, { prefix = "<leader>" })
+
+
+local wk = require 'which-key'
+vim.g.mapleader = ' '
+
+wk.register({
+  f = {
+    name = "file", -- optional group name
+    f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
+    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap=false }, -- additional options for creating the keymap
+    n = { "New File" }, -- just a label. don't create any mapping
+    e = "Edit File", -- same as above
+    ["1"] = "which_key_ignore",  -- special label to hide it in the popup
+    b = { function() print("bar") end, "Foobar" } -- you can also pass functions!
+  },
+}, { prefix = "<leader>" })
+
+
+
+
