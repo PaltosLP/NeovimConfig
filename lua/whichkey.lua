@@ -84,6 +84,8 @@ require 'which-key'.setup{
 local wk = require 'which-key'
 vim.g.mapleader = ' '
 
+
+-- wk.register(mapping, opts)
 wk.register({
   f = {
     name = "file", -- optional group name
@@ -92,8 +94,10 @@ wk.register({
 	b = { "<cmd>Telescope buffers<Cr>", "Search Buffer" },
 	h = { "<cmd>Telescope help_tags<Cr>", "Search Help Tags" },
   },
-}, { prefix = "<leader>" })
+}, { mode = 'n', prefix = "<leader>" })
 
-
+wk.register({
+	['<C-t>'] = { "<cmd>NERDTreeToggle<Cr>", "Toggle NerdTree" },
+}, { mode = 'n' })
 
 
