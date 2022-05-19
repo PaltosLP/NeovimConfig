@@ -209,6 +209,10 @@ return require('packer').startup(function(use)
 
 	use {
 		'numToStr/Comment.nvim',
+		keys = {
+			{ 'n', 'g' },
+			{ 'v', 'g' },
+		},
 		config = function ()
 			require 'Comment'.setup()
 		end
@@ -241,8 +245,8 @@ return require('packer').startup(function(use)
 		-- module = 'telescope',
 		-- keys = {
 		-- 	{ 'n', '<leader>f' },
-		-- 	-- { 'n', '<leader>fg' },
-		-- }
+		-- { 'n', '<leader>fg' },
+		-- },
 		--cmd = {'Telescope find_files'}
 	}
 
