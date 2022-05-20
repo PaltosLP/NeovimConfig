@@ -8,7 +8,7 @@ require 'opts'
 vim.cmd 'colorscheme gruvbox'
 
 --mappings
--- require 'mappings'
+require 'mappings'
 
 --packer
 require 'plugins'

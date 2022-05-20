@@ -80,47 +80,47 @@ require 'which-key'.setup{
 -- }
 
 
-local wk = require 'which-key'
-vim.g.mapleader = ' '
-
-
--- wk.register(mapping, opts)
-wk.register({
-  	f = {
-    	name = "File", -- optional group name
-    	f = { "<cmd>Telescope find_files<cr>", "Find File" },
-    	g = { "<cmd>Telescope live_grep<cr>", "Search Text" },
-		b = { "<cmd>Telescope buffers<Cr>", "Search Buffer" },
-		h = { "<cmd>Telescope help_tags<Cr>", "Search Help Tags" },
-  	},
-  	p = {
-	  	name = "Packer",
-	  	s = { "<cmd>PackerStatus<Cr>", "Packer Status" },
-  	},
-  	['<leader>'] = {
-	  	name = "Double Leader",
-	  	s = { "<cmd>so %<Cr>", "Source current File" },
-  	}
-
-}, { mode = 'n', prefix = "<leader>" })
-
-wk.register({
-	['<C-t>'] = { "<cmd>NERDTreeToggle<Cr>", "Toggle NerdTree" },
-	['<C-a>'] = { "<cmd>call run_file#Run_File()<Cr>", "Run File" },
-	['<C-s>'] = { "<cmd>call save#w()<Cr>", "Save File" },
-	['<C-r>'] = { "<cmd>call number_set#relative_numb()<Cr>", "Set Relativ Number" },
-	['<C-e>'] = { "<cmd>call number_set#normal_numb()<Cr>", "Set Number" },
-	['<C-i>'] = { "<cmd>IndentBlanklineToggle<Cr>", "Toggle Indent Line" },
-	['<C-h>'] = { "<cmd>WhichKey<Cr>", "Toggle WhichKey"},
-	qq = { "<cmd>q<Cr>", "quit" },
-}, { mode = 'n' })
-
-wk.register({
-	jj = { "<ESC>", "ESC" },
-}, { mode = 'i' })
-
-wk.register({
-	['<C-c>'] = { '"*y<Cr>', "Copy" },
-}, { mode = 'v' })
-
-
+-- local wk = require 'which-key'
+-- vim.g.mapleader = ' '
+--
+--
+-- -- wk.register(mapping, opts)
+-- wk.register({
+--   	f = {
+--     	name = "File", -- optional group name
+--     	f = { "<cmd>Telescope find_files<cr>", "Find File" },
+--     	g = { "<cmd>Telescope live_grep<cr>", "Search Text" },
+-- 		b = { "<cmd>Telescope buffers<Cr>", "Search Buffer" },
+-- 		h = { "<cmd>Telescope help_tags<Cr>", "Search Help Tags" },
+--   	},
+--   	p = {
+-- 	  	name = "Packer",
+-- 	  	s = { "<cmd>PackerStatus<Cr>", "Packer Status" },
+--   	},
+--   	['<leader>'] = {
+-- 	  	name = "Double Leader",
+-- 	  	s = { "<cmd>so %<Cr>", "Source current File" },
+--   	}
+--
+-- }, { mode = 'n', prefix = "<leader>" })
+--
+-- wk.register({
+-- 	['<C-t>'] = { "<cmd>NERDTreeToggle<Cr>", "Toggle NerdTree" },
+-- 	['<C-a>'] = { "<cmd>call run_file#Run_File()<Cr>", "Run File" },
+-- 	['<C-s>'] = { "<cmd>call save#w()<Cr>", "Save File" },
+-- 	['<C-r>'] = { "<cmd>call number_set#relative_numb()<Cr>", "Set Relativ Number" },
+-- 	['<C-e>'] = { "<cmd>call number_set#normal_numb()<Cr>", "Set Number" },
+-- 	['<C-i>'] = { "<cmd>IndentBlanklineToggle<Cr>", "Toggle Indent Line" },
+-- 	['<C-h>'] = { "<cmd>WhichKey<Cr>", "Toggle WhichKey"},
+-- 	qq = { "<cmd>q<Cr>", "quit" },
+-- }, { mode = 'n' })
+--
+-- wk.register({
+-- 	jj = { "<ESC>", "ESC" },
+-- }, { mode = 'i' })
+--
+-- wk.register({
+-- 	['<C-c>'] = { '"*y<Cr>', "Copy" },
+-- }, { mode = 'v' })
+--
+--
