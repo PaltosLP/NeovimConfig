@@ -125,7 +125,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'glepnir/dashboard-nvim',
-		-- ft = { '' },
+		-- ft = { 'dashboard' },
 		config = function()
 			require 'dashboard'
 		end
