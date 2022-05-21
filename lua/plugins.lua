@@ -73,7 +73,8 @@ return require('packer').startup(function(use)
 
 	use {
 		'windwp/nvim-ts-autotag',
-		after = { 'nvim-treesitter' },
+		-- after = { 'nvim-treesitter' },
+		ft = { 'html' },
 	}
 
 

@@ -36,6 +36,7 @@ configs.setup {
     -- termcolors = {} -- table of colour name strings
   },
   autotag = {
+	filetypes = { "html" },
     enable = true,
   },
   playground = {
