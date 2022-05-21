@@ -6,7 +6,7 @@ vim.g.mapleader = ' '
 -- wk.register(mapping, opts)
 wk.register({
   	f = {
-    	name = "File", -- optional group name
+    	name = "Telescope", -- optional group name
     	f = { "<cmd>Telescope find_files<cr>", "Find File" },
     	g = { "<cmd>Telescope live_grep<cr>", "Search Text" },
 		b = { "<cmd>Telescope buffers<Cr>", "Search Buffer" },
@@ -15,9 +15,10 @@ wk.register({
   	p = {
 	  	name = "Packer",
 	  	s = { "<cmd>PackerStatus<Cr>", "Packer Status" },
+		S = { "<cmd>PackerSync<Cr>", "Packer Sync" },
   	},
   	['<leader>'] = {
-	  	name = "Double Leader",
+	  	name = "Source File",
 	  	s = { "<cmd>so %<Cr>", "Source current File" },
   	}
 
@@ -31,7 +32,14 @@ wk.register({
 	['<C-e>'] = { "<cmd>call number_set#normal_numb()<Cr>", "Set Number" },
 	['<C-i>'] = { "<cmd>IndentBlanklineToggle<Cr>", "Toggle Indent Line" },
 	['<C-h>'] = { "<cmd>WhichKey<Cr>", "Toggle WhichKey"},
-	qq = { "<cmd>q<Cr>", "quit" },
+
+	q = {
+		name = 'Quit',
+		q = { "<cmd>q<Cr>", "Quit" },
+		f = { "<cmd>q!<Cr>", "Unsaved Quit" },
+		s = { "<cmd>wq<Cr>", "Save Quit" },
+	},
+
 }, { mode = 'n' })
 
 wk.register({
