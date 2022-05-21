@@ -126,6 +126,13 @@ return require('packer').startup(function(use)
 	use {
 		'glepnir/dashboard-nvim',
 		-- ft = { 'dashboard' },
+		cmd = {
+			"Dashboard",
+			"DashboardNewFile",
+			"DashboardJumpMarks",
+			"SessionLoad",
+			"SessionSave",
+		},
 		config = function()
 			require 'dashboard'
 		end
@@ -253,6 +260,7 @@ return require('packer').startup(function(use)
 
 	use {
   		'nvim-lualine/lualine.nvim',
+		after = "gruvbox",
 		config = function ()
 			require 'lua-line'
 		end
@@ -295,7 +303,8 @@ return require('packer').startup(function(use)
 
 	use {
 		'onsails/lspkind.nvim',
-		-- event = 'InsertEnter',
+		-- module = 'lspkind',
+		-- event = { 'BufRead', 'InsertEnter' },
 		-- after = { 'nvim-cmp' }
 	}
 

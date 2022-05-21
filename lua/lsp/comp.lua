@@ -4,7 +4,7 @@ if not status then
     return
 end
 
-
+print('here')
 
 local cmp = require 'cmp'
 local lspkind = require 'lspkind'
