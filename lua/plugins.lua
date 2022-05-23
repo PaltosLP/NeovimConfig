@@ -104,6 +104,7 @@ return require('packer').startup(function(use)
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = 'TSUpdate',
+		event = { "BufRead", "BufWinEnter" },
 		config = function()
 			require 'tree-sitter'
 		end
