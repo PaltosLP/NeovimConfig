@@ -57,5 +57,10 @@ Copy:
 	- <v> + <C-c> Copies to Clipboard
 	- <v> + <y / yy> Just for use in file
 
+Handle Splitscreen:
+	- :vert h [file]
+	- <C-w> --> whichkey
+
+
 Startuptime:
 	- Terminal: nvim --startuptime startup.log -c exit && tail -100 startup.log

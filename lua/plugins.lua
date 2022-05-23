@@ -4,7 +4,13 @@
 --     return
 -- end
 
-
+-- local packer.init {
+--   display = {
+--     open_fn = function()
+--       return require("packer.util").float { border = "rounded" }
+--     end
+--   }
+-- }
 
 vim.cmd([[
   augroup packer_user_config
@@ -18,7 +24,7 @@ vim.cmd([[
 -- Only required if you have packer configured as `opt`
 -- vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
   -- Packer can manage itself
 	use {
 		'wbthomason/packer.nvim',
@@ -104,7 +110,7 @@ return require('packer').startup(function(use)
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = 'TSUpdate',
-		event = { "BufRead", "BufWinEnter" },
+		-- event = { "BufRead", "BufWinEnter" },
 		config = function()
 			require 'tree-sitter'
 		end
@@ -343,4 +349,14 @@ return require('packer').startup(function(use)
 			require 'nvim_tree'
 		end
 	}
-end)
+end,
+config = {
+  display = {
+    open_fn = function()
+      return require('packer.util').float({ border = 'rounded' })
+    end
+  		}
+	}
+})
+
+
