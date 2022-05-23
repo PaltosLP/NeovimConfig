@@ -25,7 +25,7 @@ wk.register({
 }, { mode = 'n', prefix = "<leader>" })
 
 wk.register({
-	['<C-t>'] = { "<cmd>NERDTreeToggle<Cr>", "Toggle NerdTree" },
+	['<C-t>'] = { "<cmd>NvimTreeToggle<Cr>", "Toggle Nvim-Tree" },
 	['<C-a>'] = { "<cmd>call run_file#Run_File()<Cr>", "Run File" },
 	['<C-s>'] = { "<cmd>call save#w()<Cr>", "Save File" },
 	['<C-r>'] = { "<cmd>call number_set#relative_numb()<Cr>", "Set Relativ Number" },

@@ -80,13 +80,13 @@ return require('packer').startup(function(use)
 
 
 
-	use {
-		'preservim/nerdtree',
-		cmd = {'NERDTreeToggle'},
-		config = function ()
-			vim.cmd('let NERDTreeQuitOnOpen=1')
-		end
-	}
+	-- use {
+	-- 	'preservim/nerdtree',
+	-- 	cmd = {'NERDTreeToggle'},
+	-- 	config = function ()
+	-- 		vim.cmd('let NERDTreeQuitOnOpen=1')
+	-- 	end
+	-- }
 
 
 	use {
