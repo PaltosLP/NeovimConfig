@@ -26,7 +26,7 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
     width = 30,
     height = 30,
     hide_root_folder = false,
-    side = "left",
+    side = "right",
     preserve_window_proportions = false,
     number = false,
     relativenumber = false,
@@ -136,7 +136,7 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
       restrict_above_cwd = false,
     },
     open_file = {
-      quit_on_open = false,
+      quit_on_open = true,
       resize_window = true,
       window_picker = {
         enable = true,
