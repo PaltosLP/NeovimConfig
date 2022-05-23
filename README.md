@@ -1,4 +1,4 @@
-# nvim
+# Neovim
 Some neovim stuff.
 
 
