@@ -333,4 +333,13 @@ return require('packer').startup(function(use)
 		end
 
 	}
+
+
+	use {
+		'kyazdani42/nvim-tree.lua',
+		cmd = { 'NvimTreeToggle', 'NvimTreeOpen' },
+		config = function()
+			require 'nvim_tree'
+		end
+	}
 end)
