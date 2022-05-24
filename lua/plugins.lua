@@ -12,6 +12,8 @@
 --   }
 -- }
 
+
+
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -198,7 +200,12 @@ return require('packer').startup({function(use)
 	use {
 		"rafamadriz/friendly-snippets",
 		event = 'InsertEnter',
-		after = 'LuaSnip',
+		-- after = 'LuaSnip',
+		config = function()
+			require("luasnip/loaders/from_vscode").load({
+				paths = {"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets"},})
+		end
+
 	}
 
 

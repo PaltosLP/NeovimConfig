@@ -1,3 +1,5 @@
+vim.cmd([[luafile ~/profiler.nvim/lua/profiler.lua]])
+
 --impatient (for StartUpTime use :StartupTime)
 require 'impatient'.enable_profile()
 

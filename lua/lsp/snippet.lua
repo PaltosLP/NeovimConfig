@@ -17,9 +17,6 @@ end
 ---------------------------------------------------------------
 
 local ls = require 'luasnip'
-local s = ls.snippet
-local t = ls.text_node
-local i = ls.insert_node
 
 ls.config.set_config({
 	history = true,
@@ -27,11 +24,11 @@ ls.config.set_config({
 	enable_autosnippets = true
 })
 
-require("luasnip/loaders/from_vscode").load({
-	paths = {
-		"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
-	},
-})
+-- require("luasnip/loaders/from_vscode").load({
+-- 	paths = {
+-- 		"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
+-- 	},
+-- })
 
 
 -- <C-k> expands the snippet and jumps inside the the snippet
