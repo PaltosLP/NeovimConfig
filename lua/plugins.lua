@@ -397,11 +397,12 @@ return require('packer').startup({function(use)
 	}
 	-- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
-	use {'karb94/neoscroll.nvim',
-		config = function()
-			require('neoscroll').setup()
-		end
-	}
+	-- use {
+	-- 	'karb94/neoscroll.nvim',
+	-- 	config = function()
+	-- 		require('neoscroll').setup()
+	-- 	end
+	-- }
 
 
 end,
