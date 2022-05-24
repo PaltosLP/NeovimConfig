@@ -80,6 +80,10 @@ require("nvim-treesitter.highlight").set_custom_captures({
     ["variable"] = "TSField",
 })
 
+-- vim.highlight.create('NormalFloat', {ctermbg=0, guibg=none}, false)
+vim.cmd[[highlight NormalFloat ctermbg=0 guibg=none]]
+vim.cmd[[highlight FloatBorder ctermbg=0 guibg=none]]
+
 
 -- cmds:
 -- :TSPLayground
