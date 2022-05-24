@@ -371,6 +371,14 @@ return require('packer').startup({function(use)
 		end
 	}
 
+	use {
+        "max397574/better-escape.nvim",
+		event = { 'InsertEnter' },
+        config = function()
+            require 'betterescape'
+  		end,
+}
+
 end,
 config = {
   display = {
