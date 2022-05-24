@@ -20,7 +20,14 @@ wk.register({
   	['<leader>'] = {
 	  	name = "Source File",
 	  	s = { "<cmd>so %<Cr>", "Source current File" },
-  	}
+  	},
+	x = {
+		name = 'Trouble',
+		x = { '<cmd>TroubleToggle<Cr>', 'Toggle Trouble' },
+		q = { '<cmd>TroubleToggle quickfix<Cr>', 'Quickfix' },
+		d = { '<cmd>TroubleToggle document_diagnostics<Cr>', 'Doc Diagnostic'},
+	}
+
 
 }, { mode = 'n', prefix = "<leader>" })
 

@@ -377,7 +377,17 @@ return require('packer').startup({function(use)
         config = function()
             require 'betterescape'
   		end,
-}
+	}
+
+
+	use {
+		'folke/trouble.nvim',
+		cmd = { 'Trouble', 'TroubleToggle' },
+		requires = 'kyazdani42/nvim-web-devicons',
+		config = function()
+			require 'troubles'
+		end,
+	}
 
 end,
 config = {
