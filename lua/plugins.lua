@@ -196,6 +196,13 @@ return require('packer').startup({function(use)
 
 
 	use {
+		"rafamadriz/friendly-snippets",
+		event = 'InsertEnter',
+		after = 'LuaSnip',
+	}
+
+
+	use {
 		'saadparwaiz1/cmp_luasnip',
 		event = { 'InsertEnter', 'CmdlineEnter' },
 		-- after = { 'nvim-cmp', 'LuaSnip' }
@@ -388,6 +395,14 @@ return require('packer').startup({function(use)
 			require 'troubles'
 		end,
 	}
+	-- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+
+	use {'karb94/neoscroll.nvim',
+		config = function()
+			require('neoscroll').setup()
+		end
+	}
+
 
 end,
 config = {
