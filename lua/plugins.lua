@@ -56,6 +56,10 @@ return require('packer').startup({function(use)
 	-- 		vim.cmd('let g:everforest_better_performance = 1')
 	-- 	end
 	-- }
+	use {
+		'rmehri01/onenord.nvim'
+	}
+
 
 	--use 'vim-airline/vim-airline'
 
@@ -349,6 +353,24 @@ return require('packer').startup({function(use)
 			require 'nvim_tree'
 		end
 	}
+
+
+	use {
+		'folke/zen-mode.nvim',
+		cmd = { 'ZenMode' },
+		config = function()
+			require 'zenmode'
+		end
+	}
+
+	use {
+		'folke/twilight.nvim',
+		cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' },
+		config = function()
+			require 'twilights'
+		end
+	}
+
 end,
 config = {
   display = {
