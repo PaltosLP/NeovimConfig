@@ -28,389 +28,129 @@ vim.cmd([[
 
 return require('packer').startup({function(use)
   -- Packer can manage itself
-	use {
-		'wbthomason/packer.nvim',
-	}
-
-
-	use {
-		'lewis6991/impatient.nvim'
-	}
-
+	use { 'wbthomason/packer.nvim' }
+	use { 'lewis6991/impatient.nvim' }
 --colorscheme
 	use { 'morhetz/gruvbox'	}
-	-- use { 'joshdick/onedark.vim' }
-	-- use { 'shaunsingh/nord.nvim' }
-	-- use { 'NLKNguyen/papercolor-theme' }
-	-- use {
-	-- 	'ghifarit53/tokyonight-vim',
-	-- 	config = function()
-	-- 		vim.cmd 'let g:tokyonight_style = "night"'  --available: night, storm
-	-- 		vim.cmd 'let g:tokyonight_enable_italic = 1'
-	-- 	end
-	-- }
-	-- use {
-	-- 	'sainnhe/everforest',
-	-- 	--cmd = {'colorscheme everforest'},
-	-- 	config = function ()
-	-- 		vim.o.background = 'dark'
-	-- 		vim.cmd('let g:everforest_background = "hard"')
-	-- 		vim.cmd('let g:everforest_better_performance = 1')
-	-- 	end
-	-- }
-	use {
-		'rmehri01/onenord.nvim'
-	}
+	use { 'joshdick/onedark.vim', cmd = { 'colorscheme' } }
+	use { 'shaunsingh/nord.nvim', cmd = { 'colorscheme' } }
+	use { 'NLKNguyen/papercolor-theme', cmd = { 'colorscheme' } }
+	use { 'ghifarit53/tokyonight-vim', cmd = { 'colorscheme' }, config = function()
+		vim.cmd 'let g:tokyonight_style = "night"'
+		vim.cmd 'let g:tokyonight_enable_italic = 1'
+	end }
+	use { 'sainnhe/everforest', cmd = { 'colorscheme' }, config = function()
+		vim.o.background = 'dark'
+		vim.cmd('let g:everforest_background = "hard"')
+		vim.cmd('let g:everforest_better_performance = 1')
+	end }
+	use { 'rmehri01/onenord.nvim', cmd = { 'colorscheme' } }
 
 
-	--use 'vim-airline/vim-airline'
-
-
-
-
-	-- use {
-		-- 'jiangmiao/auto-pairs',
-	-- 	-- event = 'InsertEnter',
-	-- 	after = { 'nvim-cmp' }
-	-- }
-
-	use {
-		'windwp/nvim-autopairs',
-		event = 'InsertEnter',
-		config = function()
-			require 'auto-pairs'
-		end
-	}
-
-
-	use {
-		'windwp/nvim-ts-autotag',
-		-- after = { 'nvim-treesitter' },
-		ft = { 'html' },
-	}
-
-
-
-
-	-- use {
-	-- 	'preservim/nerdtree',
-	-- 	cmd = {'NERDTreeToggle'},
-	-- 	config = function ()
-	-- 		vim.cmd('let NERDTreeQuitOnOpen=1')
-	-- 	end
-	-- }
-
-
-	use {
-		'norcalli/nvim-colorizer.lua',
-		ft = {'css'},
-		config = function()
-			require 'colorizer'.setup()
-		end
-	}
-
-
+	-- use 'vim-airline/vim-airline'
 	-- use 'vim-airline/vim-airline-themes'
+	-- use { 'jiangmiao/auto-pairs', event = 'InsertEnter', after = { 'nvim-cmp' } }
 
 
-	use {
-		'nvim-treesitter/nvim-treesitter',
-		run = 'TSUpdate',
-		-- event = { "BufRead", "BufWinEnter" },
-		config = function()
-			require 'highlights.tree-sitter'
-		end
-	}
+	use { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function() require 'auto-pairs' end }
 
+	use { 'windwp/nvim-ts-autotag',	ft = { 'html' }	} -- after = { 'nvim-treesitter' },
 
-	use {
-		'neovim/nvim-lspconfig'
-	}
+	-- use { 'preservim/nerdtree', cmd = {'NERDTreeToggle'}, config = function () vim.cmd('let NERDTreeQuitOnOpen=1') end }
 
+	use { 'norcalli/nvim-colorizer.lua', ft = {'css'}, config = function() require 'colorizer'.setup() end }
 
-	use {
-		'williamboman/nvim-lsp-installer',
-		cmd = {'LspInstall', 'LspInstallInfo'},
-		config = function()
-			require 'lsp.lsp-installer'
-		end
-	}
+	use { 'nvim-treesitter/nvim-treesitter', run = 'TSUpdate', config = function() require 'highlights.tree-sitter' end } -- event = { "BufRead", "BufWinEnter" },
 
+	use { 'neovim/nvim-lspconfig' }
 
-	use {
-		'glepnir/dashboard-nvim',
-		-- ft = { 'dashboard' },
-		-- cmd = {
-		-- 	"Dashboard",
-		-- 	"DashboardNewFile",
-		-- 	"DashboardJumpMarks",
-		-- 	"SessionLoad",
-		-- 	"SessionSave",
-		-- },
-		config = function()
-			require 'dashboard'
-		end
-	}
+	use { 'williamboman/nvim-lsp-installer', cmd = {'LspInstall', 'LspInstallInfo'}, config = function() require 'lsp.lsp-installer' end }
 
+	use { 'glepnir/dashboard-nvim',	config = function() require 'dashboard' end } 		-- ft = { 'dashboard' }, -- cmd = {	"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave", },
 
 	--use 'junegunn/fzf'
 	--use 'junegunn/fzf.vim'
 
+	use { 'xiyaowong/nvim-transparent', config = function() require 'highlights.transparency' end }
 
-	use {
-		'xiyaowong/nvim-transparent',
-  		config = function()
-			require 'highlights.transparency'
-		end
-	}
+	use { 'p00f/nvim-ts-rainbow' } -- after = { 'nvim-lspconfig' }
 
 
-	use {
-		'p00f/nvim-ts-rainbow',
-		-- after = { 'nvim-lspconfig' }
-	}
-
-
-	use {
-		'hrsh7th/nvim-cmp',
-		event = { 'InsertEnter', 'CmdlineEnter' },
-		-- keys = { 'n', ':' },
-		-- config = function()
-		-- 	require 'lsp'
-		-- end
-		-- after = { 'nvim-lspconfig' },
-		--require 'lsp'
-	}
-
-
-	use {
-		'hrsh7th/cmp-nvim-lsp',
-		module = 'cmp_nvim_lsp',
-		-- after = { 'nvim-cmp' }
-	}
-
-
-
-	use {
-		'L3MON4D3/LuaSnip',
-		event = 'InsertEnter',
-	}
-
-
-	use {
-		"rafamadriz/friendly-snippets",
-		event = 'InsertEnter',
-		-- after = 'LuaSnip',
-		config = function()
+--cmp
+	use { 'hrsh7th/nvim-cmp', event = { 'InsertEnter', 'CmdlineEnter' }, } --config = function() require 'lsp' end 	after = { 'nvim-lspconfig' }, require 'lsp'
+	use { 'hrsh7th/cmp-nvim-lsp', module = 'cmp_nvim_lsp', }	-- after = { 'nvim-cmp' }
+	use { 'L3MON4D3/LuaSnip', event = 'InsertEnter', }
+	use { "rafamadriz/friendly-snippets", event = 'InsertEnter',
+	config = function()
 			require("luasnip/loaders/from_vscode").load({
 				paths = {"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets"},})
 		end
-
 	}
-
-
-	use {
-		'saadparwaiz1/cmp_luasnip',
-		event = { 'InsertEnter', 'CmdlineEnter' },
-		-- after = { 'nvim-cmp', 'LuaSnip' }
-	}
-
-
-	use {
-		'hrsh7th/cmp-buffer',
-		event = { 'InsertEnter', 'CmdlineEnter' },
-		-- after = { 'nvim-cmp' }
-	}
-
-
-	use {
-		'hrsh7th/cmp-path',
-		event = { 'InsertEnter', 'CmdlineEnter' },
-		-- after = { 'nvim-cmp' }
-	}
-
-
-	use {
-		'hrsh7th/cmp-cmdline',
-		event = { 'InsertEnter', 'CmdlineEnter' },
-		-- after = { 'nvim-cmp' }
-	}
+	use { 'saadparwaiz1/cmp_luasnip', event = { 'InsertEnter', 'CmdlineEnter' }, }
+	use { 'hrsh7th/cmp-buffer', event = { 'InsertEnter', 'CmdlineEnter' }, }
+	use { 'hrsh7th/cmp-path', event = { 'InsertEnter', 'CmdlineEnter' } }
+	use { 'hrsh7th/cmp-cmdline', event = { 'InsertEnter', 'CmdlineEnter' } }
 
 
 	--use 'declancm/cinnamon.nvim'
 
 
-	use {
-		'numToStr/Comment.nvim',
-		keys = {
-			{ 'n', 'g' },
-			{ 'v', 'g' },
-		},
-		config = function ()
-			require 'Comment'.setup()
-		end
-	}
+	use { 'numToStr/Comment.nvim', keys = { { 'n', 'g' }, { 'v', 'g' } }, config = function () require 'Comment'.setup() end }
 
 
-	use {
-		'nvim-treesitter/playground',
-		cmd = {'TSPlaygroundToggle'}
-	}
+	use { 'nvim-treesitter/playground', cmd = {'TSPlaygroundToggle'} }
 
 
-	use {
-		'nvim-lua/plenary.nvim',
-		module = 'plenary'
-	}
+	use { 'nvim-lua/plenary.nvim', module = 'plenary' }
 
 
-	use {
-		'kyazdani42/nvim-web-devicons',
-		module = 'nvim-web-devicons',
-		config = function ()
-			require 'devicons'
-		end
-	}
+	use { 'kyazdani42/nvim-web-devicons', module = 'nvim-web-devicons', config = function () require 'devicons' end }
 
 
-	use {
-		'nvim-telescope/telescope.nvim',
-		-- module = 'telescope',
-		-- keys = {
-		-- 	{ 'n', '<leader>f' },
-		-- { 'n', '<leader>fg' },
-		-- },
-		--cmd = {'Telescope find_files'}
-	}
+	use { 'nvim-telescope/telescope.nvim' }
 
 
-	use {
-  		'nvim-lualine/lualine.nvim',
-		after = "gruvbox",
-		config = function ()
-			require 'lua-line'
-		end
-	}
-	-- use {
-	-- 	'henriquehbr/nvim-startup.lua',
-	-- 	config = function ()
-	-- 		require 'nvim-startup'.setup()
-	-- 	end
-	-- }
-
-	use {
-		'lukas-reineke/indent-blankline.nvim',
-		config = function ()
-			require 'highlights.indent'
-		end
-	}
+	use { 'nvim-lualine/lualine.nvim', after = "gruvbox", config = function () require 'lua-line' end }
+	-- use { 'henriquehbr/nvim-startup.lua' }
 
 
-	use {
-		'nvim-neorg/neorg',
-		tag = "latest",
-		ft = 'norg',
-		after = {'nvim-treesitter','telescope.nvim'},
-		config = function()
-			require 'neo_org'
-		end,
-	}
+	use { 'lukas-reineke/indent-blankline.nvim', config = function () require 'highlights.indent' end }
 
 
-	use {
-		'mg979/vim-visual-multi',
-		keys = {
-			{'n','<C-n>'}
-		}
-		-- event = 'VisualEnter'
-	}
+	use { 'nvim-neorg/neorg', tag = "latest", ft = 'norg', after = {'nvim-treesitter','telescope.nvim'}, config = function() require 'neo_org' end }
 
 
-
-	use {
-		'onsails/lspkind.nvim',
-		-- module = 'lspkind',
-		-- event = { 'BufRead', 'InsertEnter' },
-		-- after = { 'nvim-cmp' }
-	}
+	use { 'mg979/vim-visual-multi', keys = { {'n','<C-n>'} } }
 
 
-	use {
-		'ggandor/lightspeed.nvim',
-		keys = {
-			{'n','s'}
-		}
-		-- event = 'SelectEnter'
-	}
+	use { 'onsails/lspkind.nvim' }
 
 
-	use {
-		'dstein64/vim-startuptime',
-		cmd = { 'StartupTime' },
-	}
+	use { 'ggandor/lightspeed.nvim', keys = { {'n','s'} } }
 
 
-	use {
-		'folke/which-key.nvim',
-		-- cmd = { 'WhichKey' },
-		config = function()
-			require 'whichkey'
-		end
-
-	}
+	use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
 
 
-	use {
-		'kyazdani42/nvim-tree.lua',
-		cmd = { 'NvimTreeToggle', 'NvimTreeOpen' },
-		config = function()
-			require 'nvim_tree'
-		end
-	}
+	use { 'folke/which-key.nvim', config = function() require 'whichkey' end }
 
 
-	use {
-		'folke/zen-mode.nvim',
-		cmd = { 'ZenMode' },
-		config = function()
-			require 'zenmode'
-		end
-	}
-
-	use {
-		'folke/twilight.nvim',
-		cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' },
-		config = function()
-			require 'twilights'
-		end
-	}
-
-	use {
-        "max397574/better-escape.nvim",
-		event = { 'InsertEnter' },
-        config = function()
-            require 'betterescape'
-  		end,
-	}
+	use { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeOpen' }, config = function() require 'nvim_tree' end }
 
 
-	use {
-		'folke/trouble.nvim',
-		cmd = { 'Trouble', 'TroubleToggle' },
-		requires = 'kyazdani42/nvim-web-devicons',
-		config = function()
-			require 'lsp.troubles'
-		end,
-	}
+	use { 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'zenmode' end }
+
+
+	use { 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'twilights' end }
+
+
+	use { "max397574/better-escape.nvim", event = { 'InsertEnter' }, config = function() require 'betterescape' end }
+
+
+	use { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' }, requires = 'kyazdani42/nvim-web-devicons', config = function() require 'lsp.troubles' end }
+
 	-- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
-
-	-- use {
-	-- 	'karb94/neoscroll.nvim',
-	-- 	config = function()
-	-- 		require('neoscroll').setup()
-	-- 	end
-	-- }
-
+	-- use {'karb94/neoscroll.nvim'}
 
 end,
 config = {
