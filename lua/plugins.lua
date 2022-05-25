@@ -118,7 +118,7 @@ return require('packer').startup({function(use)
 		run = 'TSUpdate',
 		-- event = { "BufRead", "BufWinEnter" },
 		config = function()
-			require 'tree-sitter'
+			require 'highlights.tree-sitter'
 		end
 	}
 
@@ -132,7 +132,7 @@ return require('packer').startup({function(use)
 		'williamboman/nvim-lsp-installer',
 		cmd = {'LspInstall', 'LspInstallInfo'},
 		config = function()
-			require 'lsp-installer'
+			require 'lsp.lsp-installer'
 		end
 	}
 
@@ -160,7 +160,7 @@ return require('packer').startup({function(use)
 	use {
 		'xiyaowong/nvim-transparent',
   		config = function()
-			require 'transparency'
+			require 'highlights.transparency'
 		end
 	}
 
@@ -301,7 +301,7 @@ return require('packer').startup({function(use)
 	use {
 		'lukas-reineke/indent-blankline.nvim',
 		config = function ()
-			require 'indent'
+			require 'highlights.indent'
 		end
 	}
 
@@ -399,7 +399,7 @@ return require('packer').startup({function(use)
 		cmd = { 'Trouble', 'TroubleToggle' },
 		requires = 'kyazdani42/nvim-web-devicons',
 		config = function()
-			require 'troubles'
+			require 'lsp.troubles'
 		end,
 	}
 	-- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
