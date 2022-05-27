@@ -6,7 +6,7 @@ end
 
 configs.setup {
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = {"python", "vim", "lua","c","norg", "css", "html", "javascript", "json"},
+  ensure_installed = {"python", "vim", "lua","c","norg", "css", "html", "javascript", "json","go" },
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
