@@ -30,6 +30,7 @@ return require('packer').startup({function(use)
   -- Packer can manage itself
 	use { 'wbthomason/packer.nvim' }
 	use { 'lewis6991/impatient.nvim' }
+	use { 'nathom/filetype.nvim', config = function() require 'file-type' end }
 --colorscheme
 	use { 'morhetz/gruvbox'	}
 	use { 'joshdick/onedark.vim', cmd = { 'colorscheme' } }
