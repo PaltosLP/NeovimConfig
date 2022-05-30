@@ -32,7 +32,19 @@ function run_file#Run_File()
 			redir END
 			silent execute "!rm executable_cpp"
 			echo var
-		endif	
+		endif
+
+		elseif filetype == "go"
+			silent exec "!go build -o " . "executable_go " . full_file_name
+			let var = ""
+			redir => var
+			silent call Go_exe()
+			redir END
+			silent exec "!rm executable_go"
+			echo var
+		
+
+
 	else
 		echo filetype
 	endif
@@ -45,4 +57,8 @@ endfunction
 
 function Cpp_exe()
 	silent execute "!./executable_cpp"
+endfunction
+
+function Go_exe()
+	silent execute "!./executable_go"
 endfunction
