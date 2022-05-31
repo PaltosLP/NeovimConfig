@@ -53,7 +53,19 @@ return require('packer').startup({function(use)
 	-- use { 'jiangmiao/auto-pairs', event = 'InsertEnter', after = { 'nvim-cmp' } }
 
 
-	use { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function() require 'auto-pairs' end }
+	use { 'windwp/nvim-autopairs',
+			setup = function()
+
+			vim.api.nvim_create_autocmd("InsertEnter", {
+				callback = function()
+					vim.defer_fn(function()
+						vim.cmd([[
+						PackerLoad nvim-autopairs 
+						]])
+					end, 100)
+				end,
+			})
+		end, config = function() require 'auto-pairs' end, opt = true }
 
 	use { 'windwp/nvim-ts-autotag',	ft = { 'html' }	} -- after = { 'nvim-treesitter' },
 
@@ -81,12 +93,26 @@ return require('packer').startup({function(use)
 	use { 'hrsh7th/nvim-cmp', event = { 'InsertEnter', 'CmdlineEnter' }, } --config = function() require 'lsp' end 	after = { 'nvim-lspconfig' }, require 'lsp'
 	use { 'hrsh7th/cmp-nvim-lsp', module = 'cmp_nvim_lsp', }	-- after = { 'nvim-cmp' }
 	use { 'L3MON4D3/LuaSnip', event = 'InsertEnter', }
-	use { "rafamadriz/friendly-snippets", event = 'InsertEnter',
-	config = function()
+	use { "rafamadriz/friendly-snippets", opt = true,
+		setup = function()
+
+			vim.api.nvim_create_autocmd("InsertEnter", {
+				callback = function()
+					vim.defer_fn(function()
+						vim.cmd([[
+						PackerLoad friendly-snippets
+						]])
+					end, 100)
+				end,
+			})
+		end,
+		config = function()
 			require("luasnip/loaders/from_vscode").load({
 				paths = {"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets"},})
-		end
-	}
+			end
+
+
+		}
 	use { 'saadparwaiz1/cmp_luasnip', event = { 'InsertEnter', 'CmdlineEnter' }, }
 	use { 'hrsh7th/cmp-buffer', event = { 'InsertEnter', 'CmdlineEnter' }, }
 	use { 'hrsh7th/cmp-path', event = { 'InsertEnter', 'CmdlineEnter' } }
@@ -151,24 +177,24 @@ return require('packer').startup({function(use)
 	use { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' }, requires = 'kyazdani42/nvim-web-devicons', config = function() require 'lsp.troubles' end }
 
 	use {
-	  "max397574/colortils.nvim",
-	  cmd = "Colortils",
-	  config = function()
-		require("colortils").setup()
-		vim.cmd('PackerLoad nvim-colorizer.lua')
-	  end,
+		"max397574/colortils.nvim",
+		cmd = "Colortils",
+		config = function()
+			require("colortils").setup()
+			vim.cmd('PackerLoad nvim-colorizer.lua')
+		end,
 	}
 	-- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 	-- use {'karb94/neoscroll.nvim'}
 
 end,
 config = {
-  display = {
-    open_fn = function()
-      return require('packer.util').float({ border = 'rounded' })
-    end
-  		}
+	display = {
+		open_fn = function()
+			return require('packer.util').float({ border = 'rounded' })
+		end
 	}
+}
 })
 
 
