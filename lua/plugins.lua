@@ -150,6 +150,13 @@ return require('packer').startup({function(use)
 
 	use { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' }, requires = 'kyazdani42/nvim-web-devicons', config = function() require 'lsp.troubles' end }
 
+	use {
+	  "max397574/colortils.nvim",
+	  cmd = "Colortils",
+	  config = function()
+		require("colortils").setup()
+	  end,
+	}
 	-- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 	-- use {'karb94/neoscroll.nvim'}
 
