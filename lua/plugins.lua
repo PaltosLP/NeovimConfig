@@ -155,6 +155,7 @@ return require('packer').startup({function(use)
 	  cmd = "Colortils",
 	  config = function()
 		require("colortils").setup()
+		vim.cmd('PackerLoad nvim-colorizer.lua')
 	  end,
 	}
 	-- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}

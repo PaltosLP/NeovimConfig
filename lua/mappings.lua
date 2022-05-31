@@ -40,7 +40,7 @@ wk.register({
 	['<C-i>'] = { "<cmd>IndentBlanklineToggle<Cr>", "Toggle Indent Line" },
 	['<C-h>'] = { "<cmd>WhichKey<Cr>", "Toggle WhichKey"},
 
-	q = {
+	Q = {
 		name = 'Quit',
 		q = { "<cmd>q<Cr>", "Quit" },
 		f = { "<cmd>q!<Cr>", "Unsaved Quit" },
