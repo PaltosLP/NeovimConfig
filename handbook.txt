@@ -62,5 +62,14 @@ Handle Splitscreen:
 	- <C-w> --> whichkey
 
 
+
+Updating Neovim:
+	https://ecalzo.is-a.dev/Nvim-on-WSL2/
+	sudo add-apt-repository ppa:neovim-ppa/stable
+	sudo apt-get update
+	sudo apt-get install neovim
+
+
+
 Startuptime:
 	- Terminal: nvim --startuptime startup.log -c exit && tail -100 startup.log
