@@ -18,8 +18,11 @@ wk.register({
 		S = { "<cmd>PackerSync<Cr>", "Packer Sync" },
   	},
   	['<leader>'] = {
-	  	name = "Source File",
+	  	name = "Special Operations",
 	  	s = { "<cmd>so %<Cr>", "Source current File" },
+		r = { "<cmd>call number_set#relative_numb()<Cr>", "Set Relativ Number" },
+		n = { "<cmd>call number_set#normal_numb()<Cr>", "Set Number" },
+		i = { "<cmd>IndentBlanklineToggle<Cr>", "Toggle Indent Line" },
   	},
 	x = {
 		name = 'Trouble',
@@ -35,9 +38,9 @@ wk.register({
 	['<C-t>'] = { "<cmd>NvimTreeToggle<Cr>", "Toggle Nvim-Tree" },
 	['<C-a>'] = { "<cmd>call run_file#Run_File()<Cr>", "Run File" },
 	['<C-s>'] = { "<cmd>call save#w()<Cr>", "Save File" },
-	['<C-r>'] = { "<cmd>call number_set#relative_numb()<Cr>", "Set Relativ Number" },
-	['<C-e>'] = { "<cmd>call number_set#normal_numb()<Cr>", "Set Number" },
-	['<C-i>'] = { "<cmd>IndentBlanklineToggle<Cr>", "Toggle Indent Line" },
+	-- ['<C-r>'] = { "<cmd>call number_set#relative_numb()<Cr>", "Set Relativ Number" },
+	-- ['<C-e>'] = { "<cmd>call number_set#normal_numb()<Cr>", "Set Number" },
+	-- ['<C-i>'] = { "<cmd>IndentBlanklineToggle<Cr>", "Toggle Indent Line" },
 	['<C-h>'] = { "<cmd>WhichKey<Cr>", "Toggle WhichKey"},
 
 	Q = {
