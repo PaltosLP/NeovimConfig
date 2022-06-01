@@ -4,7 +4,7 @@ function run_file#Run_File()
 	let file_name = expand('%:t:r')
 	let full_file_name = file_name .".". filetype
 	"let c_command3 = "!clear"
-	let ex_list = ['py','c','cpp']
+	let ex_list = ['py','c','cpp','go']
 	let exable = 0
 	"if filetype in ex_list
 	for i in range(len(ex_list))
@@ -24,6 +24,7 @@ function run_file#Run_File()
 			redir END
 			silent exec "!rm executable_c"
 			echo var
+
 		elseif filetype == "cpp"
 			silent execute "!g++ " . full_file_name . " -o" . "executable_cpp"	
 			let var = ""
@@ -32,7 +33,6 @@ function run_file#Run_File()
 			redir END
 			silent execute "!rm executable_cpp"
 			echo var
-		endif
 
 		elseif filetype == "go"
 			silent exec "!go build -o " . "executable_go " . full_file_name
@@ -41,8 +41,8 @@ function run_file#Run_File()
 			silent call Go_exe()
 			redir END
 			silent exec "!rm executable_go"
-			echo var
-		
+			echo var	
+		endif
 
 
 	else
