@@ -42,6 +42,7 @@ wk.register({
 	-- ['<C-e>'] = { "<cmd>call number_set#normal_numb()<Cr>", "Set Number" },
 	-- ['<C-i>'] = { "<cmd>IndentBlanklineToggle<Cr>", "Toggle Indent Line" },
 	['<C-h>'] = { "<cmd>WhichKey<Cr>", "Toggle WhichKey"},
+	['<ESC>'] = { "<cmd>nohl<Cr>", "Remove Search Highlights" },
 
 	Q = {
 		name = 'Quit',
