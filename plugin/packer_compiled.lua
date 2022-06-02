@@ -519,9 +519,9 @@ time([[Defining lazy-load commands]], false)
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
 vim.cmd [[nnoremap <silent> <C-n> <cmd>lua require("packer.load")({'vim-visual-multi'}, { keys = "<lt>C-n>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> g <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "g", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[nnoremap <silent> s <cmd>lua require("packer.load")({'lightspeed.nvim'}, { keys = "s", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[vnoremap <silent> g <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "g", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> g <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "g", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
