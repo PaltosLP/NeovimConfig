@@ -23,6 +23,10 @@ wk.register({
 		r = { "<cmd>call number_set#relative_numb()<Cr>", "Set Relativ Number" },
 		n = { "<cmd>call number_set#normal_numb()<Cr>", "Set Number" },
 		i = { "<cmd>IndentBlanklineToggle<Cr>", "Toggle Indent Line" },
+		q = { "<cmd>q<Cr>", "Quit" },
+		f = { "<cmd>q!<Cr>", "Unsaved Quit" },
+		w = { "<cmd>wq<Cr>", "Save Quit" },
+
   	},
 	x = {
 		name = 'Trouble',
@@ -49,12 +53,12 @@ wk.register({
 	['<C-h>'] = { "<cmd>WhichKey<Cr>", "Toggle WhichKey"},
 	['<ESC>'] = { "<cmd>nohl<Cr>", "Remove Search Highlights" },
 
-	Q = {
-		name = 'Quit',
-		q = { "<cmd>q<Cr>", "Quit" },
-		f = { "<cmd>q!<Cr>", "Unsaved Quit" },
-		s = { "<cmd>wq<Cr>", "Save Quit" },
-	},
+	-- Q = {
+	-- 	name = 'Quit',
+	-- 	q = { "<cmd>q<Cr>", "Quit" },
+	-- 	f = { "<cmd>q!<Cr>", "Unsaved Quit" },
+	-- 	s = { "<cmd>wq<Cr>", "Save Quit" },
+	-- },
 
 }, { mode = 'n' })
 
@@ -65,46 +69,3 @@ wk.register({
 wk.register({
 	['<C-c>'] = { '"*y<Cr>', "Copy" },
 }, { mode = 'v' })
-
-
-
--- vim.g.mapleader = ' '
--- local opts = { noremap = true, silent = true }
---
--- --Telescope
--- vim.api.nvim_set_keymap('n','<leader>ff','<cmd>Telescope find_files<Cr>',opts)
--- vim.api.nvim_set_keymap('n','<leader>fg','<cmd>Telescope live_grep<Cr>',opts)
--- vim.api.nvim_set_keymap('n','<leader>fb','<cmd>Telescope buffers<Cr>',opts)
--- vim.api.nvim_set_keymap('n','<leader>fh','<cmd>Telescope help_tags<Cr>',opts)
---
---
---
--- vim.api.nvim_set_keymap('n','<C-t>','<cmd>NERDTreeToggle<Cr>',opts)
---
--- vim.api.nvim_set_keymap('i','jj','<ESC>',opts)
---
--- vim.api.nvim_set_keymap('n','<C-a>','<cmd>call run_file#Run_File()<Cr>',opts)
---
--- vim.api.nvim_set_keymap('n','<C-s>','<cmd>call save#w()<Cr>',opts)
---
--- vim.api.nvim_set_keymap('n','<C-r>','<cmd>call number_set#relative_numb()<Cr>',opts)
---
--- vim.api.nvim_set_keymap('n','<C-e>','<cmd>call number_set#normal_numb()<Cr>',opts)
---
--- vim.api.nvim_set_keymap('n','<leader>ps','<cmd>PackerStatus<Cr>',opts)
---
---
--- vim.api.nvim_set_keymap('n','<leader>bl','<cmd>IndentBlanklineToggle<Cr>',opts)
---
--- vim.api.nvim_set_keymap('v','<C-c>','"*y<Cr>',opts)
---
--- -- vim.api.nvim_set_keymap('i','<leader>t','<Esc>>> i', { noremap = true, silent = false })
---
--- vim.keymap.set('n', '<leader><leader>s', '<cmd>so %<Cr>', opts )
---
--- vim.keymap.set('n', 'qq', '<cmd>q<Cr>', opts)
---
--- vim.api.nvim_set_keymap('n','<C-i>','<cmd>IndentBlanklineToggle<Cr>',opts)
---
--- vim.keymap.set('n', '<C-h>', '<cmd>WhichKey<Cr>', opts)
---
