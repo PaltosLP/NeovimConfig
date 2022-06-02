@@ -184,6 +184,10 @@ return require('packer').startup({function(use)
 			vim.cmd('PackerLoad nvim-colorizer.lua')
 		end,
 	}
+
+	use { 'stevearc/aerial.nvim', after = 'nvim-lspconfig', config = function() require('aerial').setup() end }
+
+
 	-- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 	-- use {'karb94/neoscroll.nvim'}
 

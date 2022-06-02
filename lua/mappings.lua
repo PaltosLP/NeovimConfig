@@ -29,6 +29,11 @@ wk.register({
 		x = { '<cmd>TroubleToggle<Cr>', 'Toggle Trouble' },
 		q = { '<cmd>TroubleToggle quickfix<Cr>', 'Quickfix' },
 		d = { '<cmd>TroubleToggle document_diagnostics<Cr>', 'Doc Diagnostic'},
+	},
+	a = {
+		name = 'Aerial',
+		a = { '<cmd>AerialOpen<Cr>', 'Open Aerial' },
+		t = { '<cmd>AerialToggle<Cr>', 'Toggle Aerial' },
 	}
 
 
