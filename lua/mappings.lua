@@ -23,10 +23,6 @@ wk.register({
 		r = { "<cmd>call number_set#relative_numb()<Cr>", "Set Relativ Number" },
 		n = { "<cmd>call number_set#normal_numb()<Cr>", "Set Number" },
 		i = { "<cmd>IndentBlanklineToggle<Cr>", "Toggle Indent Line" },
-		q = { "<cmd>q<Cr>", "Quit" },
-		f = { "<cmd>q!<Cr>", "Unsaved Quit" },
-		w = { "<cmd>wq<Cr>", "Save Quit" },
-
   	},
 	x = {
 		name = 'Trouble',
@@ -38,6 +34,13 @@ wk.register({
 		name = 'Aerial',
 		a = { '<cmd>AerialOpen<Cr>', 'Open Aerial' },
 		t = { '<cmd>AerialToggle<Cr>', 'Toggle Aerial' },
+	},
+	q = {
+		name = 'Quit',
+		q = { "<cmd>q<Cr>", "Quit" },
+		f = { "<cmd>q!<Cr>", "Unsaved Quit" },
+		w = { "<cmd>wq<Cr>", "Save Quit" },
+
 	}
 
 

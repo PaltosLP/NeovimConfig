@@ -185,7 +185,7 @@ return require('packer').startup({function(use)
 		end,
 	}
 
-	use { 'stevearc/aerial.nvim', after = 'nvim-lspconfig', config = function() require('aerial').setup() end }
+	use { 'stevearc/aerial.nvim', after = 'nvim-lspconfig', config = function() require('aerial').setup({filer_kind = false, highlight_on_hover = true,}) end }
 
 
 	-- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
