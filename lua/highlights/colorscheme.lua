@@ -11,8 +11,9 @@ catppuccin.setup({
 transparent_background = true,
 term_colors = false,
 styles = {
+	-- italic, bold, underline
 	comments = "italic",
-	conditionals = "italic",
+	conditionals = "bold",
 	loops = "NONE",
 	functions = "NONE",
 	keywords = "NONE",
