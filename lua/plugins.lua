@@ -33,6 +33,7 @@ return require('packer').startup({function(use)
 	use { 'nathom/filetype.nvim', config = function() require 'file-type' end }
 --colorscheme
 	use { 'morhetz/gruvbox'	}
+	use { "catppuccin/nvim", as = "catppuccin" }
 	use { 'joshdick/onedark.vim', cmd = { 'colorscheme' } }
 	use { 'shaunsingh/nord.nvim', cmd = { 'colorscheme' } }
 	use { 'NLKNguyen/papercolor-theme', cmd = { 'colorscheme' } }
