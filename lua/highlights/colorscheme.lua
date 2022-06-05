@@ -2,17 +2,17 @@
 local color_scheme = vim.g.colors_name
 
 if color_scheme == 'onedark' then
-	vim.cmd[[colorscheme onedark]]
+	-- vim.cmd[[colorscheme onedark]]
 end
 
 if color_scheme == 'gruvbox' then
-	vim.cmd[[colorscheme gruvbox]]
+	-- vim.cmd[[colorscheme gruvbox]]
 end
 
 if color_scheme == 'catppuccin' then
 
 	vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
-	vim.cmd[[colorscheme catppuccin]]
+	-- vim.cmd[[colorscheme catppuccin]]
 
 	local catppuccin = require("catppuccin")
 

@@ -9,6 +9,7 @@ wk.register({
     	name = "Telescope", -- optional group name
     	f = { "<cmd>Telescope find_files<cr>", "Find File" },
     	g = { "<cmd>Telescope live_grep<cr>", "Search Text" },
+		c = { "<cmd>lua require 'telescope.builtin'.colorscheme{}<Cr>", "Change Colorscheme" },
 		b = { "<cmd>Telescope buffers<Cr>", "Search Buffer" },
 		h = { "<cmd>Telescope help_tags<Cr>", "Search Help Tags" },
   	},
