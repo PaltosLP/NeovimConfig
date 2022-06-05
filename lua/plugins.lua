@@ -17,21 +17,16 @@ return require('packer').startup({function(use)
 	use { 'wbthomason/packer.nvim' }
 	use { 'lewis6991/impatient.nvim' }
 	use { 'nathom/filetype.nvim', config = function() require 'file-type' end }
+
 --colorscheme
 	use { 'morhetz/gruvbox'	}
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use { 'joshdick/onedark.vim', }
+	use { 'marko-cerovac/material.nvim', cmd = { 'colorscheme' } }
 	use { 'shaunsingh/nord.nvim', cmd = { 'colorscheme' } }
 	use { 'NLKNguyen/papercolor-theme', cmd = { 'colorscheme' } }
-	use { 'ghifarit53/tokyonight-vim', cmd = { 'colorscheme' }, config = function()
-		vim.cmd 'let g:tokyonight_style = "night"'
-		vim.cmd 'let g:tokyonight_enable_italic = 1'
-	end }
-	use { 'sainnhe/everforest', cmd = { 'colorscheme' }, config = function()
-		vim.o.background = 'dark'
-		vim.cmd('let g:everforest_background = "hard"')
-		vim.cmd('let g:everforest_better_performance = 1')
-	end }
+	use { 'ghifarit53/tokyonight-vim', cmd = { 'colorscheme' }}
+	use { 'sainnhe/everforest', cmd = { 'colorscheme' } }
 	use { 'rmehri01/onenord.nvim', cmd = { 'colorscheme' } }
 
 

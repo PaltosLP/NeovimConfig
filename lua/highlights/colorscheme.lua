@@ -12,14 +12,38 @@ require("lsp-colors").setup({
 
 
 if color_scheme == 'onedark' then
-	-- vim.cmd[[colorscheme onedark]]
-end
+	do end
 
-if color_scheme == 'gruvbox' then
-	-- vim.cmd[[colorscheme gruvbox]]
-end
+elseif color_scheme == 'gruvbox' then
+	do end
 
-if color_scheme == 'catppuccin' then
+elseif color_scheme == 'material' then
+	vim.g.material_style = "palenight" -- darker, lighter, oceanic, palenight, deep ocean
+	vim.cmd[[colorscheme material]]
+	require('material').setup{
+	custom_highlights = {
+		CursorLine = { fg = '#0000FF', gui = 'underline' },
+		}
+	}
+elseif color_scheme == 'nord' then
+	do end
+
+elseif color_scheme == 'papercolor-theme' then
+	do end
+
+elseif color_scheme == 'tokyonight-vim' then
+	vim.cmd 'let g:tokyonight_style = "night"'
+	vim.cmd 'let g:tokyonight_enable_italic = 1'
+
+elseif color_scheme == 'everforest' then
+	vim.o.background = 'dark'
+	vim.cmd('let g:everforest_background = "hard"')
+	vim.cmd('let g:everforest_better_performance = 1')
+
+elseif color_scheme == 'onenord' then
+	do end
+
+elseif color_scheme == 'catppuccin' then
 
 	vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
 	-- vim.cmd[[colorscheme catppuccin]]
@@ -29,22 +53,6 @@ if color_scheme == 'catppuccin' then
 	-- configure it
 	catppuccin.setup({
 	transparent_background = true,
-	term_colors = false,
-	styles = {
-		-- italic, bold, underline
-		comments = "italic",
-		conditionals = "bold",
-		loops = "NONE",
-		functions = "NONE",
-		keywords = "NONE",
-		strings = "NONE",
-		variables = "NONE",
-		numbers = "NONE",
-		booleans = "NONE",
-		properties = "NONE",
-		types = "NONE",
-		operators = "NONE",
-	},
 	integrations = {
 		treesitter = true,
 		native_lsp = {
@@ -64,19 +72,11 @@ if color_scheme == 'catppuccin' then
 		},
 		lsp_trouble = true,
 		cmp = true,
-		lsp_saga = false,
-		gitgutter = false,
-		gitsigns = false,
 		telescope = true,
 		nvimtree = {
 			enabled = true,
 			show_root = false,
-			transparent_panel = false,
-		},
-		neotree = {
-			enabled = false,
-			show_root = false,
-			transparent_panel = false,
+			transparent_panel = true,
 		},
 		which_key = true,
 		indent_blankline = {
@@ -84,18 +84,9 @@ if color_scheme == 'catppuccin' then
 			colored_indent_levels = false,
 		},
 		dashboard = true,
-		neogit = false,
-		vim_sneak = false,
-		fern = false,
-		barbar = false,
-		bufferline = true,
 		markdown = true,
 		lightspeed = true,
 		ts_rainbow = true,
-		hop = false,
-		notify = true,
-		telekasten = true,
-		symbols_outline = true,
 	}
 	})
 
