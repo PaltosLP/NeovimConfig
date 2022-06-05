@@ -1,17 +1,3 @@
--- local status = pcall(require, 'packer')
--- if not status then
---     print('packer Error')
---     return
--- end
-
--- local packer.init {
---   display = {
---     open_fn = function()
---       return require("packer.util").float { border = "rounded" }
---     end
---   }
--- }
-
 
 
 vim.cmd([[
@@ -145,7 +131,7 @@ return require('packer').startup({function(use)
 	use { 'lukas-reineke/indent-blankline.nvim', config = function () require 'highlights.indent' end }
 
 
-	use { 'nvim-neorg/neorg', tag = "latest", ft = 'norg', after = {'nvim-treesitter','telescope.nvim'}, config = function() require 'neo_org' end }
+	use { 'nvim-neorg/neorg', tag = "latest", ft = 'norg', after = {'nvim-treesitter','telescope.nvim'}, config = function() require 'extra.neo_org' end }
 
 
 	use { 'mg979/vim-visual-multi', keys = { {'n','<C-n>'} } }
@@ -160,19 +146,19 @@ return require('packer').startup({function(use)
 	use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
 
 
-	use { 'folke/which-key.nvim', config = function() require 'whichkey' end }
+	use { 'folke/which-key.nvim', config = function() require 'maps.whichkey' end }
 
 
 	use { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeOpen' }, config = function() require 'nvim_tree' end }
 
 
-	use { 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'zenmode' end }
+	use { 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'extra.zenmode' end }
 
 
-	use { 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'twilights' end }
+	use { 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'extra.twilights' end }
 
 
-	use { "max397574/better-escape.nvim", event = { 'InsertEnter' }, config = function() require 'betterescape' end }
+	use { "max397574/better-escape.nvim", event = { 'InsertEnter' }, config = function() require 'maps.betterescape' end }
 
 
 	use { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' }, requires = 'kyazdani42/nvim-web-devicons', config = function() require 'lsp.troubles' end }

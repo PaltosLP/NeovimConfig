@@ -11,7 +11,7 @@ vim.cmd[[colorscheme catppuccin]] -- gruvbox, catppuccin, onedark
 require 'highlights.colorscheme'
 
 --mappings
-require 'mappings'
+require 'maps.mappings'
 
 --packer
 require 'plugins'
