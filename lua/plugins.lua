@@ -64,6 +64,8 @@ return require('packer').startup({function(use)
 
 	use { 'neovim/nvim-lspconfig' }
 
+	use { 'folke/lsp-colors.nvim', after = 'nvim-lspconfig'}
+
 	use { 'williamboman/nvim-lsp-installer', cmd = {'LspInstall', 'LspInstallInfo'}, config = function() require 'lsp.lsp-installer' end }
 
 	use { 'glepnir/dashboard-nvim',	config = function() require 'dashboard' end } 		-- ft = { 'dashboard' }, -- cmd = {	"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave", },

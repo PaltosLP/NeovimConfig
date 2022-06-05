@@ -1,6 +1,16 @@
 
 local color_scheme = vim.g.colors_name
 
+-- Lua
+require("lsp-colors").setup({
+	Error = "#db4b4b",
+	-- Error = "#8C0164",
+	Warning = "#e0af68",
+	Information = "#0db9d7",
+	Hint = "#10B981"
+})
+
+
 if color_scheme == 'onedark' then
 	-- vim.cmd[[colorscheme onedark]]
 end
