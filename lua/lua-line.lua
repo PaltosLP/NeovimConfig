@@ -5,11 +5,15 @@
 -- end
 
 
+
+local color_scheme = vim.g.colors_name
+
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'gruvbox',
-    component_separators = { left = '', right = ''},
+    theme = color_scheme,
+	component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},
     always_divide_middle = true,

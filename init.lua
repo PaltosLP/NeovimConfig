@@ -7,7 +7,7 @@ require 'impatient'.enable_profile()
 require 'opts'
 
 --colorscheme
--- vim.cmd 'colorscheme gruvbox'
+vim.cmd[[colorscheme catppuccin]] -- gruvbox, catppuccin, onedark
 require 'highlights.colorscheme'
 
 --mappings

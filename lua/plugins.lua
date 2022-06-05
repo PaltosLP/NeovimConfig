@@ -34,7 +34,7 @@ return require('packer').startup({function(use)
 --colorscheme
 	use { 'morhetz/gruvbox'	}
 	use { "catppuccin/nvim", as = "catppuccin" }
-	use { 'joshdick/onedark.vim', cmd = { 'colorscheme' } }
+	use { 'joshdick/onedark.vim', }
 	use { 'shaunsingh/nord.nvim', cmd = { 'colorscheme' } }
 	use { 'NLKNguyen/papercolor-theme', cmd = { 'colorscheme' } }
 	use { 'ghifarit53/tokyonight-vim', cmd = { 'colorscheme' }, config = function()
