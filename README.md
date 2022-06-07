@@ -1,7 +1,7 @@
 # Neovim
 Some neovim stuff.
 
-![image](https://user-images.githubusercontent.com/85098415/171424082-5debab39-09d9-46c4-8b4f-ae943767dd6c.png)
+![image](https://user-images.githubusercontent.com/85098415/172385549-fbbae506-911b-447a-8a13-876e2940351d.png)
 
 
 I use it in Windows Terminal with Windows Subsystem for Linux.
