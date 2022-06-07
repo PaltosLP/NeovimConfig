@@ -1,15 +1,3 @@
-
-
--- Lua
-require("lsp-colors").setup({
-	Error = "#db4b4b",
-	-- Error = "#8C0164",
-	Warning = "#e0af68",
-	Information = "#0db9d7",
-	Hint = "#10B981"
-})
-
-
 if vim.g.color_scheme == 'onedark' then
 	vim.cmd[[colorscheme onedark]]
 
@@ -48,7 +36,7 @@ elseif vim.g.color_scheme == 'onenord' then
 
 elseif vim.g.color_scheme == 'catppuccin' then
 
-	vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
+	vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 	-- vim.cmd[[colorscheme catppuccin]]
 
 	local catppuccin = require("catppuccin")
@@ -75,7 +63,6 @@ elseif vim.g.color_scheme == 'catppuccin' then
 		},
 		lsp_trouble = true,
 		cmp = true,
-		telescope = true,
 		nvimtree = {
 			enabled = true,
 			show_root = false,
@@ -88,9 +75,18 @@ elseif vim.g.color_scheme == 'catppuccin' then
 		},
 		dashboard = true,
 		markdown = true,
-		lightspeed = true,
 		ts_rainbow = true,
 	}
 	})
 	vim.cmd[[colorscheme catppuccin]]
 end
+
+
+-- Lua
+require("lsp-colors").setup({
+	Error = "#db4b4b",
+	-- Error = "#8C0164",
+	Warning = "#e0af68",
+	Information = "#0db9d7",
+	Hint = "#10B981"
+})
