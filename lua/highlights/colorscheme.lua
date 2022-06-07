@@ -1,5 +1,4 @@
 
-local color_scheme = vim.g.colors_name
 
 -- Lua
 require("lsp-colors").setup({
@@ -11,13 +10,13 @@ require("lsp-colors").setup({
 })
 
 
-if color_scheme == 'onedark' then
-	do end
+if vim.g.color_scheme == 'onedark' then
+	vim.cmd[[colorscheme onedark]]
 
-elseif color_scheme == 'gruvbox' then
-	do end
+elseif vim.g.color_scheme == 'gruvbox' then
+	vim.cmd[[colorscheme gruvbox]]
 
-elseif color_scheme == 'material' then
+elseif vim.g.color_scheme == 'material' then
 	vim.g.material_style = "palenight" -- darker, lighter, oceanic, palenight, deep ocean
 	vim.cmd[[colorscheme material]]
 	require('material').setup{
@@ -25,25 +24,29 @@ elseif color_scheme == 'material' then
 		CursorLine = { fg = '#0000FF', gui = 'underline' },
 		}
 	}
-elseif color_scheme == 'nord' then
-	do end
+	vim.cmd[[colorscheme material]]
 
-elseif color_scheme == 'papercolor-theme' then
-	do end
+elseif vim.g.color_scheme == 'nord' then
+	vim.cmd[[colorscheme nord]]
 
-elseif color_scheme == 'tokyonight-vim' then
+elseif vim.g.color_scheme == 'papercolor-theme' then
+	vim.cmd[[colorscheme papercolor-theme]]
+
+elseif vim.g.color_scheme == 'tokyonight-vim' then
 	vim.cmd 'let g:tokyonight_style = "night"'
 	vim.cmd 'let g:tokyonight_enable_italic = 1'
+	vim.cmd[[colorscheme tokyonight-vim]]
 
-elseif color_scheme == 'everforest' then
+elseif vim.g.color_scheme == 'everforest' then
 	vim.o.background = 'dark'
 	vim.cmd('let g:everforest_background = "hard"')
 	vim.cmd('let g:everforest_better_performance = 1')
+	vim.cmd[[colorscheme everforest]]
 
-elseif color_scheme == 'onenord' then
-	do end
+elseif vim.g.color_scheme == 'onenord' then
+	vim.cmd[[colorscheme onenord]]
 
-elseif color_scheme == 'catppuccin' then
+elseif vim.g.color_scheme == 'catppuccin' then
 
 	vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
 	-- vim.cmd[[colorscheme catppuccin]]
@@ -89,5 +92,5 @@ elseif color_scheme == 'catppuccin' then
 		ts_rainbow = true,
 	}
 	})
-
+	vim.cmd[[colorscheme catppuccin]]
 end
