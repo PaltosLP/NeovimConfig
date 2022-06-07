@@ -171,7 +171,7 @@ return require('packer').startup({function(use)
 
 	use { 'stevearc/aerial.nvim', after = 'nvim-lspconfig', config = function() require('aerial').setup({filer_kind = false, highlight_on_hover = true,}) end }
 
-	use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
+	use { 'lewis6991/gitsigns.nvim', cmd = 'Gitsigns', config = function() require('gitsigns').setup() end }
 	-- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 	-- use {'karb94/neoscroll.nvim'}
 
