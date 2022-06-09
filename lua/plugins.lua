@@ -59,7 +59,7 @@ return require('packer').startup({function(use)
 
 	use { 'neovim/nvim-lspconfig' }
 
-	use { 'glepnir/lspsaga.nvim', branch = 'main', config = function() require("lspsaga") end }
+	use { 'tami5/lspsaga.nvim', branch = 'main', config = function() require "lsp-saga"  end }
 
 	use { 'folke/lsp-colors.nvim', after = 'nvim-lspconfig'}
 
