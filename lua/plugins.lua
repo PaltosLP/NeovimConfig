@@ -199,6 +199,9 @@ return require('packer').startup({function(use)
 	use { 'stevearc/aerial.nvim', after = 'nvim-lspconfig', config = function() require('aerial').setup({filer_kind = false, highlight_on_hover = true,}) end }
 
 	use { 'lewis6991/gitsigns.nvim', cmd = 'Gitsigns', config = function() require('gitsigns').setup() end }
+
+	use { 'MunifTanjim/nui.nvim'}
+	use { 'VonHeikemen/fine-cmdline.nvim' , cmd = { 'FineCmdline' } } -- , cmd = { 'FineCmdline' }, config = require('fine-cmdline').setup({})  requires = { {'MunifTanjim/nui.nvim'} },
 	-- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 	-- use {'karb94/neoscroll.nvim'}
 
