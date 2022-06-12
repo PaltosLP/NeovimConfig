@@ -135,6 +135,8 @@ return require('packer').startup({function(use)
 
 	use { 'mg979/vim-visual-multi', keys = { {'n','<C-n>'} } }
 
+	use { 'matze/vim-move', keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} } }
+
 
 	use { 'onsails/lspkind.nvim' }
 
