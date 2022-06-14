@@ -1,3 +1,4 @@
+
 vim.cmd([[luafile ~/profiler.nvim/lua/profiler.lua]])
 
 --impatient (for StartUpTime use :StartupTime)
@@ -18,4 +19,10 @@ require 'maps.mappings'
 require 'plugins'
 
 --lsp
-require 'lsp'
+-- require 'lsp'
+
+
+-- vim.cmd([[
+-- autocmd BufWinEnter * startinsert
+-- autocmd BufWinEnter * startnormal
+-- ]])

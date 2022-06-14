@@ -35,6 +35,47 @@ return require('packer').startup({function(use)
 	-- use { 'jiangmiao/auto-pairs', event = 'InsertEnter', after = { 'nvim-cmp' } }
 
 
+
+
+
+--LSP
+	use { 'neovim/nvim-lspconfig' }
+	use { 'hrsh7th/nvim-cmp', event = { 'InsertEnter', 'CmdlineEnter' }, config = function() require 'lsp' end } --config = function() require 'lsp' end 	after = { 'nvim-lspconfig' }, require 'lsp'
+	use { 'hrsh7th/cmp-nvim-lsp', module = 'cmp_nvim_lsp', }	-- after = { 'nvim-cmp' }
+	use { 'L3MON4D3/LuaSnip', event = 'InsertEnter', }
+	use { "rafamadriz/friendly-snippets", opt = true,
+		-- setup = function()
+		--
+		-- 	vim.api.nvim_create_autocmd("InsertEnter", {
+		-- 		callback = function()
+		-- 			vim.defer_fn(function()
+		-- 				vim.cmd([[
+		-- 				PackerLoad friendly-snippets
+		-- 				]])
+		-- 			end, 100)
+		-- 		end,
+		-- 	})
+		-- end,
+		-- config = function()
+		-- 	require("luasnip/loaders/from_vscode").load({
+		-- 		paths = {"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets"},})
+		-- 	end
+		--
+		--
+		}
+	use { 'saadparwaiz1/cmp_luasnip', event = { 'InsertEnter', 'CmdlineEnter' }, }
+	use { 'hrsh7th/cmp-buffer', event = { 'InsertEnter', 'CmdlineEnter' }, }
+	use { 'hrsh7th/cmp-path', event = { 'InsertEnter', 'CmdlineEnter' } }
+	use { 'hrsh7th/cmp-cmdline', event = { 'InsertEnter', 'CmdlineEnter' } }
+	use { 'williamboman/nvim-lsp-installer', cmd = {'LspInstall', 'LspInstallInfo'}, config = function() require 'lsp.lsp-installer' end }
+	use { 'onsails/lspkind.nvim' }
+	use { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' }, requires = 'kyazdani42/nvim-web-devicons', config = function() require 'lsp.troubles' end }
+
+
+
+
+
+
 	use { 'windwp/nvim-autopairs',
 			setup = function()
 
@@ -57,13 +98,11 @@ return require('packer').startup({function(use)
 
 	use { 'nvim-treesitter/nvim-treesitter', run = 'TSUpdate', config = function() require 'highlights.tree-sitter' end } -- event = { "BufRead", "BufWinEnter" },
 
-	use { 'neovim/nvim-lspconfig' }
 
 	use { 'tami5/lspsaga.nvim', branch = 'main', config = function() require "lsp-saga"  end }
 
 	use { 'folke/lsp-colors.nvim', after = 'nvim-lspconfig'}
 
-	use { 'williamboman/nvim-lsp-installer', cmd = {'LspInstall', 'LspInstallInfo'}, config = function() require 'lsp.lsp-installer' end }
 
 	use { 'glepnir/dashboard-nvim',	config = function() require 'dashboard' end } 		-- ft = { 'dashboard' }, -- cmd = {	"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave", },
 
@@ -73,37 +112,6 @@ return require('packer').startup({function(use)
 	use { 'xiyaowong/nvim-transparent', config = function() require 'highlights.transparency' end }
 
 	use { 'p00f/nvim-ts-rainbow' } -- after = { 'nvim-lspconfig' }
-
-
---cmp
-	use { 'hrsh7th/nvim-cmp', event = { 'InsertEnter', 'CmdlineEnter' }, } --config = function() require 'lsp' end 	after = { 'nvim-lspconfig' }, require 'lsp'
-	use { 'hrsh7th/cmp-nvim-lsp', module = 'cmp_nvim_lsp', }	-- after = { 'nvim-cmp' }
-	use { 'L3MON4D3/LuaSnip', event = 'InsertEnter', }
-	use { "rafamadriz/friendly-snippets", opt = true,
-		setup = function()
-
-			vim.api.nvim_create_autocmd("InsertEnter", {
-				callback = function()
-					vim.defer_fn(function()
-						vim.cmd([[
-						PackerLoad friendly-snippets
-						]])
-					end, 100)
-				end,
-			})
-		end,
-		config = function()
-			require("luasnip/loaders/from_vscode").load({
-				paths = {"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets"},})
-			end
-
-
-		}
-	use { 'saadparwaiz1/cmp_luasnip', event = { 'InsertEnter', 'CmdlineEnter' }, }
-	use { 'hrsh7th/cmp-buffer', event = { 'InsertEnter', 'CmdlineEnter' }, }
-	use { 'hrsh7th/cmp-path', event = { 'InsertEnter', 'CmdlineEnter' } }
-	use { 'hrsh7th/cmp-cmdline', event = { 'InsertEnter', 'CmdlineEnter' } }
-
 
 	--use 'declancm/cinnamon.nvim'
 
@@ -138,7 +146,6 @@ return require('packer').startup({function(use)
 	use { 'matze/vim-move', keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} } }
 
 
-	use { 'onsails/lspkind.nvim' }
 
 
 	use { 'ggandor/lightspeed.nvim', keys = { {'n','s'} },
@@ -187,7 +194,6 @@ return require('packer').startup({function(use)
 	use { "max397574/better-escape.nvim", event = { 'InsertEnter' }, config = function() require 'maps.betterescape' end }
 
 
-	use { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' }, requires = 'kyazdani42/nvim-web-devicons', config = function() require 'lsp.troubles' end }
 
 	use {
 		"max397574/colortils.nvim",
@@ -198,7 +204,7 @@ return require('packer').startup({function(use)
 		end,
 	}
 
-	use { 'stevearc/aerial.nvim', after = 'nvim-lspconfig', config = function() require('aerial').setup({filer_kind = false, highlight_on_hover = true,}) end }
+	-- use { 'stevearc/aerial.nvim', after = 'nvim-lspconfig', config = function() require('aerial').setup({filer_kind = false, highlight_on_hover = true,}) end }
 
 	use { 'lewis6991/gitsigns.nvim', cmd = 'Gitsigns', config = function() require('gitsigns').setup() end }
 

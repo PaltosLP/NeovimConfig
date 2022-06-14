@@ -28,7 +28,7 @@ utils.on_attach = function(client, bufnr)
 	map(0, "n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
 	map(0, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
 
-require("aerial").on_attach(client, bufnr)
+-- require("aerial").on_attach(client, bufnr)
 
 end
 
