@@ -1,5 +1,4 @@
 
-
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -7,21 +6,19 @@ vim.cmd([[
   augroup end
 ]])
 
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
--- vim.cmd [[packadd packer.nvim]]
-
 return require('packer').startup({function(use)
-  -- Packer can manage itself
 	use { 'wbthomason/packer.nvim' }
 	use { 'lewis6991/impatient.nvim' }
-	use { 'nathom/filetype.nvim', config = function() require 'file-type' end }
+	use { 'nathom/filetype.nvim', config = function() require'filetype'.setup({}) end }
+	use { "nvim-lua/plenary.nvim" }
+	use { 'MunifTanjim/nui.nvim'}
+	use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
+
 
 --colorscheme
-	use { 'morhetz/gruvbox'	}
 	use { "catppuccin/nvim", as = "catppuccin" }
-	use { 'joshdick/onedark.vim', }
+	use { 'morhetz/gruvbox', cmd = { 'colorscheme' } }
+	use { 'joshdick/onedark.vim', cmd = { 'colorscheme' } }
 	use { 'marko-cerovac/material.nvim', cmd = { 'colorscheme' } }
 	use { 'shaunsingh/nord.nvim', cmd = { 'colorscheme' } }
 	use { 'NLKNguyen/papercolor-theme', cmd = { 'colorscheme' } }
@@ -29,21 +26,54 @@ return require('packer').startup({function(use)
 	use { 'sainnhe/everforest', cmd = { 'colorscheme' } }
 	use { 'rmehri01/onenord.nvim', cmd = { 'colorscheme' } }
 
+--highlights
+	use { 'xiyaowong/nvim-transparent', config = function() require 'highlights.transparency' end }
+	use { 'lukas-reineke/indent-blankline.nvim' }--, config = function () require 'highlights.indent' end
+	use { 'nvim-treesitter/nvim-treesitter', run = 'TSUpdate' }--, config = function() require 'highlights.tree_sitter' end
+	use { 'nvim-treesitter/playground', cmd = {'TSPlaygroundToggle'} }
+	--use { 'folke/lsp-colors.nvim', after = 'nvim-lspconfig' }
+	use { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' }
 
-	-- use 'vim-airline/vim-airline'
-	-- use 'vim-airline/vim-airline-themes'
-	-- use { 'jiangmiao/auto-pairs', event = 'InsertEnter', after = { 'nvim-cmp' } }
+--Mappings
+	use { 'folke/which-key.nvim', config = function() require 'maps.whichkey' end }
+	use { "max397574/better-escape.nvim", event = { 'InsertEnter' }, config = function() require 'maps.betterescape' end }
 
 
+--AutoPairs
+	use { 'windwp/nvim-autopairs',
+		-- 	setup = function()
+		--
+		-- 	vim.api.nvim_create_autocmd("InsertEnter", {
+		-- 		callback = function()
+		-- 			vim.defer_fn(function()
+		-- 				vim.cmd([[
+		-- 				PackerLoad nvim-autopairs
+		-- 				]])
+		-- 			end, 100)
+		-- 		end,
+		-- 	})
+		-- end, config = function() require'nvim-autopairs'.setup{} end, opt = true
+		}
 
 
-
---LSP
+-- LSP Completion Snippets
 	use { 'neovim/nvim-lspconfig' }
-	use { 'hrsh7th/nvim-cmp', event = { 'InsertEnter', 'CmdlineEnter' }, config = function() require 'lsp' end } --config = function() require 'lsp' end 	after = { 'nvim-lspconfig' }, require 'lsp'
-	use { 'hrsh7th/cmp-nvim-lsp', module = 'cmp_nvim_lsp', }	-- after = { 'nvim-cmp' }
-	use { 'L3MON4D3/LuaSnip', event = 'InsertEnter', }
-	use { "rafamadriz/friendly-snippets", opt = true,
+
+	use { 'hrsh7th/cmp-nvim-lsp' }
+	use { 'hrsh7th/cmp-buffer' }  --, opt = true
+	use { 'hrsh7th/cmp-path' } --, opt = true
+	use { 'hrsh7th/cmp-cmdline' } --, opt = true
+	use { 'hrsh7th/nvim-cmp' } -- , opt = true
+	use { 'L3MON4D3/LuaSnip' } --, opt = true
+	use { 'saadparwaiz1/cmp_luasnip' } --, opt = true
+	use { 'onsails/lspkind.nvim' }
+--	use { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' }, requires = 'kyazdani42/nvim-web-devicons', config = function() require 'lsp.troubles' end }
+-- use { 'williamboman/nvim-lsp-installer', cmd = {'LspInstall', 'LspInstallInfo'}, config = function() require 'lsp.lsp-installer' end }
+
+	use { 'windwp/nvim-ts-autotag',	ft = { 'html' }	}
+	use { 'norcalli/nvim-colorizer.lua', ft = {'css'}, config = function() require 'colorizer'.setup() end }
+
+	use { "rafamadriz/friendly-snippets" --, opt = true,
 		-- setup = function()
 		--
 		-- 	vim.api.nvim_create_autocmd("InsertEnter", {
@@ -63,138 +93,16 @@ return require('packer').startup({function(use)
 		--
 		--
 		}
-	use { 'saadparwaiz1/cmp_luasnip', event = { 'InsertEnter', 'CmdlineEnter' }, }
-	use { 'hrsh7th/cmp-buffer', event = { 'InsertEnter', 'CmdlineEnter' }, }
-	use { 'hrsh7th/cmp-path', event = { 'InsertEnter', 'CmdlineEnter' } }
-	use { 'hrsh7th/cmp-cmdline', event = { 'InsertEnter', 'CmdlineEnter' } }
-	use { 'williamboman/nvim-lsp-installer', cmd = {'LspInstall', 'LspInstallInfo'}, config = function() require 'lsp.lsp-installer' end }
-	use { 'onsails/lspkind.nvim' }
-	use { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' }, requires = 'kyazdani42/nvim-web-devicons', config = function() require 'lsp.troubles' end }
 
 
-
-
-
-
-	use { 'windwp/nvim-autopairs',
-			setup = function()
-
-			vim.api.nvim_create_autocmd("InsertEnter", {
-				callback = function()
-					vim.defer_fn(function()
-						vim.cmd([[
-						PackerLoad nvim-autopairs 
-						]])
-					end, 100)
-				end,
-			})
-		end, config = function() require 'auto-pairs' end, opt = true }
-
-	use { 'windwp/nvim-ts-autotag',	ft = { 'html' }	} -- after = { 'nvim-treesitter' },
-
-	-- use { 'preservim/nerdtree', cmd = {'NERDTreeToggle'}, config = function () vim.cmd('let NERDTreeQuitOnOpen=1') end }
-
-	use { 'norcalli/nvim-colorizer.lua', ft = {'css'}, config = function() require 'colorizer'.setup() end }
-
-	use { 'nvim-treesitter/nvim-treesitter', run = 'TSUpdate', config = function() require 'highlights.tree-sitter' end } -- event = { "BufRead", "BufWinEnter" },
-
-
-	use { 'tami5/lspsaga.nvim', branch = 'main', config = function() require "lsp-saga"  end }
-
-	use { 'folke/lsp-colors.nvim', after = 'nvim-lspconfig'}
-
-
-	use { 'glepnir/dashboard-nvim',	config = function() require 'dashboard' end } 		-- ft = { 'dashboard' }, -- cmd = {	"Dashboard", "DashboardNewFile", "DashboardJumpMarks", "SessionLoad", "SessionSave", },
-
-	--use 'junegunn/fzf'
-	--use 'junegunn/fzf.vim'
-
-	use { 'xiyaowong/nvim-transparent', config = function() require 'highlights.transparency' end }
-
-	use { 'p00f/nvim-ts-rainbow' } -- after = { 'nvim-lspconfig' }
-
-	--use 'declancm/cinnamon.nvim'
-
-
-	use { 'numToStr/Comment.nvim', keys = { { 'n', 'g' }, { 'v', 'g' } }, config = function () require 'Comment'.setup() end }
-
-
-	use { 'nvim-treesitter/playground', cmd = {'TSPlaygroundToggle'} }
-
-
-	use { 'nvim-lua/plenary.nvim', module = 'plenary' }
-
-
-	use { 'kyazdani42/nvim-web-devicons', module = 'nvim-web-devicons', config = function () require 'devicons' end }
-
-
+--facility
 	use { 'nvim-telescope/telescope.nvim' }
-
-
-	use { 'nvim-lualine/lualine.nvim', after = "gruvbox", config = function () require 'lua-line' end }
-	-- use { 'henriquehbr/nvim-startup.lua' }
-
-
-	use { 'lukas-reineke/indent-blankline.nvim', config = function () require 'highlights.indent' end }
-
-
-	use { 'nvim-neorg/neorg', tag = "latest", ft = 'norg', after = {'nvim-treesitter','telescope.nvim'}, config = function() require 'extra.neo_org' end }
-
-
+	use { 'numToStr/Comment.nvim', keys = { { 'n', 'g' }, { 'v', 'g' } }, config = function () require 'Comment'.setup() end }
+	use { 'ggandor/lightspeed.nvim', keys = { {'n','s'} } }
+	use { 'nvim-lualine/lualine.nvim', after = "catppuccin", config = function () require 'facility.lua-line' end }
 	use { 'mg979/vim-visual-multi', keys = { {'n','<C-n>'} } }
-
 	use { 'matze/vim-move', keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} } }
-
-
-
-
-	use { 'ggandor/lightspeed.nvim', keys = { {'n','s'} },
-	-- config = function()
-	-- 	require'lightspeed'.setup {
-	--   ignore_case = false,
-	--   exit_after_idle_msecs = { unlabeled = 1000, labeled = nil },
-	--   --- s/x ---
-	--   jump_to_unique_chars = { safety_timeout = 400 },
-	--   match_only_the_start_of_same_char_seqs = true,
-	--   force_beacons_into_match_width = false,
-	--   -- Display characters in a custom way in the highlighted matches.
-	--   substitute_chars = { ['\r'] = '¬', },
-	--   -- Leaving the appropriate list empty effectively disables "smart" mode,
-	--   -- and forces auto-jump to be on or off.
- -- safe_labels = { . . . },
-	--   labels = { . . . },
-	--   -- These keys are captured directly by the plugin at runtime.
-	--   special_keys = {
-	-- 	next_match_group = '<space>',
-	-- 	prev_match_group = '<tab>',
-	--   },
-	--   --- f/t ---
-	--   limit_ft_matches = 4,
-	--   repeat_ft_with_target_char = false,
-	-- }
-	-- end
-}
-
-
-	use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
-
-
-	use { 'folke/which-key.nvim', config = function() require 'maps.whichkey' end }
-
-
-	use { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeOpen' }, config = function() require 'nvim_tree' end }
-
-
-	use { 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'extra.zenmode' end }
-
-
-	use { 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'extra.twilights' end }
-
-
-	use { "max397574/better-escape.nvim", event = { 'InsertEnter' }, config = function() require 'maps.betterescape' end }
-
-
-
+	use { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeOpen' }, config = function() require 'facility.nvim_tree' end }
 	use {
 		"max397574/colortils.nvim",
 		cmd = "Colortils",
@@ -203,15 +111,18 @@ return require('packer').startup({function(use)
 			vim.cmd('PackerLoad nvim-colorizer.lua')
 		end,
 	}
-
-	-- use { 'stevearc/aerial.nvim', after = 'nvim-lspconfig', config = function() require('aerial').setup({filer_kind = false, highlight_on_hover = true,}) end }
-
 	use { 'lewis6991/gitsigns.nvim', cmd = 'Gitsigns', config = function() require('gitsigns').setup() end }
 
-	use { 'MunifTanjim/nui.nvim'}
-	use { 'VonHeikemen/fine-cmdline.nvim' , cmd = { 'FineCmdline' } } -- , cmd = { 'FineCmdline' }, config = require('fine-cmdline').setup({})  requires = { {'MunifTanjim/nui.nvim'} },
-	-- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
-	-- use {'karb94/neoscroll.nvim'}
+
+--extra
+	-- use { 'glepnir/dashboard-nvim',	config = function() require 'extra.dashboard' end }
+	use { 'nvim-neorg/neorg', tag = "latest", ft = 'norg', after = {'nvim-treesitter','telescope.nvim'}, config = function() require 'extra.neo_org' end }
+	use { 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'extra.zenmode' end }
+	use { 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'extra.twilights' end }
+	use { 'VonHeikemen/fine-cmdline.nvim' , cmd = { 'FineCmdline' } }
+	use { 'kyazdani42/nvim-web-devicons', module = 'nvim-web-devicons', config = function () require 'extra.devicons' end }
+	use { 'tami5/lspsaga.nvim', branch = 'main', config = function() require "extra.lsp-saga"  end }
+
 
 end,
 config = {
@@ -221,6 +132,5 @@ config = {
 		end
 	}
 }
-})
-
-
+}
+)

@@ -24,11 +24,11 @@ ls.config.set_config({
 	enable_autosnippets = true
 })
 
--- require("luasnip/loaders/from_vscode").load({
--- 	paths = {
--- 		"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
--- 	},
--- })
+require("luasnip/loaders/from_vscode").load({
+	paths = {
+		"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
+	},
+})
 
 
 -- <C-k> expands the snippet and jumps inside the the snippet

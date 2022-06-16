@@ -1,4 +1,4 @@
-local utils = require 'lsp.langs.utils'
+local utils = require 'lang.langs.utils'
 
 local ls = require"luasnip"
 local s = ls.snippet
@@ -18,11 +18,22 @@ local lambda = require("luasnip.extras").l
 
 
 
-vim.opt.cindent = true
-
-
-
-require('lspconfig')['clangd'].setup {
+require('lspconfig')['sumneko_lua'].setup {
 	on_attach = utils.on_attach,
-	capabilities = utils.capabilities
+	capabilities = utils.capabilities,
+	settings = {
+	Lua = {
+	   diagnostics = {
+		  globals = { 'vim' }
+		  }
+	   }
+	}
 }
+
+ls.add_snippets( "lua" , {
+	s("print", {
+		-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
+		t("print("), i(1, ""), t(")")
+	})
+})
+

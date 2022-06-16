@@ -1,5 +1,5 @@
 
-local utils = require 'lsp.langs.utils'
+local utils = require 'lang.langs.utils'
 
 local ls = require"luasnip"
 local s = ls.snippet

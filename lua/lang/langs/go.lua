@@ -1,4 +1,5 @@
-local utils = require 'lsp.langs.utils'
+
+local utils = require 'lang.langs.utils'
 
 local ls = require"luasnip"
 local s = ls.snippet
@@ -17,8 +18,7 @@ local m = require("luasnip.extras").m
 local lambda = require("luasnip.extras").l
 
 
-
-require('lspconfig')['vimls'].setup {
+require('lspconfig')['gopls'].setup {
 	on_attach = utils.on_attach,
-	capabilities = utils.capabilities
+	capabilities = utils.capabilities,
 }

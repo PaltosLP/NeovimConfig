@@ -58,6 +58,7 @@ wk.register({
 	['<ESC>'] = { "<cmd>nohl<Cr>", "Remove Search Highlights" },
 	['<C-l>'] = { "<cmd>q<Cr>", "Leave" },
 	['<leader>c'] = { "<cmd>FineCmdline<Cr>", "FineLine" },
+	['<leader>t'] = { "<cmd>StartupTime<Cr>", "StartupTime" }
 	-- Q = {
 	-- 	name = 'Quit',
 	-- 	q = { "<cmd>q<Cr>", "Quit" },

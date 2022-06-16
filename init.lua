@@ -1,4 +1,3 @@
-
 vim.cmd([[luafile ~/profiler.nvim/lua/profiler.lua]])
 
 --impatient (for StartUpTime use :StartupTime)
@@ -10,7 +9,7 @@ require 'opts'
 --colorscheme
 -- vim.cmd[[colorscheme gruvbox]]
 vim.g.color_scheme = 'catppuccin' -- gruvbox, catppuccin, onedark, material
-require 'highlights.colorscheme'
+require 'highlights'
 
 --mappings
 require 'maps.mappings'
@@ -19,10 +18,11 @@ require 'maps.mappings'
 require 'plugins'
 
 --lsp
--- require 'lsp'
+require 'lang'
 
 
 -- vim.cmd([[
 -- autocmd BufWinEnter * startinsert
 -- autocmd BufWinEnter * startnormal
 -- ]])
+

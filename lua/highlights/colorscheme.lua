@@ -83,10 +83,10 @@ end
 
 
 -- Lua
-require("lsp-colors").setup({
-	Error = "#db4b4b",
-	-- Error = "#8C0164",
-	Warning = "#e0af68",
-	Information = "#0db9d7",
-	Hint = "#10B981"
-})
+-- require("lsp-colors").setup({
+-- 	Error = "#db4b4b",
+-- 	-- Error = "#8C0164",
+-- 	Warning = "#e0af68",
+-- 	Information = "#0db9d7",
+-- 	Hint = "#10B981"
+-- })

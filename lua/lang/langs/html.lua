@@ -1,4 +1,4 @@
-local utils = require 'lsp.langs.utils'
+local utils = require 'lang.langs.utils'
 
 local ls = require"luasnip"
 local s = ls.snippet
@@ -17,11 +17,23 @@ local m = require("luasnip.extras").m
 local lambda = require("luasnip.extras").l
 
 
+
+
 utils.capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 
 
-require 'lspconfig'.tsserver.setup {
+-- vim.cmd 'IndentBlanklineDisable'
+
+require 'lspconfig'.html.setup {
 	on_attach = utils.on_attach,
 	capabilities = utils.capabilities
 }
+
+
+ls.add_snippets('html', {
+	s('<div>', {
+		t("<div>"), i(1, ""), t("</div>")
+
+	})
+})

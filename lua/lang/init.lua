@@ -4,8 +4,8 @@
 -- vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
 
-require 'lsp.comp'
-require 'lsp.snippet'
+require 'lang.comp'
+require 'lang.snippet'
 
 local ft = vim.fn.expand('%:e')
 
@@ -24,6 +24,6 @@ end
 
 if state then
 	-- ft = ft .. 'lsp'
-	local ft_extended = 'lsp.langs.' .. ft .. 'lsp'
+	local ft_extended = 'lang.langs.' .. ft
 	require(ft_extended)
 end
