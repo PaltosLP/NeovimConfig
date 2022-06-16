@@ -17,7 +17,7 @@ local m = require("luasnip.extras").m
 local lambda = require("luasnip.extras").l
 
 
-utils.capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- utils.capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 
 

@@ -27,7 +27,8 @@ utils.capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 require 'lspconfig'.html.setup {
 	on_attach = utils.on_attach,
-	capabilities = utils.capabilities
+	capabilities = utils.capabilities,
+	cmd = { "vscode-html-language-server", "--stdio" }
 }
 
 
