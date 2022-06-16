@@ -41,6 +41,7 @@ return require('packer').startup({function(use)
 
 --AutoPairs
 	use { 'windwp/nvim-autopairs',
+			config = function() require("nvim-autopairs").setup{} end
 		-- 	setup = function()
 		--
 		-- 	vim.api.nvim_create_autocmd("InsertEnter", {
