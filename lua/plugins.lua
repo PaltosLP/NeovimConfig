@@ -112,7 +112,7 @@ return require('packer').startup({function(use)
 			vim.cmd('PackerLoad nvim-colorizer.lua')
 		end,
 	}
-	use { 'lewis6991/gitsigns.nvim', cmd = 'Gitsigns', config = function() require('gitsigns').setup() end }
+	use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end } --, cmd = 'Gitsigns'
 
 
 --extra
