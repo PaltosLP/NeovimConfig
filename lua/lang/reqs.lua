@@ -19,4 +19,4 @@ end
 if state then
 	local ft_extended = 'lang.langs.' .. ft
 	require(ft_extended)
-end 
+end
