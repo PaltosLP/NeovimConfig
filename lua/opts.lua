@@ -21,6 +21,11 @@ vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.o.timeoutlen = 600
 
+vim.opt.foldmethod = "expr" -- use treesitter for folding
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+
+
 -- To make the Boxes nicer
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {	border = "rounded" })
 vim.diagnostic.config({ virtual_text = { prefix = "◉" }, float = { border = "rounded" } })
