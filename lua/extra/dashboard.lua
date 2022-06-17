@@ -1,13 +1,9 @@
--- local status = pcall(require, 'dashboard-nvim')
--- if not status then
---     print('dashboard Error')
---     return
--- end
+local db = require('dashboard')
 
 
 vim.g.dashboard_default_executive = 'telescope'
 
-vim.g.dashboard_custom_header = {
+db.custom_header = {
   [[              ▄▄▄▄▄▄▄▄▄            ]],
   [[           ▄█████████████▄          ]],
   [[   █████  █████████████████  █████  ]],
@@ -27,16 +23,21 @@ vim.g.dashboard_custom_header = {
   [[       ▀███ █████████████ ███▀      ]],
   [[         ▀█ ███ ▄▄▄▄▄ ███ █▀        ]],
   [[            ▀█▌▐█████▌▐█▀            ]],
-  [[               ███████              ]]
+  [[               ███████              ]],
+  [[                                    ]],
+  [[                                    ]]
 }
 
-vim.g.dashboard_custom_section = {
-  a = {description = {'  Find File          '}, command = 'Telescope find_files'},
-  d = {description = {'  Search Text        '}, command = 'Telescope live_grep'},
-  b = {description = {'  Recent Files       '}, command = 'Telescope oldfiles'},
-  c = {description = {'  Handbook           '}, command = 'edit  ~/.config/nvim/handbook.txt'},
-  e = {description = {'  Code               '}, command = 'edit /home/paltos/files'},
-  f = {description = {'  Config             '}, command = 'edit ~/.config/nvim/init.lua'}
+db.custom_center = {
+  { icon = ' ', desc = 'Find File', action = 'Telescope find_files'},
+  { icon = ' ', desc = 'Search Text', action = 'Telescope live_grep'},
+  { icon = ' ', desc = 'Recent Files', action = 'Telescope oldfiles'},
+  { icon = ' ', desc = 'Handbook', action = 'edit  ~/.config/nvim/handbook.txt'},
+  { icon = ' ', desc = 'Code', action = 'edit /home/paltos/files'},
+  { icon = ' ', desc = 'Config', action = 'edit ~/.config/nvim/init.lua'}
 }
-vim.g.dashboard_custom_footer = {'Do one thing, do it well - Unix Philosophy'}
+
+
+
+db.custom_footer = {'Do one thing, do it well - Unix Philosophy'}
 
