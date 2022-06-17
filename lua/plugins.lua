@@ -116,7 +116,7 @@ return require('packer').startup({function(use)
 
 
 --extra
-	-- use { 'glepnir/dashboard-nvim',	config = function() require 'extra.dashboard' end }
+	use { 'glepnir/dashboard-nvim',	config = function() require 'extra.dashboard' end }
 	use { 'nvim-neorg/neorg', tag = "latest", ft = 'norg', after = {'nvim-treesitter','telescope.nvim'}, config = function() require 'extra.neo_org' end }
 	use { 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'extra.zenmode' end }
 	use { 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'extra.twilights' end }
