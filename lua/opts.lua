@@ -21,8 +21,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.o.timeoutlen = 600
 
-vim.opt.foldmethod = "expr" -- use treesitter for folding
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldmethod = "expr" -- use treesitter for folding
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 
 
