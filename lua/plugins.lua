@@ -72,7 +72,7 @@ return require('packer').startup({function(use)
 -- use { 'williamboman/nvim-lsp-installer', cmd = {'LspInstall', 'LspInstallInfo'}, config = function() require 'lsp.lsp-installer' end }
 
 	use { 'windwp/nvim-ts-autotag',	ft = { 'html' }	}
-	use { 'norcalli/nvim-colorizer.lua', ft = {'css'}, config = function() require 'colorizer'.setup() end }
+	use { 'norcalli/nvim-colorizer.lua', cmd = { 'ColorizerToggle' }, ft = {'css'}, config = function() require 'colorizer'.setup() end }
 
 	use { "rafamadriz/friendly-snippets" --, opt = true,
 		-- setup = function()

@@ -41,7 +41,12 @@ wk.register({
 		q = { "<cmd>q<Cr>", "Quit" },
 		f = { "<cmd>q!<Cr>", "Unsaved Quit" },
 		w = { "<cmd>wq<Cr>", "Save Quit" },
-
+	},
+	c = {
+		name = 'Color/Cmd',
+		c = { "<cmd>ColorizerToggle<Cr>", "Colorizer"},
+		p = { "<cmd>Colortils picker<Cr>", "Picker" },
+		l = { "<cmd>FineCmdline<Cr>", "FineLine" },
 	}
 
 
@@ -57,7 +62,7 @@ wk.register({
 	['<C-h>'] = { "<cmd>WhichKey<Cr>", "Toggle WhichKey"},
 	['<ESC>'] = { "<cmd>nohl<Cr>", "Remove Search Highlights" },
 	['<C-l>'] = { "<cmd>q<Cr>", "Leave" },
-	['<leader>c'] = { "<cmd>FineCmdline<Cr>", "FineLine" },
+	-- ['<leader>c'] = { "<cmd>FineCmdline<Cr>", "FineLine" },
 	['<leader>t'] = { "<cmd>StartupTime<Cr>", "StartupTime" },
 	['<C-e>'] = { "<cmd>ToggleTerm<Cr>", "ToggleTerm" },
 	-- Q = {

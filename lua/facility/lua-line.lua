@@ -5,14 +5,15 @@
 -- end
 
 
+local custom_catpuccin = require 'facility.line-color'
 
-local color_scheme = vim.g.colors_name
+
 
 
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = color_scheme,
+    theme = custom_catpuccin,
 	component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},
