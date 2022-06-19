@@ -47,6 +47,15 @@ wk.register({
 		c = { "<cmd>ColorizerToggle<Cr>", "Colorizer"},
 		p = { "<cmd>Colortils picker<Cr>", "Picker" },
 		l = { "<cmd>FineCmdline<Cr>", "FineLine" },
+	},
+	g = {
+		name = 'Lsp',
+		r = { "<cmd>Lspsaga rename<cr>", 'Rename' },
+		x = { "<cmd>Lspsaga code_action<cr>", 'Code Action' },
+		-- x = { ":<c-u>Lspsaga range_code_action<cr>", "Code Action" },
+		o = { "<cmd>Lspsaga show_line_diagnostics<cr>", "Line Diagnostics" },
+		j = { "<cmd>Lspsaga diagnostic_jump_next<cr>", "Next Diagnostic" },
+		k = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", "Prev Diagnostic" }
 	}
 
 

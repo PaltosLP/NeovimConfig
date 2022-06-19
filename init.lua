@@ -20,9 +20,3 @@ require 'plugins'
 --lsp
 require 'lang'
 
-
--- vim.cmd([[
--- autocmd BufWinEnter * startinsert
--- autocmd BufWinEnter * startnormal
--- ]])
-
