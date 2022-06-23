@@ -33,6 +33,8 @@ return require('packer').startup({function(use)
 	use { 'nvim-treesitter/playground', cmd = {'TSPlaygroundToggle'} }
 	--use { 'folke/lsp-colors.nvim', after = 'nvim-lspconfig' }
 	use { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' }
+	-- use { 'mvllow/modes.nvim', config = function() require('modes').setup() end }
+
 
 --Mappings
 	use { 'folke/which-key.nvim', config = function() require 'maps.whichkey' end }

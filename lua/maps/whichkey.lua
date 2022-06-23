@@ -12,7 +12,7 @@ require 'which-key'.setup{
 		-- the presets plugin, adds help for a bunch of default keybindings in Neovim
 		-- No actual key bindings are created
 		presets = {
-			operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+			operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
 			motions = true, -- adds help for motions
 			text_objects = true, -- help for text objects triggered after entering an operator
 			windows = true, -- default bindings on <c-w>
@@ -67,60 +67,3 @@ require 'which-key'.setup{
 	},
 }
 
-
--- local opts = {
---   mode = "n", -- NORMAL mode
---   -- prefix: use "<leader>f" for example for mapping everything related to finding files
---   -- the prefix is prepended to every mapping part of `mappings`
---   prefix = "",
---   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
---   silent = true, -- use `silent` when creating keymaps
---   noremap = true, -- use `noremap` when creating keymaps
---   nowait = false, -- use `nowait` when creating keymaps
--- }
-
-
--- local wk = require 'which-key'
--- vim.g.mapleader = ' '
---
---
--- -- wk.register(mapping, opts)
--- wk.register({
---   	f = {
---     	name = "File", -- optional group name
---     	f = { "<cmd>Telescope find_files<cr>", "Find File" },
---     	g = { "<cmd>Telescope live_grep<cr>", "Search Text" },
--- 		b = { "<cmd>Telescope buffers<Cr>", "Search Buffer" },
--- 		h = { "<cmd>Telescope help_tags<Cr>", "Search Help Tags" },
---   	},
---   	p = {
--- 	  	name = "Packer",
--- 	  	s = { "<cmd>PackerStatus<Cr>", "Packer Status" },
---   	},
---   	['<leader>'] = {
--- 	  	name = "Double Leader",
--- 	  	s = { "<cmd>so %<Cr>", "Source current File" },
---   	}
---
--- }, { mode = 'n', prefix = "<leader>" })
---
--- wk.register({
--- 	['<C-t>'] = { "<cmd>NERDTreeToggle<Cr>", "Toggle NerdTree" },
--- 	['<C-a>'] = { "<cmd>call run_file#Run_File()<Cr>", "Run File" },
--- 	['<C-s>'] = { "<cmd>call save#w()<Cr>", "Save File" },
--- 	['<C-r>'] = { "<cmd>call number_set#relative_numb()<Cr>", "Set Relativ Number" },
--- 	['<C-e>'] = { "<cmd>call number_set#normal_numb()<Cr>", "Set Number" },
--- 	['<C-i>'] = { "<cmd>IndentBlanklineToggle<Cr>", "Toggle Indent Line" },
--- 	['<C-h>'] = { "<cmd>WhichKey<Cr>", "Toggle WhichKey"},
--- 	qq = { "<cmd>q<Cr>", "quit" },
--- }, { mode = 'n' })
---
--- wk.register({
--- 	jj = { "<ESC>", "ESC" },
--- }, { mode = 'i' })
---
--- wk.register({
--- 	['<C-c>'] = { '"*y<Cr>', "Copy" },
--- }, { mode = 'v' })
---
---
