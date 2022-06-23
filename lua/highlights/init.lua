@@ -1,6 +1,6 @@
 require 'highlights.tree-sitter'
 require 'highlights.colorscheme'
-require 'highlights.transparency'
+-- require 'highlights.transparency'
 require 'highlights.indent'
 
 
