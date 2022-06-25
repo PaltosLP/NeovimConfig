@@ -59,17 +59,23 @@ return require('packer').startup({function(use)
 		}
 
 
--- LSP Completion Snippets
-	use { 'neovim/nvim-lspconfig' }
 
-	use { 'hrsh7th/cmp-nvim-lsp' }
-	use { 'hrsh7th/cmp-buffer' }  --, opt = true
-	use { 'hrsh7th/cmp-path' } --, opt = true
-	use { 'hrsh7th/cmp-cmdline' } --, opt = true
-	use { 'hrsh7th/nvim-cmp' } -- , opt = true
-	use { 'L3MON4D3/LuaSnip' } --, opt = true
-	use { 'saadparwaiz1/cmp_luasnip' } --, opt = true
-	use { 'onsails/lspkind.nvim' }
+
+-- LSP Completion Snippets
+local opt = false
+local event = {} -- { 'InsertEnter', 'CmdlineEnter' }
+	use { 'neovim/nvim-lspconfig', opt = opt }
+
+	use { 'hrsh7th/nvim-cmp', opt = opt} --, event = event  
+	use { 'hrsh7th/cmp-nvim-lsp', opt = opt } --, event = event
+	use { 'hrsh7th/cmp-buffer', opt = opt } --, event = event
+	use { 'hrsh7th/cmp-path', opt = opt }  --, event = event
+	use { 'hrsh7th/cmp-cmdline', opt = opt } --, event = event
+	use { 'L3MON4D3/LuaSnip', opt = opt } --, event = event
+	use { 'saadparwaiz1/cmp_luasnip', opt = opt } --, event = event
+	use { 'onsails/lspkind.nvim', opt = opt } --, event = event
+
+
 --	use { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' }, requires = 'kyazdani42/nvim-web-devicons', config = function() require 'lsp.troubles' end }
 -- use { 'williamboman/nvim-lsp-installer', cmd = {'LspInstall', 'LspInstallInfo'}, config = function() require 'lsp.lsp-installer' end }
 
