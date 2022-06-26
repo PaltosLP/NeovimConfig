@@ -33,7 +33,7 @@ require('lspconfig')['sumneko_lua'].setup {
 ls.add_snippets( "lua" , {
 	s("print", {
 		-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
-		t("print("), i(1, ""), t(")")
+		t('print("'), i(1, ""), t('")')
 	})
 })
 
