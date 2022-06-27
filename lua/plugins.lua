@@ -11,7 +11,7 @@ return require('packer').startup({function(use)
 	use { 'lewis6991/impatient.nvim' }
 	use { 'nathom/filetype.nvim', config = function() require'filetype'.setup({}) end }
 	use { "nvim-lua/plenary.nvim" }
-	use { 'MunifTanjim/nui.nvim'}
+	use { 'MunifTanjim/nui.nvim', after = 'fine-cmdline.nvim' }
 	use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
 
 
