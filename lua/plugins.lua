@@ -66,7 +66,7 @@ local opt = true
 local event = { 'InsertEnter', 'CmdlineEnter' }
 	use { 'neovim/nvim-lspconfig' }
 
-	use { 'hrsh7th/nvim-cmp', opt = opt, event = event } --, event = event  
+	use { 'hrsh7th/nvim-cmp', opt = opt, event = event } --, event = event
 	use { 'hrsh7th/cmp-nvim-lsp', opt = opt, event = event } --, event = event
 	use { 'hrsh7th/cmp-buffer', opt = opt, event = event } --, event = event
 	use { 'hrsh7th/cmp-path', opt = opt, event = event }  --, event = event
@@ -131,7 +131,8 @@ local event = { 'InsertEnter', 'CmdlineEnter' }
 	-- use { 'arjunmahishi/run-code.nvim', cmd = { 'RunCodeSelected', 'RunCodeFile'} }
 
 --extra
-	use { 'glepnir/dashboard-nvim',	config = function() require 'extra.dashboard' end }
+
+	use { 'glepnir/dashboard-nvim', opt = true }
 	use { 'nvim-neorg/neorg', tag = "latest", ft = 'norg', after = {'nvim-treesitter','telescope.nvim'}, config = function() require 'extra.neo_org' end }
 	use { 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'extra.zenmode' end }
 	use { 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'extra.twilights' end }

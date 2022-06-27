@@ -1,6 +1,5 @@
 
 
-print("moin")
 
 
 local event = { 'InsertEnter', 'CmdlineEnter' }

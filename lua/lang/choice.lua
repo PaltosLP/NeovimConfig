@@ -8,6 +8,12 @@
 -- require 'lang.snippet'
 
 local ft = vim.fn.expand('%:e')
+-- local ft = vim.bo.ft
+
+
+-- if ft == '' then
+-- 	require 'lang.langs.empty'
+-- end
 
 local possibles = { 'py', 'lua', 'vim', 'c', 'cpp', 'html', 'css', 'js' ,'go' }
 
