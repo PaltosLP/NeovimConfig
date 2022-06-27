@@ -83,7 +83,12 @@ local event = { 'InsertEnter', 'CmdlineEnter' }
 	use { 'windwp/nvim-ts-autotag',	ft = { 'html' }	}
 	use { 'norcalli/nvim-colorizer.lua', cmd = { 'ColorizerToggle' }, ft = {'css'}, config = function() require 'colorizer'.setup() end }
 
-	use { "rafamadriz/friendly-snippets", opt = true }
+	use { "rafamadriz/friendly-snippets", event = "InsertCharPre", config = function() require("luasnip/loaders/from_vscode").load({
+		paths = {
+			"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
+			},
+		})
+		end } --, opt = true
 		-- setup = function()
 		--
 		-- 	vim.api.nvim_create_autocmd("InsertEnter", {
