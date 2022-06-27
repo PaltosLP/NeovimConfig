@@ -62,18 +62,19 @@ return require('packer').startup({function(use)
 
 
 -- LSP Completion Snippets
-local opt = false
-local event = {} -- { 'InsertEnter', 'CmdlineEnter' }
-	use { 'neovim/nvim-lspconfig', opt = opt }
+local opt = true
+local event = { 'InsertEnter', 'CmdlineEnter' }
+	use { 'neovim/nvim-lspconfig' }
 
-	use { 'hrsh7th/nvim-cmp', opt = opt} --, event = event  
-	use { 'hrsh7th/cmp-nvim-lsp', opt = opt } --, event = event
-	use { 'hrsh7th/cmp-buffer', opt = opt } --, event = event
-	use { 'hrsh7th/cmp-path', opt = opt }  --, event = event
-	use { 'hrsh7th/cmp-cmdline', opt = opt } --, event = event
-	use { 'L3MON4D3/LuaSnip', opt = opt } --, event = event
-	use { 'saadparwaiz1/cmp_luasnip', opt = opt } --, event = event
-	use { 'onsails/lspkind.nvim', opt = opt } --, event = event
+	use { 'hrsh7th/nvim-cmp', opt = opt, event = event } --, event = event  
+	use { 'hrsh7th/cmp-nvim-lsp', opt = opt, event = event } --, event = event
+	use { 'hrsh7th/cmp-buffer', opt = opt, event = event } --, event = event
+	use { 'hrsh7th/cmp-path', opt = opt, event = event }  --, event = event
+	use { 'hrsh7th/cmp-cmdline', opt = opt, event = event } --, event = event
+	use { 'L3MON4D3/LuaSnip', opt = opt, event = event } --, event = event
+	use { 'saadparwaiz1/cmp_luasnip', opt = opt, event = event } --, event = event
+
+	use { 'onsails/lspkind.nvim' } --, event = event
 
 
 --	use { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' }, requires = 'kyazdani42/nvim-web-devicons', config = function() require 'lsp.troubles' end }
@@ -82,7 +83,7 @@ local event = {} -- { 'InsertEnter', 'CmdlineEnter' }
 	use { 'windwp/nvim-ts-autotag',	ft = { 'html' }	}
 	use { 'norcalli/nvim-colorizer.lua', cmd = { 'ColorizerToggle' }, ft = {'css'}, config = function() require 'colorizer'.setup() end }
 
-	use { "rafamadriz/friendly-snippets" --, opt = true,
+	use { "rafamadriz/friendly-snippets", opt = true }
 		-- setup = function()
 		--
 		-- 	vim.api.nvim_create_autocmd("InsertEnter", {
@@ -101,7 +102,7 @@ local event = {} -- { 'InsertEnter', 'CmdlineEnter' }
 		-- 	end
 		--
 		--
-		}
+
 
 
 --facility

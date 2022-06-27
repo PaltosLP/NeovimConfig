@@ -4,8 +4,8 @@
 -- vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
 
-require 'lang.comp'
-require 'lang.snippet'
+-- require 'lang.comp'
+-- require 'lang.snippet'
 
 local ft = vim.fn.expand('%:e')
 

@@ -23,5 +23,5 @@ local lambda = require("luasnip.extras").l
 
 require 'lspconfig'.tsserver.setup {
 	on_attach = utils.on_attach,
-	capabilities = utils.capabilities
+	-- capabilities = utils.capabilities
 }
