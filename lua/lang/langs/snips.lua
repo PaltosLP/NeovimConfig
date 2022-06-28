@@ -51,3 +51,12 @@ ls.add_snippets( "python" , {
 		t("print("), i(1, ""), t(")")
 	})
 })
+
+ls.add_snippets( "javascript" , {
+	s("console.log", {
+		-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
+		t('console.log("'), i(1, ""), t('")')
+	})
+})
+
+
