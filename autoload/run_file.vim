@@ -4,7 +4,7 @@ function run_file#Run_File()
 	let file_name = expand('%:t:r')
 	let full_file_name = file_name .".". filetype
 	"let c_command3 = "!clear"
-	let ex_list = ['py','c','cpp','go']
+	let ex_list = ['py','c','cpp','go','js']
 	let exable = 0
 	"if filetype in ex_list
 	for i in range(len(ex_list))
@@ -42,6 +42,9 @@ function run_file#Run_File()
 			redir END
 			silent exec "!rm executable_go"
 			echo var	
+
+		elseif filetype == "js"
+			execute "!node " . full_file_name	
 		endif
 
 
