@@ -1,40 +1,55 @@
--- vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
--- vim.api.nvim_set_keymap('n', '<leader>d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
--- vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
--- vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+
+-- vim.wo.foldcolumn = '1'
+-- vim.wo.foldlevel = 99 -- feel free to decrease the value
+-- vim.wo.foldenable = true
 
 
--- require 'lang.comp'
--- require 'lang.snippet'
-
-local ft = vim.fn.expand('%:e')
--- local ft = vim.bo.ft
+-- option 2: nvim lsp as LSP client
+-- tell the server the capability of foldingRange
+-- nvim hasn't added foldingRange to default capabilities, users must add it manually
 
 
--- if ft == '' then
--- 	require 'lang.langs.empty'
--- end
 
-local possibles = { 'py', 'lua', 'vim', 'c', 'cpp', 'html', 'css', 'js' ,'go' }
-
-
-local state = false
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
 
 
-for _, value in pairs(possibles) do
-	-- local occur = false
-	if value == ft then
-		state = true
-	end
+
+local language_servers = {'sumneko_lua'} -- like {'gopls', 'clangd'}
+for _, ls in ipairs(language_servers) do
+    require('lspconfig')[ls].setup({
+        capabilities = capabilities,
+			settings = {
+				Lua = {
+				   diagnostics = {
+					  globals = { 'vim' }
+					  }
+				   }
+				}
+    })
 end
+--
 
-if state then
-	-- ft = ft .. 'lsp'
-	local ft_extended = 'lang.langs.' .. ft
-	require(ft_extended)
-end
+--require('ufo').setup()
 
 
--- require 'lang.wait-cmp'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

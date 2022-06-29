@@ -129,6 +129,10 @@ local event = { 'InsertEnter', 'CmdlineEnter' }
 	use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end } --, cmd = 'Gitsigns'
 	use { "akinsho/toggleterm.nvim", cmd = { 'ToggleTerm' }, tag = 'v1.*', config = function() require("facility.toggle-term") end}
 	-- use { 'arjunmahishi/run-code.nvim', cmd = { 'RunCodeSelected', 'RunCodeFile'} }
+	use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+
+
+
 
 --extra
 
