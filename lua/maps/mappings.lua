@@ -62,6 +62,15 @@ wk.register({
 }, { mode = 'n', prefix = "<leader>" })
 
 wk.register({
+	f = {
+		name = 'Folds',
+		o = { "<cmd>foldopen<Cr>", "Open Fold" },
+		c = { "<cmd>foldclose<Cr>", "Close Fold" },
+
+	}
+})
+
+wk.register({
 	['<C-t>'] = { "<cmd>NvimTreeToggle<Cr>", "Toggle Nvim-Tree" },
 	['<C-a>'] = { "<cmd>call run_file#Run_File()<Cr>", "Run File" },
 	['<C-s>'] = { "<cmd>call save#w()<Cr>", "Save File" },
