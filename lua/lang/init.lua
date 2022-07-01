@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd(event, {
 		-- 	PackerLoad cmp-nvim-lsp
 		-- ]])
 		-- print("fdsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-		require 'lang.choice'
+		-- require 'lang.choice'
 		require 'lang.comp'
 		require 'lang.langs.snips'
 		require 'lang.snippet'

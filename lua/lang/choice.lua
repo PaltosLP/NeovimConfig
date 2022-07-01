@@ -18,14 +18,14 @@ capabilities.textDocument.foldingRange = {
 
 
 
-local language_servers = {'sumneko_lua'} -- like {'gopls', 'clangd'}
+local language_servers = {'sumneko_lua', 'clangd', 'gopls', 'quick_lint_js', 'pyright', 'vimls' }
 for _, ls in ipairs(language_servers) do
     require('lspconfig')[ls].setup({
         capabilities = capabilities,
 			settings = {
 				Lua = {
-				   diagnostics = {
-					  globals = { 'vim' }
+				   	diagnostics = {
+					  	globals = { 'vim' }
 					  }
 				   }
 				}
