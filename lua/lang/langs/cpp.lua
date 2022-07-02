@@ -1,8 +1,8 @@
+local utils = require 'lang.langs.utils'
+
 vim.opt.cindent = true
 
 
 
-require('lspconfig')['clangd'].setup {
-	-- on_attach = utils.on_attach,
-	-- capabilities = utils.capabilities
-}
+
+return utils.on_attach

@@ -18,38 +18,34 @@ capabilities.textDocument.foldingRange = {
 
 
 
-local language_servers = {'sumneko_lua', 'clangd', 'gopls', 'quick_lint_js', 'pyright', 'vimls' }
-for _, ls in ipairs(language_servers) do
-    require('lspconfig')[ls].setup({
-        capabilities = capabilities,
-			settings = {
-				Lua = {
-				   	diagnostics = {
-					  	globals = { 'vim' }
-					  }
-				   }
-				}
-    })
+
+
+
+local servers = { 'sumneko_lua', 'clangd', 'gopls', 'quick_lint_js', 'pyright', 'vimls' }
+
+local language_servers = {}
+local ft = vim.fn.expand('%:e')
+
+local on_attach_path = 'lang.langs.' .. ft
+
+-- on_attach = require(on_attach_path),
+local config = { capabilities = capabilities, on_attach = require(on_attach_path), settings = { Lua = { diagnostics = { globals = { 'vim' } } } } }
+
+
+
+
+for _,server in pairs(servers) do
+	language_servers[server] = config
 end
---
+
+
+
+for ls,conf in pairs(language_servers) do
+    require('lspconfig')[ls].setup(
+	conf
+	)
+end
+
 
 -- require('ufo').setup()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

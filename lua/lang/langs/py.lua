@@ -1,15 +1,7 @@
--- local utils = require 'lang.langs.utils'
+local utils = require 'lang.langs.utils'
 
 
-require('lspconfig')['pyright'].setup {
-	-- on_attach = utils.on_attach,
-	-- capabilities = utils.capabilities,
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { }
-				}
-  			}
-		}
-}
 
+
+
+return utils.on_attach

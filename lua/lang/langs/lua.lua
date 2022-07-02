@@ -1,15 +1,8 @@
 
-
-require('lspconfig')['sumneko_lua'].setup {
-	-- on_attach = utils.on_attach,
-	-- capabilities = utils.capabilities,
-	settings = {
-	Lua = {
-	   diagnostics = {
-		  globals = { 'vim' }
-		  }
-	   }
-	}
-}
+local utils = require 'lang.langs.utils'
 
 
+
+
+
+return utils.on_attach
