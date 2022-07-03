@@ -26,23 +26,39 @@ capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true
 }
-
 local servers = { 'sumneko_lua', 'clangd', 'gopls', 'quick_lint_js', 'pyright', 'vimls' }
+local possibles = { 'py', 'lua', 'vim', 'c', 'cpp', 'html', 'css', 'js' ,'go' }
 local language_servers = {}
+local on_attach_path
+local state = true
+
+
 
 local ft = vim.fn.expand('%:e')
 if ft == '' then
 	ft = 'none'
 end
 
-local on_attach_path = 'lang.langs.' .. ft
+
+for _, val in pairs(possibles) do
+	if val == ft then
+		on_attach_path = 'lang.langs.' .. ft
+		state = false
+	end
+end
+
+
+if state then
+	on_attach_path = 'lang.langs.none'
+end
+
+
 local config = { capabilities = capabilities, on_attach = require(on_attach_path), settings = { Lua = { diagnostics = { globals = { 'vim' } } } } }
 
 
 for _,server in pairs(servers) do
 	language_servers[server] = config
 end
-
 
 
 for ls,conf in pairs(language_servers) do
