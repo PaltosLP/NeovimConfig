@@ -62,9 +62,7 @@ end
 
 
 for ls,conf in pairs(language_servers) do
-    require('lspconfig')[ls].setup(
-	conf
-	)
+    require('lspconfig')[ls].setup(conf)
 end
 
 
