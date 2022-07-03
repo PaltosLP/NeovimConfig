@@ -1,7 +1,9 @@
 # Neovim
 Some neovim stuff.
 
-![image](https://user-images.githubusercontent.com/85098415/172385549-fbbae506-911b-447a-8a13-876e2940351d.png)
+
+![image](https://user-images.githubusercontent.com/85098415/177043197-a11796bb-de15-41e0-aab2-f39e1d42afac.png)
+
 
 Color Customized Lua Line:
 ![image](https://user-images.githubusercontent.com/85098415/177042471-edbbb449-a87b-40f7-bbff-8ebd12e6d2e2.png)
