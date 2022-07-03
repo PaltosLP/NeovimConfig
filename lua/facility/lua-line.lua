@@ -5,7 +5,7 @@
 -- end
 
 
-local custom_catpuccin = require 'facility.line-color'
+local custom_catpuccin = require 'highlights.line-color'
 
 
 
