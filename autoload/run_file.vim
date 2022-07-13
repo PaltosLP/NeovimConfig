@@ -17,13 +17,18 @@ function run_file#Run_File()
 		if filetype == "py"
 			execute "!python3 " . full_file_name
 		elseif filetype == "c"
-			silent exec "!gcc " . full_file_name . " -o " . "executable_c"
+				
+			" c needs -lm to link maths
+			let additions = Additional_C()
+
+			silent exec "!gcc " . full_file_name . " -o " . "executable_c " . additions
 			let var = ""
 			redir => var
 			silent call C_exe()
 			redir END
 			silent exec "!rm executable_c"
 			echo var
+
 
 		elseif filetype == "cpp"
 			silent execute "!g++ " . full_file_name . " -o" . "executable_cpp"	
@@ -65,3 +70,23 @@ endfunction
 function Go_exe()
 	silent execute "!./executable_go"
 endfunction
+
+
+function Additional_C()
+	" search for math lib with grep
+	let out = ""
+	let filename = expand("%")
+	redir => out
+	silent exec "!grep math.h " . filename
+	redir END
+	
+	if out == ""
+		return out
+	endif
+
+	return "-lm"
+
+endfunction
+
+
+
