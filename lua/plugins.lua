@@ -16,7 +16,7 @@ return require('packer').startup({function(use)
 
 
 --colorscheme
-	use { "catppuccin/nvim", as = "catppuccin" , cmd = { 'colorscheme' } }
+	use { "catppuccin/nvim", as = "catppuccin" }
 	use { 'morhetz/gruvbox', cmd = { 'colorscheme' } }
 	use { 'joshdick/onedark.vim' }
 	use { 'marko-cerovac/material.nvim', cmd = { 'colorscheme' } }
