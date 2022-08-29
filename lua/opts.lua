@@ -14,7 +14,7 @@ vim.o.sidescrolloff = 5
 vim.cmd 'filetype plugin indent on'
 vim.opt.backup = false
 -- vim.opt.clipboard = "unnamedplus"
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 0
 vim.opt.mouse = "a"
 vim.opt.swapfile = false
 vim.opt.signcolumn = "yes"
