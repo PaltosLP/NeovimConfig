@@ -6,6 +6,6 @@ local utils = require 'lang.langs.utils'
 --
 -- vim.cmd 'Dashboard'
 
-print("no filetype")
+-- print("no filetype")
 
 return utils.on_attach
