@@ -223,7 +223,7 @@ disabled=true
             "black": "#171421",
             "blue": "#0037DA",
             "brightBlack": "#767676",
-            "brightBlue": "#08458F",
+            "brightBlue": "#0881FA",
             "brightCyan": "#2C9FB3",
             "brightGreen": "#26A269",
             "brightPurple": "#A347BA",
