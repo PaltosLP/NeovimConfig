@@ -12,11 +12,11 @@
 >	- (pref) *<C-r>* (relative Mode) + *<xx - j/k>* Move xx up/down
 
 
-## Modi:
-
-	- <ESC> Normal Mode
-	- <i> Insert Mode
-	- <v> Visual Mode
+> ## Modi:
+>
+>	- <ESC> Normal Mode
+>	- <i> Insert Mode
+>	- <v> Visual Mode
 
 
 ## File:

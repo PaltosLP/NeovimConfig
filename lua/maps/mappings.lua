@@ -56,6 +56,12 @@ wk.register({
 		o = { "<cmd>Lspsaga show_line_diagnostics<cr>", "Line Diagnostics" },
 		j = { "<cmd>Lspsaga diagnostic_jump_next<cr>", "Next Diagnostic" },
 		k = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", "Prev Diagnostic" }
+	},
+	m = {
+		name = 'Markdown',
+		p = { "<cmd>MarkdownPreview<Cr>", "Preview" },
+		s = { "<cmd>MarkdownPreviewStop<Cr>", "StopPreview" },
+		t = { "<cmd>MarkdownPreviewToggle<Cr>", "Toggle Preview" }
 	}
 
 
