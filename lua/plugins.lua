@@ -131,6 +131,7 @@ local event = { 'InsertEnter', 'CmdlineEnter' }
 	-- use { 'arjunmahishi/run-code.nvim', cmd = { 'RunCodeSelected', 'RunCodeFile'} }
 	-- use { 'tpope/vim-surround' } --keys = { {'n','s'} }
 	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+	use { "kylechui/nvim-surround", tag = "*", config = function() require("nvim-surround").setup({}) end }
 
 
 
