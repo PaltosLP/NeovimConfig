@@ -1,6 +1,6 @@
 
 
-vim.cmd 'highlight NvimTreeRootFolder guifg=grey gui=bold'
+vim.cmd 'highlight NvimTreeRootFolder guibg=none gui=bold'
 
 require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
   auto_reload_on_write = true,
