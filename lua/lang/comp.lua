@@ -133,7 +133,8 @@ cmp.setup({
 		}
 	),
 	formatting = {
-		fields = { cmp.ItemField.Kind, cmp.ItemField.Abbr, cmp.ItemField.Menu },
+		-- fields = { cmp.ItemField.Kind, cmp.ItemField.Abbr, cmp.ItemField.Menu },
+		fields = { cmp.ItemField.Kind, cmp.ItemField.Abbr },
 		format = function(entry, vim_item)
 		-- Kind icons
 		vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
@@ -145,7 +146,7 @@ cmp.setup({
 		})[entry.source.name]
 			return vim_item
 		end,
-		maxwidth = 50,
+		maxwidth = 40,
   			},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
@@ -215,7 +216,9 @@ highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
 
 --menu
 local highl = {
+  -- PmenuSel = { bg = "#282C34", fg = "NONE" },
   PmenuSel = { bg = "#282C34", fg = "NONE" },
+  -- Pmenu = { fg = "#C5CDD9", bg = "#22252A" },
   Pmenu = { fg = "#C5CDD9", bg = "#22252A" },
 
   CmpItemAbbrDeprecated = { fg = "#7E8294", strikethrough=true},
