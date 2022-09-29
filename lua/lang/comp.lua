@@ -64,10 +64,6 @@ local kind_icons = {
 
 
 cmp.setup({
-	-- completion = {
-	-- 	border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-	-- 	scrollbar = "║",
-	-- },
 	snippet = {
 	  expand = function(args)
 		require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
@@ -133,8 +129,8 @@ cmp.setup({
 		}
 	),
 	formatting = {
-		-- fields = { cmp.ItemField.Kind, cmp.ItemField.Abbr, cmp.ItemField.Menu },
-		fields = { cmp.ItemField.Kind, cmp.ItemField.Abbr },
+		fields = { cmp.ItemField.Kind, cmp.ItemField.Abbr, cmp.ItemField.Menu },
+		-- fields = { cmp.ItemField.Kind, cmp.ItemField.Abbr },
 		format = function(entry, vim_item)
 		-- Kind icons
 		vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
@@ -143,11 +139,17 @@ cmp.setup({
 			luasnip = "[Snippet]",
 			buffer = "[Buffer]",
 			path = "[Path]",
+		    nvim_lsp = "[LSP]",
+		    nvim_lua = "[Lua]",
+		    latex_symbols = "[Latex]",
 		})[entry.source.name]
 			return vim_item
 		end,
+
 		maxwidth = 40,
   			},
+
+
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
@@ -221,7 +223,8 @@ local highl = {
   -- Pmenu = { fg = "#C5CDD9", bg = "#22252A" },
   Pmenu = { fg = "#C5CDD9", bg = "#22252A" },
 
-  CmpItemAbbrDeprecated = { fg = "#7E8294", strikethrough=true},
+  -- CmpItemAbbrDeprecated = { fg = "#7E8294", strikethrough=true},
+  CmpItemAbbrDeprecated = { fg = "#FFFFFF", strikethrough=true},
   CmpItemAbbrMatch = { fg = "#82AAFF", bold=true },
   CmpItemAbbrMatchFuzzy = { fg = "#82AAFF",  bold=true },
   CmpItemMenu = { fg = "#C792EA",italic=true },
@@ -230,9 +233,9 @@ local highl = {
   CmpItemKindProperty = { fg = "#EED8DA", bg = "#B5585F" },
   CmpItemKindEvent = { fg = "#EED8DA", bg = "#B5585F" },
 
-  CmpItemKindText = { fg = "#C3E88D", bg = "#9FBD73" },
-  CmpItemKindEnum = { fg = "#C3E88D", bg = "#9FBD73" },
-  CmpItemKindKeyword = { fg = "#C3E88D", bg = "#9FBD73" },
+  CmpItemKindText = { fg = "#DEF2C1", bg = "#9FBD73" },
+  CmpItemKindEnum = { fg = "#DEF2C1", bg = "#9FBD73" },
+  CmpItemKindKeyword = { fg = "#DEF2C1", bg = "#9FBD73" },
 
   CmpItemKindConstant = { fg = "#FFE082", bg = "#D4BB6C" },
   CmpItemKindConstructor = { fg = "#FFE082", bg = "#D4BB6C" },
