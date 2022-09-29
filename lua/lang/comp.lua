@@ -219,10 +219,10 @@ highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
 
 --menu
 local highl = {
-  PmenuSel = { bg = "#282C34" },
-  -- PmenuSel = { bg = "#282C34", fg = "NONE" },
-  Pmenu = { fg = "#C5CDD9", bg = "#22252A" },
+  -- PmenuSel = { bg = "#282C34" },
+  PmenuSel = { bg = "#FFFFFF", fg = "NONE" },
   -- Pmenu = { fg = "#C5CDD9", bg = "#22252A" },
+  Pmenu = { fg = "#C5CDD9", bg = "NONE" },
 
   -- CmpItemAbbrDeprecated = { fg = "#7E8294", strikethrough=true},
   CmpItemAbbrDeprecated = { fg = "#FFFFFF", strikethrough=true},
