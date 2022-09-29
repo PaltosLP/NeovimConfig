@@ -64,10 +64,10 @@ local kind_icons = {
 
 
 cmp.setup({
-	completion = {
-		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-		scrollbar = "║",
-	},
+	-- completion = {
+	-- 	border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+	-- 	scrollbar = "║",
+	-- },
 	snippet = {
 	  expand = function(args)
 		require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
@@ -78,8 +78,8 @@ cmp.setup({
 		-- completion = cmp.config.window.bordered(),
 		-- documentation = cmp.config.window.bordered(),
    		-- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-		documentation = { border = "rounded", scrollbar = "║" },
-		completion = { border = "rounded", scrollbar = "║" },
+		-- documentation = { border = "rounded", scrollbar = "║" },
+		-- completion = { border = "rounded", scrollbar = "║" },
 	},
 	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -150,6 +150,9 @@ cmp.setup({
 		ghost_text = false,
 		native_menu = false,
   		},
+		view = {
+ 			entries = {name = 'custom', selection_order = 'near_cursor' }
+		},
 })
 
 	-- Set configuration for specific filetype.
@@ -167,7 +170,10 @@ cmp.setup.cmdline('/', {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
 	  { name = 'buffer' }
-	}
+	},
+	view = {
+    entries = {name = 'wildmenu', separator = ' | ' }
+  },
 })
 
 	-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
@@ -180,3 +186,25 @@ cmp.setup.cmdline(':', {
 	  { name = 'cmdline' }
 	})
 })
+
+
+vim.cmd([[ 
+" gray
+highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+" blue
+highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+" light blue
+highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
+highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
+" pink
+highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+" front
+highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+]])
+
+
