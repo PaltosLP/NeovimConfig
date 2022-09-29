@@ -7,7 +7,7 @@ end
 
 
 local cmp = require 'cmp'
-local lspkind = require 'lspkind'
+-- local lspkind = require 'lspkind'
 local luasnip = require 'luasnip'
 -- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 --
@@ -216,12 +216,13 @@ highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
 ]])
 
 
+
 --menu
 local highl = {
+  PmenuSel = { bg = "#282C34" },
   -- PmenuSel = { bg = "#282C34", fg = "NONE" },
-  PmenuSel = { bg = "#282C34", fg = "NONE" },
-  -- Pmenu = { fg = "#C5CDD9", bg = "#22252A" },
   Pmenu = { fg = "#C5CDD9", bg = "#22252A" },
+  -- Pmenu = { fg = "#C5CDD9", bg = "#22252A" },
 
   -- CmpItemAbbrDeprecated = { fg = "#7E8294", strikethrough=true},
   CmpItemAbbrDeprecated = { fg = "#FFFFFF", strikethrough=true},
