@@ -74,14 +74,17 @@ cmp.setup({
 	  end,
 		},
 	window = {
-		winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-        col_offset = -3,
-        side_padding = 0,
 		-- completion = cmp.config.window.bordered(),
 		-- documentation = cmp.config.window.bordered(),
    		-- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 		-- documentation = { border = "rounded", scrollbar = "║" },
 		-- completion = { border = "rounded", scrollbar = "║" },
+		completion = {
+			winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+			col_offset = -3,
+			side_padding = 0,
+
+		}
 	},
 	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),
