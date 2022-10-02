@@ -139,7 +139,7 @@ elseif vim.g.color_scheme == "vscode" then
 		italic_comments = true,
 
 		-- Disable nvim-tree background color
-		disable_nvimtree_bg = true,
+		disable_nvimtree_bg = false,
 
 		-- Override colors (see ./lua/vscode/colors.lua)
 		-- color_overrides = {
@@ -154,8 +154,7 @@ elseif vim.g.color_scheme == "vscode" then
 		}
 	})
 
-
-
-
-
 end
+
+
+
