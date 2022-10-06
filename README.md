@@ -12,5 +12,9 @@ Color Customized Lua Line:
 ![image](https://user-images.githubusercontent.com/85098415/177042514-b7b4fc52-460d-42d8-ae20-90fe5ac3d113.png)
 
 
+Customized Completion via nvim-cmp
+![image](https://user-images.githubusercontent.com/85098415/194372337-3096834f-2214-48f4-b943-b310f88935fb.png)
+
+
 I use it in Windows Terminal with Windows Subsystem for Linux.
 The settings for Windows Terminal are in the Projects Repo.
