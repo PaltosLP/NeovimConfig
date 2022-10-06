@@ -33,6 +33,7 @@ vim.cmd[[highlight LineNr guifg=grey]]
 require("nvim-treesitter.highlight").set_custom_captures({
 	["variable"] = "TSField",
 	["field"] = "SpecialKey",
+	["keyword.function"] = "keyword",
 })
 
 
