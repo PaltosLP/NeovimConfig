@@ -1,15 +1,36 @@
-local colors = {
-  black        = '#1E1E2E',
-  white        = '#C6A0F6',
-  red          = '#ED8796',
-  green        = '#A6DA95',
-  blue         = '#8AADF4',
-  yellow       = '#EED49F',
-  gray         = '#7287FD',
-  darkgray     = '#232634',
-  lightgray    = '#4C4F69',
-  inactivegray = '#7c6f64',
+local colors = nil
+
+local catpuccin_colors = {
+	black        = '#1E1E2E',
+	white        = '#C6A0F6',
+	red          = '#ED8796',
+	green        = '#A6DA95',
+	yellow       = '#EED49F',
+	gray         = '#7287FD',
+	darkgray     = '#232634',
+	lightgray    = '#4C4F69',
+	inactivegray = '#7c6f64',
 }
+
+local vscode_colors = {
+	black        = '#1E1E2E',
+	white        = '#CE9178',
+	red          = '#F44747',
+	green        = '#6A9955',
+	yellow       = '#DCDCAA',
+	gray         = '#1895ff',
+	darkgray     = '#232634',
+	lightgray    = '#4C4F69',
+	inactivegray = '#7c6f64',
+}
+
+
+
+if vim.g.color_scheme == 'catppuccin' then
+	colors = catpuccin_colors
+elseif vim.g.color_scheme == 'vscode' then
+	colors = vscode_colors
+end
 
 return {
   normal = {

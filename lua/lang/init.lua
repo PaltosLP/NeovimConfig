@@ -17,11 +17,12 @@ local event = { 'InsertEnter', 'CmdlineEnter' }
 -- })
 
 
+require "lang.comp"
 
 vim.api.nvim_create_autocmd(event, {
 	callback = function()
 		vim.defer_fn(function()
-			require 'lang.comp'
+			-- require 'lang.comp'
 			require 'lang.langs.snips'
 			require 'lang.snippet'
 			end, 100)
