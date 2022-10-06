@@ -29,3 +29,12 @@ vim.cmd[[highlight LineNr guifg=grey]]
 --     ["quantifier"] = "Special",
 --     ["variable"] = "TSField",
 -- })
+
+require("nvim-treesitter.highlight").set_custom_captures({
+	["variable"] = "TSField",
+	["field"] = "SpecialKey",
+})
+
+
+
+
