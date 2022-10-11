@@ -1,0 +1,5 @@
+
+TODO:
+	- create global color palette per colorscheme, for Lualine(primary , background usw)
+	- Neorg
+	- Delete plugin file, load plugins in file
