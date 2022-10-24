@@ -105,3 +105,5 @@ wk.register({
 wk.register({
 	['<C-c>'] = { '"*y<Cr>', "Copy" },
 }, { mode = 'v' })
+
+
