@@ -38,7 +38,8 @@ vim.api.nvim_create_autocmd(event, {
 -- vim.wo.foldlevel = 99 -- feel free to decrease the value
 -- vim.wo.foldenable = true
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true

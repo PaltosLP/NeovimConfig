@@ -30,11 +30,11 @@ vim.cmd[[highlight LineNr guifg=grey]]
 --     ["variable"] = "TSField",
 -- })
 
-require("nvim-treesitter.highlight").set_custom_captures({
-	["variable"] = "TSField",
-	["field"] = "SpecialKey",
-	["keyword.function"] = "keyword",
-})
+-- require("nvim-treesitter.highlight").set_custom_captures({
+-- 	["variable"] = "TSField",
+-- 	["field"] = "SpecialKey",
+-- 	["keyword.function"] = "keyword",
+-- })
 
 
 
