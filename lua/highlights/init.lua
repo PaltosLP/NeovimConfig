@@ -37,5 +37,8 @@ vim.cmd[[highlight LineNr guifg=grey]]
 -- })
 
 
-
+-- Highlight the @foo.bar capture group with the "Identifier" highlight group
+vim.api.nvim_set_hl(0, "@variable", { link = "TSField", bold = 1 })
+vim.api.nvim_set_hl(0, "@field", { link = "SpecialKey" })
+vim.api.nvim_set_hl(0, "@keyword.function", { link = "keyword" })
 
