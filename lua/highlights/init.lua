@@ -4,43 +4,17 @@ require 'highlights.colorscheme'
 require 'highlights.dent'
 
 
+-- Float transparency and Line Number Highlights
 vim.cmd[[highlight NormalFloat ctermbg=0 guibg=none]]
 vim.cmd[[highlight FloatBorder ctermbg=0 guibg=none]]
 vim.cmd[[highlight LineNr guifg=grey]]
--- vim.cmd[[highlight CursorLineNr guifg=red]]
 vim.api.nvim_set_hl(0, "CursorLineNr", { link = "@function.call" })
-
-
--- vim.cmd 'hi! link TSKeywordOperator Keyword'
-
--- require("nvim-treesitter.highlight").set_custom_captures({
---     -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
---     -- ["foo.bar"] = "Identifier",
---     ["require_call"] = "RequireCall",
---     ["function_definition"] = "FunctionDefinition",
---     ["quantifier"] = "Special",
---     ["field"] = "htmlArg",
--- })
---
---
--- require("nvim-treesitter.highlight").set_custom_captures({
---     -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
---     -- ["foo.bar"] = "Identifier",
---     ["require_call"] = "RequireCall",
---     ["function_definition"] = "FunctionDefinition",
---     ["quantifier"] = "Special",
---     ["variable"] = "TSField",
--- })
-
--- require("nvim-treesitter.highlight").set_custom_captures({
--- 	["variable"] = "TSField",
--- 	["field"] = "SpecialKey",
--- 	["keyword.function"] = "keyword",
--- })
 
 
 -- Highlight the @foo.bar capture group with the "Identifier" highlight group
 vim.api.nvim_set_hl(0, "@variable", { link = "rainbowcol4" })
 vim.api.nvim_set_hl(0, "@field", { link = "SpecialKey" })
 vim.api.nvim_set_hl(0, "@keyword.function", { link = "keyword" })
+
+
 
