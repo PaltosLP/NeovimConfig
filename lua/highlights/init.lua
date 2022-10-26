@@ -1,7 +1,7 @@
 require 'highlights.tree-sitter'
 require 'highlights.colorscheme'
 -- require 'highlights.transparency'
-require 'highlights.indent'
+require 'highlights.dent'
 
 
 vim.cmd[[highlight NormalFloat ctermbg=0 guibg=none]]
