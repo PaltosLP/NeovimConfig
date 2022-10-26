@@ -20,4 +20,4 @@ require 'plugins'
 --lsp
 require 'lang'
 
-
+require 'test'
