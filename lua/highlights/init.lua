@@ -4,10 +4,12 @@ require 'highlights.colorscheme'
 require 'highlights.indent'
 
 
-
 vim.cmd[[highlight NormalFloat ctermbg=0 guibg=none]]
 vim.cmd[[highlight FloatBorder ctermbg=0 guibg=none]]
 vim.cmd[[highlight LineNr guifg=grey]]
+-- vim.cmd[[highlight CursorLineNr guifg=red]]
+vim.api.nvim_set_hl(0, "CursorLineNr", { link = "@function.call" })
+
 
 -- vim.cmd 'hi! link TSKeywordOperator Keyword'
 
