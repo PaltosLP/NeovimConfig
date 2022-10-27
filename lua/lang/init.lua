@@ -71,7 +71,17 @@ if state then
 end
 
 
-local config = { capabilities = capabilities, on_attach = require(on_attach_path), settings = { Lua = { diagnostics = { globals = { 'vim' } } } } }
+local config = { capabilities = capabilities, on_attach = require(on_attach_path), settings = {
+	Lua = {
+		diagnostics = {
+			globals = { 'vim' }
+		}
+	},
+	-- python = {
+	-- 	single_file_support = true,
+	-- }
+}
+}
 
 
 for _,server in pairs(servers) do

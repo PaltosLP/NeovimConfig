@@ -5,8 +5,8 @@ require 'highlights.dent'
 
 
 -- Float transparency and Line Number Highlights
-vim.cmd[[highlight NormalFloat ctermbg=0 guibg=none]]
-vim.cmd[[highlight FloatBorder ctermbg=0 guibg=none]]
+vim.cmd[[highlight NormalFloat  guibg=none]]
+vim.cmd[[highlight FloatBorder  guibg=none]]
 vim.cmd[[highlight LineNr guifg=grey]]
 vim.api.nvim_set_hl(0, "CursorLineNr", { link = "@function.call" })
 
