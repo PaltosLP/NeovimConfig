@@ -21,8 +21,12 @@ local ls = require 'luasnip'
 ls.config.set_config({
 	history = true,
 	updateevents = 'TextChanged, TextChangedI',
-	enable_autosnippets = true
+	enable_autosnippets = true,
+	-- region_check_events = 'InserEnter',
+	delete_check_events = 'InsertLeave'
 })
+
+
 
 -- require("luasnip/loaders/from_vscode").load({
 -- 	paths = {
