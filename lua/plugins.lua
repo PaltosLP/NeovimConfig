@@ -11,7 +11,7 @@ return require('packer').startup({function(use)
 	use { 'lewis6991/impatient.nvim' }
 	-- use { 'nathom/filetype.nvim', config = function() require'filetype'.setup({}) end }
 	use { "nvim-lua/plenary.nvim" }
-	use { 'MunifTanjim/nui.nvim', after = 'fine-cmdline.nvim' }
+	use { 'MunifTanjim/nui.nvim' } --, after = 'fine-cmdline.nvim'
 	use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
 
 
@@ -146,7 +146,16 @@ local event = { 'InsertEnter', 'CmdlineEnter' }
 	use { 'kyazdani42/nvim-web-devicons', module = 'nvim-web-devicons', config = function () require 'extra.devicons' end }
 	use { 'tami5/lspsaga.nvim', branch = 'main', config = function() require "extra.lsp-saga"  end }
 	use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
-
+	use({ "folke/noice.nvim", config = function() require("noice").setup() end,
+		requires = {
+		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+		"MunifTanjim/nui.nvim",
+		-- OPTIONAL:
+		--   `nvim-notify` is only needed, if you want to use the notification view.
+		--   If not available, we use `mini` as the fallback
+		"rcarriga/nvim-notify",
+		}
+	})
 
 end,
 config = {
