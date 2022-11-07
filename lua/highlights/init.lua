@@ -9,6 +9,8 @@ vim.cmd[[highlight NormalFloat  guibg=none]]
 vim.cmd[[highlight FloatBorder  guibg=none]]
 vim.cmd[[highlight LineNr guifg=grey]]
 vim.api.nvim_set_hl(0, "CursorLineNr", { link = "@function.call" })
+--> settings for different colorschemes --> bug
+
 
 
 -- Highlight the @foo.bar capture group with the "Identifier" highlight group

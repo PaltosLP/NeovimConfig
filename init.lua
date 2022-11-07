@@ -8,7 +8,7 @@ require 'impatient'.enable_profile()
 require 'opts'
 
 --colorscheme
-vim.g.color_scheme = 'catppuccin' -- gruvbox, catppuccin, onedark, material, vscode
+vim.g.color_scheme = 'vscode' -- gruvbox, catppuccin, onedark, material, vscode
 require 'highlights'
 
 --mappings
