@@ -67,14 +67,14 @@ wk.register({
 
 }, { mode = 'n', prefix = "<leader>" })
 
-wk.register({
-	f = {
-		name = 'Folds',
-		o = { "<cmd>foldopen<Cr>", "Open Fold" },
-		c = { "<cmd>foldclose<Cr>", "Close Fold" },
-
-	}
-})
+-- wk.register({
+-- 	f = {
+-- 		name = 'Folds',
+-- 		o = { "<cmd>foldopen<Cr>", "Open Fold" },
+-- 		c = { "<cmd>foldclose<Cr>", "Close Fold" },
+--
+-- 	}
+-- })
 
 wk.register({
 	['<C-t>'] = { "<cmd>NvimTreeToggle<Cr>", "Toggle Nvim-Tree" },
@@ -98,9 +98,11 @@ wk.register({
 
 }, { mode = 'n' })
 
-wk.register({
-	jj = { "<ESC>", "ESC" },
-}, { mode = 'i' })
+-- wk.register({
+-- 	jj = { "<ESC>", "ESC" },
+-- }, { mode = 'i' })
+
+
 
 wk.register({
 	['<C-c>'] = { '"*y<Cr>', "Copy" },
