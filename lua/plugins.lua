@@ -133,7 +133,7 @@ local event = { 'InsertEnter', 'CmdlineEnter' }
 	-- use { 'tpope/vim-surround' } --keys = { {'n','s'} }
 	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 	use { "kylechui/nvim-surround", tag = "*", config = function() require("nvim-surround").setup({}) end }
-
+	use({ 'mrjones2014/legendary.nvim', config = function() require('facility.legend') end })
 
 
 --extra
