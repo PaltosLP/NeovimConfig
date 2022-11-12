@@ -31,6 +31,8 @@ if vim.g.color_scheme == 'catppuccin' then
 	colors = catpuccin_colors
 elseif vim.g.color_scheme == 'vscode' then
 	colors = vscode_colors
+else
+	colors = catpuccin_colors
 end
 
 return {

@@ -4,3 +4,5 @@ TODO:
 	- Neorg
 	- Delete plugin file, load plugins in file
 	- facility/legendary
+	- fix colorscheme bug
+	- change to core modules --> use config file
