@@ -1,3 +1,28 @@
+-- local ensure_packer = function()
+--   local fn = vim.fn
+--   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+--   if fn.empty(fn.glob(install_path)) > 0 then
+--     fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+--     vim.cmd [[packadd packer.nvim]]
+--     return true
+--   end
+--   return false
+-- end
+--
+-- local packer_bootstrap = ensure_packer()
+
+-- return require('packer').startup(function(use)
+--   -- use 'wbthomason/packer.nvim'
+--   -- My plugins here
+--   -- use 'foo1/bar1.nvim'
+--   -- use 'foo2/bar2.nvim'
+--
+--   -- Automatically set up your configuration after cloning packer.nvim
+--   -- Put this at the end after all plugins
+--   if packer_bootstrap then
+--     require('packer').sync()
+--   end
+-- end)
 
 vim.cmd([[
   augroup packer_user_config
@@ -39,7 +64,7 @@ return require('packer').startup({function(use)
 
 --Mappings
 	use { 'folke/which-key.nvim', config = function() require 'maps.whichkey' end }
-	use { "max397574/better-escape.nvim", event = { 'InsertEnter' }, config = function() require 'maps.betterescape' end }
+	-- use { "max397574/better-escape.nvim", event = { 'InsertEnter' }, config = function() require 'maps.betterescape' end }
 
 
 --AutoPairs
@@ -117,7 +142,7 @@ local event = { 'InsertEnter', 'CmdlineEnter' }
 	use { 'ggandor/lightspeed.nvim', keys = { {'n','s'} } }
 	use { 'nvim-lualine/lualine.nvim', after = "catppuccin", config = function () require 'facility.lua-line' end }
 	use { 'mg979/vim-visual-multi', keys = { {'n','<C-n>'} } }
-	use { 'matze/vim-move', keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} } }
+	use { 'fedepujol/move.nvim' } --keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} }
 	use { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeOpen' }, config = function() require 'facility.nvim_tree' end }
 	use {
 		"max397574/colortils.nvim",
@@ -139,7 +164,7 @@ local event = { 'InsertEnter', 'CmdlineEnter' }
 --extra
 
 	use { 'glepnir/dashboard-nvim', config = function() require 'extra.dashboard' end }
-	use { 'nvim-neorg/neorg', ft = 'norg', after = {'nvim-treesitter','telescope.nvim'}, config = function() require 'extra.neo_org' end } --tag = "latest",
+	-- use { 'nvim-neorg/neorg', ft = 'norg', after = {'nvim-treesitter','telescope.nvim'}, config = function() require 'extra.neo_org' end } --tag = "latest",
 	use { 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'extra.zenmode' end }
 	use { 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'extra.twilights' end }
 	use { 'VonHeikemen/fine-cmdline.nvim' , cmd = { 'FineCmdline' } }
