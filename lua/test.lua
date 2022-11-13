@@ -11,11 +11,16 @@ vim.keymap.set('n', '<leader>h',function() vim.api.nvim_open_win(0, false,{relat
 
 
 local packer = require('packer')
---packer.init({})
-local use = packer.use
+-- packer.init({})
+-- local use = packer.use
 --packer.reset()
 
---use { 'max397574/better-escape.nvim' }
+packer.use({
+  "max397574/better-escape.nvim",
+  config = function()
+    require("better_escape").setup()
+  end,
+})
 
 
 print("HEEEELlllloooo")
