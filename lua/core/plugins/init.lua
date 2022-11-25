@@ -30,7 +30,11 @@ return require('packer').startup(function(use)
 ------------------------------------
 --Colorschemes
   	use { 'Mofiqul/dracula.nvim' }
-
+	use { "catppuccin/nvim", as = "catppuccin", opt=true }
+	use { 'morhetz/gruvbox', opt=true }
+	use { 'joshdick/onedark.vim', opt=true }
+	use { 'Mofiqul/vscode.nvim', opt=true }
+	use { 'sainnhe/everforest', opt=true }
 ------------------------------------
 
 
@@ -43,6 +47,7 @@ return require('packer').startup(function(use)
 		config = function() require 'core.plugins.treesitter' end,
 	})
 	use({ 'p00f/nvim-ts-rainbow' })
+	use({ "lukas-reineke/indent-blankline.nvim", event='Bufread' })
 ------------------------------------
 
 
@@ -58,6 +63,9 @@ return require('packer').startup(function(use)
 			require("nvim-tree").setup()
 		end })
 ------------------------------------
+
+
+
 
   if packer_bootstrap then
     require('packer').sync()
