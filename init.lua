@@ -1,5 +1,8 @@
 --Personal Configs
 
+require 'impatient'.enable_profile()
+
+
 local minimal_config = false
 if minimal_config then
 	require 'minimal'
