@@ -52,6 +52,17 @@ wk.register({
 		s = { "<cmd>PackerStatus<Cr>", "Packer Status" },
 		S = { "<cmd>PackerSync<Cr>", "Packer Sync" },
 		t = { "<cmd>StartupTime<Cr>", "StartupTime" },
-	}
+	},
+	f = {
+    	name = "Telescope", -- optional group name
+    	f = { "<cmd>Telescope find_files<cr>", "Find File" },
+    	g = { "<cmd>Telescope live_grep<cr>", "Search Text" },
+		c = { "<cmd>lua require 'telescope.builtin'.colorscheme{}<Cr>", "Change Colorscheme" },
+		v = { "<cmd>lua require 'telescope.builtin'.commands{}<Cr>", "List Commands" },
+		t = { "<cmd>lua require 'telescope.builtin'.treesitter{}<Cr>", "List File from Treesitter" },
+		p = { "<cmd>lua require 'telescope.builtin'.planets{}<Cr>", "Planets" },
+		b = { "<cmd>Telescope buffers<Cr>", "Search Buffer" },
+		h = { "<cmd>Telescope help_tags<Cr>", "Search Help Tags" },
+  	}
 },
 { mode = 'n', prefix = "<leader>" })

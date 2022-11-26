@@ -3,10 +3,9 @@
 require 'impatient'.enable_profile()
 
 
-local minimal_config = false
-if minimal_config then
-	require 'minimal'
-end
+vim.g.minimal_config = false
+vim.g.user_interface = false
+
 
 
 require 'core.opts'

@@ -23,6 +23,13 @@ return require('packer').startup(function(use)
 				  },
 			} end
 		})
+------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------
+--Devtools
+	use { 'nvim-treesitter/playground', cmd = {'TSPlaygroundToggle'} }
 	use({ 'dstein64/vim-startuptime', cmd = { 'StartupTime' } })
 ------------------------------------------------------------------------
 
@@ -90,8 +97,39 @@ return require('packer').startup(function(use)
 	use { 'hrsh7th/cmp-cmdline', opt = true }
 	use { 'L3MON4D3/LuaSnip', opt = true }
 	use { 'saadparwaiz1/cmp_luasnip', opt = true }
-
 	use { 'onsails/lspkind.nvim', opt=true }
+
+	use { 'windwp/nvim-ts-autotag',	ft = { 'html' }	}
+	use { 'norcalli/nvim-colorizer.lua', cmd = { 'ColorizerToggle' }, ft = {'css'}, config = function() require 'colorizer'.setup() end }
+
+	use { "rafamadriz/friendly-snippets", opt=true, config = function() require("luasnip/loaders/from_vscode").load({
+		paths = {
+			"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
+			},
+		})
+		end }
+------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------
+--Telescope
+	use({'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} }, keys = {{'n', '<leader>f'}}, opt=true })
+	use({'nvim-telescope/telescope-ui-select.nvim', opt=true })
+	use({'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build', opt=true })
+------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------
+--Additions
+	use({ 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end, opt=true })
+	use({ "akinsho/toggleterm.nvim", cmd = { 'ToggleTerm' }, tag = '*', config = function() require('toggleterm').setup({open_mapping = [[<c-e>]]}) end }) --vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>ToggleTerm<Cr>', {})
+	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" } })
+	use({ "kylechui/nvim-surround", tag = "*", config = function() require("nvim-surround").setup({}) end, opt=true })
+	use({ 'ggandor/lightspeed.nvim', keys = { {'n','s'} } })
+	use({ 'mg979/vim-visual-multi', keys = { {'n','<C-n>'}, {'v', 'C-n'} } })
+	use({ 'fedepujol/move.nvim', config = function() require("core.plugins.move") end, opt=true }) --keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} }
 ------------------------------------------------------------------------
 
 

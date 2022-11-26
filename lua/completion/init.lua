@@ -11,7 +11,9 @@ vim.api.nvim_create_autocmd({'InsertEnter', 'CmdlineEnter'}, {
 			vim.cmd[[PackerLoad cmp_luasnip]]
 			vim.cmd[[PackerLoad lspkind.nvim]]
  			vim.cmd[[PackerLoad cmp-cmdline]] --<--
+			vim.cmd[[PackerLoad friendly-snippets]]
 			require 'completion.comp'
+			require 'completion.snips'
 		end
 })
 
