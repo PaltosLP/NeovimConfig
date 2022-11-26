@@ -12,7 +12,7 @@ require 'core.mappings'
 
 -----------------------------
 --Customizations
-vim.cmd.colorscheme("dracula")
+vim.g.color_scheme = "dracula" --dracula, catppuccin
 vim.g.minimal_config = false
 vim.g.user_interface = false
 vim.g.transparent = false

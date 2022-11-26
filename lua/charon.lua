@@ -1,6 +1,8 @@
 --Coordinate lua folder
 
 require 'completion'
+require 'highlights'
+
 
 if vim.g.minimal_config then
 	require 'minimal'
