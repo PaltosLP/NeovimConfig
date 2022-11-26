@@ -1,14 +1,23 @@
-local status = pcall(require, 'cmp' )
-if not status then
-    print('comp Error')
-    return
-end
+-- local status = pcall(require, 'cmp' )
+-- if not status then
+--     print('comp Error')
+--     return
+-- end
 
 
 
 local cmp = require 'cmp'
 -- local lspkind = require 'lspkind'
 local luasnip = require 'luasnip'
+luasnip.config.set_config({
+	history = true,
+	updateevents = 'TextChanged, TextChangedI',
+	enable_autosnippets = true,
+	-- region_check_events = 'InserEnter',
+	delete_check_events = 'InsertLeave'
+})
+
+
 -- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 --
 --
