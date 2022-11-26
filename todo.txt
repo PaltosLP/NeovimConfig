@@ -1,8 +1,9 @@
 
 TODO:
 	- create global color palette per colorscheme, for Lualine(primary , background usw)
-	- Neorg
-	- Delete plugin file, load plugins in file
 	- facility/legendary
 	- fix colorscheme bug
-	- change to core modules --> use config file
+	- fix cmp cmdline and / 
+	- heirline
+	- properly lazyload Telescope
+	- Plugins --Additions
