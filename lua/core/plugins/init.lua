@@ -81,7 +81,7 @@ return require('packer').startup(function(use)
 				})
 			end,
 		})
-	
+
 
 	use { 'hrsh7th/nvim-cmp', opt = true }
 	use { 'hrsh7th/cmp-nvim-lsp', opt = true }
@@ -102,7 +102,7 @@ return require('packer').startup(function(use)
 	use { 'MunifTanjim/nui.nvim', opt=true  }
 	use { 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'extra.zenmode' end, opt=true }
 	use { 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'extra.twilights' end, opt=true }
-	use({ "folke/noice.nvim", opt=true, config = function() require("noice").setup() require("notify").setup({ background_colour = "#000000" }) end, 
+	use({ "folke/noice.nvim", opt=true, config = function() require("noice").setup() require("notify").setup({ background_colour = "#000000" }) end,
 					requires = {
 					-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 					-- "MunifTanjim/nui.nvim",

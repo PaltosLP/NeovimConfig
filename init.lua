@@ -22,4 +22,4 @@ vim.cmd.colorscheme("dracula")
 -- vim.cmd[[highlight SignColumn guibg=none]]
 -- vim.api.nvim_set_hl(0, "CursorLineNr", { link = "@function.call" })
 
-
+require 'charon'
