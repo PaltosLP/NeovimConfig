@@ -1,23 +1,24 @@
--- vim.cmd([[luafile ~/profiler.nvim/lua/profiler.lua]])
+--Personal Configs
 
-
---impatient (for StartUpTime use :StartupTime)
 require 'impatient'.enable_profile()
 
---options
-require 'opts'
 
---colorscheme
-vim.g.color_scheme = 'vscode' -- gruvbox, catppuccin, onedark, material, vscode
-require 'highlights'
+vim.g.minimal_config = false
+vim.g.user_interface = false
 
---mappings
-require 'maps.mappings'
 
---packer
-require 'plugins'
 
---lsp
-require 'lang'
+require 'core.opts'
+require 'core.plugins'
+require 'core.mappings'
 
-require 'test'
+
+vim.cmd.colorscheme("dracula")
+-- vim.cmd[[hi Normal guibg=NONE ctermbg=NONE]]
+-- vim.cmd[[highlight NormalFloat  guibg=none]]
+-- vim.cmd[[highlight FloatBorder  guibg=none]]
+-- vim.cmd[[highlight LineNr guifg=grey guibg=none]]
+-- vim.cmd[[highlight SignColumn guibg=none]]
+-- vim.api.nvim_set_hl(0, "CursorLineNr", { link = "@function.call" })
+
+require 'charon'
