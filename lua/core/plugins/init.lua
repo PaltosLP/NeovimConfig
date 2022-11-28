@@ -53,7 +53,7 @@ return require('packer').startup(function(use)
 		run = ':TSUpdate',
 		config = function() require 'core.plugins.treesitter' end,
 	})
-	use({ 'p00f/nvim-ts-rainbow', module = 'nvim-ts-rainbow' })
+	use({ 'p00f/nvim-ts-rainbow' }) --, module = 'nvim-ts-rainbow'
 	use({ "lukas-reineke/indent-blankline.nvim", event='Bufread', module='indent-blankline' })
 ------------------------------------------------------------------------
 
@@ -76,7 +76,7 @@ return require('packer').startup(function(use)
 ------------------------------------------------------------------------
 --LSP, Completion, Snippets
 	use { 'neovim/nvim-lspconfig',  config = function() require('core.plugins.lsp') end } --event='VimEnter',
-	use({"glepnir/lspsaga.nvim",
+	use({ "glepnir/lspsaga.nvim",
 			module = "lspsaga", cmd = 'Lspsaga',
 			branch = "main",
 			config = function()
@@ -100,14 +100,17 @@ return require('packer').startup(function(use)
 	use { 'onsails/lspkind.nvim', module='lspkind' }
 
 	use { 'windwp/nvim-ts-autotag',	ft = { 'html' }	}
-	use { 'norcalli/nvim-colorizer.lua', cmd = { 'ColorizerToggle' }, ft = {'css'}, config = function() require 'colorizer'.setup() end }
+	use { 'norcalli/nvim-colorizer.lua', cmd = { 'ColorizerToggle' }, ft = {'css'},
+	config = function() require 'colorizer'.setup() end, keys={ {'n', 'lc'} }
+	}
 
 	use { "rafamadriz/friendly-snippets", opt=true, config = function() require("luasnip/loaders/from_vscode").load({
 		paths = {
 			"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
 			},
 		})
-		end }
+		end, keys={{'n', 'ls'}}
+	}
 ------------------------------------------------------------------------
 
 
@@ -139,6 +142,14 @@ return require('packer').startup(function(use)
 ------------------------------------------------------------------------
 --UI
 	use({ "rebelot/heirline.nvim" })
+	use({'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', keys = { {'n','zM'}, {'n', "lz"} },
+	config=function()
+		require 'core.plugins.ufo'
+	end })
+	use { 'kevinhwang91/promise-async', module='promise' }
+
+
+
 local ui_opt = not vim.g.user_interface
 	use { "nvim-lua/plenary.nvim", module = 'plenary' }
 	use { 'MunifTanjim/nui.nvim', opt=ui_opt}

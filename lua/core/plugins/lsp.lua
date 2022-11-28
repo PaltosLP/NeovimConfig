@@ -24,8 +24,14 @@ if state then
 	on_attach_path = 'lang.langs.none'
 end
 
---capabilities = capabilities,
-local config = {  on_attach = require('core.plugins.utils_lsp').on_attach, settings = { --on attach path changed on tests branch
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
+
+
+local config = { capabilities = capabilities, on_attach = require('core.plugins.utils_lsp').on_attach, settings = { --on attach path changed on tests branch
 	Lua = {
 		diagnostics = {
 			globals = { 'vim' }

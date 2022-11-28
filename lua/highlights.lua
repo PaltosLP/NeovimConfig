@@ -9,6 +9,7 @@ local colorschemes = {
 }
 
 -- vim.cmd.PackerLoad(colorschemes[vim.g.color_scheme])
+-- vim.cmd[[PackerLoad vscode.nvim]]
 
 if vim.g.color_scheme == 'dracula' then
 	vim.api.nvim_set_hl(0, "@variable", { link = "rainbowcol4" })

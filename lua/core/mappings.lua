@@ -63,6 +63,12 @@ wk.register({
 		p = { "<cmd>lua require 'telescope.builtin'.planets{}<Cr>", "Planets" },
 		b = { "<cmd>Telescope buffers<Cr>", "Search Buffer" },
 		h = { "<cmd>Telescope help_tags<Cr>", "Search Help Tags" },
-  	}
+  	},
+	l = {
+		name = "Load",
+		s = {"", "Load Snippets"},
+		c = {"", "Load Colorizer"},
+		z = {"", "Load Folding"},
+	}
 },
 { mode = 'n', prefix = "<leader>" })
