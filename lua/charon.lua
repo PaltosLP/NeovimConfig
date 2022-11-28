@@ -1,6 +1,5 @@
 --Coordinate lua folder
 
-require 'completion'
 require 'highlights'
 
 

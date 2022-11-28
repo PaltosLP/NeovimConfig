@@ -1,0 +1,2 @@
+--Heirline Config
+--https://github.com/rebelot/heirline.nvim/blob/master/cookbook.md

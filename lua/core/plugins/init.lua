@@ -89,14 +89,15 @@ return require('packer').startup(function(use)
 		})
 
 
-	use { 'hrsh7th/nvim-cmp', opt = true }
-	use { 'hrsh7th/cmp-nvim-lsp', opt = true }
-	use { 'hrsh7th/cmp-buffer', opt = true }
-	use { 'hrsh7th/cmp-path', opt = true }
-	use { 'hrsh7th/cmp-cmdline', opt = true }
-	use { 'L3MON4D3/LuaSnip', opt = true }
-	use { 'saadparwaiz1/cmp_luasnip', opt = true }
-	use { 'onsails/lspkind.nvim', opt=true }
+	use { 'hrsh7th/nvim-cmp', config = function() require 'completion.comp' require 'completion.snips' end,
+	event = { 'InsertEnter', 'CmdlineEnter'} }
+	use { 'hrsh7th/cmp-nvim-lsp', event = { 'InsertEnter' } }
+	use { 'hrsh7th/cmp-buffer', event = { 'InsertEnter', 'CmdlineEnter'} }
+	use { 'hrsh7th/cmp-path', event = { 'InsertEnter', 'CmdlineEnter'} }
+	use { 'hrsh7th/cmp-cmdline', event = {'CmdlineEnter'} }
+	use { 'L3MON4D3/LuaSnip', event = { 'InsertEnter' } }
+	use { 'saadparwaiz1/cmp_luasnip', event = { 'InsertEnter' } }
+	use { 'onsails/lspkind.nvim', module='lspkind' }
 
 	use { 'windwp/nvim-ts-autotag',	ft = { 'html' }	}
 	use { 'norcalli/nvim-colorizer.lua', cmd = { 'ColorizerToggle' }, ft = {'css'}, config = function() require 'colorizer'.setup() end }
@@ -137,6 +138,7 @@ return require('packer').startup(function(use)
 
 ------------------------------------------------------------------------
 --UI
+	use({ "rebelot/heirline.nvim" })
 local ui_opt = not vim.g.user_interface
 	use { "nvim-lua/plenary.nvim", module = 'plenary' }
 	use { 'MunifTanjim/nui.nvim', opt=ui_opt}
