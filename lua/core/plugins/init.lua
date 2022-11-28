@@ -134,7 +134,7 @@ return require('packer').startup(function(use)
 	use({ "kylechui/nvim-surround", tag = "*", config = function() require("nvim-surround").setup({}) end, opt=true })
 	use({ 'ggandor/lightspeed.nvim', keys = { {'n','s'} } })
 	use({ 'mg979/vim-visual-multi', keys = { {'n','<C-n>'}, {'v', 'C-n'} } })
-	use({ 'fedepujol/move.nvim', config = function() require("core.plugins.move") end, opt=true }) --keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} }
+	use({ 'fedepujol/move.nvim', config = function() require("core.plugins.move") end, opt=false }) --keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} }
 ------------------------------------------------------------------------
 
 
