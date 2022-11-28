@@ -6,7 +6,7 @@ require 'impatient'.enable_profile()
 --Customizations
 vim.g.color_scheme = "dracula" --dracula, catppuccin
 vim.g.minimal_config = false
-vim.g.user_interface = true
+vim.g.user_interface = false
 vim.g.transparent = false
 -----------------------------
 

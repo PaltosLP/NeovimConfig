@@ -59,7 +59,7 @@ vim.opt.mouse = "a"
 vim.opt.swapfile = false
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
-vim.o.timeoutlen = 600
+vim.o.timeoutlen = 200
 
 -- vim.opt.foldmethod = "expr" -- use treesitter for folding
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

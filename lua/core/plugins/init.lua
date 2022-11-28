@@ -34,10 +34,9 @@ return require('packer').startup(function(use)
 ------------------------------------------------------------------------
 
 
-
 ------------------------------------------------------------------------
 --Colorschemes
-  	use { 'Mofiqul/dracula.nvim' }
+  	use { 'Mofiqul/dracula.nvim', opt=false}
 	use { "catppuccin/nvim", as = "catppuccin", opt=true }
 	use { 'morhetz/gruvbox', opt=true }
 	use { 'joshdick/onedark.vim', opt=true }
@@ -54,8 +53,8 @@ return require('packer').startup(function(use)
 		run = ':TSUpdate',
 		config = function() require 'core.plugins.treesitter' end,
 	})
-	use({ 'p00f/nvim-ts-rainbow' })
-	use({ "lukas-reineke/indent-blankline.nvim", event='Bufread' })
+	use({ 'p00f/nvim-ts-rainbow', module = 'nvim-ts-rainbow' })
+	use({ "lukas-reineke/indent-blankline.nvim", event='Bufread', module='indent-blankline' })
 ------------------------------------------------------------------------
 
 
@@ -78,7 +77,7 @@ return require('packer').startup(function(use)
 --LSP, Completion, Snippets
 	use { 'neovim/nvim-lspconfig',  config = function() require('core.plugins.lsp') end } --event='VimEnter',
 	use({"glepnir/lspsaga.nvim",
-			module = "lspsaga.nvim",
+			module = "lspsaga", cmd = 'Lspsaga',
 			branch = "main",
 			config = function()
 				local saga = require("lspsaga")
@@ -114,7 +113,9 @@ return require('packer').startup(function(use)
 
 ------------------------------------------------------------------------
 --Telescope
-	use({'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} }, keys = {{'n', '<leader>f'}}, opt=true })
+	use({'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} },
+	module = 'telescope', cmd = 'Telescope'
+	}) --, keys = {{'n', '<leader>f'}}, opt=true
 	use({'nvim-telescope/telescope-ui-select.nvim', opt=true })
 	use({'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build', opt=true })
 ------------------------------------------------------------------------
@@ -137,7 +138,7 @@ return require('packer').startup(function(use)
 ------------------------------------------------------------------------
 --UI
 local ui_opt = not vim.g.user_interface
-	use { "nvim-lua/plenary.nvim", opt=ui_opt}
+	use { "nvim-lua/plenary.nvim", module = 'plenary' }
 	use { 'MunifTanjim/nui.nvim', opt=ui_opt}
 	use { 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'extra.zenmode' end, opt=ui_opt}
 	use { 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'extra.twilights' end, opt=ui_opt}
