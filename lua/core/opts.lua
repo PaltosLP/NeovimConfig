@@ -61,8 +61,21 @@ vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.o.timeoutlen = 200
 
--- vim.opt.foldmethod = "expr" -- use treesitter for folding
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.cmd([[ 
+set clipboard+=unnamedplus
+let g:clipboard = {
+          \   'name': 'win32yank-wsl',
+          \   'copy': {
+          \      '+': 'win32yank.exe -i --crlf',
+          \      '*': 'win32yank.exe -i --crlf',
+          \    },
+          \   'paste': {
+          \      '+': 'win32yank.exe -o --lf',
+          \      '*': 'win32yank.exe -o --lf',
+          \   },
+          \   'cache_enabled': 0,
+          \ }
+]]) --> needs win32yank-wsl.exe in path
 
 
 

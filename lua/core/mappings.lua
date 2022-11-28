@@ -22,7 +22,7 @@ map('n', '<ESC>', ':nohl<CR>')
 map('n', '<C-a>', '<cmd>call run_file#Run_File()<Cr>')
 map('n', '<C-s>', '<cmd>call save#w()<Cr>')
 map('n', '<C-l>', '<cmd>q<Cr>')
-map('v', '<C-c>', '"*y<Cr>') --needs x server
+map('v', '<C-c>', '"*y<Cr>') --more info in opt (needs win32yank-wsl.exe in path)
 map('n', '<C-p>', '<cmd>call save#pwd()<Cr>')
 
 
