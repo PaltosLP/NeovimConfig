@@ -136,6 +136,11 @@ return require('packer').startup(function(use)
 	use({ 'mg979/vim-visual-multi', keys = { {'n','<C-n>'}, {'v', 'C-n'} } })
 	use({ 'fedepujol/move.nvim', config = function() require("core.plugins.move") end,
 		opt=false, module="move", cmd = { "MoveLine", "MoveBlock", "MoveHChar", "MoveHBlock" } }) --keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} }
+	use({ "max397574/colortils.nvim", cmd = "Colortils",
+	  config = function()
+		require("colortils").setup()
+	  end,
+		})
 ------------------------------------------------------------------------
 
 
@@ -148,7 +153,6 @@ return require('packer').startup(function(use)
 		require 'core.plugins.ufo'
 	end })
 	use { 'kevinhwang91/promise-async', module='promise' }
-
 
 
 local ui_opt = not vim.g.user_interface
@@ -168,6 +172,15 @@ local ui_opt = not vim.g.user_interface
 
 
 			})
+------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------
+--Random
+	use({ 'tamton-aquib/duck.nvim', module="duck" })
+	use({ 'eandrju/cellular-automaton.nvim', cmd = 'CellularAutomaton' })
+
 ------------------------------------------------------------------------
 
   if packer_bootstrap then

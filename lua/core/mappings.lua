@@ -64,12 +64,24 @@ wk.register({
 		b = { "<cmd>Telescope buffers<Cr>", "Search Buffer" },
 		h = { "<cmd>Telescope help_tags<Cr>", "Search Help Tags" },
   	},
-	l = {
-		name = "Load",
-		s = {"", "Load Snippets"},
-		c = {"", "Load Colorizer"},
-		z = {"", "Load Folding"},
-		m = {"usercmd ???", "Laod Move"}
+	-- l = {
+	-- 	name = "Load",
+	-- 	s = {"", "Load Snippets"},
+	-- 	c = {"", "Load Colorizer"},
+	-- 	z = {"", "Load Folding"},
+	-- 	m = {"usercmd ???", "Laod Move"}
+	-- },
+	r = {
+		name = "Random",
+		r = { ":CellularAutomaton make_it_rain<Cr>", "It's rainin" },
+		g = { ":CellularAutomaton game_of_life<Cr>", "Game of Life" },
+		d = { "<cmd>lua require('duck').hatch()<Cr>", "Duck hatch" },
+		f = { "<cmd>lua require('duck').cook()<Cr>", "Duck cook" }
+	},
+	t = {
+		name = "Tools",
+		c = { ":Colortils", "Colortils" },
 	}
+
 },
 { mode = 'n', prefix = "<leader>" })

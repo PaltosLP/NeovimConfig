@@ -1,7 +1,4 @@
 --Coordinate lua folder
-
-
-
 if vim.g.minimal_config then
 	require 'minimal'
 	return
@@ -23,3 +20,4 @@ end
 
 require 'highlights'
 require 'ui.stautusline'
+require 'custom'
