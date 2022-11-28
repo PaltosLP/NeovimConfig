@@ -5,4 +5,4 @@ TODO:
 	- fix colorscheme bug
 	- heirline
 	- usercmd vscode, transparent, pwd
-	- usercmd for lazyload fold, friendlysnips, Colorizer, Colortils
+	- usercmd for lazyload fold, friendlysnips, Colorizer, Colortils, move

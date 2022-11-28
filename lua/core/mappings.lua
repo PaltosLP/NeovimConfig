@@ -69,6 +69,7 @@ wk.register({
 		s = {"", "Load Snippets"},
 		c = {"", "Load Colorizer"},
 		z = {"", "Load Folding"},
+		m = {"usercmd ???", "Laod Move"}
 	}
 },
 { mode = 'n', prefix = "<leader>" })

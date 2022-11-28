@@ -1,5 +1,5 @@
 local ensure_packer = function()
-  local fn = vim.fn
+local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
@@ -134,7 +134,8 @@ return require('packer').startup(function(use)
 	use({ "kylechui/nvim-surround", tag = "*", config = function() require("nvim-surround").setup({}) end, opt=true })
 	use({ 'ggandor/lightspeed.nvim', keys = { {'n','s'} } })
 	use({ 'mg979/vim-visual-multi', keys = { {'n','<C-n>'}, {'v', 'C-n'} } })
-	use({ 'fedepujol/move.nvim', config = function() require("core.plugins.move") end, opt=false }) --keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} }
+	use({ 'fedepujol/move.nvim', config = function() require("core.plugins.move") end,
+		opt=false, module="move", cmd = { "MoveLine", "MoveBlock", "MoveHChar", "MoveHBlock" } }) --keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} }
 ------------------------------------------------------------------------
 
 
