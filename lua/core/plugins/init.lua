@@ -136,11 +136,12 @@ return require('packer').startup(function(use)
 
 ------------------------------------------------------------------------
 --UI
-	use { "nvim-lua/plenary.nvim", opt=true }
-	use { 'MunifTanjim/nui.nvim', opt=true  }
-	use { 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'extra.zenmode' end, opt=true }
-	use { 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'extra.twilights' end, opt=true }
-	use({ "folke/noice.nvim", opt=true, config = function() require("noice").setup() require("notify").setup({ background_colour = "#000000" }) end,
+local ui_opt = not vim.g.user_interface
+	use { "nvim-lua/plenary.nvim", opt=ui_opt}
+	use { 'MunifTanjim/nui.nvim', opt=ui_opt}
+	use { 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'extra.zenmode' end, opt=ui_opt}
+	use { 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'extra.twilights' end, opt=ui_opt}
+	use({ "folke/noice.nvim", opt=ui_opt , config = function() require("noice").setup() require("notify").setup({ background_colour = "#000000" }) end,
 					requires = {
 					-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 					-- "MunifTanjim/nui.nvim",

@@ -1,21 +1,21 @@
 --Personal Configs
 require 'impatient'.enable_profile()
 
------------------------------
---First Requirements
-require 'core.opts'
-require 'core.plugins'
-require 'core.mappings'
------------------------------
-
-
 
 -----------------------------
 --Customizations
 vim.g.color_scheme = "dracula" --dracula, catppuccin
 vim.g.minimal_config = false
-vim.g.user_interface = false
+vim.g.user_interface = true
 vim.g.transparent = false
+-----------------------------
+
+
+-----------------------------
+--First Requirements
+require 'core.opts'
+require 'core.plugins'
+require 'core.mappings'
 -----------------------------
 
 
