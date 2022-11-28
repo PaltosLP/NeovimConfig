@@ -3,7 +3,6 @@ TODO:
 	- create global color palette per colorscheme, for Lualine(primary , background usw)
 	- facility/legendary
 	- fix colorscheme bug
-	- fix cmp cmdline and / 
 	- heirline
-	- properly lazyload Telescope
-	- Plugins --Additions
+	- usercmd vscode, transparent, pwd
+	- folding

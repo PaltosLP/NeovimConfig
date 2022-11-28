@@ -1,6 +1,5 @@
 --Coordinate lua folder
 
-require 'highlights'
 
 
 if vim.g.minimal_config then
@@ -20,3 +19,7 @@ if vim.g.transparent then
 	vim.cmd[[highlight SignColumn guibg=none]]
 	vim.api.nvim_set_hl(0, "CursorLineNr", { link = "@function.call" })
 end
+
+
+require 'highlights'
+require 'ui.stautusline'
