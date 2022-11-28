@@ -23,6 +23,7 @@ map('n', '<C-a>', '<cmd>call run_file#Run_File()<Cr>')
 map('n', '<C-s>', '<cmd>call save#w()<Cr>')
 map('n', '<C-l>', '<cmd>q<Cr>')
 map('v', '<C-c>', '"*y<Cr>') --needs x server
+map('n', '<C-p>', '<cmd>call save#pwd()<Cr>')
 
 
 --local ok, _ = pcall(require, 'which-key.nvim')
