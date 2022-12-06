@@ -8,6 +8,7 @@ local colorschemes = {
 	everforest = 'everforest'
 }
 
+vim.cmd.colorscheme(vim.g.color_scheme)
 -- vim.cmd.PackerLoad(colorschemes[vim.g.color_scheme])
 -- vim.cmd[[PackerLoad vscode.nvim]]
 
@@ -25,4 +26,3 @@ elseif vim.g.color_scheme == 'catppuccin' then
 end
 
 
-vim.cmd.colorscheme(vim.g.color_scheme)
