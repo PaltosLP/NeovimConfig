@@ -19,5 +19,5 @@ end
 
 
 require 'highlights'
-require 'ui.stautusline'
+require 'ui.statusline'
 require 'custom'
