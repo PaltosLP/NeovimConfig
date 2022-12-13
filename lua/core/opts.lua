@@ -61,6 +61,11 @@ vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.o.timeoutlen = 200
 
+-- if vim.g.user_interface then
+-- 	vim.opt.cmdheight = 0
+-- end
+
+
 vim.cmd([[ 
 set clipboard+=unnamedplus
 let g:clipboard = {

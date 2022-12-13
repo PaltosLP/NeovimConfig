@@ -63,7 +63,7 @@ local ViMode = {
     -- them at initialisation time.
     static = {
         mode_names = { -- change the strings if you like it vvvvverbose!
-            n = "N",
+            n = "Normal",
             no = "N?",
             nov = "N?",
             noV = "N?",
@@ -72,7 +72,7 @@ local ViMode = {
             niR = "Nr",
             niV = "Nv",
             nt = "Nt",
-            v = "V",
+            v = "Visual",
             vs = "Vs",
             V = "V_",
             Vs = "Vs",
@@ -81,7 +81,7 @@ local ViMode = {
             s = "S",
             S = "S_",
             ["\19"] = "^S",
-            i = "I",
+            i = "Insert",
             ic = "Ic",
             ix = "Ix",
             R = "R",
@@ -90,7 +90,7 @@ local ViMode = {
             Rv = "Rv",
             Rvc = "Rv",
             Rvx = "Rv",
-            c = "C",
+            c = "Command",
             cv = "Ex",
             r = "...",
             rm = "M",
@@ -122,12 +122,12 @@ local ViMode = {
     -- control the padding and make sure our string is always at least 2
     -- characters long. Plus a nice Icon.
     provider = function(self)
-        return " %2("..self.mode_names[self.mode].."%)"
+        return " %2("..self.mode_names[self.mode].."%)"
     end,
     -- Same goes for the highlight. Now the foreground will change according to the current mode.
     hl = function(self)
         local mode = self.mode:sub(1, 1) -- get only the first mode character
-        return { fg = self.mode_colors[mode], bold = true, }
+        return { fg = self.mode_colors[mode], bg = colors.blue, bold = true, }
     end,
     -- Re-evaluate the component only on ModeChanged event!
     -- This is not required in any way, but it's there, and it's a small
@@ -135,12 +135,20 @@ local ViMode = {
     update = {
         "ModeChanged",
     },
+
 }
 
+-- format = "[ ](fg:#423840 bg:none)[$symbol ](fg:#d47d85 bg:#423840)[ ](fg:#423840 bg:#282c34)[$percentage]($style)[ ](fg:#282c34 bg:none)"
+-- padlock      = '',
+--    circle_small = '●', -- ●
+--    circle       = '', -- 
+--    circle_plus  = '', -- 
+--    dot_circle_o = '', -- 
+--    circle_o     = '⭘', -- ⭘
 
+local sur_ViMode = utils.surround({' ', ' '}, colors.blue, ViMode)
 
-
-local StatusLine = {ViMode}
+local StatusLine = {sur_ViMode}
 
 
 -- the winbar parameter is optional!
