@@ -30,6 +30,14 @@ capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true
 }
 
+-- vim.api.nvim_create_aucmd("LspAttach", {
+--     callback = function(args)
+--         local bufnr = args.buf
+--         -- vim.lsp.semantic_tokens.stop(bufnr, args.data.client_id)
+--         local client=vim.lsp.get_client_by_id(args.data.client_id)
+--         client.server_capabilities.semanticTokensProvider = nil
+--     end,
+-- })
 
 local config = { capabilities = capabilities, on_attach = require('core.plugins.utils_lsp').on_attach, settings = { --on attach path changed on tests branch
 	Lua = {

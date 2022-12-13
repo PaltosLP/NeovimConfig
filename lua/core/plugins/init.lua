@@ -128,7 +128,7 @@ return require('packer').startup(function(use)
 
 ------------------------------------------------------------------------
 --Additions
-	use({ 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end, opt=true })
+	use({ 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end, opt=false })
 	use({ "akinsho/toggleterm.nvim", cmd = { 'ToggleTerm' }, tag = '*', config = function() require('toggleterm').setup({open_mapping = [[<c-e>]]}) end }) --vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>ToggleTerm<Cr>', {})
 	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" } })
 	use({ "kylechui/nvim-surround", tag = "*", config = function() require("nvim-surround").setup({}) end, opt=true })
