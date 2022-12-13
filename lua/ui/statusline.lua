@@ -133,7 +133,7 @@ local inner_ViMode = {
     },
 }
 
-local ViMode = utils.surround({' ', ' '}, function() return inner_ViMode.static.mode_colors[vim.fn.mode(1)] end, inner_ViMode)
+local ViMode = utils.surround({' ', '     '}, function() return inner_ViMode.static.mode_colors[vim.fn.mode(1)] end, inner_ViMode)
 
 
 
@@ -217,7 +217,7 @@ FileNameBlock = utils.insert(FileNameBlock,
     FileIcon,
     utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
     FileFlags,
-    { provider = '%<'} -- this means that the statusline is cut here when there's not enough space
+    { provider = '%='} -- this means that the statusline is cut here when there's not enough space
 )
 
 
@@ -225,22 +225,101 @@ FileNameBlock = utils.insert(FileNameBlock,
 -------------------------------------------------------------------------------------------------------------------
 
 
-local FileType = {
-    provider = function()
-        return string.upper(vim.bo.filetype)
+-- I take no credits for this! :lion:
+local ScrollBar ={
+    static = {
+        sbar = { '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█' }
+        -- Another variant, because the more choice the better.
+        -- sbar = { '🭶', '🭷', '🭸', '🭹', '🭺', '🭻' }
+    },
+    provider = function(self)
+        local curr_line = vim.api.nvim_win_get_cursor(0)[1]
+        local lines = vim.api.nvim_buf_line_count(0)
+        local i = math.floor((curr_line - 1) / lines * #self.sbar) + 1
+        return ' ' .. string.rep(self.sbar[i], 2)
     end,
-    hl = { fg = utils.get_highlight("Type").fg, bold = true },
+    hl = { fg = "blue", bg = "bg" },
 }
-
-
 
 
 -------------------------------------------------------------------------------------------------------------------
 
 
+local LSPActive = {
+    condition = conditions.lsp_attached,
+    update = {'LspAttach', 'LspDetach'},
+
+    -- You can keep it simple,
+    -- provider = " [LSP]",
+
+    -- Or complicate things a bit and get the servers names
+    provider  = function()
+        local names = {}
+        for _, server in pairs(vim.lsp.buf_get_clients(0)) do
+            table.insert(names, server.name)
+        end
+        return "    [" .. table.concat(names, " ") .. "]   "
+    end,
+    hl = { fg = "green", bold = true },
+}
+
+local Git = {
+    condition = conditions.is_git_repo,
+
+    init = function(self)
+        self.status_dict = vim.b.gitsigns_status_dict
+        self.has_changes = self.status_dict.added ~= 0 or self.status_dict.removed ~= 0 or self.status_dict.changed ~= 0
+    end,
+
+    hl = { fg = "orange" },
 
 
-local StatusLine = {ViMode, FileNameBlock,  }
+    {   -- git branch name
+        provider = function(self)
+            return " " .. self.status_dict.head
+        end,
+        hl = { bold = true }
+    },
+    -- You could handle delimiters, icons and counts similar to Diagnostics
+    {
+        condition = function(self)
+            return self.has_changes
+        end,
+        provider = "("
+    },
+    {
+        provider = function(self)
+            local count = self.status_dict.added or 0
+            return count > 0 and ("+" .. count)
+        end,
+        hl = { fg = "green" },
+    },
+    {
+        provider = function(self)
+            local count = self.status_dict.removed or 0
+            return count > 0 and ("-" .. count)
+        end,
+        hl = { fg = "red" },
+    },
+    {
+        provider = function(self)
+            local count = self.status_dict.changed or 0
+            return count > 0 and ("~" .. count)
+        end,
+        hl = { fg = "orange" },
+    },
+    {
+        condition = function(self)
+            return self.has_changes
+        end,
+        provider = ")",
+    },
+}
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+local StatusLine = {ViMode, FileNameBlock, Git, LSPActive, ScrollBar }
 
 -- the winbar parameter is optional!
 -- require'heirline'.setup(StatusLine, WinBar, TabLine)

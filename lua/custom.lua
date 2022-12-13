@@ -24,3 +24,11 @@ wk.register({
 }, {prefix = "<leader>"})
 
 
+
+vim.api.nvim_create_autocmd('CmdlineEnter',{
+	command = 'lua vim.opt.cmdheight = 1'
+})
+
+vim.api.nvim_create_autocmd('CmdlineLeave',{
+	command = 'lua vim.opt.cmdheight = 0'
+})
