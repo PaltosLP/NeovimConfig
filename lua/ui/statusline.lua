@@ -179,6 +179,12 @@ local FileName = {
         return filename
     end,
     hl = { fg = utils.get_highlight("Directory").fg },
+	on_click = {
+        callback = function()
+			vim.cmd('pwd')
+		    end,
+        name = "FilePath",
+    }
 }
 
 local FileFlags = {
@@ -212,6 +218,7 @@ local FileNameModifer = {
     end,
 }
 
+
 -- let's add the children to our FileNameBlock component
 FileNameBlock = utils.insert(FileNameBlock,
     FileIcon,
@@ -229,8 +236,6 @@ FileNameBlock = utils.insert(FileNameBlock,
 local ScrollBar ={
     static = {
         sbar = { '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█' }
-        -- Another variant, because the more choice the better.
-        -- sbar = { '🭶', '🭷', '🭸', '🭹', '🭺', '🭻' }
     },
     provider = function(self)
         local curr_line = vim.api.nvim_win_get_cursor(0)[1]
@@ -238,7 +243,7 @@ local ScrollBar ={
         local i = math.floor((curr_line - 1) / lines * #self.sbar) + 1
         return ' ' .. string.rep(self.sbar[i], 2)
     end,
-    hl = { fg = "blue", bg = "bg" },
+    hl = { fg = "comment", bg = "bg" },
 }
 
 
@@ -261,6 +266,12 @@ local LSPActive = {
         return "    [" .. table.concat(names, " ") .. "]   "
     end,
     hl = { fg = "green", bold = true },
+	on_click = {
+        callback = function()
+			vim.cmd('LspInfo')
+		    end,
+        name = "LspInfo",
+    }
 }
 
 local Git = {
@@ -316,10 +327,71 @@ local Git = {
     },
 }
 
+
+local Diagnostics = {
+
+    condition = conditions.has_diagnostics,
+	static = {
+        -- error_icon = vim.fn.sign_getdefined("DiagnosticSignError")[1].text, --' '
+        -- warn_icon = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text, --' '
+        -- info_icon = vim.fn.sign_getdefined("DiagnosticSignInfo")[1].text, --'כֿ '
+        -- hint_icon = vim.fn.sign_getdefined("DiagnosticSignHint")[1].text, --' '
+		error_icon = ' ',
+		warn_icon = ' ',
+		info_icon = 'כֿ ',
+		hint_icon = ' ',
+    },
+
+    init = function(self)
+        self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+        self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
+        self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
+        self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
+    end,
+
+    update = { "DiagnosticChanged", "BufEnter" },
+
+    -- {
+    --     provider = "![",
+    -- },
+    {
+        provider = function(self)
+            -- 0 is just another output, we can decide to print it or not!
+            return self.errors > 0 and (self.error_icon .. self.errors .. " ")
+        end,
+        hl = { fg = "#dd2423" },
+    },
+    {
+        provider = function(self)
+            return self.warnings > 0 and (self.warn_icon .. self.warnings .. " ")
+        end,
+        hl = { fg = "#fd9c3b" },
+    },
+    {
+        provider = function(self)
+            return self.info > 0 and (self.info_icon .. self.info .. " ")
+        end,
+        hl = { fg = "green" },
+    },
+    {
+        provider = function(self)
+            return self.hints > 0 and (self.hint_icon .. self.hints)
+        end,
+        hl = { fg = "#5b7e75" },
+    },
+    -- {
+    --     provider = "]",
+    -- },
+}
+
+-- Diagnostics = utils.surround({"![", "]"}, nil, Diagnostics)
+
+
+
 -------------------------------------------------------------------------------------------------------------------
 
 
-local StatusLine = {ViMode, FileNameBlock, Git, LSPActive, ScrollBar }
+local StatusLine = {ViMode, FileNameBlock, Diagnostics, Git, LSPActive, ScrollBar }
 
 -- the winbar parameter is optional!
 -- require'heirline'.setup(StatusLine, WinBar, TabLine)
