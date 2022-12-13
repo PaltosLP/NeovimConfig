@@ -127,7 +127,7 @@ local ViMode = {
     -- Same goes for the highlight. Now the foreground will change according to the current mode.
     hl = function(self)
         local mode = self.mode:sub(1, 1) -- get only the first mode character
-        return { fg = self.mode_colors[mode], bg = colors.blue, bold = true, }
+        return { fg = colors.blue, bg = self.mode_colors[mode], bold = true, }
     end,
     -- Re-evaluate the component only on ModeChanged event!
     -- This is not required in any way, but it's there, and it's a small
@@ -148,7 +148,9 @@ local ViMode = {
 --    dot_circle_o = '', -- 
 --    circle_o     = '⭘', -- ⭘
 
-local sur_ViMode = utils.surround({' ', ' '}, colors.blue, ViMode)
+-- vim.fn.mode(1):sub(1, 1)
+
+local sur_ViMode = utils.surround({' ', ' '},  ViMode.static.mode_colors[vim.fn.mode(1)] , ViMode)
 
 local StatusLine = {sur_ViMode}
 
