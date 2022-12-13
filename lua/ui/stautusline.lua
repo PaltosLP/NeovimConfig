@@ -122,7 +122,7 @@ local ViMode = {
     -- control the padding and make sure our string is always at least 2
     -- characters long. Plus a nice Icon.
     provider = function(self)
-        return " %2("..self.mode_names[self.mode].."%)"
+        return " %2("..self.mode_names[self.mode].."%)"
     end,
     -- Same goes for the highlight. Now the foreground will change according to the current mode.
     hl = function(self)
@@ -137,6 +137,8 @@ local ViMode = {
     },
 
 }
+
+-- ·
 
 -- format = "[ ](fg:#423840 bg:none)[$symbol ](fg:#d47d85 bg:#423840)[ ](fg:#423840 bg:#282c34)[$percentage]($style)[ ](fg:#282c34 bg:none)"
 -- padlock      = '',
