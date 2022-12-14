@@ -4,7 +4,7 @@ require 'impatient'.enable_profile()
 
 -----------------------------
 --Customizations
-vim.g.color_scheme = 'dracula' --dracula, catppuccin, vscode
+vim.g.color_scheme = 'darcula' --dracula, catppuccin, vscode, darcula
 vim.g.minimal_config = false
 vim.g.user_interface = false
 vim.g.transparent = false

@@ -37,6 +37,7 @@ return require('packer').startup(function(use)
 ------------------------------------------------------------------------
 --Colorschemes
   	use { 'Mofiqul/dracula.nvim', opt=false}
+	use { 'Hierosme/darcula.nvim' }
 	use { "catppuccin/nvim", as = "catppuccin", opt=true }
 	use { 'morhetz/gruvbox', opt=true }
 	use { 'joshdick/onedark.vim', opt=true }
