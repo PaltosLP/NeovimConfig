@@ -133,7 +133,7 @@ local inner_ViMode = {
     },
 }
 
-local ViMode = utils.surround({' ', '     '}, function() return inner_ViMode.static.mode_colors[vim.fn.mode(1)] end, inner_ViMode)
+local ViMode = utils.surround({' ', ' '}, function() return inner_ViMode.static.mode_colors[vim.fn.mode(1)] end, inner_ViMode)
 
 
 
@@ -152,12 +152,12 @@ local FileNameBlock = {
 
 local FileIcon = {
     init = function(self)
-        local filename = self.filename
+        local filename = vim.api.nvim_buf_get_name(0)
         local extension = vim.fn.fnamemodify(filename, ":e")
         self.icon, self.icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
     end,
     provider = function(self)
-        return self.icon and (self.icon .. " ")
+        return self.icon and (" " .. self.icon .. " ")
     end,
     hl = function(self)
         return { fg = self.icon_color }
@@ -176,7 +176,7 @@ local FileName = {
         if not conditions.width_percent_below(#filename, 0.25) then
             filename = vim.fn.pathshorten(filename)
         end
-        return filename
+        return " " .. filename
     end,
     hl = { fg = utils.get_highlight("Directory").fg },
 	on_click = {
@@ -221,7 +221,6 @@ local FileNameModifer = {
 
 -- let's add the children to our FileNameBlock component
 FileNameBlock = utils.insert(FileNameBlock,
-    FileIcon,
     utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
     FileFlags,
     { provider = '%='} -- this means that the statusline is cut here when there's not enough space
@@ -263,7 +262,7 @@ local LSPActive = {
         for _, server in pairs(vim.lsp.buf_get_clients(0)) do
             table.insert(names, server.name)
         end
-        return "    [" .. table.concat(names, " ") .. "]   "
+        return "  [" .. table.concat(names, " ") .. "] "
     end,
     hl = { fg = "green", bold = true },
 	on_click = {
@@ -389,10 +388,46 @@ local Diagnostics = {
 
 
 -------------------------------------------------------------------------------------------------------------------
+local function setup_colors()
+    return {
+        bright_bg = utils.get_highlight("Folded").bg,
+        bright_fg = utils.get_highlight("Folded").fg,
+        red = utils.get_highlight("DiagnosticError").fg,
+        dark_red = utils.get_highlight("DiffDelete").bg,
+        green = utils.get_highlight("String").fg,
+        blue = utils.get_highlight("Function").fg,
+        gray = utils.get_highlight("NonText").fg,
+        orange = utils.get_highlight("Constant").fg,
+        purple = utils.get_highlight("Statement").fg,
+        cyan = utils.get_highlight("Special").fg,
+        diag_warn = utils.get_highlight("DiagnosticWarn").fg,
+        diag_error = utils.get_highlight("DiagnosticError").fg,
+        diag_hint = utils.get_highlight("DiagnosticHint").fg,
+        diag_info = utils.get_highlight("DiagnosticInfo").fg,
+        git_del = utils.get_highlight("diffDeleted").fg,
+        git_add = utils.get_highlight("diffAdded").fg,
+        git_change = utils.get_highlight("diffChanged").fg,
+    }
+end
+-- require('heirline').load_colors(setup_colors())
 
+vim.api.nvim_create_augroup("Heirline", { clear = true })
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function()
+        local colors = setup_colors()
+        utils.on_colorscheme(colors)
+    end,
+    group = "Heirline",
+})
 
-local StatusLine = {ViMode, FileNameBlock, Diagnostics, Git, LSPActive, ScrollBar }
+local StatusLine = {ViMode, Git, FileNameBlock, Diagnostics, FileIcon, LSPActive, ScrollBar }
 
 -- the winbar parameter is optional!
 -- require'heirline'.setup(StatusLine, WinBar, TabLine)
 require'heirline'.setup(StatusLine)
+
+vim.api.nvim_create_autocmd('InsertLeave', {
+	callback = function()
+		require'heirline'.setup(StatusLine)
+	end
+})
