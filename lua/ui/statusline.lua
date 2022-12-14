@@ -399,7 +399,22 @@ local Diagnostics = {
 -- Diagnostics = utils.surround({"![", "]"}, nil, Diagnostics)
 
 
+-------------------------------------------------------------------------------------------------------------------
 
+local Time = {
+    init = function(self)
+        self.time = os.date('*t')
+		self.icon = ' '
+        self.icon_color = "blue"
+    end,
+    provider = function(self)
+		local time=self.time.hour..":"..self.time.min
+        return self.icon and (" " .. self.icon .. " ")..time
+    end,
+    hl = function(self)
+        return { fg = self.icon_color }
+    end
+}
 -------------------------------------------------------------------------------------------------------------------
 -- require('heirline').load_colors(setup_colors())
 
@@ -411,7 +426,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     group = "Heirline",
 })
 
-local StatusLine = {ViMode, Git, FileNameBlock, Diagnostics, FileIcon, LSPActive, ScrollBar }
+local StatusLine = {ViMode, Git, FileNameBlock, Diagnostics, FileIcon, LSPActive, Time, ScrollBar }
 
 -- the winbar parameter is optional!
 -- require'heirline'.setup(StatusLine, WinBar, TabLine)
