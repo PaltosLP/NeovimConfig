@@ -16,6 +16,7 @@ if vim.g.color_scheme == 'dracula' then
 	vim.api.nvim_set_hl(0, "@variable", { link = "rainbowcol4" })
 	-- vim.api.nvim_set_hl(0, "@field", { link = "SpecialKey" })
 	vim.api.nvim_set_hl(0, "@keyword.function", { link = "keyword" })
+	require("dracula").setup({italic_comment = true,show_end_of_buffer = true})
 
 elseif vim.g.color_scheme == 'darcula' then
 	vim.g.darcula_italic_comments = true
@@ -25,6 +26,7 @@ elseif vim.g.color_scheme == 'darcula' then
 	vim.g.darcula_contrast = false
 	vim.g.darcula_borders = false
 	vim.g.darcula_disable_background = false
+	vim.cmd('highlight IndentBlanklineChar guifg=#00FF00 gui=nocombine')
 
 elseif vim.g.color_scheme == 'catppuccin' then
 	vim.api.nvim_set_hl(0, "@variable", { link = "rainbowcol4" })
@@ -34,4 +36,3 @@ end
 
 
 vim.cmd.colorscheme(vim.g.color_scheme)
-vim.cmd('highlight IndentBlanklineChar guifg=#00FF00 gui=nocombine')
