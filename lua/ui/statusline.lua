@@ -253,7 +253,7 @@ local ScrollBar ={
         local curr_line = vim.api.nvim_win_get_cursor(0)[1]
         local lines = vim.api.nvim_buf_line_count(0)
         local i = math.floor((curr_line - 1) / lines * #self.sbar) + 1
-        return ' ' .. string.rep(self.sbar[i], 2)
+        return ' ' .. string.rep(self.sbar[i], 1)
     end,
     hl = { fg = "comment", bg = "bg" },
 }
@@ -401,20 +401,22 @@ local Diagnostics = {
 
 -------------------------------------------------------------------------------------------------------------------
 
-local Time = {
+local inner_Time = {
     init = function(self)
         self.time = os.date('*t')
 		self.icon = ' '
-        self.icon_color = "blue"
+        self.icon_color = "bright_blue"
     end,
     provider = function(self)
 		local time=self.time.hour..":"..self.time.min
-        return self.icon and (" " .. self.icon .. " ")..time
+        return self.icon and (" " .. self.icon .. " ").. time:format('%02d')
     end,
     hl = function(self)
-        return { fg = self.icon_color }
+        return { fg = colors.black, bg = colors.cyan , bold = true }
     end
 }
+
+local Time = utils.surround({'', ''}, function() return colors.cyan end, inner_Time)
 -------------------------------------------------------------------------------------------------------------------
 -- require('heirline').load_colors(setup_colors())
 
@@ -428,9 +430,13 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 local StatusLine = {ViMode, Git, FileNameBlock, Diagnostics, FileIcon, LSPActive, Time, ScrollBar }
 
+local TabLine = require("ui.tabline")
 -- the winbar parameter is optional!
 -- require'heirline'.setup(StatusLine, WinBar, TabLine)
-require'heirline'.setup(StatusLine)
+vim.cmd.highlight('statusline guibg='.. colors.bg)
+vim.o.showtabline = 2
+vim.cmd([[au FileType * if index(['wipe', 'delete'], &bufhidden) >= 0 | set nobuflisted | endif]])
+require'heirline'.setup(StatusLine,nil, TabLine)
 
 vim.api.nvim_create_autocmd('InsertLeave', {
 	callback = function()
