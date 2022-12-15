@@ -9,7 +9,7 @@ local TablineBufnr = {
     provider = function(self)
         return tostring(self.bufnr) .. ". "
     end,
-    hl = "Comment",
+    hl = "comment",
 }
 
 -- we redefine the filename component, as we probably only want the tail and not the relative path
@@ -108,7 +108,11 @@ local TablineCloseButton = {
 }
 
 -- The final touch!
-local TablineBufferBlock = utils.surround({ "", "" }, function(self)
+--      
+-- local symbols = { "  ", " " }
+-- local symbols = { "", "" }
+local symbols = { " ", " "}
+local TablineBufferBlock = utils.surround(symbols, function(self)
     if self.is_active then
         return utils.get_highlight("TabLineSel").bg
     else

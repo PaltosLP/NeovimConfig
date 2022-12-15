@@ -417,6 +417,39 @@ local inner_Time = {
 }
 
 local Time = utils.surround({'', ''}, function() return colors.cyan end, inner_Time)
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+    -- component_separators = { left = '', right = ''},
+    -- section_separators = { left = '', right = ''},
+
+local left_seperator = {
+    init = function(self)
+		self.icon = '  '
+        self.icon_color = "comment"
+    end,
+    provider = function(self)
+		return self.icon
+    end,
+    hl = function(self)
+        return { fg = self.icon_color, bold = true }
+    end
+}
+local right_seperator = {
+    init = function(self)
+		self.icon =  ' '
+        self.icon_color = "comment"
+    end,
+    provider = function(self)
+		return self.icon
+    end,
+    hl = function(self)
+        return { fg = self.icon_color, bold = true }
+    end
+}
+
 -------------------------------------------------------------------------------------------------------------------
 -- require('heirline').load_colors(setup_colors())
 
@@ -428,7 +461,14 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     group = "Heirline",
 })
 
-local StatusLine = {ViMode, Git, FileNameBlock, Diagnostics, FileIcon, LSPActive, Time, ScrollBar }
+local StatusLine = {ViMode, left_seperator, Git, left_seperator, FileNameBlock,  Diagnostics, FileIcon, right_seperator, LSPActive, right_seperator, Time, ScrollBar }
+
+-- et_highlight("TabLineSel").bg
+--     else
+--         return utils.get_highlight("TabLine").bg
+vim.cmd.highlight('TabLineSel guibg='..colors.white)
+-- vim.cmd.highlight('TabLine guibg='..colors.bright_blue)
+
 
 local TabLine = require("ui.tabline")
 -- the winbar parameter is optional!
@@ -436,7 +476,14 @@ local TabLine = require("ui.tabline")
 vim.cmd.highlight('statusline guibg='.. colors.bg)
 vim.o.showtabline = 2
 vim.cmd([[au FileType * if index(['wipe', 'delete'], &bufhidden) >= 0 | set nobuflisted | endif]])
+
+
+
+-------------------------------------------------------------------------------------------------------------------
 require'heirline'.setup(StatusLine,nil, TabLine)
+-------------------------------------------------------------------------------------------------------------------
+
+
 
 vim.api.nvim_create_autocmd('InsertLeave', {
 	callback = function()
