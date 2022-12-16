@@ -165,17 +165,33 @@ local FileNameBlock = {
 
 local FileIcon = {
     init = function(self)
-        local filename = vim.api.nvim_buf_get_name(0)
-        local extension = vim.fn.fnamemodify(filename, ":e")
-        self.icon, self.icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
+        self.filename = vim.api.nvim_buf_get_name(0)
+        self.extension = vim.fn.fnamemodify(self.filename, ":e")
+        self.icon, self.icon_color = require("nvim-web-devicons").get_icon_color(self.filename, self.extension, { default = true })
     end,
     provider = function(self)
-        return self.icon and (" " .. self.icon .. " ")
+        return  " " .. self.icon .. " "
     end,
     hl = function(self)
         return { fg = self.icon_color }
-    end
+    end,
+	on_click = {
+        callback = function(self)
+				self.filename = vim.api.nvim_buf_get_name(0)
+				self.extension = vim.fn.fnamemodify(self.filename, ":e")
+
+				if self.extension == 'lua' then
+					vim.cmd('!xdg-open https://www.lua.org/manual/5.3/')
+				elseif self.extension == 'py' then
+					vim.cmd('!xdg-open https://docs.python.org/3.10/index.html')
+				else
+					vim.cmd('!xdg-open https://google.com')
+				end
+			end,
+        name = "StandardLibrary",
+    }
 }
+
 
 local FileName = {
     provider = function(self)

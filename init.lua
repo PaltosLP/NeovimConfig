@@ -19,6 +19,5 @@ require 'core.mappings'
 -----------------------------
 
 
-
 --further configs
 require 'charon'
