@@ -27,8 +27,10 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
-    lineFoldingOnly = true
+    lineFoldingOnly = true,
+	semanticTokensProvider = nil
 }
+-- client.server_capabilities.semanticTokensProvider = nil
 
 -- vim.api.nvim_create_aucmd("LspAttach", {
 --     callback = function(args)

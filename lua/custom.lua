@@ -32,3 +32,5 @@ vim.api.nvim_create_autocmd('CmdlineEnter',{
 vim.api.nvim_create_autocmd('CmdlineLeave',{
 	command = 'lua vim.opt.cmdheight = 0'
 })
+
+

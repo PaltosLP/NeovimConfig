@@ -29,9 +29,8 @@ utils.on_attach = function(client, bufnr)
 	map(0, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
 
 -- require("aerial").on_attach(client, bufnr)
-
+	client.server_capabilities.semanticTokensProvider = nil
 end
-
 
 vim.api.nvim_set_keymap('n', '<S-e>', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)

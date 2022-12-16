@@ -13,9 +13,9 @@ local colorschemes = {
 -- vim.cmd[[PackerLoad vscode.nvim]]
 
 if vim.g.color_scheme == 'dracula' then
-	vim.api.nvim_set_hl(0, "@variable", { link = "rainbowcol4" })
+	-- vim.api.nvim_set_hl(0, "@variable", { link = "rainbowcol4" })
 	-- vim.api.nvim_set_hl(0, "@field", { link = "SpecialKey" })
-	vim.api.nvim_set_hl(0, "@keyword.function", { link = "keyword" })
+	-- vim.api.nvim_set_hl(0, "@keyword.function", { link = "keyword" })
 	require("dracula").setup({italic_comment = true,show_end_of_buffer = true})
 
 elseif vim.g.color_scheme == 'darcula' then

@@ -285,7 +285,14 @@ local LSPActive = {
         name = "LspInfo",
     }
 }
+if not conditions.lsp_attached then
+	LSPActive = {
+		provider = "No LangServer",
+    	hl = { fg = "green", bold = true },
+	}
+end
 
+-------------------------------------------------------------------------------------------------------------------
 local Git = {
     condition = conditions.is_git_repo,
 
@@ -469,23 +476,24 @@ local StatusLine = {ViMode, left_seperator, Git, left_seperator, FileNameBlock, 
 --     else
 --         return utils.get_highlight("TabLine").bg
 vim.cmd.highlight('TabLineSel guibg='..colors.white)
-vim.cmd.highlight('TabLine guibg='..colors.bright_yellow)
+vim.cmd.highlight('TabLine guibg='..colors.comment)
 
 
 local TabLine = require("ui.tabline")
 -- the winbar parameter is optional!
 -- require'heirline'.setup(StatusLine, WinBar, TabLine)
 vim.cmd.highlight('statusline guibg='.. colors.bg)
+vim.cmd.highlight('statusline  guifg='.. colors.bright_green)
 vim.o.showtabline = 2
 vim.cmd([[au FileType * if index(['wipe', 'delete'], &bufhidden) >= 0 | set nobuflisted | endif]])
-
 
 
 -------------------------------------------------------------------------------------------------------------------
 require'heirline'.setup(StatusLine,nil, TabLine)
 -------------------------------------------------------------------------------------------------------------------
 
-
+    -- -- Quickly add a condition to the ViMode to only show it when buffer is active!
+    -- { condition = conditions.is_active, ViMode, Space }, FileType, Space, TerminalName, Align,
 
 vim.api.nvim_create_autocmd('InsertLeave', {
 	callback = function()
