@@ -21,7 +21,7 @@ local TablineFileName = {
         return filename
     end,
     hl = function(self)
-        return { bold = self.is_active or self.is_visible, italic = true }
+        return { bold = self.is_active or self.is_visible, italic = true, fg = "comment" }
     end,
 }
 
@@ -45,7 +45,7 @@ local TablineFileFlags = {
             if vim.api.nvim_buf_get_option(self.bufnr, "buftype") == "terminal" then
                 return "  "
             else
-                return ""
+                return " "
             end
         end,
         hl = { fg = "orange" },
@@ -81,7 +81,7 @@ local TablineFileNameBlock = {
         name = "heirline_tabline_buffer_callback",
     },
     TablineBufnr,
-    FileIcon, -- turns out the version defined in #crash-course-part-ii-filename-and-friends can be reutilized as is here!
+    -- FileIcon, -- turns out the version defined in #crash-course-part-ii-filename-and-friends can be reutilized as is here!
     TablineFileName,
     TablineFileFlags,
 }
@@ -109,7 +109,7 @@ local TablineCloseButton = {
 
 -- The final touch!
 --      
--- local symbols = { "  ", " " }
+-- local symbols = { "  ", " "   }
 -- local symbols = { "", "" }
 local symbols = { " ", " "}
 local TablineBufferBlock = utils.surround(symbols, function(self)
