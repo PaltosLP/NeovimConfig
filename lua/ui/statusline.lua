@@ -427,7 +427,8 @@ local Time = utils.surround({'', ''}, function() return colors.cyan end, i
 
 local left_seperator = {
     init = function(self)
-		self.icon = '  '
+		self.icon = '  '
+		-- self.icon = '  '
         self.icon_color = "comment"
     end,
     provider = function(self)
@@ -439,7 +440,8 @@ local left_seperator = {
 }
 local right_seperator = {
     init = function(self)
-		self.icon =  ' '
+		self.icon = '  '
+		-- self.icon =  ' '
         self.icon_color = "comment"
     end,
     provider = function(self)

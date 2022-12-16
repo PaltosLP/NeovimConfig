@@ -93,7 +93,7 @@ local TablineCloseButton = {
     end,
     { provider = " " },
     {
-        provider = "",
+        provider = " ",
         hl = { fg = "gray" },
         on_click = {
             callback = function(_, minwid)
@@ -109,9 +109,10 @@ local TablineCloseButton = {
 
 -- The final touch!
 --      
+-- local symbols = { " ", " "}
 -- local symbols = { "  ", " "   }
--- local symbols = { "", "" }
-local symbols = { " ", " "}
+local symbols = { "", "" }
+-- local symbols = { " ", " "}
 local TablineBufferBlock = utils.surround(symbols, function(self)
     if self.is_active then
         return utils.get_highlight("TabLineSel").bg
@@ -224,8 +225,13 @@ local TabLineOffset = {
     end,
 
     hl = function(self)
+        -- local win = vim.api.nvim_tabpage_list_wins(0)[1]
+        -- local bufnr = vim.api.nvim_win_get_buf(win)
         if vim.api.nvim_get_current_win() == self.winid then
             return "TablineSel"
+		-- elseif vim.bo[bufnr].filetype == "NvimTree" then
+  --           return { fg = "bright_yellow", bold = true, bg = "comment" }
+  --           gotta be checked first
         else
             return "Tabline"
         end
