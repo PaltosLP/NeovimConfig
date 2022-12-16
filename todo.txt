@@ -8,3 +8,4 @@ TODO:
 	- current battery: "cat /sys/class/power_supply/battery/capacity"
 	- charging or not: "cat /sys/class/power_supply/battery/status"
 	- make a vim.g.pointy_or_round for statusline and tabline
+	- on <C-a> in lua file recompile the configs / source
