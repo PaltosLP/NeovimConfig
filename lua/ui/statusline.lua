@@ -1,3 +1,4 @@
+local M = {}
 --Heirline Config
 --https://github.com/rebelot/heirline.nvim/blob/master/cookbook.md
 
@@ -291,7 +292,7 @@ local LSPActive = {
         for _, server in pairs(vim.lsp.buf_get_clients(0)) do
             table.insert(names, server.name)
         end
-        return "  [" .. table.concat(names, " ") .. "] "
+        return " [" .. table.concat(names, " ") .. "] "
     end,
     hl = { fg = "green", bold = true },
 	on_click = {
@@ -322,7 +323,7 @@ local Git = {
 
     {   -- git branch name
         provider = function(self)
-            return " " .. self.status_dict.head
+            return "  " .. self.status_dict.head
         end,
         hl = { bold = true }
     },
@@ -446,13 +447,13 @@ local Time = utils.surround({'', ''}, function() return colors.cyan end, i
 
 
 -------------------------------------------------------------------------------------------------------------------
-    -- component_separators = { left = '', right = ''},
+local component_separators = { left = ' ', right = ' '}
     -- section_separators = { left = '', right = ''},
 
 local left_seperator = {
     init = function(self)
-		self.icon = '  '
-		-- self.icon = '  '
+		-- self.icon = '  '
+		self.icon = component_separators.left
         self.icon_color = "comment"
     end,
     provider = function(self)
@@ -465,7 +466,7 @@ local left_seperator = {
 local right_seperator = {
     init = function(self)
 		self.icon = '  '
-		-- self.icon =  ' '
+		self.icon = component_separators.right
         self.icon_color = "comment"
     end,
     provider = function(self)
@@ -496,7 +497,13 @@ vim.cmd.highlight('TabLineSel guibg='..colors.white)
 vim.cmd.highlight('TabLine guibg='..colors.comment)
 
 
-local TabLine = require("ui.tabline")
+
+
+local tab = require("ui.tabline")
+local TabLine = { tab.TabLineOffset, tab.BufferLine, tab.TabPages }
+
+
+
 -- the winbar parameter is optional!
 -- require'heirline'.setup(StatusLine, WinBar, TabLine)
 vim.cmd.highlight('statusline guibg='.. colors.bg)
@@ -517,3 +524,4 @@ vim.api.nvim_create_autocmd('InsertLeave', {
 		require'heirline'.setup(StatusLine)
 	end
 })
+return M
