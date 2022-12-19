@@ -432,7 +432,8 @@ local inner_Time = {
     end,
     provider = function(self)
 		local time=self.time.hour..":"..self.time.min
-        return self.icon and (" " .. self.icon .. " ").. time:format('%02d')
+		-- print(self.time.min)
+        return  (" " .. self.icon .. " ").. time:format('%02d')
     end,
     hl = function(self)
         return { fg = colors.black, bg = colors.cyan , bold = true }
