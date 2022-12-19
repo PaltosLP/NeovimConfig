@@ -81,7 +81,7 @@ M.TablineFileNameBlock = {
         name = "heirline_tabline_buffer_callback",
     },
     M.TablineBufnr,
-    -- FileIcon, -- turns out the version defined in #crash-course-part-ii-filename-and-friends can be reutilized as is here!
+    require("ui.statusline").FileIcon, -- turns out the version defined in #crash-course-part-ii-filename-and-friends can be reutilized as is here!
     M.TablineFileName,
     M.TablineFileFlags,
 }
