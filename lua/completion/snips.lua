@@ -27,13 +27,13 @@ ls.add_snippets( "lua" , {
 
 ls.add_snippets('c', {
 	s('HelloWorld', {
-		t({'#include <stdio.h>','','int main() {','    printf("Hello World!");','    return 0;','}'})
+		t({'#include <stdio.h>','','int main() {','    printf("Hello World!\n");','    return 0;','}'})
 	})
 })
 
 ls.add_snippets('c', {
 	s('printf', {
-		t('printf("'), i(1, ""), t('");')
+		t('printf("'), i(1, ""), t('\n");')
 
 	})
 })
