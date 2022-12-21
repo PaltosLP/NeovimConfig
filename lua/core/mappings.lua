@@ -1,5 +1,4 @@
 
-vim.g.mapleader = ' '
 
 
 --Neovim Docs

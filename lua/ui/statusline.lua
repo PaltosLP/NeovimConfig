@@ -1,4 +1,3 @@
-local M = {}
 --Heirline Config
 --https://github.com/rebelot/heirline.nvim/blob/master/cookbook.md
 
@@ -147,7 +146,7 @@ local inner_ViMode = {
     },
 }
 
-M.ViMode = utils.surround({' ', ' '}, function() return inner_ViMode.static.mode_colors[vim.fn.mode(1)] end, inner_ViMode)
+local ViMode = utils.surround({' ', ' '}, function() return inner_ViMode.static.mode_colors[vim.fn.mode(1)] end, inner_ViMode)
 
 
 
@@ -156,7 +155,7 @@ M.ViMode = utils.surround({' ', ' '}, function() return inner_ViMode.stati
 
 
 
-M.FileNameBlock = {
+local FileNameBlock = {
     -- let's first set up some attributes needed by this component and it's children
     init = function(self)
         self.filename = vim.api.nvim_buf_get_name(0)
@@ -164,7 +163,7 @@ M.FileNameBlock = {
 }
 -- We can now define some children separately and add them later
 
-M.FileIcon = {
+local FileIcon = {
     init = function(self)
         self.filename = vim.api.nvim_buf_get_name(0)
         self.extension = vim.fn.fnamemodify(self.filename, ":e")
@@ -194,7 +193,7 @@ M.FileIcon = {
 }
 
 
-M.FileName = {
+local FileName = {
     provider = function(self)
         -- first, trim the pattern relative to the current directory. For other
         -- options, see :h filename-modifers
@@ -217,7 +216,7 @@ M.FileName = {
     }
 }
 
-M.FileFlags = {
+local FileFlags = {
     {
         condition = function()
             return vim.bo.modified
@@ -239,7 +238,7 @@ M.FileFlags = {
 -- but we'll see how easy it is to alter existing components using a "modifier"
 -- component
 
-M.FileNameModifer = {
+local FileNameModifer = {
     hl = function()
         if vim.bo.modified then
             -- use `force` because we need to override the child's hl foreground
@@ -250,9 +249,9 @@ M.FileNameModifer = {
 
 
 -- let's add the children to our FileNameBlock component
-M.FileNameBlock = utils.insert(M.FileNameBlock,
-    utils.insert(M.FileNameModifer, M.FileName), -- a new table where FileName is a child of FileNameModifier
-    M.FileFlags,
+FileNameBlock = utils.insert(FileNameBlock,
+    utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
+    FileFlags,
     { provider = '%='} -- this means that the statusline is cut here when there's not enough space
 )
 
@@ -262,7 +261,7 @@ M.FileNameBlock = utils.insert(M.FileNameBlock,
 
 
 -- I take no credits for this! :lion:
-M.ScrollBar ={
+local ScrollBar ={
     static = {
         sbar = { '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█' }
     },
@@ -279,7 +278,7 @@ M.ScrollBar ={
 -------------------------------------------------------------------------------------------------------------------
 
 
-M.LSPActive = {
+local LSPActive = {
     condition = conditions.lsp_attached,
     update = {'LspAttach', 'LspDetach'},
 
@@ -292,7 +291,7 @@ M.LSPActive = {
         for _, server in pairs(vim.lsp.buf_get_clients(0)) do
             table.insert(names, server.name)
         end
-        return " [" .. table.concat(names, " ") .. "] "
+        return "  [" .. table.concat(names, " ") .. "] "
     end,
     hl = { fg = "green", bold = true },
 	on_click = {
@@ -310,7 +309,7 @@ if not conditions.lsp_attached then
 end
 
 -------------------------------------------------------------------------------------------------------------------
-M.Git = {
+local Git = {
     condition = conditions.is_git_repo,
 
     init = function(self)
@@ -323,7 +322,7 @@ M.Git = {
 
     {   -- git branch name
         provider = function(self)
-            return "  " .. self.status_dict.head
+            return " " .. self.status_dict.head
         end,
         hl = { bold = true }
     },
@@ -364,7 +363,7 @@ M.Git = {
 }
 
 
-M.Diagnostics = {
+local Diagnostics = {
 
     condition = conditions.has_diagnostics,
 	static = {
@@ -441,19 +440,19 @@ local inner_Time = {
     end
 }
 
-M.Time = utils.surround({'', ''}, function() return colors.cyan end, inner_Time)
+local Time = utils.surround({'', ''}, function() return colors.cyan end, inner_Time)
 
 
 
 
 -------------------------------------------------------------------------------------------------------------------
-local component_separators = { left = ' ', right = ' '}
+    -- component_separators = { left = '', right = ''},
     -- section_separators = { left = '', right = ''},
 
-M.left_seperator = {
+local left_seperator = {
     init = function(self)
-		-- self.icon = '  '
-		self.icon = component_separators.left
+		self.icon = '  '
+		-- self.icon = '  '
         self.icon_color = "comment"
     end,
     provider = function(self)
@@ -463,10 +462,10 @@ M.left_seperator = {
         return { fg = self.icon_color, bold = true }
     end
 }
-M.right_seperator = {
+local right_seperator = {
     init = function(self)
 		self.icon = '  '
-		self.icon = component_separators.right
+		-- self.icon =  ' '
         self.icon_color = "comment"
     end,
     provider = function(self)
@@ -488,22 +487,16 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     group = "Heirline",
 })
 
--- local StatusLine = {ViMode, left_seperator, Git, left_seperator, FileNameBlock,  Diagnostics, FileIcon, right_seperator, LSPActive, right_seperator, Time, ScrollBar }
+local StatusLine = {ViMode, left_seperator, Git, left_seperator, FileNameBlock,  Diagnostics, FileIcon, right_seperator, LSPActive, right_seperator, Time, ScrollBar }
 
 -- et_highlight("TabLineSel").bg
 --     else
 --         return utils.get_highlight("TabLine").bg
 vim.cmd.highlight('TabLineSel guibg='..colors.white)
-vim.cmd.highlight('TabLine guibg='..colors.comment )
+vim.cmd.highlight('TabLine guibg='..colors.comment)
 
 
-
-
--- local tab = require("ui.tabline")
--- local TabLine = { tab.TabLineOffset, tab.BufferLine, tab.TabPages }
-
-
-
+local TabLine = require("ui.tabline")
 -- the winbar parameter is optional!
 -- require'heirline'.setup(StatusLine, WinBar, TabLine)
 vim.cmd.highlight('statusline guibg='.. colors.bg)
@@ -513,15 +506,14 @@ vim.cmd([[au FileType * if index(['wipe', 'delete'], &bufhidden) >= 0 | set nobu
 
 
 -------------------------------------------------------------------------------------------------------------------
--- require'heirline'.setup(StatusLine,nil, TabLine)
+require'heirline'.setup(StatusLine,nil, TabLine)
 -------------------------------------------------------------------------------------------------------------------
 
     -- -- Quickly add a condition to the ViMode to only show it when buffer is active!
     -- { condition = conditions.is_active, ViMode, Space }, FileType, Space, TerminalName, Align,
 
--- vim.api.nvim_create_autocmd('InsertLeave', {
--- 	callback = function()
--- 		require'heirline'.setup(StatusLine)
--- 	end
--- })
-return M
+vim.api.nvim_create_autocmd('InsertLeave', {
+	callback = function()
+		require'heirline'.setup(StatusLine)
+	end
+})

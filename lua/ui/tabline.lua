@@ -5,7 +5,7 @@ local M = {}
 local utils = require("heirline.utils")
 
 
-M.TablineBufnr = {
+local TablineBufnr = {
     provider = function(self)
         return tostring(self.bufnr) .. ". "
     end,
@@ -13,7 +13,7 @@ M.TablineBufnr = {
 }
 
 -- we redefine the filename component, as we probably only want the tail and not the relative path
-M.TablineFileName = {
+local TablineFileName = {
     provider = function(self)
         -- self.filename will be defined later, just keep looking at the example!
         local filename = self.filename
@@ -28,7 +28,7 @@ M.TablineFileName = {
 -- this looks exactly like the FileFlags component that we saw in
 -- #crash-course-part-ii-filename-and-friends, but we are indexing the bufnr explicitly
 -- also, we are adding a nice icon for terminal buffers.
-M.TablineFileFlags = {
+local TablineFileFlags = {
     {
         condition = function(self)
             return vim.api.nvim_buf_get_option(self.bufnr, "modified")
@@ -53,7 +53,7 @@ M.TablineFileFlags = {
 }
 
 -- Here the filename block finally comes together
-M.TablineFileNameBlock = {
+local TablineFileNameBlock = {
     init = function(self)
         self.filename = vim.api.nvim_buf_get_name(self.bufnr)
     end,
@@ -80,14 +80,14 @@ M.TablineFileNameBlock = {
         end,
         name = "heirline_tabline_buffer_callback",
     },
-    M.TablineBufnr,
-    require("ui.statusline").FileIcon, -- turns out the version defined in #crash-course-part-ii-filename-and-friends can be reutilized as is here!
-    M.TablineFileName,
-    M.TablineFileFlags,
+    TablineBufnr,
+    -- FileIcon, -- turns out the version defined in #crash-course-part-ii-filename-and-friends can be reutilized as is here!
+    TablineFileName,
+    TablineFileFlags,
 }
 
 -- a nice "x" button to close the buffer
-M.TablineCloseButton = {
+local TablineCloseButton = {
     condition = function(self)
         return not vim.api.nvim_buf_get_option(self.bufnr, "modified")
     end,
@@ -119,10 +119,10 @@ local TablineBufferBlock = utils.surround(symbols, function(self)
     else
         return utils.get_highlight("TabLine").bg
     end
-end, { M.TablineFileNameBlock, M.TablineCloseButton })
+end, { TablineFileNameBlock, TablineCloseButton })
 
 -- and here we go
-M.BufferLine = utils.make_buflist(
+local BufferLine = utils.make_buflist(
     TablineBufferBlock,
     { provider = "", hl = { fg = "gray" } }, -- left truncation, optional (defaults to "<")
     { provider = "", hl = { fg = "gray" } } -- right trunctation, also optional (defaults to ...... yep, ">")
@@ -130,7 +130,7 @@ M.BufferLine = utils.make_buflist(
 )
 
 ----------------------------------------------------------------------------------------------
-M.TablinePicker = {
+local TablinePicker = {
     condition = function(self)
         return self._show_picker
     end,
@@ -172,7 +172,7 @@ end)
 
 ---------------------------------------------------------------------------------------------
 
-M.Tabpage = {
+local Tabpage = {
     provider = function(self)
         return "%" .. self.tabnr .. "T " .. self.tabnr .. " %T"
     end,
@@ -185,25 +185,25 @@ M.Tabpage = {
     end,
 }
 
-M.TabpageClose = {
+local TabpageClose = {
     provider = "%999X  %X",
     hl = "TabLine",
 }
 
-M.TabPages = {
+local TabPages = {
     -- only show this component if there's 2 or more tabpages
     condition = function()
         return #vim.api.nvim_list_tabpages() >= 2
     end,
     { provider = "%=" },
-    utils.make_tablist(M.Tabpage),
-    M.TabpageClose,
+    utils.make_tablist(Tabpage),
+    TabpageClose,
 }
 
 
 ---------------------------------------------------------------------------------------------
 
-M.TabLineOffset = {
+local TabLineOffset = {
     condition = function(self)
         local win = vim.api.nvim_tabpage_list_wins(0)[1]
         local bufnr = vim.api.nvim_win_get_buf(win)
@@ -242,7 +242,7 @@ M.TabLineOffset = {
 
 ---------------------------------------------------------------------------------------------
 
--- local TabLine = { TabLineOffset, BufferLine, TabPages }
+local TabLine = { TabLineOffset, BufferLine, TabPages }
 
 
-return M
+return TabLine

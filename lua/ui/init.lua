@@ -1,8 +1,8 @@
 
 
 require 'ui.statusline'
-require 'ui.tabline'
-require 'ui.heirline_set'
+-- require 'ui.tabline'
+-- require 'ui.heirline_set'
 
 
 -- vim.cmd[[PackerLoad plenary.nvim]]

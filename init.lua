@@ -1,6 +1,8 @@
 --Personal Configs
 require 'impatient'.enable_profile()
 
+--MapLeader set to Space
+vim.g.mapleader = ' '
 
 -----------------------------
 --Customizations
