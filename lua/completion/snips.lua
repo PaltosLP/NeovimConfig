@@ -33,7 +33,7 @@ ls.add_snippets('c', {
 
 ls.add_snippets('c', {
 	s('printf', {
-		t('printf("'), i(1, ""), t('\n");')
+		t('printf("'), i(1, ""), t('");')
 
 	})
 })
