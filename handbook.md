@@ -86,6 +86,9 @@
 
 	- Terminal: nvim --startuptime startup.log -c exit && tail -100 startup.log
 
+## Switching to lazy.nvim 
+    - remove .local/state/nvim/lazy/cache
+
 
 
 ### Updating Neovim:

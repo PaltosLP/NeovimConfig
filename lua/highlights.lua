@@ -26,7 +26,6 @@ elseif vim.g.color_scheme == 'darcula' then
 	vim.g.darcula_contrast = false
 	vim.g.darcula_borders = false
 	vim.g.darcula_disable_background = false
-	vim.cmd('highlight IndentBlanklineChar guifg=#00FF00 gui=nocombine')
 
 elseif vim.g.color_scheme == 'catppuccin' then
 	vim.api.nvim_set_hl(0, "@variable", { link = "rainbowcol4" })

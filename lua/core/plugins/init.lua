@@ -1,84 +1,113 @@
-local ensure_packer = function()
-local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--single-branch",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
 end
+vim.opt.runtimepath:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
+-- example using a list of specs with the default options
+-- vim.g.mapleader = " " -- make sure to set `mapleader` before lazy so your mappings are correct
 
-return require('packer').startup(function(use)
-------------------------------------------------------------------------
---Basics
-	use { 'wbthomason/packer.nvim' }
-	use { 'lewis6991/impatient.nvim' }
-	use({ "folke/which-key.nvim",
-			config = function() require("which-key").setup {
+local ui_opt = not vim.g.user_interface
+
+require("lazy").setup({
+
+	{ "folke/which-key.nvim",
+		config = function()
+      		require("which-key").setup({
 				window = {
-					border = "single", -- none, single, double, shadow
-				  },
-			} end
-		})
-------------------------------------------------------------------------
+ 					border = "single", -- none, single, double, shadow
+ 				  },
+			  })
+    	end,
+	},
+
+	{ 'Mofiqul/dracula.nvim' },
+
+
+
+-- ------------------------------------------------------------------------
+--Basics
+-- 	{ 'lewis6991/impatient.nvim' }
+-- ------------------------------------------------------------------------
 
 
 
 ------------------------------------------------------------------------
 --Devtools
-	use { 'nvim-treesitter/playground', cmd = {'TSPlaygroundToggle'} }
-	use({ 'dstein64/vim-startuptime', cmd = { 'StartupTime' } })
+	{ 'nvim-treesitter/playground', cmd = {'TSPlaygroundToggle'} },
+	({ 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }),
 ------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------
 --Colorschemes
-  	use { 'Mofiqul/dracula.nvim', opt=false}
-	use { 'Hierosme/darcula.nvim' }
-	use { "catppuccin/nvim", as = "catppuccin", opt=true }
-	use { 'morhetz/gruvbox', opt=true }
-	use { 'joshdick/onedark.vim', opt=true }
-	use { 'Mofiqul/vscode.nvim', opt=true }
-	use { 'sainnhe/everforest', opt=true }
+--   	use { 'Mofiqul/dracula.nvim', opt=false}
+-- 	use { 'Hierosme/darcula.nvim' }
+-- 	use { "catppuccin/nvim", as = "catppuccin", opt=true }
+-- 	use { 'morhetz/gruvbox', opt=true }
+-- 	use { 'joshdick/onedark.vim', opt=true }
+-- 	use { 'Mofiqul/vscode.nvim', opt=true }
+-- 	use { 'sainnhe/everforest', opt=true }
 ------------------------------------------------------------------------
 
 
 
 ------------------------------------------------------------------------
 --Highlights
-	use({
+	({
 		'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate',
+		build = ':TSUpdate',
 		config = function() require 'core.plugins.treesitter' end,
-	})
-	use({ 'p00f/nvim-ts-rainbow' }) --, module = 'nvim-ts-rainbow'
-	use({ "lukas-reineke/indent-blankline.nvim", event='Bufread', module='indent-blankline' })
+	}),
+	({ 'p00f/nvim-ts-rainbow' }),
+	({ "lukas-reineke/indent-blankline.nvim", config = function()
+			require("indent_blankline").setup({
+				-- for example, context is off by default, use this to turn it on
+				-- show_current_context = true,
+				-- show_current_context_start = true,
+				char = "",
+				char_highlight_list = {
+					"IndentBlanklineIndent1",
+					"IndentBlanklineIndent2",
+				},
+				space_char_highlight_list = {
+					"IndentBlanklineIndent1",
+					"IndentBlanklineIndent2",
+				},
+				show_trailing_blankline_indent = false,
+						})
+			vim.cmd [[highlight IndentBlanklineIndent1 guibg=#282a36 gui=nocombine]]
+			vim.cmd [[highlight IndentBlanklineIndent2 guibg=#252732 gui=nocombine]]
+			vim.cmd('highlight IndentBlanklineChar guifg=comment gui=nocombine')
+		end }), --, event='Bufread' #00FF00
 ------------------------------------------------------------------------
 
 
-
 ------------------------------------------------------------------------
---Editing
-	use({ 'windwp/nvim-autopairs', event = 'InsertEnter', config = function() require("nvim-autopairs").setup{} end })
-	use({ 'numToStr/Comment.nvim', keys = { { 'n', 'g' }, { 'v', 'g' } }, config = function () require 'Comment'.setup() end })
-	use({ 'nvim-tree/nvim-web-devicons', module='nvim-web-devicons' } )
-	use({ 'kyazdani42/nvim-tree.lua',  cmd = { 'NvimTreeToggle', 'NvimTreeOpen'},
+-- --Editing
+	({ 'windwp/nvim-autopairs', event = 'InsertEnter', config = function() require("nvim-autopairs").setup{} end }),
+	({ 'numToStr/Comment.nvim', keys = { "gc" }, config = function () require 'Comment'.setup() end }),
+	({ 'nvim-tree/nvim-web-devicons' }),
+ 	({ 'kyazdani42/nvim-tree.lua',  cmd = { 'NvimTreeToggle', 'NvimTreeOpen'},
 		config = function()
 			vim.cmd 'highlight NvimTreeNormal guibg=none  gui=bold'
 			require("nvim-tree").setup()
-		end })
+		end }),
 ------------------------------------------------------------------------
-
 
 
 ------------------------------------------------------------------------
 --LSP, Completion, Snippets
-	use { 'neovim/nvim-lspconfig',  config = function() require('core.plugins.lsp') end } --event='VimEnter',
-	use({ "glepnir/lspsaga.nvim",
-			module = "lspsaga", cmd = 'Lspsaga',
+	{ 'neovim/nvim-lspconfig',  config = function() require('core.plugins.lsp') end }, --event='VimEnter',
+	({ "glepnir/lspsaga.nvim",
+			cmd = 'Lspsaga',
 			branch = "main",
 			config = function()
 				local saga = require("lspsaga")
@@ -87,82 +116,78 @@ return require('packer').startup(function(use)
 					-- your configuration
 				})
 			end,
-		})
+		}),
 
 
-	use { 'hrsh7th/nvim-cmp', config = function() require 'completion.comp' require 'completion.snips' end,
-	event = { 'InsertEnter', 'CmdlineEnter'} }
-	use { 'hrsh7th/cmp-nvim-lsp', event = { 'InsertEnter' } }
-	use { 'hrsh7th/cmp-buffer', event = { 'InsertEnter', 'CmdlineEnter'} }
-	use { 'hrsh7th/cmp-path', event = { 'InsertEnter', 'CmdlineEnter'} }
-	use { 'hrsh7th/cmp-cmdline', event = {'CmdlineEnter'} }
-	use { 'L3MON4D3/LuaSnip', event = { 'InsertEnter' } }
-	use { 'saadparwaiz1/cmp_luasnip', event = { 'InsertEnter' } }
-	use { 'onsails/lspkind.nvim', module='lspkind' }
+	({ 'hrsh7th/nvim-cmp', config = function() require 'completion.comp' require 'completion.snips' end, event = { 'InsertEnter', 'CmdlineEnter'} }),
+	{ 'hrsh7th/cmp-nvim-lsp', event = { 'InsertEnter' } },
+	{ 'hrsh7th/cmp-buffer', event = { 'InsertEnter', 'CmdlineEnter'} },
+	{ 'hrsh7th/cmp-path', event = { 'InsertEnter', 'CmdlineEnter'} },
+	{ 'hrsh7th/cmp-cmdline', event = {'CmdlineEnter'} },
+	{ 'L3MON4D3/LuaSnip', event = { 'InsertEnter' } },
+	{ 'saadparwaiz1/cmp_luasnip', event = { 'InsertEnter' } },
+	{ 'onsails/lspkind.nvim' },
 
-	use { 'windwp/nvim-ts-autotag',	ft = { 'html' }	}
-	use { 'norcalli/nvim-colorizer.lua', cmd = { 'ColorizerToggle' }, ft = {'css'},
-	config = function() require 'colorizer'.setup() end, keys={ {'n', 'lc'} }
-	}
+	{ 'windwp/nvim-ts-autotag',	ft = { 'html' }	},
+	{ 'norcalli/nvim-colorizer.lua', cmd = { 'ColorizerToggle' }, ft = {'css'},
+	config = function() require 'colorizer'.setup() end, keys={ 'lc' }
+	},
 
-	use { "rafamadriz/friendly-snippets", opt=true, config = function() require("luasnip/loaders/from_vscode").load({
+	({ "rafamadriz/friendly-snippets", lazy=true, config = function() require("luasnip/loaders/from_vscode").load({
 		paths = {
 			"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
 			},
 		})
-		end, keys={{'n', 'ls'}}
-	}
+		end, keys={'ls'},
+	}),
 ------------------------------------------------------------------------
 
 
-
-------------------------------------------------------------------------
+----------------------------------------------------------------------
 --Telescope
-	use({'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} },
-	module = 'telescope', cmd = 'Telescope'
-	}) --, keys = {{'n', '<leader>f'}}, opt=true
-	use({'nvim-telescope/telescope-ui-select.nvim', opt=true })
-	use({'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build', opt=true })
+	({'nvim-telescope/telescope.nvim', version = '0.1.0', dependencies = { 'nvim-lua/plenary.nvim' },
+ 	 cmd = 'Telescope' }), --, keys = {{'n', '<leader>f'}}, opt=true
+	({'nvim-telescope/telescope-ui-select.nvim', lazy=true }),
+	({'nvim-telescope/telescope-fzf-native.nvim', build= 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build', lazy=true }),
 ------------------------------------------------------------------------
 
 
 
 ------------------------------------------------------------------------
 --Additions
-	use({ 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end, opt=false })
-	use({ "akinsho/toggleterm.nvim", cmd = { 'ToggleTerm' }, tag = '*', config = function() require('toggleterm').setup({open_mapping = [[<c-e>]]}) end }) --vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>ToggleTerm<Cr>', {})
-	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" } })
-	use({ "kylechui/nvim-surround", tag = "*", config = function() require("nvim-surround").setup({}) end, opt=true })
-	use({ 'ggandor/lightspeed.nvim', keys = { {'n','s'} } })
-	use({ 'mg979/vim-visual-multi', keys = { {'n','<C-n>'}, {'v', 'C-n'} } })
-	use({ 'fedepujol/move.nvim', config = function() require("core.plugins.move") end,
-		opt=false, module="move", cmd = { "MoveLine", "MoveBlock", "MoveHChar", "MoveHBlock" } }) --keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} }
-	use({ "max397574/colortils.nvim", cmd = "Colortils",
+	({ 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end, lazy=false }),
+	({ "akinsho/toggleterm.nvim", cmd = { 'ToggleTerm' }, version = '*', config = function() require('toggleterm').setup({open_mapping = [[<c-e>]]}) end }), --vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>ToggleTerm<Cr>', {})
+	({ "iamcco/markdown-preview.nvim", build = "cd app && npm install", init = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" } }),
+	({ "kylechui/nvim-surround", version = "*", config = function() require("nvim-surround").setup({}) end, lazy=true }),
+	({ 'ggandor/lightspeed.nvim', keys = { 's' } }),
+	({ 'mg979/vim-visual-multi', keys = { '<C-n>'} }), --keys = { {'n','<C-n>'}, {'v', 'C-n'} }
+	({ 'fedepujol/move.nvim', config = function() require("core.plugins.move") end,
+		lazy=false, cmd = { "MoveLine", "MoveBlock", "MoveHChar", "MoveHBlock" } }), --keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} }
+	({ "max397574/colortils.nvim", cmd = "Colortils",
 	  config = function()
 		require("colortils").setup()
 	  end,
-		})
+		}),
 ------------------------------------------------------------------------
 
 
 
 ------------------------------------------------------------------------
 --UI
-	use({ "rebelot/heirline.nvim" })
-	use({'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', keys = { {'n','zM'}, {'n', "lz"} },
+	({ "rebelot/heirline.nvim" }),
+	({'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async', keys = { 'zM '}, --keys = { {'n','zM'}, {'n', "lz"} },
 	config=function()
 		require 'core.plugins.ufo'
-	end })
-	use { 'kevinhwang91/promise-async', module='promise' }
+	end }),
+	{ 'kevinhwang91/promise-async' },
 
 
-local ui_opt = not vim.g.user_interface
-	use { "nvim-lua/plenary.nvim", module = 'plenary' }
-	use { 'MunifTanjim/nui.nvim', opt=ui_opt}
-	use { 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'extra.zenmode' end, opt=ui_opt}
-	use { 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'extra.twilights' end, opt=ui_opt}
-	use({ "folke/noice.nvim", opt=ui_opt , config = function() require("noice").setup() require("notify").setup({ background_colour = "#000000" }) end,
-					requires = {
+	{ "nvim-lua/plenary.nvim" },
+	{ 'MunifTanjim/nui.nvim', lazy=ui_opt},
+	{ 'folke/zen-mode.nvim', cmd = { 'ZenMode' }, config = function() require 'extra.zenmode' end, lazy=ui_opt},
+	{ 'folke/twilight.nvim', cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' }, config = function() require 'extra.twilights' end, lazy=ui_opt},
+	({ "folke/noice.nvim", lazy=ui_opt , config = function() require("noice").setup() require("notify").setup({ background_colour = "#000000" }) end,
+					dependencies = {
 					-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 					-- "MunifTanjim/nui.nvim",
 					-- OPTIONAL:
@@ -172,19 +197,16 @@ local ui_opt = not vim.g.user_interface
 					},
 
 
-			})
+			}),
 ------------------------------------------------------------------------
 
 
 
 ------------------------------------------------------------------------
 --Random
-	use({ 'tamton-aquib/duck.nvim', module="duck" })
-	use({ 'eandrju/cellular-automaton.nvim', cmd = 'CellularAutomaton' })
+	({ 'tamton-aquib/duck.nvim', lazy=true }),
+	({ 'eandrju/cellular-automaton.nvim', cmd = 'CellularAutomaton' }),
 
 ------------------------------------------------------------------------
 
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+})

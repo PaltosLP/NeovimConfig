@@ -49,8 +49,9 @@ wk.register({
 	},
 	d = {
 		name = 'Devtools',
-		s = { "<cmd>PackerStatus<Cr>", "Packer Status" },
-		S = { "<cmd>PackerSync<Cr>", "Packer Sync" },
+		-- s = { "<cmd>PackerStatus<Cr>", "Packer Status" },
+		-- S = { "<cmd>PackerSync<Cr>", "Packer Sync" },
+		s = { "<cmd>Lazy home<Cr>", "Lazy Home" },
 		t = { "<cmd>StartupTime<Cr>", "StartupTime" },
 	},
 	f = {
