@@ -13,6 +13,7 @@
   "friendly-snippets": { "branch": "main", "commit": "1a6a02350568d6830bcfa167c72f9b6e75e454ae" },
   "gitsigns.nvim": { "branch": "main", "commit": "2ab3bdf0a40bab53033048c6be75bda86316b55d" },
   "heirline.nvim": { "branch": "master", "commit": "556666aabb57c227cbb14a996b30b2934e5ff7b1" },
+  "impatient.nvim": { "branch": "main", "commit": "9f7eed8133d62457f7ad2ca250eb9b837a4adeb7" },
   "indent-blankline.nvim": { "branch": "master", "commit": "c4c203c3e8a595bc333abaf168fcb10c13ed5fb7" },
   "lazy.nvim": { "branch": "main", "commit": "e5dcc871491eadc5ed98e633afc519670e71c4a1" },
   "lightspeed.nvim": { "branch": "main", "commit": "299eefa6a9e2d881f1194587c573dad619fdb96f" },
