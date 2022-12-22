@@ -6,7 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
     "--filter=blob:none",
     "--single-branch",
     "https://github.com/folke/lazy.nvim.git",
-    lazypath,
+   lazypath,
   })
 end
 vim.opt.runtimepath:prepend(lazypath)
@@ -34,14 +34,14 @@ require("lazy").setup({
 
 -- ------------------------------------------------------------------------
 --Basics
--- 	{ 'lewis6991/impatient.nvim' }
+	{ 'lewis6991/impatient.nvim' },
 -- ------------------------------------------------------------------------
 
 
 
 ------------------------------------------------------------------------
 --Devtools
-	{ 'nvim-treesitter/playground', cmd = {'TSPlaygroundToggle'} },
+	{ 'nvim-treesitter/playground', cmd = {'TSPlaygroundToggle'}, lazy=true },
 	({ 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }),
 ------------------------------------------------------------------------
 
@@ -94,7 +94,7 @@ require("lazy").setup({
 -- --Editing
 	({ 'windwp/nvim-autopairs', event = 'InsertEnter', config = function() require("nvim-autopairs").setup{} end }),
 	({ 'numToStr/Comment.nvim', keys = { "gc" }, config = function () require 'Comment'.setup() end }),
-	({ 'nvim-tree/nvim-web-devicons' }),
+	({ 'nvim-tree/nvim-web-devicons', lazy=true }),
  	({ 'kyazdani42/nvim-tree.lua',  cmd = { 'NvimTreeToggle', 'NvimTreeOpen'},
 		config = function()
 			vim.cmd 'highlight NvimTreeNormal guibg=none  gui=bold'
@@ -126,7 +126,7 @@ require("lazy").setup({
 	{ 'hrsh7th/cmp-cmdline', event = {'CmdlineEnter'} },
 	{ 'L3MON4D3/LuaSnip', event = { 'InsertEnter' } },
 	{ 'saadparwaiz1/cmp_luasnip', event = { 'InsertEnter' } },
-	{ 'onsails/lspkind.nvim' },
+	{ 'onsails/lspkind.nvim',lazy=true },
 
 	{ 'windwp/nvim-ts-autotag',	ft = { 'html' }	},
 	{ 'norcalli/nvim-colorizer.lua', cmd = { 'ColorizerToggle' }, ft = {'css'},
@@ -146,7 +146,7 @@ require("lazy").setup({
 ----------------------------------------------------------------------
 --Telescope
 	({'nvim-telescope/telescope.nvim', version = '0.1.0', dependencies = { 'nvim-lua/plenary.nvim' },
- 	 cmd = 'Telescope' }), --, keys = {{'n', '<leader>f'}}, opt=true
+ 	 cmd = 'Telescope', lazy=true }), --, keys = {{'n', '<leader>f'}}, opt=true
 	({'nvim-telescope/telescope-ui-select.nvim', lazy=true }),
 	({'nvim-telescope/telescope-fzf-native.nvim', build= 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build', lazy=true }),
 ------------------------------------------------------------------------
@@ -162,7 +162,7 @@ require("lazy").setup({
 	({ 'ggandor/lightspeed.nvim', keys = { 's' } }),
 	({ 'mg979/vim-visual-multi', keys = { '<C-n>'} }), --keys = { {'n','<C-n>'}, {'v', 'C-n'} }
 	({ 'fedepujol/move.nvim', config = function() require("core.plugins.move") end,
-		lazy=false, cmd = { "MoveLine", "MoveBlock", "MoveHChar", "MoveHBlock" } }), --keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} }
+		lazy=true, cmd = { "MoveLine", "MoveBlock", "MoveHChar", "MoveHBlock" } }), --keys = { {'n','<A-k>'}, {'n', '<A-j>'}, {'n', '<A-h>'}, {'n', '<A-l>'} }
 	({ "max397574/colortils.nvim", cmd = "Colortils",
 	  config = function()
 		require("colortils").setup()
@@ -179,7 +179,7 @@ require("lazy").setup({
 	config=function()
 		require 'core.plugins.ufo'
 	end }),
-	{ 'kevinhwang91/promise-async' },
+	{ 'kevinhwang91/promise-async', lazy=true },
 
 
 	{ "nvim-lua/plenary.nvim" },
