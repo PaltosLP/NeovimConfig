@@ -443,15 +443,30 @@ local inner_Time = {
 local Time = utils.surround({'', ''}, function() return colors.cyan end, inner_Time)
 
 
+-------------------------------------------------------------------------------------------------------------------
 
+local plugins = {
+    init = function(self)
+		self.plugins = require("lazy").stats().loaded
+        self.icon_color = "orange"
+		self.icon = " "
+    end,
+    provider = function(self)
+		return self.icon .. " " .. self.plugins --.. " "
+    end,
+    hl = function(self)
+        return { fg = self.icon_color, bold = true }
+    end
+}
 
 -------------------------------------------------------------------------------------------------------------------
-    -- component_separators = { left = '', right = ''},
+local component_separators = { left = '  ', right = '  '}
     -- section_separators = { left = '', right = ''},
 
 local left_seperator = {
     init = function(self)
-		self.icon = '  '
+		self.icon = component_separators.left
+		-- self.icon = '  '
 		-- self.icon = '  '
         self.icon_color = "comment"
     end,
@@ -464,7 +479,8 @@ local left_seperator = {
 }
 local right_seperator = {
     init = function(self)
-		self.icon = '  '
+		self.icon = component_separators.right
+		-- self.icon = '  '
 		-- self.icon =  ' '
         self.icon_color = "comment"
     end,
@@ -487,7 +503,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     group = "Heirline",
 })
 
-local StatusLine = {ViMode, left_seperator, Git, left_seperator, FileNameBlock,  Diagnostics, FileIcon, right_seperator, LSPActive, right_seperator, Time, ScrollBar }
+local StatusLine = {ViMode, left_seperator, Git, left_seperator, FileNameBlock,  Diagnostics, right_seperator, plugins, right_seperator, FileIcon, right_seperator, LSPActive, right_seperator, Time, ScrollBar }
 
 -- et_highlight("TabLineSel").bg
 --     else
