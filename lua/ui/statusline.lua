@@ -446,23 +446,24 @@ local Time = utils.surround({'', ''}, function() return colors.cyan end, i
 -------------------------------------------------------------------------------------------------------------------
 
 local plugins = {
-    init = function(self)
+	init = function(self)
 		self.plugins = require("lazy").stats().loaded
         self.icon_color = "orange"
 		self.icon = " "
     end,
-    provider = function(self)
+    provider  = function(self)
 		return self.icon .. " " .. self.plugins --.. " "
     end,
-    hl = function(self)
+	hl = function(self)
         return { fg = self.icon_color, bold = true }
     end,
 	on_click = {
         callback = function()
 			vim.cmd('Lazy home')
 		    end,
-        name = "Lazy Plugins",
+        name = "LazyPlugins",
     }
+
 }
 
 -------------------------------------------------------------------------------------------------------------------

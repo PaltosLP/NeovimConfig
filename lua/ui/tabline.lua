@@ -239,10 +239,24 @@ local TabLineOffset = {
 }
 
 
+---------------------------------------------------------------------------------------------
+local tests = {
 
+    provider = function()
+		return "hi my name is"
+    end,
+
+    hl = function()
+		return "TabLine"
+    end,
+}
+
+local seperate = {
+    { provider = '%='} -- this means that the statusline is cut here when there's not enough space
+}
 ---------------------------------------------------------------------------------------------
 
-local TabLine = { TabLineOffset, BufferLine, TabPages }
+local TabLine = { TabLineOffset, BufferLine, TabPages, seperate, tests }
 
 
 return TabLine
