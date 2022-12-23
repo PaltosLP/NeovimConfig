@@ -32,10 +32,10 @@ require("lazy").setup({
 
 
 
--- ------------------------------------------------------------------------
+------------------------------------------------------------------------
 --Basics
-	{ 'lewis6991/impatient.nvim' },
--- ------------------------------------------------------------------------
+	-- { 'lewis6991/impatient.nvim' },
+------------------------------------------------------------------------
 
 
 
@@ -93,7 +93,7 @@ require("lazy").setup({
 ------------------------------------------------------------------------
 -- --Editing
 	({ 'windwp/nvim-autopairs', event = 'InsertEnter', config = function() require("nvim-autopairs").setup{} end }),
-	({ 'numToStr/Comment.nvim', keys = { "gc" }, config = function () require 'Comment'.setup() end }),
+	({ 'numToStr/Comment.nvim', keys = { "gcc",{"gc", mode = "v"} }, config = function () require 'Comment'.setup() end }),
 	({ 'nvim-tree/nvim-web-devicons', lazy=true }),
  	({ 'kyazdani42/nvim-tree.lua',  cmd = { 'NvimTreeToggle', 'NvimTreeOpen'},
 		config = function()
