@@ -456,7 +456,13 @@ local plugins = {
     end,
     hl = function(self)
         return { fg = self.icon_color, bold = true }
-    end
+    end,
+	on_click = {
+        callback = function()
+			vim.cmd('Lazy home')
+		    end,
+        name = "Lazy Plugins",
+    }
 }
 
 -------------------------------------------------------------------------------------------------------------------
@@ -508,8 +514,9 @@ local StatusLine = {ViMode, left_seperator, Git, left_seperator, FileNameBlock, 
 -- et_highlight("TabLineSel").bg
 --     else
 --         return utils.get_highlight("TabLine").bg
-vim.cmd.highlight('TabLineSel guibg='..colors.white)
-vim.cmd.highlight('TabLine guibg='..colors.comment)
+vim.cmd.highlight('TabLine guibg='..colors.white)
+vim.cmd.highlight('TabLineSel guibg='..colors.orange)
+-- vim.cmd.highlight('TabLine guifg='..colors.white)
 
 
 local TabLine = require("ui.tabline")
