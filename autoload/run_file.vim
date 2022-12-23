@@ -4,7 +4,7 @@ function run_file#Run_File()
 	let file_name = expand('%:t:r')
 	let full_file_name = file_name .".". filetype
 	"let c_command3 = "!clear"
-	let ex_list = ['py','c','cpp','go','js']
+	let ex_list = ['py','c','cpp','go','js', 'lua']
 	let exable = 0
 	"if filetype in ex_list
 	for i in range(len(ex_list))
@@ -16,6 +16,8 @@ function run_file#Run_File()
 	if exable == 1
 		if filetype == "py"
 			execute "!python3 " . full_file_name
+		elseif filetype == "lua"
+			execute "source"
 		elseif filetype == "c"
 				
 			" c needs -lm to link maths
