@@ -33,4 +33,27 @@ vim.api.nvim_create_autocmd('CmdlineLeave',{
 	command = 'lua vim.opt.cmdheight = 0'
 })
 
+vim.api.nvim_create_user_command("Vscode",
+	 function()
+		vim.cmd("NvimTreeToggle")
+		vim.cmd("ToggleTerm")
+	end
+, {} )
 
+vim.api.nvim_create_user_command("Transparent",
+	 function()
+		vim.cmd.highlight("Normal guibg=none")
+		vim.cmd.highlight("Statusline guibg=none")
+		vim.cmd.highlight("TabLine guibg=none")
+		vim.cmd.highlight("TabLineFill guibg=none")
+		vim.cmd.highlight("Statusline guibg=none")
+		vim.cmd [[highlight IndentBlanklineIndent1 guibg=none gui=nocombine]]
+		vim.cmd [[highlight IndentBlanklineIndent2 guibg=none gui=nocombine]]
+		vim.cmd('highlight IndentBlanklineChar guifg=comment gui=nocombine')
+		vim.cmd.highlight("Signcolumn guibg=none")
+	end
+, {} )
+
+if vim.g.transparent == true then
+	vim.cmd("Transparent")
+end
