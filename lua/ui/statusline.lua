@@ -510,7 +510,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     group = "Heirline",
 })
 
-local StatusLine = {ViMode, left_seperator, Git, left_seperator, FileNameBlock,  Diagnostics, right_seperator, plugins, right_seperator, FileIcon, right_seperator, LSPActive, right_seperator, Time, ScrollBar }
+local StatusLine = {ViMode, left_seperator, Git, left_seperator, FileNameBlock,  Diagnostics, right_seperator, plugins, right_seperator, FileIcon, right_seperator, Time, ScrollBar }
 
 -- et_highlight("TabLineSel").bg
 --     else
