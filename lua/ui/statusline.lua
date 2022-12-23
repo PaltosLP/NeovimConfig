@@ -516,7 +516,7 @@ local StatusLine = {ViMode, left_seperator, Git, left_seperator, FileNameBlock, 
 --     else
 --         return utils.get_highlight("TabLine").bg
 vim.cmd.highlight('TabLine guibg='..colors.white)
-vim.cmd.highlight('TabLineSel guibg='..colors.orange)
+vim.cmd.highlight('TabLineSel guibg='..colors.purple)
 -- vim.cmd.highlight('TabLine guifg='..colors.white)
 
 

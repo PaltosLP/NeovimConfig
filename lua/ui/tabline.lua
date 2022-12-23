@@ -10,7 +10,7 @@ local TablineBufnr = {
     provider = function(self)
         return tostring(self.bufnr) .. ". "
     end,
-    hl = "comment",
+    hl = { fg = "black" },
 }
 
 -- we redefine the filename component, as we probably only want the tail and not the relative path
@@ -22,7 +22,7 @@ local TablineFileName = {
         return filename
     end,
     hl = function(self)
-        return { bold = self.is_active or self.is_visible, italic = true, fg = "comment" }
+        return { bold = self.is_active or self.is_visible, italic = false, fg = "black" }
     end,
 }
 
@@ -95,7 +95,7 @@ local TablineCloseButton = {
     { provider = " " },
     {
         provider = " ",
-        hl = { fg = "gray" },
+        hl = { fg = "black" },
         on_click = {
             callback = function(_, minwid)
                 vim.api.nvim_buf_delete(minwid, { force = false })
@@ -258,8 +258,25 @@ local seperate = {
 
 
 ---------------------------------------------------------------------------------------------
+local run = {
+
+    provider  = function()
+		return " "
+        -- return " "     
+    end,
+    hl = { fg = "black", bg = "red", bold = true },
+	on_click = {
+        callback = function()
+			vim.cmd('call run_file#Run_File()')
+		    end,
+        name = "LspInfo",
+    }
+}
+
+local Run = utils.surround(round_symbols, "red", run)
+---------------------------------------------------------------------------------------------
 local lsp_active = {
-    condition = conditions.lsp_attached,
+    -- condition = conditions.lsp_attached,
     update = {'LspAttach', 'LspDetach'},
 
     -- You can keep it simple,
@@ -273,7 +290,7 @@ local lsp_active = {
         end
         return "   " .. table.concat(names, " ")
     end,
-    hl = { fg = "comment", bg = "green", bold = true },
+    hl = { fg = "black", bg = "green", bold = true },
 	-- hl = function()
  --            return "Tabline"
  --        end,
@@ -287,9 +304,10 @@ local lsp_active = {
 if not conditions.lsp_attached then
 	lsp_active = {
 		provider = "No LangServer",
-	    hl = { fg = "comment", bg = "green", bold = true },
+	    hl = { fg = "black", bg = "green", bold = true },
 	}
 end
+
 local LSPActive = utils.surround(round_symbols, "green", lsp_active)
 ---------------------------------------------------------------------------------------------
 local battery_icons = { " ", " ", " "," ", " ", " ", " ", " ", " " }
@@ -309,21 +327,19 @@ local battery = {
 
 
 		if self.is_charging then
-			return charging_battery_icons[1] .. " " .. self.capacity
+			return charging_battery_icons[1] .. self.capacity
 		end
 
-		return battery_icons[capa] .. " " .. tostring(tonumber(self.capacity))
+		return battery_icons[capa] .. tostring(tonumber(self.capacity))
     end,
 
-    hl = function()
-            return "Tabline"
-        end,
+    hl = { fg = "black", bg = "white", bold=true }
 }
 local Battery = utils.surround(round_symbols, "white", battery)
 -- local TablineBufferBlock = utils.surround(symbols, function(self)
 ---------------------------------------------------------------------------------------------
 
-local TabLine = { TabLineOffset, BufferLine, TabPages, seperate, LSPActive, Battery }
+local TabLine = { TabLineOffset, BufferLine, TabPages, seperate, Run, LSPActive, Battery }
 
 
 return TabLine

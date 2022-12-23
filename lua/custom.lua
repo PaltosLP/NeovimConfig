@@ -1,15 +1,19 @@
 
 
 local function snip()
-	vim.cmd.PackerLoad('friendly-snippets')
+	-- vim.cmd.PackerLoad('friendly-snippets')
+	-- require("lazy").load("plugins = friendly-snippets")
+	vim.cmd("Lazy load friendly-snippets")
 end
 
 local function folds()
-	vim.cmd.PackerLoad('nvim-ufo')
+	-- vim.cmd.PackerLoad('nvim-ufo')
+	vim.cmd("Lazy load nvim-ufo")
 end
 
 local function movements()
-	vim.cmd.PackerLoad('move.nvim')
+	-- vim.cmd.PackerLoad('move.nvim')
+	vim.cmd("Lazy load move.nvim")
 end
 
 local wk = require("which-key")
