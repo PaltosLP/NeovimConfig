@@ -2,6 +2,7 @@ local M = {}
 
 
 
+
 local utils = require("heirline.utils")
 
 
@@ -255,8 +256,39 @@ local seperate = {
     { provider = '%='} -- this means that the statusline is cut here when there's not enough space
 }
 ---------------------------------------------------------------------------------------------
+local battery_icons = { " ", " ", " "," ", " ", " ", " ", " ", " " }
+-- local charging_battery_icons = { " ", " ", " ", " ", " ", " ", " "}
+local charging_battery_icons = { " " }
+local own_utils = require('ui.utils')
+local battery_symbols = { " ", " "}
+-- print(own_utils.is_charging())
 
-local TabLine = { TabLineOffset, BufferLine, TabPages, seperate, tests }
+local battery = {
+	init = function(self)
+		self.capacity = own_utils.read_file("/sys/class/power_supply/battery/capacity")
+		self.is_charging = own_utils.is_charging()
+
+	end,
+    provider = function(self)
+		local capa = math.floor(tonumber(self.capacity)/10)
+
+
+		if self.is_charging then
+			return charging_battery_icons[1] .. " " .. self.capacity
+		end
+
+		return battery_icons[capa] .. " " .. tostring(tonumber(self.capacity))
+    end,
+
+    hl = function()
+            return "Tabline"
+        end
+}
+local Battery = utils.surround(battery_symbols, "white", battery)
+-- local TablineBufferBlock = utils.surround(symbols, function(self)
+---------------------------------------------------------------------------------------------
+
+local TabLine = { TabLineOffset, BufferLine, TabPages, seperate, tests, Battery }
 
 
 return TabLine

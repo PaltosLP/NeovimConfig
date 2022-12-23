@@ -9,7 +9,7 @@ vim.g.mapleader = ' '
 vim.g.color_scheme = 'dracula' --dracula, catppuccin, vscode, darcula
 vim.g.minimal_config = false
 vim.g.user_interface = false
-vim.g.transparent = true
+vim.g.transparent = false
 -----------------------------
 
 

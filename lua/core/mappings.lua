@@ -24,6 +24,7 @@ map('n', '<C-l>', '<cmd>q<Cr>')
 map('v', '<C-c>', '"*y<Cr>') --more info in opt (needs win32yank-wsl.exe in path)
 map('n', '<C-p>', '<cmd>call save#pwd()<Cr>')
 
+map('n', '<C-b>', '<cmd>call battery#is_charging()<Cr>')
 
 --local ok, _ = pcall(require, 'which-key.nvim')
 --if not ok then
