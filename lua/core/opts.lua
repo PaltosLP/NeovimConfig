@@ -1,3 +1,21 @@
+vim.api.nvim_create_autocmd('VimEnter',{
+	command = 'set  formatoptions-=r formatoptions-=o  pumblend=15'
+})
+-- vim.opt.formatoptions = vim.opt.formatoptions
+--     + "r" -- continue comments after return
+--     + "c" -- wrap comments using textwidth
+--     + "q" -- allow to format comments w/ gq
+--     + "j" -- remove comment leader when joining lines when possible
+--     - "t" -- don't autoformat
+--     - "a" -- no autoformatting
+--     - "o" -- don't continue comments after o/O
+--     - "2" -- don't use indent of second line for rest of paragraph
+
+-- set pumblend=15
+-- hi PmenuSel blend=0
+
+
+
 local disabled_built_ins = {
     "netrw",
     "netrwPlugin",
@@ -23,15 +41,6 @@ for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
 
-vim.opt.formatoptions = vim.opt.formatoptions
-    + "r" -- continue comments after return
-    + "c" -- wrap comments using textwidth
-    + "q" -- allow to format comments w/ gq
-    + "j" -- remove comment leader when joining lines when possible
-    - "t" -- don't autoformat
-    - "a" -- no autoformatting
-    - "o" -- don't continue comments after o/O
-    - "2" -- don't use indent of second line for rest of paragraph
 
 
 -- To get rid of the default colorschemes
@@ -88,5 +97,4 @@ let g:clipboard = {
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {	border = "rounded" })
 vim.diagnostic.config({ virtual_text = { prefix = "◉" }, float = { border = "rounded" } })
 
--- set pumblend=15
--- hi PmenuSel blend=0
+

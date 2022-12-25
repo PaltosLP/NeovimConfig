@@ -138,7 +138,7 @@ require("lazy").setup({
 			"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
 			},
 		})
-		end, keys={'ls'},
+		end, keys={'<leader>ls'},
 	}),
 ------------------------------------------------------------------------
 

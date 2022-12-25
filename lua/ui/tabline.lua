@@ -327,7 +327,7 @@ local battery = {
 
 
 		if self.is_charging then
-			return charging_battery_icons[1] .. self.capacity
+			return charging_battery_icons[1] .. tostring(tonumber(self.capacity))
 		end
 
 		return battery_icons[capa] .. tostring(tonumber(self.capacity))

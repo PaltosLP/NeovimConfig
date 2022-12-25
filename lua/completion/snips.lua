@@ -27,7 +27,7 @@ ls.add_snippets( "lua" , {
 
 ls.add_snippets('c', {
 	s('HelloWorld', {
-		t({'#include <stdio.h>','','int main() {','    printf("Hello World!\n");','    return 0;','}'})
+		t({'#include <stdio.h>','','int main() {','    printf("Hello World!");','    return 0;','}'})
 	})
 })
 
@@ -56,7 +56,15 @@ ls.add_snippets( "python" , {
 
 
 --------------------------------------------------------------------
+-- ls.add_snippets('go', {
+-- 	s('HelloWorld', {
+-- 		t({'package main','import ("fmt")', '', 'func main() {', '	fmt.Println("Hello World!")', '}'})
+-- 	})
+-- })
+--
 
+
+--------------------------------------------------------------------
 ls.add_snippets( "javascript" , {
 	s("console.log", {
 		-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
