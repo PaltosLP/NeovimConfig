@@ -135,7 +135,8 @@ require("lazy").setup({
 
 	({ "rafamadriz/friendly-snippets", lazy=true, config = function() require("luasnip/loaders/from_vscode").load({
 		paths = {
-			"~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
+			-- "~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
+			"~/.local/share/nvim/lazy/friendly-snippets"
 			},
 		})
 		end, keys={'<leader>ls'},
