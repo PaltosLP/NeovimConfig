@@ -105,7 +105,7 @@ local inner_ViMode = {
             rm = "M",
             ["r?"] = "?",
             ["!"] = "!",
-            t = "T",
+            t = "Terminal",
         },
         mode_colors = {
             n = "purple" ,

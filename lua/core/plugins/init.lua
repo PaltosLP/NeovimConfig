@@ -157,7 +157,11 @@ require("lazy").setup({
 ------------------------------------------------------------------------
 --Additions
 	({ 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end, lazy=false }),
-	({ "akinsho/toggleterm.nvim", cmd = { 'ToggleTerm' }, version = '*', config = function() require('toggleterm').setup({open_mapping = [[<c-e>]]}) end }), --vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>ToggleTerm<Cr>', {})
+	({ "akinsho/toggleterm.nvim", cmd = { 'ToggleTerm' }, version = '*', config = function() require('toggleterm').setup({open_mapping = [[<c-e>]], highlights = {
+    Normal = {
+      guibg = "none",
+    }} }) end }), --vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>ToggleTerm<Cr>', {})
+
 	({ "iamcco/markdown-preview.nvim", build = "cd app && npm install", init = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" } }),
 	({ "kylechui/nvim-surround", version = "*", config = function() require("nvim-surround").setup({}) end, lazy=true }),
 	({ 'ggandor/lightspeed.nvim', keys = { 's' } }),
