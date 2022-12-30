@@ -312,13 +312,13 @@ local LSPActive = utils.surround(round_symbols, "green", lsp_active)
 ---------------------------------------------------------------------------------------------
 local battery_icons = { " ", " ", " "," ", " ", " ", " ", " ", " " }
 -- local charging_battery_icons = { " ", " ", " ", " ", " ", " ", " "}
-local charging_battery_icons = { " " }
+local charging_battery_icons = { " ", " " }
 local own_utils = require('ui.utils')
 -- print(own_utils.is_charging())
-
+local want_capa = true
 local battery = {
 	init = function(self)
-		self.capacity = own_utils.read_file("/sys/class/power_supply/battery/capacity")
+		self.capacity = tonumber(own_utils.read_file("/sys/class/power_supply/battery/capacity"))
 		self.is_charging = own_utils.is_charging()
 
 	end,
@@ -327,10 +327,15 @@ local battery = {
 
 
 		if self.is_charging then
-			return charging_battery_icons[1] .. tostring(tonumber(self.capacity))
+			if self.capacity == 0 then
+				want_capa = false
+				return charging_battery_icons[2]
+			else
+				return charging_battery_icons[1] .. tostring(self.capacity)
+			end
 		end
 
-		return battery_icons[capa] .. tostring(tonumber(self.capacity))
+		return battery_icons[capa] .. tostring(self.capacity)
     end,
 
     hl = { fg = "black", bg = "white", bold=true }
