@@ -131,7 +131,7 @@ require("lazy").setup({
 	{ 'saadparwaiz1/cmp_luasnip', event = { 'InsertEnter' } },
 	{ 'onsails/lspkind.nvim',lazy=true },
 
-	{ 'windwp/nvim-ts-autotag',	ft = { 'html' }	},
+	{ 'windwp/nvim-ts-autotag',	ft = { 'html' }, config = function() require('nvim-ts-autotag').setup()	end	},
 	{ 'norcalli/nvim-colorizer.lua', cmd = { 'ColorizerToggle' }, ft = {'css'},
 	config = function() require 'colorizer'.setup() end, keys={ 'lc' }
 	},
