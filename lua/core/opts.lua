@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd('VimEnter',{
-	command = 'set  formatoptions-=r formatoptions-=o  pumblend=15'
+	command = 'set  formatoptions-=r formatoptions-=o' --  pumblend=15
 })
 -- vim.opt.formatoptions = vim.opt.formatoptions
 --     + "r" -- continue comments after return
@@ -45,7 +45,6 @@ end
 
 -- To get rid of the default colorschemes
 vim.cmd 'set wildignore+=blue.vim,darkblue.vim,default.vim,delek.vim,desert.vim,elflord.vim,evening.vim,industry.vim,koehler.vim,morning.vim,murphy.vim,pablo.vim,peachpuff.vim,ron.vim,shine.vim,slate.vim,torte.vim,zellner.vim'
-
 
 -- Options
 vim.opt.number = true

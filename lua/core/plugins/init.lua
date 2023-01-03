@@ -98,7 +98,10 @@ require("lazy").setup({
  	({ 'kyazdani42/nvim-tree.lua',  cmd = { 'NvimTreeToggle', 'NvimTreeOpen'},
 		config = function()
 			vim.cmd 'highlight NvimTreeNormal guibg=none  gui=bold'
-			require("nvim-tree").setup()
+			require("nvim-tree").setup({
+			disable_netrw = true,
+			hijack_netrw = true,
+			})
 		end }),
 ------------------------------------------------------------------------
 
