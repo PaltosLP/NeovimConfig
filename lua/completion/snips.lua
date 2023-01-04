@@ -39,6 +39,13 @@ ls.add_snippets('c', {
 })
 
 
+
+--------------------------------------------------------------------
+ls.add_snippets('go', {
+	s('HelloWorld', {
+		t({'package main', 'import ("fmt")', '', 'func main() {', '	fmt.Println("Hello World!")', '}'})
+	})
+})
 --------------------------------------------------------------------
 
 ls.add_snippets('python', {
