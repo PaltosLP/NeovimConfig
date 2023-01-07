@@ -269,7 +269,7 @@ local run = {
         callback = function()
 			vim.cmd('call run_file#Run_File()')
 		    end,
-        name = "LspInfo",
+        name = "Output",
     }
 }
 
