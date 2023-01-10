@@ -159,7 +159,41 @@ require("lazy").setup({
 
 ------------------------------------------------------------------------
 --Additions
-	({ 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end, lazy=false }),
+	-- ({ 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end, lazy=false }),
+
+		({
+    "lewis6991/gitsigns.nvim",
+    lazy = true,
+    init = function()
+        vim.api.nvim_create_autocmd({ "BufAdd", "VimEnter" }, {
+            callback = function()
+                local function onexit(code, _)
+                    if code == 0 then
+                        vim.schedule(function()
+                            --require("lazy").load("gitsigns.nvim")
+							-- require("gitsigns.nvim")
+							-- vim.cmd("Lazy load friendly-snippets")
+							require("lazy").load({ plugins = { "gitsigns.nvim" } })
+                        end)
+                    end
+                end
+                local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+                if lines ~= { "" } then
+                    vim.loop.spawn("git", {
+                        args = {
+                            "ls-files",
+                            "--error-unmatch",
+                            vim.fn.expand("%"),
+                        },
+                    }, onexit)
+                end
+            end,
+        })
+    end,
+	}),
+
+
+
 	({ "akinsho/toggleterm.nvim", cmd = { 'ToggleTerm' }, version = '*', config = function() require('toggleterm').setup({open_mapping = [[<c-e>]], highlights = {
     Normal = {
       guibg = "none",
