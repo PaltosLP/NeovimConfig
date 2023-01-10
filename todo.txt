@@ -4,3 +4,4 @@ TODO:
 	- facility/legendary
 	- fix colorscheme bug
 	- heirline
+	- nvim ufo
