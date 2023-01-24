@@ -249,6 +249,8 @@ require("lazy").setup({
 	({ 'tamton-aquib/duck.nvim', lazy=true }),
 	({ 'eandrju/cellular-automaton.nvim', cmd = 'CellularAutomaton' }),
 
+	({ "williamboman/mason.nvim", cmd={'Mason'}, config=function() require("mason").setup() end})
+
 ------------------------------------------------------------------------
 
 })

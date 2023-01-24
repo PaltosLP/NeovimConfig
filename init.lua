@@ -14,7 +14,7 @@ vim.g.transparent = false
 
 
 -----------------------------
---First Requirements
+--Core Requirements
 require 'core.opts'
 require 'core.plugins'
 require 'core.mappings'
