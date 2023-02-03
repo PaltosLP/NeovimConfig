@@ -89,7 +89,8 @@
 ## Switching to lazy.nvim 
     - remove .local/state/nvim/lazy/cache
 
-
+### Add Mason Path
+    - in fish: fish_add_path ~/.local/share/nvim/mason/bin/
 
 ### Updating Neovim:
 

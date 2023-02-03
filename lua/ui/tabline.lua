@@ -58,6 +58,7 @@ local TablineFileNameBlock = {
     init = function(self)
         self.filename = vim.api.nvim_buf_get_name(self.bufnr)
     end,
+	provider = "",
     hl = function(self)
         if self.is_active then
             return "TabLineSel"
@@ -318,7 +319,7 @@ local own_utils = require('ui.utils')
 local want_capa = true
 local battery = {
 	init = function(self)
-		self.capacity = tonumber(own_utils.read_file("/sys/class/power_supply/battery/capacity"))
+		self.capacity = tonumber(own_utils.read_file("/sys/class/power_supply/BAT1/capacity"))
 		self.is_charging = own_utils.is_charging()
 
 	end,
@@ -336,6 +337,7 @@ local battery = {
 		end
 
 		return battery_icons[capa] .. tostring(self.capacity)
+
     end,
 
     hl = { fg = "black", bg = "white", bold=true }
@@ -344,7 +346,9 @@ local Battery = utils.surround(round_symbols, "white", battery)
 -- local TablineBufferBlock = utils.surround(symbols, function(self)
 ---------------------------------------------------------------------------------------------
 
-local TabLine = { TabLineOffset, BufferLine, TabPages, seperate, Run, LSPActive, Battery }
+local TabLine = { TabLineOffset, BufferLine, TabPages, seperate, Run, LSPActive , Battery }
+
+
 
 
 return TabLine

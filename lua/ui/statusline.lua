@@ -530,7 +530,10 @@ vim.cmd([[au FileType * if index(['wipe', 'delete'], &bufhidden) >= 0 | set nobu
 
 
 -------------------------------------------------------------------------------------------------------------------
-require'heirline'.setup(StatusLine,nil, TabLine)
+require'heirline'.setup({
+statusline = { StatusLine },
+tabline = { TabLine }
+})
 -------------------------------------------------------------------------------------------------------------------
 
     -- -- Quickly add a condition to the ViMode to only show it when buffer is active!

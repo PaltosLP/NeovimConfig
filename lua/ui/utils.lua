@@ -13,7 +13,7 @@ end
 -- local charging = read_file("/sys/class/power_supply/battery/status")
 
 utils.is_charging = function()
-	local charging = utils.read_file("/sys/class/power_supply/battery/status")
+	local charging = utils.read_file("/sys/class/power_supply/BAT1/status")
 	local is = string.find(tostring(charging), "Dis")
 
 	if is ~= nil then

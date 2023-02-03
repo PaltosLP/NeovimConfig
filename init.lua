@@ -3,6 +3,7 @@
 
 --MapLeader set to Space
 vim.g.mapleader = ' '
+-- vim.opt.runtimepath:append('~/.local/share/nvim/mason/bin')
 
 -----------------------------
 --Customizations
