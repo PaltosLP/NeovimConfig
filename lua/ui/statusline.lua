@@ -449,7 +449,7 @@ local plugins = {
 	init = function(self)
 		self.plugins = require("lazy").stats().loaded
         self.icon_color = "orange"
-		self.icon = " "
+		self.icon = "   "
     end,
     provider  = function(self)
 		return self.icon .. " " .. self.plugins --.. " "
@@ -467,7 +467,7 @@ local plugins = {
 }
 
 -------------------------------------------------------------------------------------------------------------------
-local component_separators = { left = '  ', right = '  '}
+local component_separators = { left = '   ', right = '  '}
     -- section_separators = { left = '', right = ''},
 
 local left_seperator = {
@@ -499,6 +499,21 @@ local right_seperator = {
     end
 }
 
+local context = {
+    init = function(self)
+    end,
+    provider = function()
+		return require('lspsaga.symbolwinbar'):get_winbar()
+    end,
+    hl = function()
+        return { bold = true }
+    end
+}
+
+local seperate = {
+	provider = "%="
+}
+
 -------------------------------------------------------------------------------------------------------------------
 -- require('heirline').load_colors(setup_colors())
 
@@ -510,7 +525,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     group = "Heirline",
 })
 
-local StatusLine = {ViMode, left_seperator, Git, left_seperator, FileNameBlock,  Diagnostics, right_seperator, plugins, right_seperator, FileIcon, right_seperator, Time, ScrollBar }
+local StatusLine = {ViMode, left_seperator, Git, left_seperator, context, seperate,  Diagnostics, plugins, right_seperator, FileIcon, right_seperator, Time, ScrollBar }
 
 -- et_highlight("TabLineSel").bg
 --     else

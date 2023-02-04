@@ -109,18 +109,17 @@ require("lazy").setup({
 ------------------------------------------------------------------------
 --LSP, Completion, Snippets
 	{ 'neovim/nvim-lspconfig',  config = function() require('core.plugins.lsp') end }, --event='VimEnter',
+
 	({ "glepnir/lspsaga.nvim",
-			cmd = 'Lspsaga',
-			branch = "main",
-			config = function()
-				local saga = require("lspsaga")
-
-				saga.init_lsp_saga({
-					-- your configuration
-				})
-			end,
-		}),
-
+	config = function()
+        require("lspsaga").setup({
+			symbol_in_winbar = {
+				enable = false
+			}
+		})
+    end,
+    dependencies = { {"nvim-tree/nvim-web-devicons"} }
+	}),
 
 	({ 'hrsh7th/nvim-cmp', config = function() require 'completion.comp' require 'completion.snips' end, event = { 'InsertEnter', 'CmdlineEnter'} }),
 	{ 'hrsh7th/cmp-nvim-lsp', event = { 'InsertEnter' } },
@@ -163,33 +162,36 @@ require("lazy").setup({
 
 		({
     "lewis6991/gitsigns.nvim",
-    lazy = true,
-    init = function()
-        vim.api.nvim_create_autocmd({ "BufAdd", "VimEnter" }, {
-            callback = function()
-                local function onexit(code, _)
-                    if code == 0 then
-                        vim.schedule(function()
-                            --require("lazy").load("gitsigns.nvim")
-							-- require("gitsigns.nvim")
-							-- vim.cmd("Lazy load friendly-snippets")
-							require("lazy").load({ plugins = { "gitsigns.nvim" } })
-                        end)
-                    end
-                end
-                local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-                if lines ~= { "" } then
-                    vim.loop.spawn("git", {
-                        args = {
-                            "ls-files",
-                            "--error-unmatch",
-                            vim.fn.expand("%"),
-                        },
-                    }, onexit)
-                end
-            end,
-        })
-    end,
+    -- lazy = true,
+	config = function()
+    	require('gitsigns').setup()
+  	end
+    -- init = function()
+    --     vim.api.nvim_create_autocmd({ "BufAdd", "VimEnter" }, {
+    --         callback = function()
+    --             local function onexit(code, _)
+    --                 if code == 0 then
+    --                     vim.schedule(function()
+    --                         --require("lazy").load("gitsigns.nvim")
+				-- 			-- require("gitsigns.nvim")
+				-- 			-- vim.cmd("Lazy load friendly-snippets")
+				-- 			require("lazy").load({ plugins = { "gitsigns.nvim" } })
+    --                     end)
+    --                 end
+    --             end
+    --             local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+    --             if lines ~= { "" } then
+    --                 vim.loop.spawn("git", {
+    --                     args = {
+    --                         "ls-files",
+    --                         "--error-unmatch",
+    --                         vim.fn.expand("%"),
+    --                     },
+    --                 }, onexit)
+    --             end
+    --         end,
+    --     })
+    -- end,
 	}),
 
 
