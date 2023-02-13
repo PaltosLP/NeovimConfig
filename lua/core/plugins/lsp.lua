@@ -1,4 +1,4 @@
-local servers = { 'sumneko_lua', 'clangd', 'gopls', 'quick_lint_js', 'pyright', 'vimls', 'html' } --, 'css'
+local servers = { 'lua_ls', 'clangd', 'gopls', 'quick_lint_js', 'pyright', 'vimls', 'html' } --, 'css'
 local possibles = { 'py', 'lua', 'vim', 'c', 'cpp', 'html', 'css', 'js' ,'go' }
 local language_servers = {}
 local on_attach_path
