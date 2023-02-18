@@ -1,9 +1,8 @@
 --Personal Configs
---require 'impatient'.enable_profile()
 
 --MapLeader set to Space
 vim.g.mapleader = ' '
--- vim.opt.runtimepath:append('~/.local/share/nvim/mason/bin')
+-- vim.opt.runtimepath:append('~/.local/share/nvim/mason/bin') --> via fish / shell
 
 -----------------------------
 --Customizations

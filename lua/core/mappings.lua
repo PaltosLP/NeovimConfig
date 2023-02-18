@@ -35,6 +35,11 @@ map('n', '<C-b>', '<cmd>call battery#is_charging()<Cr>')
 --	return
 --end
 
+local keymap = vim.keymap.set
+
+keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+
+
 
 
 vim.api.nvim_set_keymap("n", "<leader>?", "<cmd>WhichKey<CR>", {})
@@ -42,6 +47,7 @@ vim.api.nvim_set_keymap('n', '<C-t>', "<cmd>NvimTreeToggle<Cr>", {})
 
 local wk = require("which-key")
 wk.register({
+	o = { "<cmd>Lspsaga outline<CR>", "Outline" },
 	q = {
 		name = 'Quit',
 		q = { "<cmd>q<Cr>", "Quit" },
@@ -85,6 +91,17 @@ wk.register({
 		name = "Tools",
 		c = { ":Colortils", "Colortils" },
 		t = { "<cmd>ToggleTerm<Cr>", "ToggleTerm" },
+	},
+	g = {
+		name = "LSP",
+		r = { "<cmd>Lspsaga rename<CR>", "Rename" },
+		h = { "<cmd>Lspsaga lsp_finder<CR>", "Help" },
+		a = { "<cmd>Lspsaga code_action<CR>", "Action" },
+		d = { "<cmd>Lspsaga peek_definition<CR>", "Definition" }, --"<cmd>Lspsaga goto_definition<CR>"
+		t = { "<cmd>Lspsaga peek_type_definition<CR>", "Type Def" }, --"<cmd>Lspsaga goto_type_definition<CR>"
+		o = { "<cmd>Lspsaga show_line_diagnostics<CR>", "Line Diagnostic" },
+		b = { "<cmd>Lspsaga show_buf_diagnostics<CR>", "Buffer Diagnostic" },
+		e = { "<cmd>Lspsaga term_toggle<CR>", "Terminal" } --exit
 	}
 
 },

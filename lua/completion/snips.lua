@@ -63,15 +63,6 @@ ls.add_snippets( "python" , {
 
 
 --------------------------------------------------------------------
--- ls.add_snippets('go', {
--- 	s('HelloWorld', {
--- 		t({'package main','import ("fmt")', '', 'func main() {', '	fmt.Println("Hello World!")', '}'})
--- 	})
--- })
---
-
-
---------------------------------------------------------------------
 ls.add_snippets( "javascript" , {
 	s("console.log", {
 		-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"

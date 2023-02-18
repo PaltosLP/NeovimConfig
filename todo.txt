@@ -1,7 +1,0 @@
-
-TODO:
-	- create global color palette per colorscheme, for Lualine(primary , background usw)
-	- facility/legendary
-	- fix colorscheme bug
-	- heirline
-	- nvim ufo

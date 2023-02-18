@@ -1,9 +1,5 @@
 local servers = { 'lua_ls', 'clangd', 'gopls', 'quick_lint_js', 'pyright', 'vimls', 'html' } --, 'css'
-local possibles = { 'py', 'lua', 'vim', 'c', 'cpp', 'html', 'css', 'js' ,'go' }
 local language_servers = {}
-local on_attach_path
-local state = true
-
 
 
 local ft = vim.fn.expand('%:e')
@@ -12,36 +8,19 @@ if ft == '' then
 end
 
 
-for _, val in pairs(possibles) do
-	if val == ft then
-		on_attach_path = 'lang.langs.' .. ft
-		state = false
-	end
-end
-
-
-if state then
-	on_attach_path = 'lang.langs.none'
-end
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true,
 	semanticTokensProvider = nil
 }
--- client.server_capabilities.semanticTokensProvider = nil
 
--- vim.api.nvim_create_aucmd("LspAttach", {
---     callback = function(args)
---         local bufnr = args.buf
---         -- vim.lsp.semantic_tokens.stop(bufnr, args.data.client_id)
---         local client=vim.lsp.get_client_by_id(args.data.client_id)
---         client.server_capabilities.semanticTokensProvider = nil
---     end,
--- })
 
-local config = { capabilities = capabilities, on_attach = require('core.plugins.utils_lsp').on_attach, settings = { --on attach path changed on tests branch
+local on_attach = function(client, bufnr)
+	client.server_capabilities.semanticTokensProvider = nil
+end
+
+local config = { capabilities = capabilities, on_attach = on_attach, settings = { --on attach path changed on tests branch
 	Lua = {
 		diagnostics = {
 			globals = { 'vim' }
@@ -64,6 +43,3 @@ end
 for ls,conf in pairs(language_servers) do
     require('lspconfig')[ls].setup(conf)
 end
-
-
--- require('ufo').setup()

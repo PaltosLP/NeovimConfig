@@ -11,8 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
--- example using a list of specs with the default options
--- vim.g.mapleader = " " -- make sure to set `mapleader` before lazy so your mappings are correct
 
 local ui_opt = not vim.g.user_interface
 
@@ -64,7 +62,22 @@ require("lazy").setup({
 	({
 		'nvim-treesitter/nvim-treesitter',
 		build = ':TSUpdate',
-		config = function() require 'core.plugins.treesitter' end,
+		config = function()
+			require'nvim-treesitter.configs'.setup({
+				ensure_installed = {"python", "vim", "lua","c","norg", "css", "html", "javascript", "json","go" ,"markdown" },
+				auto_install = true,
+				 highlight = {
+					enable = true,
+				},
+				rainbow = {
+					enable = true,
+					-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+					extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+					max_file_lines = 100*1024, -- Do not enable for files with more than n lines, int
+					-- colors = {}, -- table of hex strings
+					-- termcolors = {} -- table of colour name strings
+			  }
+			}) end
 	}),
 	({ 'p00f/nvim-ts-rainbow' }),
 	({ "lukas-reineke/indent-blankline.nvim", config = function()
@@ -158,42 +171,7 @@ require("lazy").setup({
 
 ------------------------------------------------------------------------
 --Additions
-	-- ({ 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end, lazy=false }),
-
-		({
-    "lewis6991/gitsigns.nvim",
-    -- lazy = true,
-	config = function()
-    	require('gitsigns').setup()
-  	end
-    -- init = function()
-    --     vim.api.nvim_create_autocmd({ "BufAdd", "VimEnter" }, {
-    --         callback = function()
-    --             local function onexit(code, _)
-    --                 if code == 0 then
-    --                     vim.schedule(function()
-    --                         --require("lazy").load("gitsigns.nvim")
-				-- 			-- require("gitsigns.nvim")
-				-- 			-- vim.cmd("Lazy load friendly-snippets")
-				-- 			require("lazy").load({ plugins = { "gitsigns.nvim" } })
-    --                     end)
-    --                 end
-    --             end
-    --             local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-    --             if lines ~= { "" } then
-    --                 vim.loop.spawn("git", {
-    --                     args = {
-    --                         "ls-files",
-    --                         "--error-unmatch",
-    --                         vim.fn.expand("%"),
-    --                     },
-    --                 }, onexit)
-    --             end
-    --         end,
-    --     })
-    -- end,
-	}),
-
+		({ "lewis6991/gitsigns.nvim", config = function() require('gitsigns').setup() end }),
 
 
 	({ "akinsho/toggleterm.nvim", cmd = { 'ToggleTerm' }, version = '*', config = function() require('toggleterm').setup({open_mapping = [[<c-e>]], highlights = {
