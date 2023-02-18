@@ -360,6 +360,12 @@ local Git = {
         end,
         provider = ")",
     },
+	{
+		provider = function()
+			return '   '
+		end,
+		hl = { fg = "comment", bold = true },
+	}
 }
 
 
@@ -525,7 +531,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     group = "Heirline",
 })
 
-local StatusLine = {ViMode, left_seperator, Git, left_seperator, context, seperate,  Diagnostics, plugins, right_seperator, FileIcon, right_seperator, Time, ScrollBar }
+local StatusLine = {ViMode, left_seperator, Git, context, seperate,  Diagnostics, plugins, right_seperator, FileIcon, right_seperator, Time, ScrollBar }
 
 -- et_highlight("TabLineSel").bg
 --     else

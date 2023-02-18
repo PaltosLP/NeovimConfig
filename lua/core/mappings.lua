@@ -1,6 +1,3 @@
-
-
-
 --Neovim Docs
 --{lhs}	means left-hand-side
 --{rhs}	means right-hand-side
@@ -25,15 +22,6 @@ map('v', '<C-c>', '"*y<Cr>') --more info in opt (needs win32yank-wsl.exe in path
 map('n', '<C-p>', '<cmd>call save#pwd()<Cr>')
 
 map('n', '<C-b>', '<cmd>call battery#is_charging()<Cr>')
-
---local ok, _ = pcall(require, 'which-key.nvim')
---if not ok then
---	--quit
---	map('n', '<leader>qq', '<cmd>q<Cr>')
---	map('n', '<leader>qf', '<cmd>q!<Cr>')
---	map('n', '<leader>qw', '<cmd>wq<Cr>')
---	return
---end
 
 local keymap = vim.keymap.set
 
@@ -102,7 +90,12 @@ wk.register({
 		o = { "<cmd>Lspsaga show_line_diagnostics<CR>", "Line Diagnostic" },
 		b = { "<cmd>Lspsaga show_buf_diagnostics<CR>", "Buffer Diagnostic" },
 		e = { "<cmd>Lspsaga term_toggle<CR>", "Terminal" } --exit
+	},
+	b = {
+		name = "Buffer",
+		q = { "<cmd>buffer 1<Cr>", "To Buf 1" },
+		w = { "<cmd>buffer 2<Cr>", "To Buf 2" },
+		e = { "<cmd>buffer 3<Cr>", "To Buf 3" },
 	}
-
 },
 { mode = 'n', prefix = "<leader>" })
