@@ -4,7 +4,7 @@ function run_file#Run_File()
 	let file_name = expand('%:t:r')
 	let full_file_name = file_name .".". filetype
 	"let c_command3 = "!clear"
-	let ex_list = ['py','c','cpp','go','js', 'lua']
+	let ex_list = ['py','c','cpp','go','js', 'lua', 'rs']
 	let exable = 0
 	"if filetype in ex_list
 	for i in range(len(ex_list))
@@ -50,6 +50,16 @@ function run_file#Run_File()
 			silent exec "!rm executable_go"
 			echo var	
 
+		elseif filetype == "rs"
+			silent exec "!rustc -o " . "executable_rust " . full_file_name
+			let var = ""
+			redir => var
+			silent call Rust_exe()
+			redir END
+			silent exec "!rm executable_rust"
+			echo var	
+
+
 		elseif filetype == "js"
 			execute "!node " . full_file_name	
 		endif
@@ -60,6 +70,9 @@ function run_file#Run_File()
 	endif
 endfunction
 
+function Rust_exe()
+	silent exec "!./executable_rust"
+endfunction
 
 function C_exe()
 	silent exec "!./executable_c"	
