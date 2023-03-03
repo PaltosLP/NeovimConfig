@@ -190,6 +190,13 @@ require("lazy").setup({
 		require("colortils").setup()
 	  end,
 		}),
+	({
+	  "max397574/better-escape.nvim",
+	  event = { 'InsertEnter' },
+	  config = function()
+		require("better_escape").setup()
+	  end,
+	}),
 ------------------------------------------------------------------------
 
 
@@ -229,7 +236,16 @@ require("lazy").setup({
 	({ 'tamton-aquib/duck.nvim', lazy=true }),
 	({ 'eandrju/cellular-automaton.nvim', cmd = 'CellularAutomaton' }),
 
-	({ "williamboman/mason.nvim", cmd={'Mason'}, config=function() require("mason").setup() end})
+	({ "williamboman/mason.nvim", cmd={'Mason'}, config=function() require("mason").setup() end}),
+	({
+  	'alanfortlink/blackjack.nvim',
+	cmd = { 'BlackJackNewGame' },
+  	requires = {'nvim-lua/plenary.nvim'},
+	config = function() require("blackjack").setup({
+		  card_style = "large", -- Can be "mini" or "large"
+		  suit_style = "black", -- Can be "black" or "white"
+		}) end
+	})
 
 ------------------------------------------------------------------------
 
