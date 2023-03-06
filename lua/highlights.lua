@@ -40,7 +40,7 @@ if vim.g.color_scheme == "onedark" then
     	style = 'warmer', --'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
 		code_style = {
 			comments = 'italic',
-			keywords = 'none',
+			keywords = 'italic,bold',
 			functions = 'bold',
 			strings = 'none',
 			variables = 'none'
@@ -53,6 +53,9 @@ if vim.g.color_scheme == "onedark" then
 	vim.api.nvim_set_hl(0, "@variable", { fg = "#dbb671" })
 	vim.api.nvim_set_hl(0, "@function", { link = "property" })
 	vim.api.nvim_set_hl(0, "@function.call", { link = "Special" })
+	vim.api.nvim_set_hl(0, "@type.builtin", { italic = true, fg="#c49060" })
+	vim.api.nvim_set_hl(0, "@type", { italic = true, fg="#c49060" })
+
 else
 	vim.cmd.colorscheme(vim.g.color_scheme)
 end
