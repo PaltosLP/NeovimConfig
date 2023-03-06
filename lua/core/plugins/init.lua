@@ -46,13 +46,14 @@ require("lazy").setup({
 
 ------------------------------------------------------------------------
 --Colorschemes
-  	{ 'Mofiqul/dracula.nvim'},
-	{ 'Hierosme/darcula.nvim' },
-	{ "catppuccin/nvim", name = "catppuccin" },
-	{ 'morhetz/gruvbox' },
-	{ 'joshdick/onedark.vim' },
-	{ 'Mofiqul/vscode.nvim' },
-	{ 'sainnhe/everforest' },
+  	-- { 'Mofiqul/dracula.nvim'},
+	-- { 'Hierosme/darcula.nvim' },
+	-- { "catppuccin/nvim", name = "catppuccin" },
+	-- { 'morhetz/gruvbox' },
+	{ "navarasu/onedark.nvim" },
+	-- { 'joshdick/onedark.vim' },
+	-- { 'Mofiqul/vscode.nvim' },
+	-- { 'sainnhe/everforest' },
 ------------------------------------------------------------------------
 
 

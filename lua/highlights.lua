@@ -34,4 +34,23 @@ elseif vim.g.color_scheme == 'catppuccin' then
 end
 
 
-vim.cmd.colorscheme(vim.g.color_scheme)
+
+if vim.g.color_scheme == "onedark" then
+	require('onedark').setup {
+    	style = 'warmer', --'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+		code_style = {
+			comments = 'italic',
+			keywords = 'none',
+			functions = 'bold',
+			strings = 'none',
+			variables = 'none'
+		},
+	}
+
+	-- vim.cmd('lua vim.api.nvim_set_hl(0, "@variable", { fg = "#dbb671" })')
+
+	require('onedark').load()
+	vim.api.nvim_set_hl(0, "@variable", { fg = "#dbb671" })
+else
+	vim.cmd.colorscheme(vim.g.color_scheme)
+end
