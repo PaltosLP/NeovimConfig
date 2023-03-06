@@ -51,6 +51,8 @@ if vim.g.color_scheme == "onedark" then
 
 	require('onedark').load()
 	vim.api.nvim_set_hl(0, "@variable", { fg = "#dbb671" })
+	vim.api.nvim_set_hl(0, "@function", { link = "property" })
+	vim.api.nvim_set_hl(0, "@function.call", { link = "Special" })
 else
 	vim.cmd.colorscheme(vim.g.color_scheme)
 end
