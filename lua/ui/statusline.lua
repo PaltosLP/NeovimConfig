@@ -526,7 +526,22 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     group = "Heirline",
 })
 
-local StatusLine = {ViMode, left_seperator, Git, context, seperate,  Diagnostics, plugins, right_seperator, FileIcon, right_seperator, Time, ScrollBar }
+-- local StatusLine = {ViMode, left_seperator, Git, {flexible = 1, context}, seperate,  Diagnostics, plugins, right_seperator, FileIcon, right_seperator, {flexible=2,Time}, ScrollBar }
+local StatusLine = {
+	{flexible = 9, ViMode, { provider = "" }},
+	{flexible=6, left_seperator, { provider = "" }},
+	{flexible=6, Git, { provider = "" }},
+	{flexible=1, context, { provider = vim.fn.expand('%:t'), hl = {fg = colors.white }}},
+	{flexible=10, seperate, { provider = "" }},
+	{flexible=2, Diagnostics, { provider = "" }},
+	{flexible=3, plugins, { provider = "" }},
+	{flexible=3, right_seperator, { provider = "" }},
+	{flexible=7, FileIcon, { provider = "" }},
+	{flexible=7, right_seperator, { provider = "" }},
+	{flexible=5, Time, { provider = "" }},
+	{flexible=2, ScrollBar, { provider = "" }}
+
+}
 
 -- et_highlight("TabLineSel").bg
 --     else
