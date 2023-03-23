@@ -1,14 +1,10 @@
--- local M = {}
-
-
-
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 local round_symbols = { " ", " "}
 
 local TablineBufnr = {
     provider = function(self)
-        return tostring(self.bufnr) .. ". "
+        return tostring(self.bufnr) .. "."
     end,
     hl = { fg = "black" },
 }
@@ -254,7 +250,8 @@ local tests = {
 }
 
 local seperate = {
-    { provider = '%='} -- this means that the statusline is cut here when there's not enough space
+     provider = '%=' ,-- this means that the statusline is cut here when there's not enough space
+	 hl = { bg = "bg" }
 }
 
 
