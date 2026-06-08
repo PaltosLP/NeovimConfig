@@ -504,7 +504,7 @@ local context = {
     init = function(self)
     end,
     provider = function()
-		return require('lspsaga.symbolwinbar'):get_winbar()
+		return require('lspsaga.symbol.winbar').get_bar()
     end,
     hl = function()
         return { bold = true }

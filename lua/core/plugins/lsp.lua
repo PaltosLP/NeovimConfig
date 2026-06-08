@@ -1,45 +1,44 @@
-local servers = { 'lua_ls', 'clangd', 'gopls', 'quick_lint_js', 'pyright', 'vimls', 'html' } --, 'css'
-local language_servers = {}
-
-
-local ft = vim.fn.expand('%:e')
-if ft == '' then
-	ft = 'none'
-end
-
+local servers = { 'lua_ls', 'clangd', 'gopls', 'quick_lint_js', 'pyright', 'vimls', 'html' }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
-    lineFoldingOnly = true,
-	semanticTokensProvider = nil
+    lineFoldingOnly = true
 }
-
 
 local on_attach = function(client, bufnr)
-	client.server_capabilities.semanticTokensProvider = nil
+    client.server_capabilities.semanticTokensProvider = nil
 end
 
-local config = { capabilities = capabilities, on_attach = on_attach, settings = { --on attach path changed on tests branch
-	Lua = {
-		diagnostics = {
-			globals = { 'vim' }
-		}
-	},
-	-- python = {
-	-- 	single_file_support = true,
-	-- }
-}
-}
+vim.cmd([[hi LspInfoBorder guifg=white]])
 
-require('lspconfig.ui.windows').default_options.border = 'single'
-vim.cmd[[hi LspInfoBorder guifg=white ]]
-
-for _,server in pairs(servers) do
-	language_servers[server] = config
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+    opts = opts or {}
+    opts.border = opts.border or "single"
+    return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
+local configs = {}
 
-for ls,conf in pairs(language_servers) do
-    require('lspconfig')[ls].setup(conf)
+for _, server in ipairs(servers) do
+    configs[server] = {
+        capabilities = capabilities,
+        on_attach = on_attach,
+    }
+end
+
+if configs.lua_ls then
+    configs.lua_ls.settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+end
+
+-- vim.lsp.config(configs)
+for server_name, server_config in pairs(configs) do
+    vim.lsp.config[server_name] = server_config
 end

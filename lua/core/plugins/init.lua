@@ -19,7 +19,7 @@ require("lazy").setup({
 	{ "folke/which-key.nvim",
 		config = function()
       		require("which-key").setup({
-				window = {
+				win = {
  					border = "single", -- none, single, double, shadow
  				  },
 			  })
@@ -27,6 +27,11 @@ require("lazy").setup({
 	},
 
 	{ 'Mofiqul/dracula.nvim' },
+	{
+	  "vhyrro/luarocks.nvim",
+	  priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+	  config = true,
+	},
 
 
 
@@ -39,7 +44,7 @@ require("lazy").setup({
 
 ------------------------------------------------------------------------
 --Devtools
-	{ 'nvim-treesitter/playground', cmd = {'TSPlaygroundToggle'}, lazy=true },
+	-- { 'nvim-treesitter/playground', cmd = {'TSPlaygroundToggle'}, lazy=true },
 	({ 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }),
 ------------------------------------------------------------------------
 
@@ -61,46 +66,47 @@ require("lazy").setup({
 ------------------------------------------------------------------------
 --Highlights
 	({
-		'nvim-treesitter/nvim-treesitter',
-		build = ':TSUpdate',
-		config = function()
-			require'nvim-treesitter.configs'.setup({
-				ensure_installed = {"python", "vim", "lua","c","norg", "css", "html", "javascript", "json","go" ,"markdown" },
-				auto_install = true,
-				 highlight = {
-					enable = true,
-				},
-				rainbow = {
-					enable = true,
-					-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-					extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-					max_file_lines = 100*1024, -- Do not enable for files with more than n lines, int
-					-- colors = {}, -- table of hex strings
-					-- termcolors = {} -- table of colour name strings
-			  }
-			}) end
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+	event = { "BufReadPost", "BufNewFile" },
+	opts = {
+        ensure_installed = { 
+            "python", "vim", "vimdoc", "query", "lua", "c", 
+            "norg", "css", "html", "javascript", "json", "go", "markdown" 
+        },
+        auto_install = true,
+        highlight = { enable = true },
+    }
 	}),
-	({ 'p00f/nvim-ts-rainbow' }),
-	({ "lukas-reineke/indent-blankline.nvim", config = function()
-			require("indent_blankline").setup({
-				-- for example, context is off by default, use this to turn it on
-				-- show_current_context = true,
-				-- show_current_context_start = true,
-				char = "",
-				char_highlight_list = {
-					"IndentBlanklineIndent1",
-					"IndentBlanklineIndent2",
-				},
-				space_char_highlight_list = {
-					"IndentBlanklineIndent1",
-					"IndentBlanklineIndent2",
-				},
-				show_trailing_blankline_indent = false,
-						})
-			vim.cmd [[highlight IndentBlanklineIndent1 guibg=#282a36 gui=nocombine]]
-			vim.cmd [[highlight IndentBlanklineIndent2 guibg=#252732 gui=nocombine]]
-			vim.cmd('highlight IndentBlanklineChar guifg=comment gui=nocombine')
-		end }), --, event='Bufread' #00FF00
+	({ 'HiPhish/rainbow-delimiters.nvim', event = 'BufReadPost'	}),
+	({ "lukas-reineke/indent-blankline.nvim",
+    main = "ibl", 
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+        vim.cmd([[highlight IndentBlanklineIndent1 guibg=#282a36 gui=nocombine]])
+        vim.cmd([[highlight IndentBlanklineIndent2 guibg=#252732 gui=nocombine]])
+
+        require("ibl").setup({
+            indent = {
+                char = "",
+                highlight = {
+                    "IndentBlanklineIndent1",
+                    "IndentBlanklineIndent2",
+                },
+            },
+            whitespace = {
+                highlight = {
+                    "IndentBlanklineIndent1",
+                    "IndentBlanklineIndent2",
+                },
+                remove_blankline_trail = true,
+            },
+            scope = {
+                enabled = false,
+			},
+        	})
+    	end
+	}),
 ------------------------------------------------------------------------
 
 
@@ -162,8 +168,21 @@ require("lazy").setup({
 
 ----------------------------------------------------------------------
 --Telescope
-	({'nvim-telescope/telescope.nvim', version = '0.1.0', dependencies = { 'nvim-lua/plenary.nvim' },
- 	 cmd = 'Telescope', lazy=true }), --, keys = {{'n', '<leader>f'}}, opt=true
+	({
+		'nvim-telescope/telescope.nvim',
+		branch = '0.1.x',	
+		lazy = true,
+		dependencies = { 'nvim-lua/plenary.nvim' },
+		cmd = 'Telescope',
+			lazy = true,
+			opts = {
+				defaults = {
+					preview = {
+						treesitter = false,
+					},
+				}
+			}
+	}),
 	({'nvim-telescope/telescope-ui-select.nvim', lazy=true }),
 	({'nvim-telescope/telescope-fzf-native.nvim', build= 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build', lazy=true }),
 ------------------------------------------------------------------------
@@ -204,6 +223,17 @@ require("lazy").setup({
 
 ------------------------------------------------------------------------
 --UI
+	({
+		'echasnovski/mini.icons',
+		version = false,
+		event = "VeryLazy",
+		config = function()
+			require('mini.icons').setup({
+			})
+			
+			require('mini.icons').mock_nvim_web_devicons()
+		end
+	}),
 	({ "rebelot/heirline.nvim" }),
 	({'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async', keys = { 'zM '}, --keys = { {'n','zM'}, {'n', "lz"} },
 	config=function()

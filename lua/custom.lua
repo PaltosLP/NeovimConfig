@@ -17,16 +17,14 @@ local function movements()
 end
 
 local wk = require("which-key")
-wk.register({
-	l = {
-		name = "Load",
-		s = {function() snip() end, "Load Snippets" },
-		c = {"<cmd>ColorizerToggle<Cr>" , "Load Colorizer" },
-		f = {function() folds() end, "Load Folding" },
-		m = {function() movements() end , "Load Move" }
-	}
-}, {prefix = "<leader>"})
 
+wk.add({
+    { "<leader>l", group = "Load" },
+    { "<leader>lc", "<cmd>ColorizerToggle<Cr>", desc = "Load Colorizer" },
+    { "<leader>lf", function() folds() end, desc = "Load Folding" },
+    { "<leader>lm", function() movements() end, desc = "Load Move" },
+    { "<leader>ls", function() snip() end, desc = "Load Snippets" },
+})
 
 
 vim.api.nvim_create_autocmd('CmdlineEnter',{

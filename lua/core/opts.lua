@@ -83,26 +83,26 @@ vim.o.foldenable = true
 -- end
 
 
-vim.cmd([[ 
-set clipboard+=unnamedplus
-let g:clipboard = {
-          \   'name': 'win32yank-wsl',
-          \   'copy': {
-          \      '+': 'win32yank.exe -i --crlf',
-          \      '*': 'win32yank.exe -i --crlf',
-          \    },
-          \   'paste': {
-          \      '+': 'win32yank.exe -o --lf',
-          \      '*': 'win32yank.exe -o --lf',
-          \   },
-          \   'cache_enabled': 0,
-          \ }
-]]) --> needs win32yank-wsl.exe in path
+-- vim.cmd([[ 
+-- set clipboard+=unnamedplus
+-- let g:clipboard = {
+--           \   'name': 'win32yank-wsl',
+--           \   'copy': {
+--           \      '+': 'win32yank.exe -i --crlf',
+--           \      '*': 'win32yank.exe -i --crlf',
+--           \    },
+--           \   'paste': {
+--           \      '+': 'win32yank.exe -o --lf',
+--           \      '*': 'win32yank.exe -o --lf',
+--           \   },
+--           \   'cache_enabled': 0,
+--           \ }
+-- ]]) --> needs win32yank-wsl.exe in path
 
 
 
 -- To make the Boxes nicer
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {	border = "rounded" })
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.buf(vim.lsp.handlers.hover, {	border = "rounded" })
 vim.diagnostic.config({ virtual_text = { prefix = "◉" }, float = { border = "rounded" } })
 
 
